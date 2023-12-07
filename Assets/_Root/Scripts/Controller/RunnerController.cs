@@ -50,8 +50,22 @@ public class RunnerController : Singleton<RunnerController>
             CustomLobbyName = "SavaOcean",
             SessionName = "SavaOcean",
             Scene = SceneManager.GetActiveScene().buildIndex,
-            SceneManager = runner.AddComponent<NetworkSceneManagerDefault>()
+            SceneManager = runner.AddComponent<NetworkSceneManagerDefault>(),
+            Initialized = OnInit
         });
+    }
+
+    private void OnInit(NetworkRunner runner)
+    {
+        if (runner.IsServer)
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                var position = new Vector3(Random.Range(-20, 20), 2, Random.Range(-20, 20));
+                var rotation = Quaternion.identity;
+                runner.Spawn(Config.Data.Fishes[Random.Range(0, Config.Data.Fishes.Count)], position, rotation);
+            }
+        }
     }
 
     private void OnPlayerLeft(NetworkRunner runner, PlayerRef playerRef)
@@ -75,15 +89,8 @@ public class RunnerController : Singleton<RunnerController>
         {
             var position = new Vector3(Random.Range(-20, 20), 2, Random.Range(-20, 20));
             var rotation = Quaternion.identity;
-            var playerTarget = runner.Spawn(Config.Data.Player, position, rotation, playerRef);
-            _players.Add(playerRef, playerTarget.Object);
-
-            // for (int i = 0; i < 10; i++)
-            // {
-            //     var positionFish = new Vector3(position.x + Random.Range(-10, 10), 2, position.z + Random.Range(-10, 10));
-            //     var rotationFish = Quaternion.identity;
-            //     runner.Spawn(Config.Data.Fishes[Random.Range(0, Config.Data.Fishes.Count)], positionFish, rotationFish);
-            // }
+            var player = runner.Spawn(Config.Data.Player, position, rotation, playerRef);
+            _players.Add(playerRef, player.Object);
         }
     }
 
@@ -92,7 +99,6 @@ public class RunnerController : Singleton<RunnerController>
     {
         if (NumberPlayer == -1)
         {
-            Debug.Log((int)Config.Data.NumberPlayer);
             if ((int)Config.Data.NumberPlayer == -1)
             {
                 await AddRunner(GameMode.Client);

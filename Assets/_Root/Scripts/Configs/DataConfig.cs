@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Fusion;
 using UnityEngine;
 
@@ -7,6 +8,7 @@ public class DataConfig : ScriptableObject
     public NumberPlayer NumberPlayer;
     public NetworkRunner Runner;
     public Player Player;
+    public List<Fish> Fishes;
 }
 
 public enum NumberPlayer
