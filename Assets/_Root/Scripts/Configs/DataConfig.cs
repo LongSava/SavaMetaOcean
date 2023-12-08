@@ -8,6 +8,8 @@ public class DataConfig : ScriptableObject
     public NumberPlayer NumberPlayer;
     public NetworkRunner Runner;
     public Player Player;
+    public float SpeedMove;
+    public float SpeedRotate;
     public List<Fish> Fishes;
 }
 

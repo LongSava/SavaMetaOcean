@@ -28,4 +28,13 @@ public class PTBehaviour : NetworkBehaviour
     }
     public virtual void DespawnedClient(NetworkRunner runner, bool hasState) { }
     public virtual void DespawnedServer(NetworkRunner runner, bool hasState) { }
+
+    public override void Render()
+    {
+        if (Runner.IsClient) RenderClient();
+        if (Runner.IsServer) RenderServer();
+    }
+
+    public virtual void RenderClient() { }
+    public virtual void RenderServer() { }
 }

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Fusion;
 using UnityEngine;
+using UnityEngine.Animations.Rigging;
 using UnityEngine.InputSystem.XR;
 
 public partial class Player
@@ -11,6 +12,7 @@ public partial class Player
     [SerializeField] private Transform _head;
     [SerializeField] private Transform _model;
     [SerializeField] private Camera _camera;
+    [SerializeField] private List<ChainIKConstraint> _chainIKHands;
 
     public override void SpawnedClient()
     {
@@ -21,7 +23,7 @@ public partial class Player
         events.OnInput = new NetworkEvents.InputEvent();
         events.OnInput.AddListener(OnInput);
 
-        _animator.SetBool("IsSwimming", false);
+        Tread();
     }
 
     private void OnInput(NetworkRunner runner, NetworkInput input)
@@ -34,8 +36,36 @@ public partial class Player
         });
     }
 
-    public override void Render()
+    public override void RenderClient()
     {
         _model.transform.position += _head.InverseTransformPoint(_camera.transform.position);
+        if (_inputAsset != null)
+        {
+            if (_inputAsset.Player.Move.ReadValue<Vector2>().y > 0)
+            {
+                Swim();
+            }
+            else
+            {
+                Tread();
+            }
+        }
+    }
+
+    private void Swim()
+    {
+        _animator.SetBool("IsSwimming", true);
+        SetWeightForChainIKHand(0);
+    }
+
+    private void Tread()
+    {
+        _animator.SetBool("IsSwimming", false);
+        SetWeightForChainIKHand(1);
+    }
+
+    private void SetWeightForChainIKHand(float weight)
+    {
+        _chainIKHands.ForEach(chainIKHand => chainIKHand.weight = weight);
     }
 }

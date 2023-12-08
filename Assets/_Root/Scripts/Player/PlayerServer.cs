@@ -4,13 +4,15 @@ using UnityEngine;
 
 public partial class Player
 {
-    [SerializeField] private NetworkCharacterControllerPrototype _character;
-
     public override void FixedUpdateServer()
     {
         if (GetInput(out InputData input))
         {
-            _character.Move(new Vector3(input.Move.x, 0, input.Move.y));
+            var position = new Vector3(0, 0, input.Move.y * Config.Data.SpeedMove) * Runner.DeltaTime;
+            transform.Translate(position);
+
+            var rotation = new Vector3(0, input.Move.x * Config.Data.SpeedRotate, 0) * Runner.DeltaTime;
+            transform.Rotate(rotation);
         }
     }
 }
