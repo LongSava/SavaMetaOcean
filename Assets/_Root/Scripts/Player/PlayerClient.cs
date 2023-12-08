@@ -3,10 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using Fusion;
 using UnityEngine;
+using UnityEngine.InputSystem.XR;
 
 public partial class Player
 {
     private InputAsset _inputAsset;
+    [SerializeField] private Transform _head;
+    [SerializeField] private Transform _model;
+    [SerializeField] private Camera _camera;
 
     public override void SpawnedClient()
     {
@@ -28,5 +32,10 @@ public partial class Player
             GrapLeft = _inputAsset.Player.GrapLeft.ReadValue<float>(),
             GrapRight = _inputAsset.Player.GrapRight.ReadValue<float>(),
         });
+    }
+
+    public override void Render()
+    {
+        _model.transform.position += _head.InverseTransformPoint(_camera.transform.position);
     }
 }

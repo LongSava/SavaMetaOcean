@@ -61,7 +61,7 @@ public class RunnerController : Singleton<RunnerController>
         {
             for (int i = 0; i < 10; i++)
             {
-                var position = new Vector3(Random.Range(-20, 20), 2, Random.Range(-20, 20));
+                var position = new Vector3(Random.Range(-20, 20), 15, Random.Range(-20, 20));
                 var rotation = Quaternion.identity;
                 runner.Spawn(Config.Data.Fishes[Random.Range(0, Config.Data.Fishes.Count)], position, rotation);
             }
@@ -87,7 +87,7 @@ public class RunnerController : Singleton<RunnerController>
     {
         if (runner.IsServer)
         {
-            var position = new Vector3(Random.Range(-20, 20), 2, Random.Range(-20, 20));
+            var position = new Vector3(Random.Range(-20, 20), 15, Random.Range(-20, 20));
             var rotation = Quaternion.identity;
             var player = runner.Spawn(Config.Data.Player, position, rotation, playerRef);
             _players.Add(playerRef, player.Object);
