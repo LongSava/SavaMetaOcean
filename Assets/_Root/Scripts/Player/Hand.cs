@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Hand : MonoBehaviour
 {
+    [SerializeField] private Transform _fishTransform;
     [SerializeField] private List<Finger> _fingers;
     private Fish _fish;
     private float _grapValue;
@@ -28,9 +29,16 @@ public class Hand : MonoBehaviour
 
     private void Update()
     {
-        if (_fish != null && _grapValue == 1)
+        if (_fish != null)
         {
-            _fish.transform.position = transform.position;
+            if (_grapValue == 1)
+            {
+                _fish.Catched(_fishTransform);
+            }
+            else
+            {
+                _fish.Released();
+            }
         }
     }
 }
