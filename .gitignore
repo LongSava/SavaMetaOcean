@@ -12,6 +12,7 @@
 /[Uu]ser[Ss]ettings/
 /[Mm]emoryCaptures/
 /[Rr]ecordings/
+/Assets/_Root/Test/Ignore/
 
 # Never ignore Asset meta data
 !/[Aa]ssets/**/*.meta

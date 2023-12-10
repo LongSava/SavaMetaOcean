@@ -38,6 +38,7 @@ public partial class Player : PTBehaviour
         base.Render();
 
         _model.transform.position += _head.InverseTransformPoint(_camera.transform.position);
+        _model.rotation = Quaternion.identity;
     }
 
     private void Swim()
