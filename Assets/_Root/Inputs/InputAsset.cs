@@ -53,6 +53,24 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""GrapLeftValue"",
+                    ""type"": ""Button"",
+                    ""id"": ""1da2f718-9120-4912-baca-bf853040236c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""GrapRightValue"",
+                    ""type"": ""Button"",
+                    ""id"": ""6c99d658-c5c8-4379-bcdf-c6bd9a5a3460"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -143,6 +161,72 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
                     ""action"": ""GrapRight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8169a6d0-b660-437f-8468-43d528189ba8"",
+                    ""path"": ""<XRController>{LeftHand}/gripButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GrapLeftValue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f5b26a91-3049-400e-8296-a21a07b3a044"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GrapLeftValue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4ebb20e1-0d89-48b3-b232-8135da42d732"",
+                    ""path"": ""<XRController>{RightHand}/gripButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GrapRightValue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""47240bbd-dbc3-4d31-a142-cb21a25387a7"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GrapRightValue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e06b3e72-d084-4ec4-95ad-4022e312e5e9"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GrapLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a0daba71-4e2f-476e-8276-dc9501d383e9"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GrapRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -215,6 +299,8 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_GrapLeft = m_Player.FindAction("GrapLeft", throwIfNotFound: true);
         m_Player_GrapRight = m_Player.FindAction("GrapRight", throwIfNotFound: true);
+        m_Player_GrapLeftValue = m_Player.FindAction("GrapLeftValue", throwIfNotFound: true);
+        m_Player_GrapRightValue = m_Player.FindAction("GrapRightValue", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -279,6 +365,8 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_GrapLeft;
     private readonly InputAction m_Player_GrapRight;
+    private readonly InputAction m_Player_GrapLeftValue;
+    private readonly InputAction m_Player_GrapRightValue;
     public struct PlayerActions
     {
         private @InputAsset m_Wrapper;
@@ -286,6 +374,8 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @GrapLeft => m_Wrapper.m_Player_GrapLeft;
         public InputAction @GrapRight => m_Wrapper.m_Player_GrapRight;
+        public InputAction @GrapLeftValue => m_Wrapper.m_Player_GrapLeftValue;
+        public InputAction @GrapRightValue => m_Wrapper.m_Player_GrapRightValue;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -304,6 +394,12 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
             @GrapRight.started += instance.OnGrapRight;
             @GrapRight.performed += instance.OnGrapRight;
             @GrapRight.canceled += instance.OnGrapRight;
+            @GrapLeftValue.started += instance.OnGrapLeftValue;
+            @GrapLeftValue.performed += instance.OnGrapLeftValue;
+            @GrapLeftValue.canceled += instance.OnGrapLeftValue;
+            @GrapRightValue.started += instance.OnGrapRightValue;
+            @GrapRightValue.performed += instance.OnGrapRightValue;
+            @GrapRightValue.canceled += instance.OnGrapRightValue;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -317,6 +413,12 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
             @GrapRight.started -= instance.OnGrapRight;
             @GrapRight.performed -= instance.OnGrapRight;
             @GrapRight.canceled -= instance.OnGrapRight;
+            @GrapLeftValue.started -= instance.OnGrapLeftValue;
+            @GrapLeftValue.performed -= instance.OnGrapLeftValue;
+            @GrapLeftValue.canceled -= instance.OnGrapLeftValue;
+            @GrapRightValue.started -= instance.OnGrapRightValue;
+            @GrapRightValue.performed -= instance.OnGrapRightValue;
+            @GrapRightValue.canceled -= instance.OnGrapRightValue;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -384,5 +486,7 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnGrapLeft(InputAction.CallbackContext context);
         void OnGrapRight(InputAction.CallbackContext context);
+        void OnGrapLeftValue(InputAction.CallbackContext context);
+        void OnGrapRightValue(InputAction.CallbackContext context);
     }
 }

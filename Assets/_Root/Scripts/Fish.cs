@@ -7,7 +7,7 @@ public class Fish : NetworkBehaviour
     {
         if (other.CompareTag("Hand"))
         {
-            other.GetComponent<Hand>().Fish = this;
+            other.GetComponent<Hand>().SetFish(this);
         }
     }
 
@@ -15,7 +15,7 @@ public class Fish : NetworkBehaviour
     {
         if (other.CompareTag("Hand"))
         {
-            other.GetComponent<Hand>().Fish = null;
+            other.GetComponent<Hand>().SetFish(null);
         }
     }
 }

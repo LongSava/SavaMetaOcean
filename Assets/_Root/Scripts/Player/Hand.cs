@@ -4,19 +4,33 @@ using UnityEngine;
 
 public class Hand : MonoBehaviour
 {
-    public Fish Fish;
-    public float GrapValue;
+    [SerializeField] private List<Finger> _fingers;
+    private Fish _fish;
+    private float _grapValue;
 
-    public void Grap(float grapValue)
+    public void SetFish(Fish fish)
     {
-        GrapValue = grapValue;
+        _fish = fish;
+    }
+
+    public void SetGrapValue(bool isGrapped)
+    {
+        if (isGrapped) _grapValue = 1;
+        else _grapValue = 0;
+        _fingers.ForEach(finger => finger.Grap(_grapValue));
+    }
+
+    public void SetGrapValue(float grapValue)
+    {
+        _grapValue = grapValue;
+        _fingers.ForEach(finger => finger.Grap(grapValue));
     }
 
     private void Update()
     {
-        if (Fish != null && GrapValue == 1)
+        if (_fish != null && _grapValue == 1)
         {
-            Fish.transform.position = transform.position;
+            _fish.transform.position = transform.position;
         }
     }
 }

@@ -14,16 +14,11 @@ public partial class Player
             var rotation = new Vector3(0, input.Move.x * Config.Data.SpeedRotate, 0) * Runner.DeltaTime;
             transform.Rotate(rotation);
 
-            LeftHand.Grap(input.GrapLeft);
-            RightHand.Grap(input.GrapRight);
+            if (input.Move.y > 0) Swim();
+            else Tread();
 
-            CheckMove(input);
+            _leftHand.SetGrapValue(input.GrapLeftValue.IsSet(Buttons.GrapLeft));
+            _rightHand.SetGrapValue(input.GrapRightValue.IsSet(Buttons.GrapRight));
         }
-    }
-
-    private void CheckMove(InputData input)
-    {
-        if (input.Move.y > 0) Swim();
-        else Tread();
     }
 }

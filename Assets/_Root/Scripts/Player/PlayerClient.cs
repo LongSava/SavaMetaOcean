@@ -5,6 +5,7 @@ using Fusion;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
 using UnityEngine.InputSystem.XR;
+using UnityEngine.UI;
 
 public partial class Player
 {
@@ -22,12 +23,13 @@ public partial class Player
 
     private void OnInput(NetworkRunner runner, NetworkInput input)
     {
-        input.Set(new InputData()
-        {
-            Move = _inputAsset.Player.Move.ReadValue<Vector2>(),
-            GrapLeft = _inputAsset.Player.GrapLeft.ReadValue<float>(),
-            GrapRight = _inputAsset.Player.GrapRight.ReadValue<float>(),
-        });
+        var inputData = new InputData();
+
+        inputData.Move = _inputAsset.Player.Move.ReadValue<Vector2>();
+        inputData.GrapLeftValue.Set(Buttons.GrapLeft, _inputAsset.Player.GrapLeftValue.IsPressed());
+        inputData.GrapRightValue.Set(Buttons.GrapRight, _inputAsset.Player.GrapRightValue.IsPressed());
+
+        input.Set(inputData);
     }
 
     public override void RenderClient()
@@ -36,6 +38,9 @@ public partial class Player
         {
             if (_inputAsset.Player.Move.ReadValue<Vector2>().y > 0) Swim();
             else Tread();
+
+            _leftHand.SetGrapValue(_inputAsset.Player.GrapLeft.ReadValue<float>());
+            _rightHand.SetGrapValue(_inputAsset.Player.GrapRight.ReadValue<float>());
         }
     }
 }

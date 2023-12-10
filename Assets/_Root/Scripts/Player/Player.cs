@@ -5,11 +5,17 @@ using UnityEngine.Animations.Rigging;
 
 public partial class Player : PTBehaviour
 {
+    enum Buttons
+    {
+        GrapLeft = 0,
+        GrapRight = 1
+    }
+
     public struct InputData : INetworkInput
     {
         public Vector2 Move;
-        public float GrapLeft;
-        public float GrapRight;
+        public NetworkButtons GrapLeftValue;
+        public NetworkButtons GrapRightValue;
     }
 
     [SerializeField] private Animator _animator;
@@ -17,8 +23,8 @@ public partial class Player : PTBehaviour
     [SerializeField] private Transform _model;
     [SerializeField] private Camera _camera;
     [SerializeField] private List<ChainIKConstraint> _chainIKHands;
-    [SerializeField] private Hand LeftHand;
-    [SerializeField] private Hand RightHand;
+    [SerializeField] private Hand _leftHand;
+    [SerializeField] private Hand _rightHand;
 
     public override void Spawned()
     {
