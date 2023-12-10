@@ -16,6 +16,9 @@ public class Cube : NetworkBehaviour
     public float SpeedMove;
     public float SpeedRotate;
     public Vector3 Position;
+    [SerializeField] private Transform _head;
+    [SerializeField] private Transform _model;
+    [SerializeField] private Camera _camera;
 
     public override void Spawned()
     {
@@ -43,13 +46,13 @@ public class Cube : NetworkBehaviour
     {
         if (Runner.IsServer && GetInput(out InputData input))
         {
-            // var position = new Vector3(0, 0, input.Move.y * SpeedMove) * Runner.DeltaTime;
-            // transform.Translate(position);
+            var position = new Vector3(0, 0, input.Move.y * SpeedMove) * Runner.DeltaTime;
+            transform.Translate(position);
 
-            // var rotation = new Vector3(0, input.Move.x * SpeedRotate, 0) * Runner.DeltaTime;
-            // transform.Rotate(rotation);
+            var rotation = new Vector3(0, input.Move.x * SpeedRotate, 0) * Runner.DeltaTime;
+            transform.Rotate(rotation);
 
-            transform.position = input.Position;
+            // transform.position = input.Position;
         }
     }
 
@@ -60,5 +63,7 @@ public class Cube : NetworkBehaviour
             Position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10));
             transform.position = Position;
         }
+        // _model.transform.position += _head.InverseTransformPoint(_camera.transform.position);
+        _model.localRotation = Quaternion.identity;
     }
 }

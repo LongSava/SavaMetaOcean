@@ -385,7 +385,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a7d97a6c8cbf68498ef0d96d4a38ddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NumberPlayer: 2
+  NumberPlayer: 1
   Runner: {fileID: 879968890819937913, guid: 398b39b6df6990b49b5d06b782da3103, type: 3}
   Cube: {fileID: -927664763554567038, guid: b0775dba8071e444593dedf6bb2dbff0, type: 3}
 --- !u!4 &959930572
