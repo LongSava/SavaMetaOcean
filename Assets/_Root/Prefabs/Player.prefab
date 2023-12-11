@@ -430,7 +430,6 @@ GameObject:
   - component: {fileID: 890542393922059419}
   - component: {fileID: 5112886643596074470}
   - component: {fileID: 8851710836748710270}
-  - component: {fileID: 8416476743835841439}
   m_Layer: 0
   m_Name: LeftHand Controller
   m_TagString: Untagged
@@ -1013,34 +1012,6 @@ SortingGroup:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
---- !u!114 &8416476743835841439
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3727259807695520710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 158639473, guid: e725a070cec140c4caffb81624c8c787, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _interpolationDataSource: 0
-  InterpolationSpace: 0
-  InterpolationTarget: {fileID: 6838089677893656861}
-  InterpolateErrorCorrection: 1
-  InterpolatedErrorCorrectionSettings:
-    MinRate: 3.3
-    MaxRate: 10
-    PosBlendStart: 0.25
-    PosBlendEnd: 1
-    PosMinCorrection: 0.025
-    PosTeleportDistance: 2
-    RotBlendStart: 0.1
-    RotBlendEnd: 0.5
-    RotTeleportRadians: 1.5
-  UseLegacySharedModeInterpolation: 0
-  TargetInterpolationDelay: 0.03
 --- !u!1 &4013467007131860627
 GameObject:
   m_ObjectHideFlags: 0
@@ -1117,7 +1088,6 @@ GameObject:
   - component: {fileID: 2166655460685054926}
   - component: {fileID: 4146765597431509594}
   - component: {fileID: 8368266332649173585}
-  - component: {fileID: 1324186304318711927}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1327,34 +1297,6 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
---- !u!114 &1324186304318711927
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4850604632673389699}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 158639473, guid: e725a070cec140c4caffb81624c8c787, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _interpolationDataSource: 0
-  InterpolationSpace: 0
-  InterpolationTarget: {fileID: 8016849951201990145}
-  InterpolateErrorCorrection: 1
-  InterpolatedErrorCorrectionSettings:
-    MinRate: 3.3
-    MaxRate: 10
-    PosBlendStart: 0.25
-    PosBlendEnd: 1
-    PosMinCorrection: 0.025
-    PosTeleportDistance: 2
-    RotBlendStart: 0.1
-    RotBlendEnd: 0.5
-    RotTeleportRadians: 1.5
-  UseLegacySharedModeInterpolation: 0
-  TargetInterpolationDelay: 0.03
 --- !u!1 &5410099523168996780
 GameObject:
   m_ObjectHideFlags: 0
@@ -1765,6 +1707,9 @@ MonoBehaviour:
   - {fileID: 7852908658930556836}
   _leftHand: {fileID: 2595063955085011459}
   _rightHand: {fileID: 1189280603603140097}
+  _headDevice: {fileID: 7489502975324375308}
+  _rightHandDevice: {fileID: 5491324480599409851}
+  _leftHandDevice: {fileID: 1362621923795822665}
 --- !u!114 &7630828481057321151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1789,9 +1734,6 @@ MonoBehaviour:
   NetworkedBehaviours:
   - {fileID: 7630828481057321150}
   - {fileID: 2235062142749795244}
-  - {fileID: 1324186304318711927}
-  - {fileID: 8416476743835841439}
-  - {fileID: 912734556311991943}
   SimulationBehaviours: []
 --- !u!136 &4761643151438388545
 CapsuleCollider:
@@ -1937,7 +1879,6 @@ GameObject:
   - component: {fileID: 5995981880584485266}
   - component: {fileID: 5534516380058414658}
   - component: {fileID: 8623642447568262227}
-  - component: {fileID: 912734556311991943}
   m_Layer: 0
   m_Name: RightHand Controller
   m_TagString: Untagged
@@ -2520,34 +2461,6 @@ SortingGroup:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
---- !u!114 &912734556311991943
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7822174131582422199}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 158639473, guid: e725a070cec140c4caffb81624c8c787, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _interpolationDataSource: 0
-  InterpolationSpace: 0
-  InterpolationTarget: {fileID: 7815160918040413045}
-  InterpolateErrorCorrection: 1
-  InterpolatedErrorCorrectionSettings:
-    MinRate: 3.3
-    MaxRate: 10
-    PosBlendStart: 0.25
-    PosBlendEnd: 1
-    PosMinCorrection: 0.025
-    PosTeleportDistance: 2
-    RotBlendStart: 0.1
-    RotBlendEnd: 0.5
-    RotTeleportRadians: 1.5
-  UseLegacySharedModeInterpolation: 0
-  TargetInterpolationDelay: 0.03
 --- !u!1 &8031869652677611726
 GameObject:
   m_ObjectHideFlags: 0
@@ -2974,7 +2887,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fingerTip: {fileID: 9155632544364787292}
-  _fingerTipOffset: {x: 0, y: -0.01, z: 0.05}
+  _fingerTipOffset: {x: 0, y: -0.03, z: 0.15}
 --- !u!1 &86983422131706720 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4728426434207774260, guid: 3e791e3544c15ea4fb554c235331471b,
@@ -3086,7 +2999,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fingerTip: {fileID: 5938776395411495604}
-  _fingerTipOffset: {x: 0, y: -0.01, z: 0.05}
+  _fingerTipOffset: {x: 0, y: -0.03, z: 0.15}
 --- !u!4 &2216349995597107800 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -6803169544883306252, guid: 3e791e3544c15ea4fb554c235331471b,
@@ -3118,7 +3031,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fingerTip: {fileID: 1981904168214148646}
-  _fingerTipOffset: {x: 0, y: -0.01, z: 0.05}
+  _fingerTipOffset: {x: 0, y: -0.03, z: 0.15}
 --- !u!1 &2777903974178869443 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -7360747449169001873, guid: 3e791e3544c15ea4fb554c235331471b,
@@ -3138,7 +3051,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fingerTip: {fileID: 8363585975594938882}
-  _fingerTipOffset: {x: 0, y: -0.01, z: 0.05}
+  _fingerTipOffset: {x: 0, y: -0.03, z: 0.15}
 --- !u!4 &2801778870218616164 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1852576806548013000, guid: 3e791e3544c15ea4fb554c235331471b,
@@ -3242,7 +3155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fingerTip: {fileID: 6849403160228757922}
-  _fingerTipOffset: {x: 0, y: -0.01, z: 0.05}
+  _fingerTipOffset: {x: 0, y: -0.03, z: 0.15}
 --- !u!4 &4744596628605220256 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -104578136787704052, guid: 3e791e3544c15ea4fb554c235331471b,
@@ -3268,7 +3181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fingerTip: {fileID: 5253831948394906062}
-  _fingerTipOffset: {x: 0, y: -0.01, z: 0.05}
+  _fingerTipOffset: {x: 0, y: -0.03, z: 0.15}
 --- !u!4 &5363319828514244178 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8447082967072642302, guid: 3e791e3544c15ea4fb554c235331471b,
@@ -3324,7 +3237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fingerTip: {fileID: 4455335343269645224}
-  _fingerTipOffset: {x: 0, y: -0.01, z: 0.05}
+  _fingerTipOffset: {x: 0, y: -0.03, z: 0.15}
 --- !u!1 &6106582575609173825 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7776229726456038893, guid: 3e791e3544c15ea4fb554c235331471b,
@@ -3344,7 +3257,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fingerTip: {fileID: 7962904546184700236}
-  _fingerTipOffset: {x: -0.03, y: 0.06, z: 0}
+  _fingerTipOffset: {x: -0.09, y: 0.18, z: 0}
 --- !u!4 &6730888153616067377 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7078722787440015773, guid: 3e791e3544c15ea4fb554c235331471b,
@@ -3376,7 +3289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fingerTip: {fileID: 7680459458282572164}
-  _fingerTipOffset: {x: 0, y: -0.01, z: 0.05}
+  _fingerTipOffset: {x: 0, y: -0.03, z: 0.15}
 --- !u!4 &7307128965420418927 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6502182839619065283, guid: 3e791e3544c15ea4fb554c235331471b,
@@ -3420,7 +3333,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fingerTip: {fileID: 2270770114399786749}
-  _fingerTipOffset: {x: 0.03, y: 0.06, z: 0}
+  _fingerTipOffset: {x: 0.09, y: 0.18, z: 0}
 --- !u!4 &8744433186776653562 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5048025441337412694, guid: 3e791e3544c15ea4fb554c235331471b,

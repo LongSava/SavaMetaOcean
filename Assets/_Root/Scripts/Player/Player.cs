@@ -17,6 +17,12 @@ public partial class Player : PTBehaviour
         public Vector2 Move;
         public NetworkButtons GrapLeftValue;
         public NetworkButtons GrapRightValue;
+        public Vector3 PositionHead;
+        public Quaternion RotationHead;
+        public Vector3 PositionRightHand;
+        public Quaternion RotationRightHand;
+        public Vector3 PositionLeftHand;
+        public Quaternion RotationLeftHand;
     }
 
     [SerializeField] private Animator _animator;
@@ -26,7 +32,28 @@ public partial class Player : PTBehaviour
     [SerializeField] private List<ChainIKConstraint> _chainIKHands;
     [SerializeField] private Hand _leftHand;
     [SerializeField] private Hand _rightHand;
+    [SerializeField] private Transform _headDevice;
+    [SerializeField] private Transform _rightHandDevice;
+    [SerializeField] private Transform _leftHandDevice;
     private List<Coroutine> _coroutines = new List<Coroutine>();
+
+    public override void FixedUpdateNetwork()
+    {
+        base.FixedUpdateNetwork();
+
+        if (Runner.IsServer || Object.IsProxy)
+        {
+            if (GetInput(out InputData input))
+            {
+                _headDevice.position = input.PositionHead;
+                _headDevice.rotation = input.RotationHead;
+                _rightHandDevice.position = input.PositionRightHand;
+                _rightHandDevice.rotation = input.RotationRightHand;
+                _leftHandDevice.position = input.PositionLeftHand;
+                _leftHandDevice.rotation = input.RotationLeftHand;
+            }
+        }
+    }
 
     public override void Spawned()
     {

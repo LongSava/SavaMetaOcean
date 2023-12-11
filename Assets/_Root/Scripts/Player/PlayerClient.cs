@@ -1,11 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using Fusion;
 using UnityEngine;
-using UnityEngine.Animations.Rigging;
-using UnityEngine.InputSystem.XR;
-using UnityEngine.UI;
 
 public partial class Player
 {
@@ -25,9 +19,15 @@ public partial class Player
     {
         var inputData = new InputData();
 
-        inputData.Move = _inputAsset.Player.Move.ReadValue<Vector2>();
         inputData.GrapLeftValue.Set(Buttons.GrapLeft, _inputAsset.Player.GrapLeftValue.IsPressed());
         inputData.GrapRightValue.Set(Buttons.GrapRight, _inputAsset.Player.GrapRightValue.IsPressed());
+        inputData.Move = _inputAsset.Player.Move.ReadValue<Vector2>();
+        inputData.PositionHead = _headDevice.position;
+        inputData.RotationHead = _headDevice.rotation;
+        inputData.PositionRightHand = _rightHandDevice.position;
+        inputData.RotationRightHand = _rightHandDevice.rotation;
+        inputData.PositionLeftHand = _leftHandDevice.position;
+        inputData.RotationLeftHand = _leftHandDevice.rotation;
 
         input.Set(inputData);
     }
