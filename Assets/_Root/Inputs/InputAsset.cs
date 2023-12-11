@@ -71,6 +71,15 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Sink"",
+                    ""type"": ""Value"",
+                    ""id"": ""c44368be-ce30-43f7-b193-8121b1ed7488"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -227,6 +236,72 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
                     ""action"": ""GrapRight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""030d5521-d1b8-41cc-9a5e-c178a8e3e516"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Sink"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""56d24ffa-a05c-44d8-a0b9-fec04a44470b"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Sink"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""2c1dfb9a-f023-498e-b967-d94a4849dd68"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Sink"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""c6eb76f6-94b8-479e-8d83-516f37dba408"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Sink"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""addb7811-6317-4c18-b7a4-6e5b24e40b12"",
+                    ""path"": ""<XRController>{LeftHand}/devicePosition/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Sink"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""088082de-62f1-42aa-bb19-60b3acb7f70e"",
+                    ""path"": ""<XRController>{LeftHand}/devicePosition/y"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Sink"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -301,6 +376,7 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
         m_Player_GrapRight = m_Player.FindAction("GrapRight", throwIfNotFound: true);
         m_Player_GrapLeftValue = m_Player.FindAction("GrapLeftValue", throwIfNotFound: true);
         m_Player_GrapRightValue = m_Player.FindAction("GrapRightValue", throwIfNotFound: true);
+        m_Player_Sink = m_Player.FindAction("Sink", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -367,6 +443,7 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_GrapRight;
     private readonly InputAction m_Player_GrapLeftValue;
     private readonly InputAction m_Player_GrapRightValue;
+    private readonly InputAction m_Player_Sink;
     public struct PlayerActions
     {
         private @InputAsset m_Wrapper;
@@ -376,6 +453,7 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
         public InputAction @GrapRight => m_Wrapper.m_Player_GrapRight;
         public InputAction @GrapLeftValue => m_Wrapper.m_Player_GrapLeftValue;
         public InputAction @GrapRightValue => m_Wrapper.m_Player_GrapRightValue;
+        public InputAction @Sink => m_Wrapper.m_Player_Sink;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -400,6 +478,9 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
             @GrapRightValue.started += instance.OnGrapRightValue;
             @GrapRightValue.performed += instance.OnGrapRightValue;
             @GrapRightValue.canceled += instance.OnGrapRightValue;
+            @Sink.started += instance.OnSink;
+            @Sink.performed += instance.OnSink;
+            @Sink.canceled += instance.OnSink;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -419,6 +500,9 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
             @GrapRightValue.started -= instance.OnGrapRightValue;
             @GrapRightValue.performed -= instance.OnGrapRightValue;
             @GrapRightValue.canceled -= instance.OnGrapRightValue;
+            @Sink.started -= instance.OnSink;
+            @Sink.performed -= instance.OnSink;
+            @Sink.canceled -= instance.OnSink;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -488,5 +572,6 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
         void OnGrapRight(InputAction.CallbackContext context);
         void OnGrapLeftValue(InputAction.CallbackContext context);
         void OnGrapRightValue(InputAction.CallbackContext context);
+        void OnSink(InputAction.CallbackContext context);
     }
 }

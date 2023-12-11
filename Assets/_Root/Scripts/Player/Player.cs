@@ -15,6 +15,7 @@ public partial class Player : PTBehaviour
     public struct InputData : INetworkInput
     {
         public Vector2 Move;
+        public float Sink;
         public NetworkButtons GrapLeftValue;
         public NetworkButtons GrapRightValue;
         public Vector3 PositionHead;

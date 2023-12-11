@@ -10,6 +10,7 @@ public class DataConfig : ScriptableObject
     public Player Player;
     public float SpeedMove;
     public float SpeedRotate;
+    public float SpeedSink;
     public List<Fish> Fishes;
 }
 

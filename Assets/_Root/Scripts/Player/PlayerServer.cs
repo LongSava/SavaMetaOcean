@@ -6,7 +6,7 @@ public partial class Player
     {
         if (GetInput(out InputData input))
         {
-            var position = new Vector3(0, 0, input.Move.y * Config.Data.SpeedMove) * Runner.DeltaTime;
+            var position = new Vector3(0, input.Sink * Config.Data.SpeedSink, input.Move.y * Config.Data.SpeedMove) * Runner.DeltaTime;
             transform.Translate(position);
 
             var rotation = new Vector3(0, input.Move.x * Config.Data.SpeedRotate, 0) * Runner.DeltaTime;
