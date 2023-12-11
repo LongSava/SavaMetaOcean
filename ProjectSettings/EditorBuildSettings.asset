@@ -8,6 +8,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Root/Scenes/Game.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Main_ART/Scenes/OceanStage.unity
+    guid: 788c93ab366a0054183496327ce19697
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: a1382156a6b63b24bb9f1f6ec8de46ec,
       type: 2}

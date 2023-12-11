@@ -36,8 +36,22 @@ public partial class Player
     {
         if (_inputAsset != null)
         {
-            if (_inputAsset.Player.Move.ReadValue<Vector2>().y > 0) Swim();
-            else Tread();
+            var moveY = _inputAsset.Player.Move.ReadValue<Vector2>().y;
+            if (moveY == 0)
+            {
+                Tread();
+                SetWeightForChainIKHands(1);
+            }
+            else if (moveY > 0)
+            {
+                Swim();
+                SetWeightForChainIKHands(0);
+            }
+            else
+            {
+                Tread();
+                SetWeightForChainIKHands(0);
+            }
 
             _leftHand.SetGrapValue(_inputAsset.Player.GrapLeft.ReadValue<float>());
             _rightHand.SetGrapValue(_inputAsset.Player.GrapRight.ReadValue<float>());

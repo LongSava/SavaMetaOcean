@@ -21,7 +21,7 @@ public partial class Player : PTBehaviour
 
     [SerializeField] private Animator _animator;
     [SerializeField] private Transform _head;
-    [SerializeField] private Transform _model;
+    [SerializeField] private Transform _bodyOffset;
     [SerializeField] private Camera _camera;
     [SerializeField] private List<ChainIKConstraint> _chainIKHands;
     [SerializeField] private Hand _leftHand;
@@ -33,27 +33,23 @@ public partial class Player : PTBehaviour
         base.Spawned();
 
         Tread();
-        RelocationModel();
     }
 
     public override void Render()
     {
         base.Render();
 
-        RelocationModel();
-        _model.localRotation = Quaternion.identity;
+        _bodyOffset.position += _camera.transform.position - _head.position;
     }
 
     private void Swim()
     {
         _animator.SetBool("IsSwimming", true);
-        SetWeightForChainIKHands(0);
     }
 
     private void Tread()
     {
         _animator.SetBool("IsSwimming", false);
-        SetWeightForChainIKHands(1);
     }
 
     private void SetWeightForChainIKHands(float weight)
@@ -89,10 +85,5 @@ public partial class Player : PTBehaviour
                 }
             }
         }
-    }
-
-    private void RelocationModel()
-    {
-        _model.transform.position += _head.InverseTransformPoint(_camera.transform.position);
     }
 }

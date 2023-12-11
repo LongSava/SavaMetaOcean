@@ -6,8 +6,8 @@ public class Hand : MonoBehaviour
 {
     [SerializeField] private Transform _fishTransform;
     [SerializeField] private List<Finger> _fingers;
-    private Fish _fish;
-    private float _grapValue;
+    [SerializeField] private Fish _fish;
+    [SerializeField] private float _grapValue;
 
     public void SetFish(Fish fish)
     {
