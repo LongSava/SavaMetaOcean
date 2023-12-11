@@ -4,7 +4,7 @@ using UnityEngine;
 public class Fish : NetworkBehaviour
 {
     public Animator Animator;
-    private bool _isRelease;
+    private bool _isRelease = true;
     private Vector3 _targetPosition;
 
     public override void Spawned()

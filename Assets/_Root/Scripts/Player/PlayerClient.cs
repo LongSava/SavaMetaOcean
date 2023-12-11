@@ -3,16 +3,19 @@ using UnityEngine;
 
 public partial class Player
 {
-    private InputAsset _inputAsset;
+    [SerializeField] private InputAsset _inputAsset;
 
     public override void SpawnedClient()
     {
-        _inputAsset = new InputAsset();
-        _inputAsset.Enable();
+        if (HasInputAuthority)
+        {
+            _inputAsset = new InputAsset();
+            _inputAsset.Enable();
 
-        var events = Runner.GetComponent<NetworkEvents>();
-        events.OnInput = new NetworkEvents.InputEvent();
-        events.OnInput.AddListener(OnInput);
+            var events = Runner.GetComponent<NetworkEvents>();
+            events.OnInput = new NetworkEvents.InputEvent();
+            events.OnInput.AddListener(OnInput);
+        }
     }
 
     private void OnInput(NetworkRunner runner, NetworkInput input)

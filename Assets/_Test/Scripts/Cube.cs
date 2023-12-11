@@ -22,7 +22,7 @@ public class Cube : NetworkBehaviour
 
     public override void Spawned()
     {
-        if (Object.HasInputAuthority)
+        if (HasInputAuthority)
         {
             InputAsset = new InputAsset();
             InputAsset.Enable();
@@ -58,7 +58,7 @@ public class Cube : NetworkBehaviour
 
     public override void Render()
     {
-        if (Object.HasInputAuthority && Input.GetMouseButton(0))
+        if (HasInputAuthority && Input.GetMouseButton(0))
         {
             Position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10));
             transform.position = Position;

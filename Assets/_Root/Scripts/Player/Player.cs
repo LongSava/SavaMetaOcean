@@ -30,6 +30,7 @@ public partial class Player : PTBehaviour
     [SerializeField] private Transform _head;
     [SerializeField] private Transform _bodyOffset;
     [SerializeField] private Camera _camera;
+    [SerializeField] private AudioListener _audioListener;
     [SerializeField] private List<ChainIKConstraint> _chainIKHands;
     [SerializeField] private Hand _leftHand;
     [SerializeField] private Hand _rightHand;
@@ -59,15 +60,19 @@ public partial class Player : PTBehaviour
     public override void Spawned()
     {
         base.Spawned();
-
         Tread();
+        if (!HasInputAuthority)
+        {
+            Destroy(_camera.gameObject);
+            Destroy(_audioListener.gameObject);
+        }
     }
 
     public override void Render()
     {
         base.Render();
 
-        _bodyOffset.position += _camera.transform.position - _head.position;
+        _bodyOffset.position += _headDevice.transform.position - _head.position;
     }
 
     private void Swim()
