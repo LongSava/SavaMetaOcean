@@ -8,6 +8,7 @@ public class DataConfig : ScriptableObject
     public NumberPlayer NumberPlayer;
     public NetworkRunner Runner;
     public Player Player;
+    public GameObject PlayerObject;
     public float SpeedMove;
     public float SpeedRotate;
     public float SpeedSink;

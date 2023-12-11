@@ -8,6 +8,7 @@ public class Hand : NetworkBehaviour
     [SerializeField] private List<Finger> _fingers;
     [SerializeField] private Fish _fish;
     [SerializeField] private float _grapValue;
+    private float _grapValueOld;
 
     public void SetFish(Fish fish)
     {
@@ -38,7 +39,28 @@ public class Hand : NetworkBehaviour
             else
             {
                 _fish.Released();
+                if (_grapValueOld == 1)
+                {
+                    _fish = null;
+                }
             }
+        }
+        _grapValueOld = _grapValue;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Fish"))
+        {
+            _fish = other.GetComponent<Fish>();
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Fish") && _grapValue == 0)
+        {
+            _fish = null;
         }
     }
 }

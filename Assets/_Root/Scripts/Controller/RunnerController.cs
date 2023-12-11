@@ -83,8 +83,8 @@ public class RunnerController : Singleton<RunnerController>
         {
             var position = new Vector3(Random.Range(-5, 5), 0, Random.Range(-5, 5)) + _positionSpawned;
             var rotation = Quaternion.identity;
-            var player = runner.Spawn(Config.Data.Player, position, rotation, playerRef);
-            _players.Add(playerRef, player.Object);
+            var player = runner.Spawn(Config.Data.PlayerObject, position, rotation, playerRef);
+            _players.Add(playerRef, player.GetComponent<NetworkObject>());
         }
     }
 
