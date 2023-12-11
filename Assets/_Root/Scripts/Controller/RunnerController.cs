@@ -55,9 +55,9 @@ public class RunnerController : Singleton<RunnerController>
     {
         if (runner.IsServer)
         {
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 100; i++)
             {
-                var position = new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10)) + _positionSpawned;
+                var position = new Vector3(Random.Range(-20, 20), 0, Random.Range(-20, 20)) + _positionSpawned;
                 var rotation = Quaternion.identity;
                 runner.Spawn(Config.Data.Fishes[Random.Range(0, Config.Data.Fishes.Count)], position, rotation);
             }

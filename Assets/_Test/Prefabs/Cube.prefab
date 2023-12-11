@@ -1986,6 +1986,8 @@ MonoBehaviour:
   NetworkedBehaviours:
   - {fileID: -927664763554567038}
   - {fileID: 991451884763968515}
+  - {fileID: 930559580513146813}
+  - {fileID: 997356607374742225}
   - {fileID: 8328525373598333838}
   - {fileID: 6544507803329348989}
   - {fileID: 6886476050078035960}
@@ -2974,6 +2976,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c198230a244ee74e84bd3a92ec0dbbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _interpolationDataSource: 0
   _fishTransform: {fileID: 786877166570379108}
   _fingers:
   - {fileID: 1389686330593826428}
@@ -3058,6 +3061,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c198230a244ee74e84bd3a92ec0dbbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _interpolationDataSource: 0
   _fishTransform: {fileID: 2477225404225916778}
   _fingers:
   - {fileID: 5976906154007692271}

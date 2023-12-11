@@ -1,7 +1,8 @@
 using System.Collections.Generic;
+using Fusion;
 using UnityEngine;
 
-public class Hand : MonoBehaviour
+public class Hand : NetworkBehaviour
 {
     [SerializeField] private Transform _fishTransform;
     [SerializeField] private List<Finger> _fingers;
@@ -26,7 +27,7 @@ public class Hand : MonoBehaviour
         _fingers.ForEach(finger => finger.Grap(grapValue));
     }
 
-    private void Update()
+    public override void Render()
     {
         if (_fish != null)
         {

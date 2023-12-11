@@ -284,7 +284,7 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""negative"",
                     ""id"": ""addb7811-6317-4c18-b7a4-6e5b24e40b12"",
-                    ""path"": ""<XRController>{LeftHand}/devicePosition/x"",
+                    ""path"": ""<OculusTouchController>{LeftHand}/primaryButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -295,7 +295,7 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""positive"",
                     ""id"": ""088082de-62f1-42aa-bb19-60b3acb7f70e"",
-                    ""path"": ""<XRController>{LeftHand}/devicePosition/y"",
+                    ""path"": ""<OculusTouchController>{LeftHand}/secondaryButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

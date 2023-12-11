@@ -1895,6 +1895,8 @@ MonoBehaviour:
   NetworkedBehaviours:
   - {fileID: 7630828481057321150}
   - {fileID: 2235062142749795244}
+  - {fileID: 2595063955085011459}
+  - {fileID: 1189280603603140097}
   SimulationBehaviours: []
 --- !u!136 &4761643151438388545
 CapsuleCollider:
@@ -3080,6 +3082,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c198230a244ee74e84bd3a92ec0dbbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _interpolationDataSource: 0
   _fishTransform: {fileID: 5301948393045358699}
   _fingers:
   - {fileID: 6853113089796934873}
@@ -3132,6 +3135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c198230a244ee74e84bd3a92ec0dbbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _interpolationDataSource: 0
   _fishTransform: {fileID: 2420847972157897923}
   _fingers:
   - {fileID: 7373836415168691483}
