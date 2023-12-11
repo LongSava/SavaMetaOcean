@@ -63,8 +63,8 @@ public partial class Player : PTBehaviour
         Tread();
         if (!HasInputAuthority)
         {
-            Destroy(_camera.gameObject);
-            Destroy(_audioListener.gameObject);
+            Destroy(_camera);
+            Destroy(_audioListener);
         }
     }
 
