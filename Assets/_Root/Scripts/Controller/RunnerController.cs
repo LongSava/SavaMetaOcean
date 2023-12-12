@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Fusion;
@@ -62,7 +63,15 @@ public class RunnerController : Singleton<RunnerController>
                 var rotation = Quaternion.identity;
                 runner.Spawn(Config.Data.Fishes[Random.Range(0, Config.Data.Fishes.Count)], position, rotation);
             }
+
+            StartCoroutine(AddCameraFollower(runner));
         }
+    }
+
+    private IEnumerator AddCameraFollower(NetworkRunner runner)
+    {
+        yield return new WaitForSeconds(1);
+        CameraFollower = runner.InstantiateInRunnerScene(Config.Data.CameraFollower);
     }
 
     private void OnPlayerLeft(NetworkRunner runner, PlayerRef playerRef)
@@ -86,7 +95,6 @@ public class RunnerController : Singleton<RunnerController>
             var rotation = Quaternion.identity;
             var player = runner.Spawn(Config.Data.Player, position, rotation, playerRef);
             _players.Add(playerRef, player.GetComponent<NetworkObject>());
-            CameraFollower = runner.InstantiateInRunnerScene(Config.Data.CameraFollower);
         }
     }
 
@@ -97,22 +105,30 @@ public class RunnerController : Singleton<RunnerController>
             if ((int)Config.Data.NumberPlayer == -1)
             {
                 await AddRunner(GameMode.Client);
+                DisableRunnerJustAdded();
             }
             else
             {
                 NumberPlayer = (int)Config.Data.NumberPlayer;
 
                 await AddRunner(GameMode.Server);
+                DisableRunnerJustAdded();
 
                 while (NumberPlayer > 0)
                 {
                     await AddRunner(GameMode.Client);
+                    DisableRunnerJustAdded();
                     NumberPlayer--;
                 }
             }
         }
 
-        CheckRunner(0);
+        ChangeRunner(0);
+    }
+
+    private void DisableRunnerJustAdded()
+    {
+        ShowRunner(_runners[_runners.Count - 1], false);
     }
 
     private void RemoveRunner()
@@ -120,7 +136,7 @@ public class RunnerController : Singleton<RunnerController>
         if (_indexCurrent > 0)
         {
             _runners.RemoveAt(_indexCurrent);
-            CheckRunner(_indexCurrent - 1);
+            ChangeRunner(_indexCurrent - 1);
         }
     }
 
@@ -128,16 +144,16 @@ public class RunnerController : Singleton<RunnerController>
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha0)) CheckRunner(0);
-        if (Input.GetKeyDown(KeyCode.Alpha1)) CheckRunner(1);
-        if (Input.GetKeyDown(KeyCode.Alpha2)) CheckRunner(2);
-        if (Input.GetKeyDown(KeyCode.Alpha3)) CheckRunner(3);
-        if (Input.GetKeyDown(KeyCode.Alpha4)) CheckRunner(4);
-        if (Input.GetKeyDown(KeyCode.Alpha5)) CheckRunner(5);
-        if (Input.GetKeyDown(KeyCode.Alpha6)) CheckRunner(6);
-        if (Input.GetKeyDown(KeyCode.Alpha7)) CheckRunner(7);
-        if (Input.GetKeyDown(KeyCode.Alpha8)) CheckRunner(8);
-        if (Input.GetKeyDown(KeyCode.Alpha9)) CheckRunner(9);
+        if (Input.GetKeyDown(KeyCode.Alpha0)) ChangeRunner(0);
+        if (Input.GetKeyDown(KeyCode.Alpha1)) ChangeRunner(1);
+        if (Input.GetKeyDown(KeyCode.Alpha2)) ChangeRunner(2);
+        if (Input.GetKeyDown(KeyCode.Alpha3)) ChangeRunner(3);
+        if (Input.GetKeyDown(KeyCode.Alpha4)) ChangeRunner(4);
+        if (Input.GetKeyDown(KeyCode.Alpha5)) ChangeRunner(5);
+        if (Input.GetKeyDown(KeyCode.Alpha6)) ChangeRunner(6);
+        if (Input.GetKeyDown(KeyCode.Alpha7)) ChangeRunner(7);
+        if (Input.GetKeyDown(KeyCode.Alpha8)) ChangeRunner(8);
+        if (Input.GetKeyDown(KeyCode.Alpha9)) ChangeRunner(9);
 
         if (Input.GetKeyDown(KeyCode.Keypad1)) ChangeCameraFollower(1);
         if (Input.GetKeyDown(KeyCode.Keypad2)) ChangeCameraFollower(2);
@@ -145,18 +161,26 @@ public class RunnerController : Singleton<RunnerController>
 
     private void ChangeCameraFollower(int index)
     {
-        var gameObjects = _runners[0].SimulationUnityScene.GetRootGameObjects();
-        foreach (var gameObject in gameObjects)
+        if (index > 0)
         {
-            var players = gameObject.GetComponentsInChildren<Player>();
-            if (players.Length > 0 && players[index - 1])
+            var gameObjects = _runners[0].SimulationUnityScene.GetRootGameObjects();
+            List<Player> players = new List<Player>();
+            foreach (var gameObject in gameObjects)
+            {
+                var player = gameObject.GetComponentInChildren<Player>();
+                if (player != null)
+                {
+                    players.Add(player);
+                }
+            }
+            if (players.Count > 0 && index <= players.Count)
             {
                 CameraFollower.Target = players[index - 1].HeadDevice;
             }
         }
     }
 
-    private void CheckRunner(int index)
+    private void ChangeRunner(int index)
     {
         if (index < _runners.Count)
         {

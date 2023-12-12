@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using Fusion;
+using Unity.XR.CoreUtils;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
+using UnityEngine.InputSystem.XR;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit.Inputs;
 
 public partial class Player : PTBehaviour
 {
@@ -30,9 +34,12 @@ public partial class Player : PTBehaviour
     [SerializeField] private Animator _animator;
     [SerializeField] private Transform _head;
     [SerializeField] private Transform _bodyOffset;
+    [SerializeField] private UniversalAdditionalCameraData _universalAdditionalCameraData;
     [SerializeField] private Camera _camera;
     [SerializeField] private AudioListener _audioListener;
-    [SerializeField] private UniversalAdditionalCameraData _universalAdditionalCameraData;
+    [SerializeField] private TrackedPoseDriver _trackedPoseDriver;
+    [SerializeField] private XRBaseController _xRLeftBaseController;
+    [SerializeField] private XRBaseController _xRRightBaseController;
     [SerializeField] private List<ChainIKConstraint> _chainIKHands;
     [SerializeField] private Hand _leftHand;
     [SerializeField] private Hand _rightHand;
@@ -47,7 +54,7 @@ public partial class Player : PTBehaviour
     {
         base.FixedUpdateNetwork();
 
-        if (Runner.IsServer || Object.IsProxy)
+        if (!HasInputAuthority)
         {
             if (GetInput(out InputData input))
             {
@@ -70,6 +77,9 @@ public partial class Player : PTBehaviour
             Destroy(_universalAdditionalCameraData);
             Destroy(_camera);
             Destroy(_audioListener);
+            Destroy(_trackedPoseDriver);
+            Destroy(_xRLeftBaseController);
+            Destroy(_xRRightBaseController);
         }
     }
 
