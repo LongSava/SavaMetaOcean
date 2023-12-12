@@ -1,13 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using Fusion;
-using Unity.XR.CoreUtils;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
 using UnityEngine.InputSystem.XR;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.XR.Interaction.Toolkit;
-using UnityEngine.XR.Interaction.Toolkit.Inputs;
 
 public partial class Player : PTBehaviour
 {
@@ -64,6 +62,25 @@ public partial class Player : PTBehaviour
                 _rightHandDevice.rotation = input.RotationRightHand;
                 _leftHandDevice.position = input.PositionLeftHand;
                 _leftHandDevice.rotation = input.RotationLeftHand;
+
+                if (input.MoveBody == 0)
+                {
+                    Tread();
+                    SetWeightForChainIKHands(1);
+                }
+                else if (input.MoveBody > 0)
+                {
+                    Swim();
+                    SetWeightForChainIKHands(0);
+                }
+                else
+                {
+                    Tread();
+                    SetWeightForChainIKHands(0);
+                }
+
+                _leftHand.SetGrapValue(input.GrapLeftValue.IsSet(Buttons.GrapLeft));
+                _rightHand.SetGrapValue(input.GrapRightValue.IsSet(Buttons.GrapRight));
             }
         }
     }
