@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 855fe702201900b4eb65dc00fbedf58a, type: 3}
   m_Name: DataConfig
   m_EditorClassIdentifier: 
-  NumberPlayer: -1
+  NumberPlayer: 1
   Runner: {fileID: 5619035592542766692, guid: faf0bbcfc1315804e906f2f548a34d1c, type: 3}
   Player: {fileID: 7630828481057321150, guid: dd639c6474e7b344099c17a9766ab972, type: 3}
   PlayerObject: {fileID: 7630828481057321148, guid: af3e37c372830fd41a4b6b2893cc4460,

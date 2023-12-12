@@ -8,7 +8,6 @@ public class Hand : NetworkBehaviour
     [SerializeField] private List<Finger> _fingers;
     [SerializeField] private Fish _fish;
     [SerializeField] private float _grapValue;
-    [SerializeField] private Transform _follower;
     private float _grapValueOld;
 
     public void SetFish(Fish fish)
@@ -47,8 +46,6 @@ public class Hand : NetworkBehaviour
             }
         }
         _grapValueOld = _grapValue;
-        transform.position = _follower.position;
-        transform.rotation = _follower.rotation;
     }
 
     private void OnTriggerEnter(Collider other)
