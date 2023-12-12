@@ -9,26 +9,6 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public partial class Player : PTBehaviour
 {
-    enum Buttons
-    {
-        GrapLeft = 0,
-        GrapRight = 1
-    }
-
-    public struct InputData : INetworkInput
-    {
-        public int MoveBody;
-        public int RotateBody;
-        public NetworkButtons GrapLeftValue;
-        public NetworkButtons GrapRightValue;
-        public Vector3 PositionHead;
-        public Quaternion RotationHead;
-        public Vector3 PositionRightHand;
-        public Quaternion RotationRightHand;
-        public Vector3 PositionLeftHand;
-        public Quaternion RotationLeftHand;
-    }
-
     [SerializeField] private Animator _animator;
     [SerializeField] private Transform _head;
     [SerializeField] private Transform _bodyOffset;
@@ -45,6 +25,7 @@ public partial class Player : PTBehaviour
     [SerializeField] private Transform _rightHandDevice;
     [SerializeField] private Transform _leftHandDevice;
     private List<Coroutine> _coroutines = new List<Coroutine>();
+    private bool isSwimming;
 
     public Transform HeadDevice { get => _headDevice; set => _headDevice = value; }
 
@@ -105,16 +86,26 @@ public partial class Player : PTBehaviour
         base.Render();
 
         _bodyOffset.position += _headDevice.transform.position - _head.position;
+        if (isSwimming)
+        {
+            _bodyOffset.rotation = Quaternion.RotateTowards(_bodyOffset.rotation, _headDevice.rotation, Runner.DeltaTime * 30);
+        }
+        else
+        {
+            _bodyOffset.rotation = Quaternion.RotateTowards(_bodyOffset.rotation, Quaternion.identity, Runner.DeltaTime * 30);
+        }
     }
 
     private void Swim()
     {
         _animator.SetBool("IsSwimming", true);
+        isSwimming = true;
     }
 
     private void Tread()
     {
         _animator.SetBool("IsSwimming", false);
+        isSwimming = false;
     }
 
     private void SetWeightForChainIKHands(float weight)

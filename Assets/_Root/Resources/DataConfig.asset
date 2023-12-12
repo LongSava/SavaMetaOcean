@@ -15,7 +15,7 @@ MonoBehaviour:
   NumberPlayer: 1
   Runner: {fileID: 5619035592542766692, guid: faf0bbcfc1315804e906f2f548a34d1c, type: 3}
   Player: {fileID: 7630828481057321148, guid: dd639c6474e7b344099c17a9766ab972, type: 3}
-  SpeedMove: 2
+  SpeedMove: 3
   SpeedRotate: 300
   Fishes:
   - {fileID: 3930750808290060590, guid: 557279f625d6fca4dabec3748469b34e, type: 3}

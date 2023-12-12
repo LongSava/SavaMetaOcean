@@ -80,6 +80,24 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MoveMouse"",
+                    ""type"": ""Value"",
+                    ""id"": ""5f1edc2e-6299-4acf-aac0-4301e1fb991f"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""RotateHead"",
+                    ""type"": ""Value"",
+                    ""id"": ""bb6b6db1-45c9-4d08-bc44-aa21d8ec0980"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -258,6 +276,50 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
                     ""action"": ""RotateBody"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""be1f79ce-4803-4a2e-b078-85bce54efd9f"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveMouse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""0a541304-ebbe-4889-be81-0c1e7a9cab88"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RotateHead"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""7f36e37e-ab5e-400c-96e5-e7a9ef22e26d"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RotateHead"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""1a034428-e88a-4516-999c-296469ce1fc4"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RotateHead"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -333,6 +395,8 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
         m_Player_GrapRight = m_Player.FindAction("GrapRight", throwIfNotFound: true);
         m_Player_GrapLeftValue = m_Player.FindAction("GrapLeftValue", throwIfNotFound: true);
         m_Player_GrapRightValue = m_Player.FindAction("GrapRightValue", throwIfNotFound: true);
+        m_Player_MoveMouse = m_Player.FindAction("MoveMouse", throwIfNotFound: true);
+        m_Player_RotateHead = m_Player.FindAction("RotateHead", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -400,6 +464,8 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_GrapRight;
     private readonly InputAction m_Player_GrapLeftValue;
     private readonly InputAction m_Player_GrapRightValue;
+    private readonly InputAction m_Player_MoveMouse;
+    private readonly InputAction m_Player_RotateHead;
     public struct PlayerActions
     {
         private @InputAsset m_Wrapper;
@@ -410,6 +476,8 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
         public InputAction @GrapRight => m_Wrapper.m_Player_GrapRight;
         public InputAction @GrapLeftValue => m_Wrapper.m_Player_GrapLeftValue;
         public InputAction @GrapRightValue => m_Wrapper.m_Player_GrapRightValue;
+        public InputAction @MoveMouse => m_Wrapper.m_Player_MoveMouse;
+        public InputAction @RotateHead => m_Wrapper.m_Player_RotateHead;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -437,6 +505,12 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
             @GrapRightValue.started += instance.OnGrapRightValue;
             @GrapRightValue.performed += instance.OnGrapRightValue;
             @GrapRightValue.canceled += instance.OnGrapRightValue;
+            @MoveMouse.started += instance.OnMoveMouse;
+            @MoveMouse.performed += instance.OnMoveMouse;
+            @MoveMouse.canceled += instance.OnMoveMouse;
+            @RotateHead.started += instance.OnRotateHead;
+            @RotateHead.performed += instance.OnRotateHead;
+            @RotateHead.canceled += instance.OnRotateHead;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -459,6 +533,12 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
             @GrapRightValue.started -= instance.OnGrapRightValue;
             @GrapRightValue.performed -= instance.OnGrapRightValue;
             @GrapRightValue.canceled -= instance.OnGrapRightValue;
+            @MoveMouse.started -= instance.OnMoveMouse;
+            @MoveMouse.performed -= instance.OnMoveMouse;
+            @MoveMouse.canceled -= instance.OnMoveMouse;
+            @RotateHead.started -= instance.OnRotateHead;
+            @RotateHead.performed -= instance.OnRotateHead;
+            @RotateHead.canceled -= instance.OnRotateHead;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -529,5 +609,7 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
         void OnGrapRight(InputAction.CallbackContext context);
         void OnGrapLeftValue(InputAction.CallbackContext context);
         void OnGrapRightValue(InputAction.CallbackContext context);
+        void OnMoveMouse(InputAction.CallbackContext context);
+        void OnRotateHead(InputAction.CallbackContext context);
     }
 }
