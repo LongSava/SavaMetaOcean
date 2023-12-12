@@ -7,12 +7,11 @@ public class DataConfig : ScriptableObject
 {
     public NumberPlayer NumberPlayer;
     public NetworkRunner Runner;
-    public Player Player;
-    public GameObject PlayerObject;
+    public GameObject Player;
     public float SpeedMove;
     public float SpeedRotate;
-    public float SpeedSink;
     public List<Fish> Fishes;
+    public CameraFollower CameraFollower;
 }
 
 public enum NumberPlayer

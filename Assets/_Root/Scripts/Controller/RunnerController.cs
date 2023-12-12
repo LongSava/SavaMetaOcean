@@ -11,6 +11,7 @@ public class RunnerController : Singleton<RunnerController>
     private List<NetworkRunner> _runners = new List<NetworkRunner>();
     private Dictionary<PlayerRef, NetworkObject> _players = new Dictionary<PlayerRef, NetworkObject>();
     [SerializeField] private Vector3 _positionSpawned;
+    private CameraFollower CameraFollower;
 
     private void Start()
     {
@@ -83,8 +84,9 @@ public class RunnerController : Singleton<RunnerController>
         {
             var position = new Vector3(Random.Range(-5, 5), 0, Random.Range(-5, 5)) + _positionSpawned;
             var rotation = Quaternion.identity;
-            var player = runner.Spawn(Config.Data.PlayerObject, position, rotation, playerRef);
+            var player = runner.Spawn(Config.Data.Player, position, rotation, playerRef);
             _players.Add(playerRef, player.GetComponent<NetworkObject>());
+            CameraFollower = runner.InstantiateInRunnerScene(Config.Data.CameraFollower);
         }
     }
 
@@ -136,6 +138,22 @@ public class RunnerController : Singleton<RunnerController>
         if (Input.GetKeyDown(KeyCode.Alpha7)) CheckRunner(7);
         if (Input.GetKeyDown(KeyCode.Alpha8)) CheckRunner(8);
         if (Input.GetKeyDown(KeyCode.Alpha9)) CheckRunner(9);
+
+        if (Input.GetKeyDown(KeyCode.Keypad1)) ChangeCameraFollower(1);
+        if (Input.GetKeyDown(KeyCode.Keypad2)) ChangeCameraFollower(2);
+    }
+
+    private void ChangeCameraFollower(int index)
+    {
+        var gameObjects = _runners[0].SimulationUnityScene.GetRootGameObjects();
+        foreach (var gameObject in gameObjects)
+        {
+            var players = gameObject.GetComponentsInChildren<Player>();
+            if (players.Length > 0 && players[index - 1])
+            {
+                CameraFollower.Target = players[index - 1].HeadDevice;
+            }
+        }
     }
 
     private void CheckRunner(int index)

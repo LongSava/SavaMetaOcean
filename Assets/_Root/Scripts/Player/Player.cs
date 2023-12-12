@@ -41,6 +41,8 @@ public partial class Player : PTBehaviour
     [SerializeField] private Transform _leftHandDevice;
     private List<Coroutine> _coroutines = new List<Coroutine>();
 
+    public Transform HeadDevice { get => _headDevice; set => _headDevice = value; }
+
     public override void FixedUpdateNetwork()
     {
         base.FixedUpdateNetwork();
