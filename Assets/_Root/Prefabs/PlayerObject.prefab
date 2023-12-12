@@ -1759,7 +1759,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0cb9aa70a22847b5925ee5f067c10a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 3217005389626127275}
   m_OriginBaseGameObject: {fileID: 7327962552130255878}
   m_CameraFloorOffsetObject: {fileID: 3305944500172787959}
   m_RequestedTrackingOriginMode: 1
@@ -3133,7 +3133,6 @@ MonoBehaviour:
   - {fileID: 788969446583482103}
   _fish: {fileID: 0}
   _grapValue: 0
-  _follower: {fileID: 7613968206309356166}
 --- !u!4 &987253145433243975 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3667946887678727147, guid: 3e791e3544c15ea4fb554c235331471b,
@@ -3187,7 +3186,6 @@ MonoBehaviour:
   - {fileID: 6471393161666756063}
   _fish: {fileID: 0}
   _grapValue: 0
-  _follower: {fileID: 3411335014074850550}
 --- !u!1 &2069345278048770386 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2586065998465600510, guid: 3e791e3544c15ea4fb554c235331471b,

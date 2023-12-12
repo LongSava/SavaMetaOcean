@@ -25,7 +25,6 @@ public partial class Player
         inputData.GrapLeftValue.Set(Buttons.GrapLeft, _inputAsset.Player.GrapLeftValue.IsPressed());
         inputData.GrapRightValue.Set(Buttons.GrapRight, _inputAsset.Player.GrapRightValue.IsPressed());
         inputData.Move = _inputAsset.Player.Move.ReadValue<Vector2>();
-        inputData.Sink = _inputAsset.Player.Sink.ReadValue<float>();
         inputData.PositionHead = _headDevice.position;
         inputData.RotationHead = _headDevice.rotation;
         inputData.PositionRightHand = _rightHandDevice.position;
