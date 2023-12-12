@@ -37,7 +37,7 @@ public class Cube : NetworkBehaviour
     {
         input.Set(new InputData()
         {
-            Move = InputAsset.Player.Move.ReadValue<Vector2>(),
+            Move = InputAsset.Player.MoveBody.ReadValue<Vector2>(),
             Position = Position
         });
     }

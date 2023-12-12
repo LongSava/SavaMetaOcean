@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Fusion;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
+using UnityEngine.Rendering.Universal;
 
 public partial class Player : PTBehaviour
 {
@@ -14,7 +15,8 @@ public partial class Player : PTBehaviour
 
     public struct InputData : INetworkInput
     {
-        public Vector2 Move;
+        public int MoveBody;
+        public int RotateBody;
         public NetworkButtons GrapLeftValue;
         public NetworkButtons GrapRightValue;
         public Vector3 PositionHead;
@@ -30,6 +32,7 @@ public partial class Player : PTBehaviour
     [SerializeField] private Transform _bodyOffset;
     [SerializeField] private Camera _camera;
     [SerializeField] private AudioListener _audioListener;
+    [SerializeField] private UniversalAdditionalCameraData _universalAdditionalCameraData;
     [SerializeField] private List<ChainIKConstraint> _chainIKHands;
     [SerializeField] private Hand _leftHand;
     [SerializeField] private Hand _rightHand;
@@ -62,6 +65,7 @@ public partial class Player : PTBehaviour
         Tread();
         if (!HasInputAuthority)
         {
+            Destroy(_universalAdditionalCameraData);
             Destroy(_camera);
             Destroy(_audioListener);
         }
@@ -91,7 +95,7 @@ public partial class Player : PTBehaviour
 
         _chainIKHands.ForEach(chainIKHand =>
         {
-            var coroutine = StartCoroutine(SetWeightForChainIKHand(chainIKHand, weight, 0.25f));
+            var coroutine = StartCoroutine(SetWeightForChainIKHand(chainIKHand, weight, 0.5f));
             _coroutines.Add(coroutine);
         });
     }

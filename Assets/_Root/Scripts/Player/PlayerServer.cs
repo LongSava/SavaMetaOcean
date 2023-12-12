@@ -6,18 +6,18 @@ public partial class Player
     {
         if (GetInput(out InputData input))
         {
-            var position = new Vector3(0, 0, input.Move.y * Config.Data.SpeedMove) * Runner.DeltaTime;
+            var position = transform.InverseTransformVector(_headDevice.forward) * input.MoveBody * Config.Data.SpeedMove * Runner.DeltaTime;
             transform.Translate(position);
 
-            var rotation = new Vector3(0, input.Move.x * Config.Data.SpeedRotate, 0) * Runner.DeltaTime;
+            var rotation = Vector3.up * input.RotateBody * Config.Data.SpeedRotate * Runner.DeltaTime;
             transform.Rotate(rotation);
 
-            if (input.Move.y == 0)
+            if (input.MoveBody == 0)
             {
                 Tread();
                 SetWeightForChainIKHands(1);
             }
-            else if (input.Move.y > 0)
+            else if (input.MoveBody > 0)
             {
                 Swim();
                 SetWeightForChainIKHands(0);

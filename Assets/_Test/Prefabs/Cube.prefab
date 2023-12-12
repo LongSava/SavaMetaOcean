@@ -2986,7 +2986,6 @@ MonoBehaviour:
   - {fileID: 1064976998578714914}
   _fish: {fileID: 0}
   _grapValue: 0
-  _follower: {fileID: 0}
 --- !u!1 &2712790641043318350 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2586065998465600510, guid: 3e791e3544c15ea4fb554c235331471b,
@@ -3072,7 +3071,6 @@ MonoBehaviour:
   - {fileID: 563409834604861024}
   _fish: {fileID: 0}
   _grapValue: 0
-  _follower: {fileID: 0}
 --- !u!1 &4136548296222437997 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4549111882529890269, guid: 3e791e3544c15ea4fb554c235331471b,

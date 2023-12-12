@@ -1912,6 +1912,7 @@ MonoBehaviour:
   _bodyOffset: {fileID: 6714111372002495271}
   _camera: {fileID: 3217005389626127275}
   _audioListener: {fileID: 7733222357956209129}
+  _universalAdditionalCameraData: {fileID: 0}
   _chainIKHands:
   - {fileID: 3647459846760187891}
   - {fileID: 7852908658930556836}

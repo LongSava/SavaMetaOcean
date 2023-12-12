@@ -24,7 +24,33 @@ public partial class Player
 
         inputData.GrapLeftValue.Set(Buttons.GrapLeft, _inputAsset.Player.GrapLeftValue.IsPressed());
         inputData.GrapRightValue.Set(Buttons.GrapRight, _inputAsset.Player.GrapRightValue.IsPressed());
-        inputData.Move = _inputAsset.Player.Move.ReadValue<Vector2>();
+
+        if (_inputAsset.Player.MoveBody.ReadValue<Vector2>().y > 0)
+        {
+            inputData.MoveBody = 1;
+        }
+        else if (_inputAsset.Player.MoveBody.ReadValue<Vector2>().y < 0)
+        {
+            inputData.MoveBody = -1;
+        }
+        else
+        {
+            inputData.MoveBody = 0;
+        }
+
+        if (_inputAsset.Player.RotateBody.ReadValue<Vector2>().x > 0)
+        {
+            inputData.RotateBody = 1;
+        }
+        else if (_inputAsset.Player.RotateBody.ReadValue<Vector2>().x < 0)
+        {
+            inputData.RotateBody = -1;
+        }
+        else
+        {
+            inputData.RotateBody = 0;
+        }
+
         inputData.PositionHead = _headDevice.position;
         inputData.RotationHead = _headDevice.rotation;
         inputData.PositionRightHand = _rightHandDevice.position;
@@ -39,7 +65,7 @@ public partial class Player
     {
         if (_inputAsset != null)
         {
-            var moveY = _inputAsset.Player.Move.ReadValue<Vector2>().y;
+            var moveY = _inputAsset.Player.MoveBody.ReadValue<Vector2>().y;
             if (moveY == 0)
             {
                 Tread();

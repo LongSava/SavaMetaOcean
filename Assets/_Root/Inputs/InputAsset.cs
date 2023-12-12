@@ -28,9 +28,18 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
             ""id"": ""df70fa95-8a34-4494-b137-73ab6b9c7d37"",
             ""actions"": [
                 {
-                    ""name"": ""Move"",
+                    ""name"": ""MoveBody"",
                     ""type"": ""Value"",
                     ""id"": ""351f2ccd-1f9f-44bf-9bec-d62ac5c5f408"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""RotateBody"",
+                    ""type"": ""Value"",
+                    ""id"": ""3e2406c0-00ea-4b95-87a2-07fad85352ec"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -90,7 +99,7 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Move"",
+                    ""action"": ""MoveBody"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -101,7 +110,7 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Move"",
+                    ""action"": ""MoveBody"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -112,40 +121,18 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""d2581a9b-1d11-4566-b27d-b92aff5fabbc"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""fcfe95b8-67b9-4526-84b5-5d0bc98d6400"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Move"",
+                    ""action"": ""MoveBody"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": """",
                     ""id"": ""eef9e8b9-c28a-42e0-b785-f4e26d85f54e"",
-                    ""path"": ""<XRController>{RightHand}/joystick"",
+                    ""path"": ""<XRController>{LeftHand}/joystick"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Move"",
+                    ""action"": ""MoveBody"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -302,6 +289,50 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
                     ""action"": ""Sink"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""WASD"",
+                    ""id"": ""05fa8cf7-16a3-44d7-beb5-68d7aa353576"",
+                    ""path"": ""Dpad"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RotateBody"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""ec0f8e9d-7995-4359-a589-8bc1b9e2750c"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""RotateBody"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""baa3b1c0-51a0-41e1-8694-fec558363743"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""RotateBody"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fbcb88cc-6b40-4021-869f-e62e55681967"",
+                    ""path"": ""<XRController>{RightHand}/joystick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RotateBody"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -371,7 +402,8 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
 }");
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
-        m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
+        m_Player_MoveBody = m_Player.FindAction("MoveBody", throwIfNotFound: true);
+        m_Player_RotateBody = m_Player.FindAction("RotateBody", throwIfNotFound: true);
         m_Player_GrapLeft = m_Player.FindAction("GrapLeft", throwIfNotFound: true);
         m_Player_GrapRight = m_Player.FindAction("GrapRight", throwIfNotFound: true);
         m_Player_GrapLeftValue = m_Player.FindAction("GrapLeftValue", throwIfNotFound: true);
@@ -438,7 +470,8 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
     // Player
     private readonly InputActionMap m_Player;
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
-    private readonly InputAction m_Player_Move;
+    private readonly InputAction m_Player_MoveBody;
+    private readonly InputAction m_Player_RotateBody;
     private readonly InputAction m_Player_GrapLeft;
     private readonly InputAction m_Player_GrapRight;
     private readonly InputAction m_Player_GrapLeftValue;
@@ -448,7 +481,8 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
     {
         private @InputAsset m_Wrapper;
         public PlayerActions(@InputAsset wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Move => m_Wrapper.m_Player_Move;
+        public InputAction @MoveBody => m_Wrapper.m_Player_MoveBody;
+        public InputAction @RotateBody => m_Wrapper.m_Player_RotateBody;
         public InputAction @GrapLeft => m_Wrapper.m_Player_GrapLeft;
         public InputAction @GrapRight => m_Wrapper.m_Player_GrapRight;
         public InputAction @GrapLeftValue => m_Wrapper.m_Player_GrapLeftValue;
@@ -463,9 +497,12 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_PlayerActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_PlayerActionsCallbackInterfaces.Add(instance);
-            @Move.started += instance.OnMove;
-            @Move.performed += instance.OnMove;
-            @Move.canceled += instance.OnMove;
+            @MoveBody.started += instance.OnMoveBody;
+            @MoveBody.performed += instance.OnMoveBody;
+            @MoveBody.canceled += instance.OnMoveBody;
+            @RotateBody.started += instance.OnRotateBody;
+            @RotateBody.performed += instance.OnRotateBody;
+            @RotateBody.canceled += instance.OnRotateBody;
             @GrapLeft.started += instance.OnGrapLeft;
             @GrapLeft.performed += instance.OnGrapLeft;
             @GrapLeft.canceled += instance.OnGrapLeft;
@@ -485,9 +522,12 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
 
         private void UnregisterCallbacks(IPlayerActions instance)
         {
-            @Move.started -= instance.OnMove;
-            @Move.performed -= instance.OnMove;
-            @Move.canceled -= instance.OnMove;
+            @MoveBody.started -= instance.OnMoveBody;
+            @MoveBody.performed -= instance.OnMoveBody;
+            @MoveBody.canceled -= instance.OnMoveBody;
+            @RotateBody.started -= instance.OnRotateBody;
+            @RotateBody.performed -= instance.OnRotateBody;
+            @RotateBody.canceled -= instance.OnRotateBody;
             @GrapLeft.started -= instance.OnGrapLeft;
             @GrapLeft.performed -= instance.OnGrapLeft;
             @GrapLeft.canceled -= instance.OnGrapLeft;
@@ -567,7 +607,8 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
     }
     public interface IPlayerActions
     {
-        void OnMove(InputAction.CallbackContext context);
+        void OnMoveBody(InputAction.CallbackContext context);
+        void OnRotateBody(InputAction.CallbackContext context);
         void OnGrapLeft(InputAction.CallbackContext context);
         void OnGrapRight(InputAction.CallbackContext context);
         void OnGrapLeftValue(InputAction.CallbackContext context);
