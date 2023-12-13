@@ -11,8 +11,9 @@ public class RunnerController : Singleton<RunnerController>
     public static int NumberPlayer = -1;
     private List<NetworkRunner> _runners = new List<NetworkRunner>();
     private Dictionary<PlayerRef, NetworkObject> _players = new Dictionary<PlayerRef, NetworkObject>();
-    [SerializeField] private Vector3 _positionSpawned;
     private CameraFollower CameraFollower;
+    [SerializeField] private Vector3 _positionSpawned;
+    [SerializeField] private int _numberFish;
 
     private void Start()
     {
@@ -56,14 +57,12 @@ public class RunnerController : Singleton<RunnerController>
     {
         if (runner.IsServer)
         {
-            for (int i = 0; i < 500; i++)
+            for (int i = 0; i < _numberFish; i++)
             {
-                var position = new Vector3(Random.Range(-20, 20), 0, Random.Range(-20, 20)) + _positionSpawned;
-                var rotation = Quaternion.identity;
-                runner.Spawn(Config.Data.Fish.Objects[Random.Range(0, Config.Data.Fish.Objects.Count)], position, rotation);
+                runner.Spawn(Config.Data.Fish.Objects[Random.Range(0, Config.Data.Fish.Objects.Count)]);
             }
 
-            runner.Spawn(Config.Data.Fish.Group);
+            runner.Spawn(Config.Data.Fish.FishAreas);
 
             StartCoroutine(AddCameraFollower(runner));
         }
@@ -73,9 +72,6 @@ public class RunnerController : Singleton<RunnerController>
     {
         yield return new WaitForSeconds(0.1f);
         CameraFollower = runner.InstantiateInRunnerScene(Config.Data.CameraFollower);
-
-        yield return new WaitForSeconds(1);
-        runner.InstantiateInRunnerScene(Config.Data.Fish.Group);
     }
 
     private void OnPlayerLeft(NetworkRunner runner, PlayerRef playerRef)

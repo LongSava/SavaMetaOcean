@@ -1675,7 +1675,7 @@ Transform:
   m_GameObject: {fileID: 7630828481057321148}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7489502975324375308}
@@ -2915,7 +2915,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fingerTip: {fileID: 9155632544364787292}
-  _fingerTipOffset: {x: 0, y: -0.03, z: 0.15}
+  _fingerTipOffset: {x: 0, y: -0.05, z: 0.25}
 --- !u!1 &86983422131706720 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4728426434207774260, guid: 3e791e3544c15ea4fb554c235331471b,
@@ -3029,7 +3029,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fingerTip: {fileID: 5938776395411495604}
-  _fingerTipOffset: {x: 0, y: -0.03, z: 0.15}
+  _fingerTipOffset: {x: 0, y: -0.05, z: 0.25}
 --- !u!4 &2216349995597107800 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -6803169544883306252, guid: 3e791e3544c15ea4fb554c235331471b,
@@ -3061,7 +3061,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fingerTip: {fileID: 1981904168214148646}
-  _fingerTipOffset: {x: 0, y: -0.03, z: 0.15}
+  _fingerTipOffset: {x: 0, y: -0.05, z: 0.25}
 --- !u!1 &2777903974178869443 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -7360747449169001873, guid: 3e791e3544c15ea4fb554c235331471b,
@@ -3081,7 +3081,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fingerTip: {fileID: 8363585975594938882}
-  _fingerTipOffset: {x: 0, y: -0.03, z: 0.15}
+  _fingerTipOffset: {x: 0, y: -0.05, z: 0.25}
 --- !u!4 &2801778870218616164 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1852576806548013000, guid: 3e791e3544c15ea4fb554c235331471b,
@@ -3185,7 +3185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fingerTip: {fileID: 6849403160228757922}
-  _fingerTipOffset: {x: 0, y: -0.03, z: 0.15}
+  _fingerTipOffset: {x: 0, y: -0.05, z: 0.25}
 --- !u!4 &4744596628605220256 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -104578136787704052, guid: 3e791e3544c15ea4fb554c235331471b,
@@ -3211,7 +3211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fingerTip: {fileID: 5253831948394906062}
-  _fingerTipOffset: {x: 0, y: -0.03, z: 0.15}
+  _fingerTipOffset: {x: 0, y: -0.05, z: 0.25}
 --- !u!4 &5363319828514244178 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8447082967072642302, guid: 3e791e3544c15ea4fb554c235331471b,
@@ -3267,7 +3267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fingerTip: {fileID: 4455335343269645224}
-  _fingerTipOffset: {x: 0, y: -0.03, z: 0.15}
+  _fingerTipOffset: {x: 0, y: -0.05, z: 0.25}
 --- !u!1 &6106582575609173825 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7776229726456038893, guid: 3e791e3544c15ea4fb554c235331471b,
@@ -3287,7 +3287,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fingerTip: {fileID: 7962904546184700236}
-  _fingerTipOffset: {x: -0.09, y: 0.18, z: 0}
+  _fingerTipOffset: {x: -0.15, y: 0.3, z: 0}
 --- !u!4 &6730888153616067377 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7078722787440015773, guid: 3e791e3544c15ea4fb554c235331471b,
@@ -3319,7 +3319,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fingerTip: {fileID: 7680459458282572164}
-  _fingerTipOffset: {x: 0, y: -0.03, z: 0.15}
+  _fingerTipOffset: {x: 0, y: -0.05, z: 0.25}
 --- !u!4 &7307128965420418927 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6502182839619065283, guid: 3e791e3544c15ea4fb554c235331471b,
@@ -3363,7 +3363,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fingerTip: {fileID: 2270770114399786749}
-  _fingerTipOffset: {x: 0.09, y: 0.18, z: 0}
+  _fingerTipOffset: {x: 0.15, y: 0.3, z: 0}
 --- !u!4 &8744433186776653562 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5048025441337412694, guid: 3e791e3544c15ea4fb554c235331471b,

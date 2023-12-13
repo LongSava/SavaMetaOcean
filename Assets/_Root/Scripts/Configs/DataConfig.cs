@@ -11,6 +11,7 @@ public class DataConfig : ScriptableObject
     public CameraFollower CameraFollower;
     public PlayerConfig Player;
     public FishConfig Fish;
+    public FlockConfig Flock;
 }
 
 [Serializable]
@@ -27,7 +28,15 @@ public class FishConfig
     public List<Fish> Objects;
     public float SpeedMove;
     public float SpeedRotate;
-    public FishGroup Group;
+    public FishAreas FishAreas;
+    public float RangeTargetPosition;
+    public float RangeSpeedMove;
+}
+
+[Serializable]
+public class FlockConfig
+{
+    public float SpeedMove;
 }
 
 public enum NumberPlayer

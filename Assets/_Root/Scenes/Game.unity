@@ -7313,6 +7313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _positionSpawned: {x: 25, y: 15, z: 175}
+  _numberFish: 300
 --- !u!4 &1082506135
 Transform:
   m_ObjectHideFlags: 0

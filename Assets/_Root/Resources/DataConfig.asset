@@ -19,7 +19,7 @@ MonoBehaviour:
   Player:
     Object: {fileID: 7630828481057321148, guid: dd639c6474e7b344099c17a9766ab972,
       type: 3}
-    SpeedMove: 2
+    SpeedMove: 5
     SpeedRotate: 300
   Fish:
     Objects:
@@ -27,6 +27,11 @@ MonoBehaviour:
     - {fileID: 3788607453540743139, guid: f6ced2a2496d3124f9b3437b7e07924e, type: 3}
     - {fileID: 4928063136161313697, guid: 75bb05c37628169449eb485ddb7e9cc5, type: 3}
     - {fileID: 7674147974999670020, guid: 52cdf1672ca60dc4fa0f2384dbad0875, type: 3}
-    SpeedMove: 0.2
+    SpeedMove: 3
     SpeedRotate: 0.5
-    Group: {fileID: 2032816330314051946, guid: f9de0b19d01fbd943b9bd1d603ca36c9, type: 3}
+    FishAreas: {fileID: 6354802072813465026, guid: 960f9350c4f54ff4c9772b79a1d5c069,
+      type: 3}
+    RangeTargetPosition: 3
+    RangeSpeedMove: 2
+  Flock:
+    SpeedMove: 5

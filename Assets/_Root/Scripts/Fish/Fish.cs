@@ -3,36 +3,32 @@ using UnityEngine;
 
 public class Fish : NetworkBehaviour
 {
-    public Animator Animator;
+    [SerializeField] private Animator _animator;
     private bool _isRelease = true;
-    private Vector3 _targetPosition;
+    private FishFlock _flock;
+    private Vector3 _offsetPosition;
 
     public override void Spawned()
     {
-        RandomTargetPosition();
+        var randomX = Random.Range(-Config.Data.Fish.RangeTargetPosition, Config.Data.Fish.RangeTargetPosition);
+        var randomY = Random.Range(-Config.Data.Fish.RangeTargetPosition, Config.Data.Fish.RangeTargetPosition);
+        var randomZ = Random.Range(-Config.Data.Fish.RangeTargetPosition, Config.Data.Fish.RangeTargetPosition);
+        _offsetPosition = new Vector3(randomX, randomY, randomZ);
     }
 
-    private void RandomTargetPosition()
+    public void SetFlock(FishFlock fishFlock)
     {
-        var randomX = Random.Range(-5, 5);
-        var randomY = Random.Range(-5, 5);
-        var randomZ = Random.Range(-5, 5);
-        _targetPosition = transform.position + new Vector3(randomX, randomY, randomZ);
+        _flock = fishFlock;
     }
 
     public override void Render()
     {
-        if (_isRelease)
+        if (_flock != null && _isRelease)
         {
-            var targetRotation = Quaternion.LookRotation(_targetPosition - transform.position);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Runner.DeltaTime * Config.Data.Fish.SpeedRotate);
+            var targetRotation = Quaternion.LookRotation(_flock.transform.position + _offsetPosition - transform.position);
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Runner.DeltaTime * Config.Data.Fish.SpeedRotate);
 
-            transform.position += transform.forward * Runner.DeltaTime * Config.Data.Fish.SpeedMove;
-
-            if (transform.position == _targetPosition)
-            {
-                RandomTargetPosition();
-            }
+            transform.position += transform.forward * Runner.DeltaTime * (Config.Data.Fish.SpeedMove + Random.Range(-Config.Data.Fish.RangeSpeedMove, Config.Data.Fish.RangeSpeedMove));
         }
     }
 
@@ -41,12 +37,12 @@ public class Fish : NetworkBehaviour
         transform.position = location.position;
         transform.rotation = location.rotation;
         _isRelease = false;
-        Animator.speed = 5;
+        _animator.speed = Config.Data.Fish.SpeedMove * 5;
     }
 
     public void Released()
     {
         _isRelease = true;
-        Animator.speed = 1;
+        _animator.speed = Config.Data.Fish.SpeedMove;
     }
 }
