@@ -24,8 +24,10 @@ public class Fish : NetworkBehaviour
     {
         if (_isRelease)
         {
-            transform.position = Vector3.MoveTowards(transform.position, _targetPosition, Runner.DeltaTime * 0.1f);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(Vector3.zero), Runner.DeltaTime * 500);
+            var targetRotation = Quaternion.LookRotation(_targetPosition - transform.position);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Runner.DeltaTime * Config.Data.Fish.SpeedRotate);
+
+            transform.position += transform.forward * Runner.DeltaTime * Config.Data.Fish.SpeedMove;
 
             if (transform.position == _targetPosition)
             {

@@ -86,7 +86,10 @@ public partial class Player
             _rightHand.SetGrapValue(_inputAsset.Player.GrapRight.ReadValue<float>());
 
             var mouseMove = _inputAsset.Player.MoveMouse.ReadValue<Vector2>();
-            _leftHandDevice.position = _camera.ScreenToWorldPoint(new Vector3(mouseMove.x, mouseMove.y, 1.5f));
+            if (mouseMove != Vector2.zero)
+            {
+                _leftHandDevice.position = _camera.ScreenToWorldPoint(new Vector3(mouseMove.x, mouseMove.y, 1.5f));
+            }
 
             var rotateHead = _inputAsset.Player.RotateHead.ReadValue<float>();
             if (rotateHead != 0)

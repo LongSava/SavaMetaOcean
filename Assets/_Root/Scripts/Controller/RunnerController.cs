@@ -61,7 +61,7 @@ public class RunnerController : Singleton<RunnerController>
             {
                 var position = new Vector3(Random.Range(-20, 20), 0, Random.Range(-20, 20)) + _positionSpawned;
                 var rotation = Quaternion.identity;
-                runner.Spawn(Config.Data.Fishes[Random.Range(0, Config.Data.Fishes.Count)], position, rotation);
+                runner.Spawn(Config.Data.Fish.Objects[Random.Range(0, Config.Data.Fish.Objects.Count)], position, rotation);
             }
 
             StartCoroutine(AddCameraFollower(runner));
@@ -93,7 +93,7 @@ public class RunnerController : Singleton<RunnerController>
         {
             var position = new Vector3(Random.Range(-5, 5), 0, Random.Range(-5, 5)) + _positionSpawned;
             var rotation = Quaternion.identity;
-            var player = runner.Spawn(Config.Data.Player, position, rotation, playerRef);
+            var player = runner.Spawn(Config.Data.Player.Object, position, rotation, playerRef);
             _players.Add(playerRef, player.GetComponent<NetworkObject>());
         }
     }

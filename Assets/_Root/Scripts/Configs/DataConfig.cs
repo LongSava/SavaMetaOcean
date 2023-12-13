@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Fusion;
 using UnityEngine;
@@ -7,11 +8,25 @@ public class DataConfig : ScriptableObject
 {
     public NumberPlayer NumberPlayer;
     public NetworkRunner Runner;
-    public GameObject Player;
+    public CameraFollower CameraFollower;
+    public PlayerConfig Player;
+    public FishConfig Fish;
+}
+
+[Serializable]
+public class PlayerConfig
+{
+    public GameObject Object;
     public float SpeedMove;
     public float SpeedRotate;
-    public List<Fish> Fishes;
-    public CameraFollower CameraFollower;
+}
+
+[Serializable]
+public class FishConfig
+{
+    public List<Fish> Objects;
+    public float SpeedMove;
+    public float SpeedRotate;
 }
 
 public enum NumberPlayer
