@@ -28,4 +28,5 @@ MonoBehaviour:
     - {fileID: 4928063136161313697, guid: 75bb05c37628169449eb485ddb7e9cc5, type: 3}
     - {fileID: 7674147974999670020, guid: 52cdf1672ca60dc4fa0f2384dbad0875, type: 3}
     SpeedMove: 0.2
-    SpeedRotate: 50
+    SpeedRotate: 0.5
+    Group: {fileID: 2032816330314051946, guid: f9de0b19d01fbd943b9bd1d603ca36c9, type: 3}

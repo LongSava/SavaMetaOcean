@@ -16,7 +16,6 @@ public class RunnerController : Singleton<RunnerController>
 
     private void Start()
     {
-        SceneManager.LoadScene("OceanStage", LoadSceneMode.Additive);
         AddRunners();
     }
 
@@ -57,12 +56,14 @@ public class RunnerController : Singleton<RunnerController>
     {
         if (runner.IsServer)
         {
-            for (int i = 0; i < 100; i++)
+            for (int i = 0; i < 500; i++)
             {
                 var position = new Vector3(Random.Range(-20, 20), 0, Random.Range(-20, 20)) + _positionSpawned;
                 var rotation = Quaternion.identity;
                 runner.Spawn(Config.Data.Fish.Objects[Random.Range(0, Config.Data.Fish.Objects.Count)], position, rotation);
             }
+
+            runner.Spawn(Config.Data.Fish.Group);
 
             StartCoroutine(AddCameraFollower(runner));
         }
@@ -70,8 +71,11 @@ public class RunnerController : Singleton<RunnerController>
 
     private IEnumerator AddCameraFollower(NetworkRunner runner)
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.1f);
         CameraFollower = runner.InstantiateInRunnerScene(Config.Data.CameraFollower);
+
+        yield return new WaitForSeconds(1);
+        runner.InstantiateInRunnerScene(Config.Data.Fish.Group);
     }
 
     private void OnPlayerLeft(NetworkRunner runner, PlayerRef playerRef)
@@ -123,7 +127,14 @@ public class RunnerController : Singleton<RunnerController>
             }
         }
 
-        ChangeRunner(0);
+        if (_runners.Count > 0)
+        {
+            ChangeRunner(1);
+        }
+        else
+        {
+            ChangeRunner(0);
+        }
     }
 
     private void DisableRunnerJustAdded()

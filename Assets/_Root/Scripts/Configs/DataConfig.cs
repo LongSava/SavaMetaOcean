@@ -27,6 +27,7 @@ public class FishConfig
     public List<Fish> Objects;
     public float SpeedMove;
     public float SpeedRotate;
+    public FishGroup Group;
 }
 
 public enum NumberPlayer
