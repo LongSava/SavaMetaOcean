@@ -2,22 +2,21 @@ using UnityEngine;
 
 public class FishFlock : MonoBehaviour
 {
+    public FishFlockConfig Config;
     private Vector3 _targetPosition;
     private FishArea _fishArea;
 
-    private void Start()
+    public void Init(FishFlockConfig config, FishArea fishArea)
     {
-        RandomTargetPosition();
-    }
-
-    public void SetFishArea(FishArea fishArea)
-    {
+        Config = config;
         _fishArea = fishArea;
+        transform.localPosition = Vector3.zero;
+        RandomTargetPosition();
     }
 
     private void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, _targetPosition, Time.deltaTime * Config.Data.Fish.Flock.SpeedMove);
+        transform.position = Vector3.MoveTowards(transform.position, _targetPosition, Time.deltaTime * Config.SpeedMove);
         if (transform.position == _targetPosition)
         {
             RandomTargetPosition();

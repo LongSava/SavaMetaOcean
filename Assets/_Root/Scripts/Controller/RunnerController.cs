@@ -12,8 +12,6 @@ public class RunnerController : Singleton<RunnerController>
     private List<NetworkRunner> _runners = new List<NetworkRunner>();
     private Dictionary<PlayerRef, NetworkObject> _players = new Dictionary<PlayerRef, NetworkObject>();
     private CameraFollower CameraFollower;
-    [SerializeField] private Vector3 _positionSpawned;
-    [SerializeField] private int _numberFish;
 
     private void Start()
     {
@@ -57,12 +55,14 @@ public class RunnerController : Singleton<RunnerController>
     {
         if (runner.IsServer)
         {
-            for (int i = 0; i < _numberFish; i++)
+            var totalFish = 0;
+            Config.Data.FishAreas.FishAreas.ForEach(config => totalFish += config.NumberFish);
+            for (int i = 0; i < totalFish; i++)
             {
                 runner.Spawn(Config.Data.Fish.Objects[Random.Range(0, Config.Data.Fish.Objects.Count)]);
             }
 
-            runner.Spawn(Config.Data.Fish.FishAreas);
+            runner.Spawn(Config.Data.FishAreas.Object);
 
             StartCoroutine(AddCameraFollower(runner));
         }
@@ -91,7 +91,7 @@ public class RunnerController : Singleton<RunnerController>
     {
         if (runner.IsServer)
         {
-            var position = new Vector3(Random.Range(-5, 5), 0, Random.Range(-5, 5)) + _positionSpawned;
+            var position = new Vector3(Random.Range(-5, 5), 0, Random.Range(-5, 5)) + Config.Data.Player.PositionSpawned;
             var rotation = Quaternion.identity;
             var player = runner.Spawn(Config.Data.Player.Object, position, rotation, playerRef);
             _players.Add(playerRef, player.GetComponent<NetworkObject>());

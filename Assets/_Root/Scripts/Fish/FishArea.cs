@@ -1,27 +1,33 @@
 using System.Collections.Generic;
+using Fusion;
 using UnityEngine;
 
 public class FishArea : MonoBehaviour
 {
+    public FishAreaConfig Config;
     public List<FishFlock> FishFlocks = new List<FishFlock>();
     public float XHalf;
     public float YHalf;
     public float ZHalf;
-    public int MaxFish;
-    public int NumberFlock;
 
-    private void Awake()
+    public void Init(FishAreaConfig config, NetworkRunner runner)
     {
-        var boxCollider = GetComponent<BoxCollider>();
+        Config = config;
+
+        transform.SetPositionAndRotation(config.Position, config.Rotation);
+
+        var boxCollider = gameObject.AddComponent<BoxCollider>();
+        boxCollider.size = config.Size;
         XHalf = boxCollider.bounds.size.x / 2;
         YHalf = boxCollider.bounds.size.y / 2;
         ZHalf = boxCollider.bounds.size.z / 2;
 
-        for (int i = 0; i < NumberFlock; i++)
+        config.FishFlocks.ForEach(config =>
         {
-            var flock = Instantiate(Config.Data.Fish.Flock.Object, transform);
-            flock.SetFishArea(this);
-            FishFlocks.Add(flock);
-        }
+            var fishFlock = runner.InstantiateInRunnerScene(new GameObject("FishFlock")).AddComponent<FishFlock>();
+            fishFlock.transform.SetParent(transform);
+            fishFlock.Init(config, this);
+            FishFlocks.Add(fishFlock);
+        });
     }
 }

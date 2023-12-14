@@ -10,14 +10,19 @@ public class FishAreas : NetworkBehaviour
 
     public override void Spawned()
     {
-        _fishAreas.AddRange(GetComponentsInChildren<FishArea>());
-        StartCoroutine(FindFishes());
+        StartCoroutine(Init());
     }
 
-    private IEnumerator FindFishes()
+    private IEnumerator Init()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForEndOfFrame();
 
+        FindFishes();
+        SetupAreas();
+    }
+
+    private void FindFishes()
+    {
         var rootObjects = Runner.SimulationUnityScene.GetRootGameObjects();
         foreach (var rootObject in rootObjects)
         {
@@ -28,14 +33,27 @@ public class FishAreas : NetworkBehaviour
             }
         }
 
-        _fishes.ForEach(fish => fish.transform.SetParent(transform));
+        var fishesObject = Runner.InstantiateInRunnerScene(new GameObject("Fishes"));
+        fishesObject.transform.SetParent(transform);
+        _fishes.ForEach(fish => fish.transform.SetParent(fishesObject.transform));
+    }
 
+    private void SetupAreas()
+    {
         if (Runner.IsServer)
         {
+            Config.Data.FishAreas.FishAreas.ForEach(config =>
+            {
+                var fishArea = Runner.InstantiateInRunnerScene(new GameObject("FishArea")).AddComponent<FishArea>();
+                fishArea.transform.SetParent(transform);
+                fishArea.Init(config, Runner);
+                _fishAreas.Add(fishArea);
+            });
+
             var index = 0;
             _fishAreas.ForEach(fishArea =>
             {
-                for (int i = 0; i < fishArea.MaxFish; i++)
+                for (int i = 0; i < fishArea.Config.NumberFish; i++)
                 {
                     if (index < _fishes.Count)
                     {
