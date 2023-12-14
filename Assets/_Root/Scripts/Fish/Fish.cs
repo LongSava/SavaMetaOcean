@@ -24,7 +24,7 @@ public class Fish : NetworkBehaviour
 
         _speedMove = Config.Data.Fish.SpeedMove + Random.Range(-Config.Data.Fish.RangeSpeedMove, Config.Data.Fish.RangeSpeedMove);
 
-        yield return new WaitForSeconds(Random.Range(0, 5));
+        yield return new WaitForSeconds(Random.Range(3, 5));
         StartCoroutine(Reset());
     }
 

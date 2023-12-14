@@ -24,46 +24,39 @@ public partial class Player : PTBehaviour
     [SerializeField] private Transform _headDevice;
     [SerializeField] private Transform _rightHandDevice;
     [SerializeField] private Transform _leftHandDevice;
+    [Networked] private InputData _inputData { get; set; }
     private List<Coroutine> _coroutines = new List<Coroutine>();
     private bool isSwimming;
 
     public Transform HeadDevice { get => _headDevice; set => _headDevice = value; }
 
-    public override void FixedUpdateNetwork()
+    private void HandleInput(InputData input)
     {
-        base.FixedUpdateNetwork();
+        _headDevice.position = input.PositionHead;
+        _headDevice.rotation = input.RotationHead;
+        _rightHandDevice.position = input.PositionRightHand;
+        _rightHandDevice.rotation = input.RotationRightHand;
+        _leftHandDevice.position = input.PositionLeftHand;
+        _leftHandDevice.rotation = input.RotationLeftHand;
 
-        if (!HasInputAuthority)
+        if (input.MoveBody == 0)
         {
-            if (GetInput(out InputData input))
-            {
-                _headDevice.position = input.PositionHead;
-                _headDevice.rotation = input.RotationHead;
-                _rightHandDevice.position = input.PositionRightHand;
-                _rightHandDevice.rotation = input.RotationRightHand;
-                _leftHandDevice.position = input.PositionLeftHand;
-                _leftHandDevice.rotation = input.RotationLeftHand;
-
-                if (input.MoveBody == 0)
-                {
-                    Tread();
-                    SetWeightForChainIKHands(1);
-                }
-                else if (input.MoveBody > 0)
-                {
-                    Swim();
-                    SetWeightForChainIKHands(0);
-                }
-                else
-                {
-                    Tread();
-                    SetWeightForChainIKHands(0);
-                }
-
-                _leftHand.SetGrapValue(input.GrapLeftValue.IsSet(Buttons.GrapLeft));
-                _rightHand.SetGrapValue(input.GrapRightValue.IsSet(Buttons.GrapRight));
-            }
+            Tread();
+            SetWeightForChainIKHands(1);
         }
+        else if (input.MoveBody > 0)
+        {
+            Swim();
+            SetWeightForChainIKHands(0);
+        }
+        else
+        {
+            Tread();
+            SetWeightForChainIKHands(0);
+        }
+
+        _leftHand.SetGrapValue(input.GripButtonLeft.IsSet(Buttons.GripButtonLeft));
+        _rightHand.SetGrapValue(input.GripButtonRight.IsSet(Buttons.GripButtonRight));
     }
 
     public override void Spawned()
@@ -115,7 +108,7 @@ public partial class Player : PTBehaviour
 
         _chainIKHands.ForEach(chainIKHand =>
         {
-            var coroutine = StartCoroutine(SetWeightForChainIKHand(chainIKHand, weight, 0.5f));
+            var coroutine = StartCoroutine(SetWeightForChainIKHand(chainIKHand, weight, 0.3f));
             _coroutines.Add(coroutine);
         });
     }
@@ -128,7 +121,7 @@ public partial class Player : PTBehaviour
             while (true)
             {
                 float offset = weight - weightCurrent;
-                if (offset > Runner.DeltaTime / time)
+                if (Mathf.Abs(offset) > Runner.DeltaTime / time)
                 {
                     weightCurrent = weightCurrent + offset * Runner.DeltaTime / time;
                     chainIK.weight = weightCurrent;

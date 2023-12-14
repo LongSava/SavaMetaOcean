@@ -5,6 +5,14 @@ public partial class Player
 {
     [SerializeField] private InputAsset _inputAsset;
 
+    public override void FixedUpdateClient()
+    {
+        if (!HasInputAuthority)
+        {
+            HandleInput(_inputData);
+        }
+    }
+
     public override void SpawnedClient()
     {
         if (HasInputAuthority)
@@ -15,6 +23,9 @@ public partial class Player
             var events = Runner.GetComponent<NetworkEvents>();
             events.OnInput = new NetworkEvents.InputEvent();
             events.OnInput.AddListener(OnInput);
+
+            var audio = Runner.InstantiateInRunnerScene(Config.Audio.AudioSource);
+            audio.transform.SetParent(_headDevice);
         }
     }
 
@@ -22,8 +33,9 @@ public partial class Player
     {
         var inputData = new InputData();
 
-        inputData.GrapLeftValue.Set(Buttons.GrapLeft, _inputAsset.Player.GrapLeftValue.IsPressed());
-        inputData.GrapRightValue.Set(Buttons.GrapRight, _inputAsset.Player.GrapRightValue.IsPressed());
+        inputData.GripButtonLeft.Set(Buttons.GripButtonLeft, _inputAsset.Player.GripButtonLeft.IsPressed());
+        inputData.GripButtonRight.Set(Buttons.GripButtonRight, _inputAsset.Player.GripButtonRight.IsPressed());
+        inputData.TriggerButtonRight.Set(Buttons.TriggerButtonRight, _inputAsset.Player.TriggerButtonRight.IsPressed());
 
         if (_inputAsset.Player.MoveBody.ReadValue<Vector2>().y > 0)
         {
@@ -63,7 +75,7 @@ public partial class Player
 
     public override void RenderClient()
     {
-        if (_inputAsset != null)
+        if (HasInputAuthority && Runner.ProvideInput)
         {
             var moveY = _inputAsset.Player.MoveBody.ReadValue<Vector2>().y;
             if (moveY == 0)
@@ -82,8 +94,8 @@ public partial class Player
                 SetWeightForChainIKHands(0);
             }
 
-            _leftHand.SetGrapValue(_inputAsset.Player.GrapLeft.ReadValue<float>());
-            _rightHand.SetGrapValue(_inputAsset.Player.GrapRight.ReadValue<float>());
+            _leftHand.SetGrapValue(_inputAsset.Player.GripLeft.ReadValue<float>());
+            _rightHand.SetGrapValue(_inputAsset.Player.GripRight.ReadValue<float>());
 
             var mouseMove = _inputAsset.Player.MoveMouse.ReadValue<Vector2>();
             if (mouseMove != Vector2.zero)

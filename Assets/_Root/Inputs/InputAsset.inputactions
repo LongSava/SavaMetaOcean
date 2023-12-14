@@ -24,7 +24,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "GrapLeft",
+                    "name": "GripLeft",
                     "type": "Value",
                     "id": "50d28564-561d-4d17-8d62-ca6ace79f7d2",
                     "expectedControlType": "Axis",
@@ -33,7 +33,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "GrapRight",
+                    "name": "GripRight",
                     "type": "Value",
                     "id": "18f91b56-b099-4de3-9f75-b7d0b548f331",
                     "expectedControlType": "Axis",
@@ -42,7 +42,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "GrapLeftValue",
+                    "name": "GripButtonLeft",
                     "type": "Button",
                     "id": "1da2f718-9120-4912-baca-bf853040236c",
                     "expectedControlType": "Button",
@@ -51,7 +51,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "GrapRightValue",
+                    "name": "GripButtonRight",
                     "type": "Button",
                     "id": "6c99d658-c5c8-4379-bcdf-c6bd9a5a3460",
                     "expectedControlType": "Button",
@@ -72,6 +72,15 @@
                     "name": "RotateHead",
                     "type": "Value",
                     "id": "bb6b6db1-45c9-4d08-bc44-aa21d8ec0980",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "TriggerButtonRight",
+                    "type": "Value",
+                    "id": "0e7372d7-31e0-4ebb-b08d-f08858f62b73",
                     "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
@@ -130,7 +139,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "GrapLeft",
+                    "action": "GripLeft",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -141,7 +150,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "GrapRight",
+                    "action": "GripRight",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -152,7 +161,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "GrapLeftValue",
+                    "action": "GripButtonLeft",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -163,7 +172,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "GrapLeftValue",
+                    "action": "GripButtonLeft",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -174,7 +183,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "GrapRightValue",
+                    "action": "GripButtonRight",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -185,7 +194,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "GrapRightValue",
+                    "action": "GripButtonRight",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -196,7 +205,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "GrapLeft",
+                    "action": "GripLeft",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -207,7 +216,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "GrapRight",
+                    "action": "GripRight",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -298,6 +307,28 @@
                     "action": "RotateHead",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "caa33247-149b-45cd-b801-f1947ee8704d",
+                    "path": "<XRController>/triggerButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TriggerButtonRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b8df9723-3f9d-41cb-90ec-991dcd15d97c",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TriggerButtonRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
