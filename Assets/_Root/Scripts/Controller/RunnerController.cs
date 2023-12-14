@@ -70,7 +70,7 @@ public class RunnerController : Singleton<RunnerController>
 
     private IEnumerator AddCameraFollower(NetworkRunner runner)
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(1f);
         CameraFollower = runner.InstantiateInRunnerScene(Config.Data.CameraFollower);
     }
 
