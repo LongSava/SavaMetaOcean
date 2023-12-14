@@ -5618,7 +5618,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2793093834386421799}
-  - component: {fileID: 967896384539262386}
+  - component: {fileID: 2274155867148107296}
+  - component: {fileID: 1758838665574425237}
   m_Layer: 0
   m_Name: JellyFish_04
   m_TagString: Untagged
@@ -5646,23 +5647,44 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!111 &967896384539262386
-Animation:
+--- !u!114 &2274155867148107296
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3281084154789225117}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 397594736846607017, guid: e0c8f30ec5579874bb836d04860a706b,
-    type: 3}
-  m_Animations:
-  - {fileID: 397594736846607017, guid: e0c8f30ec5579874bb836d04860a706b, type: 3}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfba93fc89a4f434ab79de3d83231599, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _material: {fileID: 2100000, guid: 1a564c951e19aad4d96da9eab52a134a, type: 2}
+  _animator: {fileID: 1758838665574425237}
+  _speedAnimator: 1
+  _speedMove: 0
+  _timeChangeMaterial: 0
+--- !u!95 &1758838665574425237
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3281084154789225117}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d7c9f2f8b1d32e247af02ed11937bba3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3346390563144813689
 GameObject:
   m_ObjectHideFlags: 0
