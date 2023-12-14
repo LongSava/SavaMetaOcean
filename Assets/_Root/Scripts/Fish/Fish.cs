@@ -10,6 +10,8 @@ public class Fish : NetworkBehaviour
     private Vector3 _offsetPosition;
     private float _speedMove;
 
+    public bool IsRelease { get => _isRelease; set => _isRelease = value; }
+
     public override void Spawned()
     {
         StartCoroutine(Reset());

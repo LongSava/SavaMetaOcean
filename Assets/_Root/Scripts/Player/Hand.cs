@@ -48,11 +48,15 @@ public class Hand : NetworkBehaviour
         _grapValueOld = _grapValue;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Fish"))
         {
-            _fish = other.GetComponent<Fish>();
+            var fish = other.GetComponent<Fish>();
+            if (fish.IsRelease)
+            {
+                _fish = fish;
+            }
         }
     }
 
