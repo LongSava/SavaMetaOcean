@@ -123,7 +123,7 @@ public class RunnerController : Singleton<RunnerController>
             }
         }
 
-        if (_runners.Count > 0)
+        if (_runners.Count > 1)
         {
             ChangeRunner(1);
         }
