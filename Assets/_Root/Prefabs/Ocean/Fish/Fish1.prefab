@@ -51,6 +51,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _interpolationDataSource: 0
   _animator: {fileID: 8216780296113225461}
+  _networkTransform: {fileID: 0}
 --- !u!136 &1558068533661159110
 CapsuleCollider:
   m_ObjectHideFlags: 0

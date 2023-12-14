@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 855fe702201900b4eb65dc00fbedf58a, type: 3}
   m_Name: DataConfig
   m_EditorClassIdentifier: 
-  NumberPlayer: 1
+  NumberPlayer: 0
   Runner: {fileID: 5619035592542766692, guid: faf0bbcfc1315804e906f2f548a34d1c, type: 3}
   CameraFollower: {fileID: 3327078082887505698, guid: c3b376b411e244941abd59a3c2695152,
     type: 3}
@@ -28,10 +28,10 @@ MonoBehaviour:
     - {fileID: 3788607453540743139, guid: f6ced2a2496d3124f9b3437b7e07924e, type: 3}
     - {fileID: 4928063136161313697, guid: 75bb05c37628169449eb485ddb7e9cc5, type: 3}
     - {fileID: 7674147974999670020, guid: 52cdf1672ca60dc4fa0f2384dbad0875, type: 3}
-    SpeedMove: 5
+    SpeedMove: 2
     SpeedRotate: 0.5
     RangeTargetPosition: 3
-    RangeSpeedMove: 0.5
+    RangeSpeedMove: 1
   FishAreas:
     Object: {fileID: 6354802072813465026, guid: 960f9350c4f54ff4c9772b79a1d5c069,
       type: 3}
@@ -43,46 +43,46 @@ MonoBehaviour:
       Position: {x: 30, y: 25, z: 180}
       Rotation: {x: 0, y: 0, z: 0, w: 0}
       Size: {x: 70, y: 25, z: 70}
-      NumberFish: 75
+      NumberFish: 25
     - FishFlocks:
-      - SpeedMove: 5
-      - SpeedMove: 5
+      - SpeedMove: 3
+      - SpeedMove: 3
       Position: {x: 30, y: 40, z: 180}
       Rotation: {x: 0, y: 0, z: 0, w: 0}
       Size: {x: 70, y: 25, z: 70}
-      NumberFish: 25
+      NumberFish: 10
     - FishFlocks:
       - SpeedMove: 3
-      - SpeedMove: 2
+      - SpeedMove: 3
       Position: {x: 100, y: 20, z: 170}
       Rotation: {x: 0, y: 0, z: 0, w: 0}
       Size: {x: 40, y: 20, z: 30}
-      NumberFish: 50
+      NumberFish: 20
     - FishFlocks:
-      - SpeedMove: 1
+      - SpeedMove: 3
       Position: {x: 150, y: 20, z: 200}
       Rotation: {x: 0, y: -0.34202012, z: 0, w: 0.9396926}
       Size: {x: 60, y: 20, z: 30}
-      NumberFish: 25
+      NumberFish: 10
     - FishFlocks:
       - SpeedMove: 3
-      - SpeedMove: 2
+      - SpeedMove: 3
       Position: {x: 170, y: 20, z: 250}
       Rotation: {x: 0, y: -0.70710677, z: 0, w: 0.70710677}
       Size: {x: 70, y: 20, z: 30}
-      NumberFish: 25
+      NumberFish: 10
     - FishFlocks:
-      - SpeedMove: 5
-      - SpeedMove: 5
+      - SpeedMove: 3
+      - SpeedMove: 3
       Position: {x: 190, y: 48, z: 333}
       Rotation: {x: 0, y: -0.08715574, z: 0, w: 0.9961947}
       Size: {x: 100, y: 50, z: 30}
-      NumberFish: 25
+      NumberFish: 10
     - FishFlocks:
-      - SpeedMove: 5
-      - SpeedMove: 5
-      - SpeedMove: 5
+      - SpeedMove: 3
+      - SpeedMove: 3
+      - SpeedMove: 3
       Position: {x: 193, y: 55, z: 363}
       Rotation: {x: 0, y: -0.0784591, z: 0, w: 0.9969173}
       Size: {x: 100, y: 25, z: 70}
-      NumberFish: 75
+      NumberFish: 25
