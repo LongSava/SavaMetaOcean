@@ -3,9 +3,25 @@ using UnityEngine;
 
 public class FishArea : MonoBehaviour
 {
-    [SerializeField] private int _maxFish;
-    [SerializeField] private List<FishFlock> _fishFlocks;
+    public List<FishFlock> FishFlocks = new List<FishFlock>();
+    public float XHalf;
+    public float YHalf;
+    public float ZHalf;
+    public int MaxFish;
+    public int NumberFlock;
 
-    public List<FishFlock> FishFlocks { get => _fishFlocks; set => _fishFlocks = value; }
-    public int MaxFish { get => _maxFish; set => _maxFish = value; }
+    private void Awake()
+    {
+        var boxCollider = GetComponent<BoxCollider>();
+        XHalf = boxCollider.bounds.size.x / 2;
+        YHalf = boxCollider.bounds.size.y / 2;
+        ZHalf = boxCollider.bounds.size.z / 2;
+
+        for (int i = 0; i < NumberFlock; i++)
+        {
+            var flock = Instantiate(Config.Data.Fish.Flock.Object, transform);
+            flock.SetFishArea(this);
+            FishFlocks.Add(flock);
+        }
+    }
 }

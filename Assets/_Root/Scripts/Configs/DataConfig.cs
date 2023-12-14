@@ -11,7 +11,6 @@ public class DataConfig : ScriptableObject
     public CameraFollower CameraFollower;
     public PlayerConfig Player;
     public FishConfig Fish;
-    public FlockConfig Flock;
 }
 
 [Serializable]
@@ -31,11 +30,13 @@ public class FishConfig
     public FishAreas FishAreas;
     public float RangeTargetPosition;
     public float RangeSpeedMove;
+    public FlockConfig Flock;
 }
 
 [Serializable]
 public class FlockConfig
 {
+    public FishFlock Object;
     public float SpeedMove;
 }
 

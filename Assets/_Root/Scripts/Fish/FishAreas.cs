@@ -5,11 +5,12 @@ using UnityEngine;
 
 public class FishAreas : NetworkBehaviour
 {
-    [SerializeField] private List<FishArea> _fishAreas;
-    [SerializeField] private List<Fish> _fishes;
+    private List<FishArea> _fishAreas = new List<FishArea>();
+    private List<Fish> _fishes = new List<Fish>();
 
     public override void Spawned()
     {
+        _fishAreas.AddRange(GetComponentsInChildren<FishArea>());
         StartCoroutine(FindFishes());
     }
 
