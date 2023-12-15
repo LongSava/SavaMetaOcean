@@ -43,8 +43,8 @@ public class RunnerController : Singleton<RunnerController>
         return runner.StartGame(new StartGameArgs()
         {
             GameMode = gameMode,
-            CustomLobbyName = "SavaOcean",
-            SessionName = "SavaOcean",
+            CustomLobbyName = "SavaOcean2",
+            SessionName = "SavaOcean2",
             Scene = SceneManager.GetActiveScene().buildIndex,
             SceneManager = runner.AddComponent<NetworkSceneManagerDefault>(),
             Initialized = OnInit
