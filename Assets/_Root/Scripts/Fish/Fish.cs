@@ -42,7 +42,7 @@ public class Fish : NetworkBehaviour
             var targetRotation = Quaternion.LookRotation(_flock.transform.position + _offsetPosition - transform.position);
             transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Runner.DeltaTime * Config.Data.Fish.SpeedRotate);
 
-            transform.position += transform.forward * Runner.DeltaTime * _speedMove;
+            transform.position += _speedMove * Runner.DeltaTime * transform.forward;
         }
     }
 

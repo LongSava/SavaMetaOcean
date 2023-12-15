@@ -7,6 +7,7 @@ public class JellyFishMaterial : MonoBehaviour
     [SerializeField] private Vector2 _timeChange;
     private float _speedChange;
     private Color _colorTarget;
+    private bool _isPlayerStay;
 
     private void Start()
     {
@@ -18,9 +19,17 @@ public class JellyFishMaterial : MonoBehaviour
         var r = Random.value;
         var g = Random.value;
         var b = Random.value;
-        _colorTarget = new Color(r, g, b, 1);
+        var a = Mathf.Clamp(Random.value, 0.3f, 1f);
+        _colorTarget = new Color(r, g, b, a);
 
-        _speedChange = Random.Range(_timeChange.x, _timeChange.y);
+        if (_isPlayerStay)
+        {
+            _speedChange = 0.5f;
+        }
+        else
+        {
+            _speedChange = Random.Range(_timeChange.x, _timeChange.y);
+        }
         yield return new WaitForSeconds(_speedChange);
 
         StartCoroutine(ChangeColor());
@@ -29,5 +38,21 @@ public class JellyFishMaterial : MonoBehaviour
     private void Update()
     {
         _material.color = Color.Lerp(_material.color, _colorTarget, Time.deltaTime * _speedChange);
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            _isPlayerStay = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            _isPlayerStay = false;
+        }
     }
 }

@@ -8,8 +8,7 @@ public class CameraFollower : MonoBehaviour
     {
         if (Target != null)
         {
-            transform.position = Target.position;
-            transform.rotation = Target.rotation;
+            transform.SetPositionAndRotation(Target.position, Target.rotation);
         }
     }
 }

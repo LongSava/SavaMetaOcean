@@ -107,7 +107,7 @@ public partial class Player
             if (rotateHead != 0)
             {
                 _trackedPoseDriver.enabled = false;
-                _headDevice.Rotate(Vector3.right * rotateHead * Runner.DeltaTime * 30);
+                _headDevice.Rotate(30 * rotateHead * Runner.DeltaTime * Vector3.right);
             }
         }
     }

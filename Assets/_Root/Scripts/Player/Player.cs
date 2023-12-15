@@ -123,7 +123,7 @@ public partial class Player : PTBehaviour
                 float offset = weight - weightCurrent;
                 if (Mathf.Abs(offset) > Runner.DeltaTime / time)
                 {
-                    weightCurrent = weightCurrent + offset * Runner.DeltaTime / time;
+                    weightCurrent += offset * Runner.DeltaTime / time;
                     chainIK.weight = weightCurrent;
                     yield return null;
                 }

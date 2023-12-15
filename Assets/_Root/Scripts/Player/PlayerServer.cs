@@ -16,10 +16,10 @@ public partial class Player
             var speedAddition = 2 * Runner.DeltaTime * (input.TriggerButtonRight.IsSet(Buttons.TriggerButtonRight) ? 1 : -1);
             _speedMove = Mathf.Clamp(_speedMove + speedAddition, Config.Data.Player.SpeedMove, Config.Data.Player.SpeedMove * 3);
 
-            var position = transform.InverseTransformVector(_headDevice.forward) * input.MoveBody * _speedMove * Runner.DeltaTime;
+            var position = _speedMove * input.MoveBody * Runner.DeltaTime * transform.InverseTransformVector(_headDevice.forward);
             transform.Translate(position);
 
-            var rotation = Vector3.up * input.RotateBody * Config.Data.Player.SpeedRotate * Runner.DeltaTime;
+            var rotation = Config.Data.Player.SpeedRotate * input.RotateBody * Runner.DeltaTime * Vector3.up;
             transform.Rotate(rotation);
 
             HandleInput(input);
