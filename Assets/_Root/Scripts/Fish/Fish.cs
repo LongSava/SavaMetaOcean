@@ -35,7 +35,7 @@ public class Fish : NetworkBehaviour
         _flock = fishFlock;
     }
 
-    public override void Render()
+    public override void FixedUpdateNetwork()
     {
         if (_flock != null && _isRelease)
         {

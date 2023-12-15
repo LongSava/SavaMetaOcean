@@ -92,7 +92,7 @@ public class RunnerController : Singleton<RunnerController>
         if (runner.IsServer)
         {
             var position = new Vector3(Random.Range(-5, 5), 0, Random.Range(-5, 5)) + Config.Data.Player.PositionSpawned;
-            var rotation = Quaternion.identity;
+            var rotation = Quaternion.Euler(0, -90, 0);
             var player = runner.Spawn(Config.Data.Player.Object, position, rotation, playerRef);
             _players.Add(playerRef, player.GetComponent<NetworkObject>());
         }
