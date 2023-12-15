@@ -4,15 +4,33 @@ using UnityEngine;
 public class ClamShell : MonoBehaviour
 {
     [SerializeField] private Animator _animator;
+    [SerializeField] private ParticleSystem _particleSystem;
+    private bool _isParticlePlaying;
+    private Coroutine _coroutine;
 
     public void Open()
     {
         _animator.SetBool("IsOpen", true);
+
+        if (!_isParticlePlaying)
+        {
+            _coroutine = StartCoroutine(PlayParticle());
+            _isParticlePlaying = true;
+        }
+    }
+
+    public IEnumerator PlayParticle()
+    {
+        yield return new WaitForSeconds(1);
+
+        _particleSystem.Play();
     }
 
     public void Close()
     {
         _animator.SetBool("IsOpen", false);
+        _isParticlePlaying = false;
+        StopCoroutine(_coroutine);
     }
 
     private void OnTriggerStay(Collider other)
