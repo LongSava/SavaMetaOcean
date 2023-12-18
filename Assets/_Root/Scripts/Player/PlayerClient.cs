@@ -26,6 +26,7 @@ public partial class Player
 
             var audio = Runner.InstantiateInRunnerScene(Config.Audio.AudioSource);
             audio.transform.SetParent(_headDevice);
+            audio.transform.localPosition = Vector3.zero;
         }
     }
 
