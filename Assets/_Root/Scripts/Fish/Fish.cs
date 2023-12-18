@@ -9,6 +9,7 @@ public class Fish : NetworkBehaviour
     private FishFlock _flock;
     private Vector3 _offsetPosition;
     private float _speedMove;
+    private Player _player;
 
     public bool IsRelease { get => _isRelease; set => _isRelease = value; }
 
@@ -41,7 +42,16 @@ public class Fish : NetworkBehaviour
         {
             var position = transform.position + _speedMove * Runner.DeltaTime * transform.forward;
 
-            var targetRotation = Quaternion.LookRotation(_flock.transform.position + _offsetPosition - transform.position);
+            Quaternion targetRotation;
+            if (_player != null)
+            {
+                Vector3 direction = _player.HeadDevice.InverseTransformPoint(transform.position);
+                targetRotation = Quaternion.LookRotation((direction.x > 0 ? 1 : -1) * 10 * _player.HeadDevice.right - transform.position);
+            }
+            else
+            {
+                targetRotation = Quaternion.LookRotation(_flock.transform.position + _offsetPosition - transform.position);
+            }
             var rotation = Quaternion.Lerp(transform.rotation, targetRotation, Runner.DeltaTime * Config.Data.Fish.SpeedRotate);
 
             transform.SetPositionAndRotation(position, rotation);
@@ -59,5 +69,21 @@ public class Fish : NetworkBehaviour
     {
         _isRelease = true;
         _animator.speed = Config.Data.Fish.SpeedMove;
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            _player = other.GetComponent<Player>();
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            _player = null;
+        }
     }
 }

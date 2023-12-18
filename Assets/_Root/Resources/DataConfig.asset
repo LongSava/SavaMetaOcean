@@ -29,7 +29,7 @@ MonoBehaviour:
     - {fileID: 4928063136161313697, guid: 75bb05c37628169449eb485ddb7e9cc5, type: 3}
     - {fileID: 7674147974999670020, guid: 52cdf1672ca60dc4fa0f2384dbad0875, type: 3}
     SpeedMove: 2
-    SpeedRotate: 0.5
+    SpeedRotate: 1
     RangeTargetPosition: 3
     RangeSpeedMove: 1
   FishAreas:
