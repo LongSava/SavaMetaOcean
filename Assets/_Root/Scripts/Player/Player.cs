@@ -24,6 +24,7 @@ public partial class Player : PTBehaviour
     [SerializeField] private Transform _headDevice;
     [SerializeField] private Transform _rightHandDevice;
     [SerializeField] private Transform _leftHandDevice;
+    [SerializeField] private Vector3 _offsetHead;
     [Networked] private InputData _inputData { get; set; }
     private List<Coroutine> _coroutines = new List<Coroutine>();
     private bool isSwimming;
@@ -78,7 +79,7 @@ public partial class Player : PTBehaviour
     {
         base.Render();
 
-        _bodyOffset.position += _headDevice.transform.position - _head.position;
+        _bodyOffset.position += _headDevice.position - _head.position + _headDevice.forward * _offsetHead.z + _headDevice.right * _offsetHead.x + _headDevice.up * _offsetHead.y;
         if (isSwimming)
         {
             _bodyOffset.rotation = Quaternion.RotateTowards(_bodyOffset.rotation, _headDevice.rotation, Runner.DeltaTime * 30);
