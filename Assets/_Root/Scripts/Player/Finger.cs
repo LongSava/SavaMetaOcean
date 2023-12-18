@@ -1,18 +1,15 @@
+using Fusion;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
 
-public class Finger : MonoBehaviour
+public class Finger : NetworkBehaviour
 {
     [SerializeField] private ChainIKConstraint _fingerTip;
     [SerializeField] private Vector3 _fingerTipOffset;
 
-    private void Awake()
+    public override void Spawned()
     {
         Grap(0);
-    }
-
-    private void Start()
-    {
         _fingerTip.transform.position = transform.position + _fingerTipOffset.x * transform.right + _fingerTipOffset.y * transform.up + _fingerTipOffset.z * transform.forward;
     }
 
