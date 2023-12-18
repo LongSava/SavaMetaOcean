@@ -39,17 +39,18 @@ public class Fish : NetworkBehaviour
     {
         if (_flock != null && _isRelease)
         {
-            var targetRotation = Quaternion.LookRotation(_flock.transform.position + _offsetPosition - transform.position);
-            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Runner.DeltaTime * Config.Data.Fish.SpeedRotate);
+            var position = transform.position + _speedMove * Runner.DeltaTime * transform.forward;
 
-            transform.position += _speedMove * Runner.DeltaTime * transform.forward;
+            var targetRotation = Quaternion.LookRotation(_flock.transform.position + _offsetPosition - transform.position);
+            var rotation = Quaternion.Lerp(transform.rotation, targetRotation, Runner.DeltaTime * Config.Data.Fish.SpeedRotate);
+
+            transform.SetPositionAndRotation(position, rotation);
         }
     }
 
     public void Catched(Transform location)
     {
-        transform.position = location.position;
-        transform.rotation = location.rotation;
+        transform.SetPositionAndRotation(location.position, location.rotation);
         _isRelease = false;
         _animator.speed = Config.Data.Fish.SpeedMove * 5;
     }

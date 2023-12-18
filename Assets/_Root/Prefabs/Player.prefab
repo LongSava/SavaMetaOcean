@@ -2897,8 +2897,6 @@ MonoBehaviour:
   - {fileID: 3404178888260703655}
   - {fileID: 7701733586798453071}
   - {fileID: 2064294351152161304}
-  _fish: {fileID: 0}
-  _grapValue: 0
   _xRBaseController: {fileID: 2942518129228962826}
 --- !u!1 &2531080855228947139 stripped
 GameObject:
@@ -2971,8 +2969,6 @@ MonoBehaviour:
   - {fileID: 1433192296039222702}
   - {fileID: 6472225947903209628}
   - {fileID: 6700731527176544798}
-  _fish: {fileID: 0}
-  _grapValue: 0
   _xRBaseController: {fileID: 1190042516217940494}
 --- !u!4 &4343646471069442988 stripped
 Transform:

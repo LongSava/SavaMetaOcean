@@ -55,7 +55,7 @@ public class Hand : NetworkBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Fish"))
+        if (_fish == null && other.CompareTag("Fish"))
         {
             var fish = other.GetComponent<Fish>();
             if (fish.IsRelease)
