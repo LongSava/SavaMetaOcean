@@ -2725,14 +2725,7 @@ PrefabInstance:
     - target: {fileID: 5866666021909216657, guid: 0b4df4f8ace068743befb46567f38df2,
         type: 3}
       propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed
-        by Humanoid clips.\n\tTransform 'mixamorig:LeftHandThumb2'\n\tTransform 'mixamorig:LeftHandIndex1'\n\tTransform
-        'mixamorig:LeftHandPinky2'\n\tTransform 'mixamorig:RightHandRing2'\n\tTransform
-        'mixamorig:LeftHandThumb3'\n\tTransform 'mixamorig:RightArm'\n\tTransform
-        'mixamorig:LeftHandMiddle3'\n\tTransform 'mixamorig:LeftShoulder'\n\tTransform
-        'mixamorig:RightHandRing1'\n\tTransform 'mixamorig:RightHandIndex3'\n\tand
-        more ..."
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 0b4df4f8ace068743befb46567f38df2,
         type: 3}
@@ -2906,6 +2899,7 @@ MonoBehaviour:
   - {fileID: 2064294351152161304}
   _fish: {fileID: 0}
   _grapValue: 0
+  _xRBaseController: {fileID: 2942518129228962826}
 --- !u!1 &2531080855228947139 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4549111882529890269, guid: 0b4df4f8ace068743befb46567f38df2,
@@ -2979,6 +2973,7 @@ MonoBehaviour:
   - {fileID: 6700731527176544798}
   _fish: {fileID: 0}
   _grapValue: 0
+  _xRBaseController: {fileID: 1190042516217940494}
 --- !u!4 &4343646471069442988 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -6897756558726502734, guid: 0b4df4f8ace068743befb46567f38df2,

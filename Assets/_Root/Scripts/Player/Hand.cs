@@ -1,14 +1,18 @@
+using System.Collections;
 using System.Collections.Generic;
 using Fusion;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class Hand : NetworkBehaviour
 {
     [SerializeField] private Transform _fishTransform;
     [SerializeField] private List<Finger> _fingers;
-    [SerializeField] private Fish _fish;
-    [SerializeField] private float _grapValue;
+    [SerializeField] private XRBaseController _xRBaseController;
+    private Fish _fish;
+    private float _grapValue;
     private float _grapValueOld;
+    private bool _isSendingHaptic;
 
     public void SetFish(Fish fish)
     {
@@ -35,6 +39,7 @@ public class Hand : NetworkBehaviour
             if (_grapValue == 1)
             {
                 _fish.Catched(_fishTransform);
+                StartCoroutine(SendHapticImpulse(1, 1));
             }
             else
             {
@@ -65,6 +70,17 @@ public class Hand : NetworkBehaviour
         if (other.CompareTag("Fish") && _grapValue == 0)
         {
             _fish = null;
+        }
+    }
+
+    private IEnumerator SendHapticImpulse(float amplitude, float duration)
+    {
+        if (!_isSendingHaptic)
+        {
+            _isSendingHaptic = true;
+            _xRBaseController.SendHapticImpulse(amplitude, duration);
+            yield return new WaitForSeconds(duration * 2);
+            _isSendingHaptic = false;
         }
     }
 }
