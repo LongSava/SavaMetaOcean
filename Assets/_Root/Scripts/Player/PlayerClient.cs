@@ -4,6 +4,8 @@ using UnityEngine;
 public partial class Player
 {
     [SerializeField] private InputAsset _inputAsset;
+    private int _lastStateRotateBody;
+    private float _timerRotateBody;
 
     public override void FixedUpdateClient()
     {
@@ -56,17 +58,33 @@ public partial class Player
             inputData.MoveBody = 0;
         }
 
-        if (_inputAsset.Player.RotateBody.ReadValue<Vector2>().x > 0)
+        if (_timerRotateBody < 0)
         {
-            inputData.RotateBody = 1;
-        }
-        else if (_inputAsset.Player.RotateBody.ReadValue<Vector2>().x < 0)
-        {
-            inputData.RotateBody = -1;
+            var rotateBody = _inputAsset.Player.RotateBody.ReadValue<Vector2>();
+
+            if (rotateBody.x > 0.9f && _lastStateRotateBody == 0)
+            {
+                _lastStateRotateBody = 1;
+                inputData.RotateBody = 1;
+                _timerRotateBody = 0.1f;
+            }
+            else if (rotateBody.x < -0.9f && _lastStateRotateBody == 0)
+            {
+                _lastStateRotateBody = -1;
+                inputData.RotateBody = -1;
+                _timerRotateBody = 0.1f;
+            }
+            else if (rotateBody.x == 0)
+            {
+                _lastStateRotateBody = 0;
+                inputData.RotateBody = 0;
+                _timerRotateBody = 0;
+            }
         }
         else
         {
-            inputData.RotateBody = 0;
+            _timerRotateBody -= Runner.DeltaTime;
+            inputData.RotateBody = _lastStateRotateBody;
         }
 
         inputData.PositionHead = _headDevice.position;
