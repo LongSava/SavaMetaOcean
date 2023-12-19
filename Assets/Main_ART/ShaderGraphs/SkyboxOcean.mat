@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: SkyboxOcean
+  m_Shader: {fileID: 4800000, guid: 62e4161bacd72ef4e9742dadd207fb67, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Texture:
+        m_Texture: {fileID: 2800000, guid: a23c8e3c7aed76a43a5b1e9fe1fa978f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Amplitude: 1
+    - _DistanceFadePower: 1.17
+    - _HIghtWaveFrequencey: 1
+    - _NadirBlenPower: 1
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _WaveSpeed: 1
+    - _ZenithBlendPower: 20
+    m_Colors:
+    - _AnimationSpeed: {r: 0.01, g: 0.01, b: 0, a: 1}
+    - _ColorTexture: {r: 0.124801256, g: 0.086240634, b: 0.9622642, a: 0}
+    - _HorizonColor: {r: 0, g: 0, b: 0, a: 0}
+    - _NadirColor: {r: 0.09411765, g: 0.09411765, b: 0.09411765, a: 0}
+    - _Scale: {r: 0.04, g: 0.04, b: 0, a: 0}
+    - _ZenithColor: {r: 0.9716981, g: 0.9716981, b: 0.9716981, a: 0}
+  m_BuildTextureStacks: []

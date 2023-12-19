@@ -27,6 +27,11 @@ public partial class Player
             var audio = Runner.InstantiateInRunnerScene(Config.Audio.AudioSource);
             audio.transform.SetParent(_headDevice);
             audio.transform.localPosition = Vector3.zero;
+
+            var dust = Runner.InstantiateInRunnerScene(Config.Data.Particle.Dust);
+            dust.transform.SetParent(transform);
+            dust.transform.localPosition = Vector3.zero;
+            dust.transform.localScale = Vector3.one;
         }
     }
 

@@ -66,12 +66,23 @@ public class RunnerController : Singleton<RunnerController>
 
             StartCoroutine(AddCameraFollower(runner));
         }
+        else if (runner.IsPlayer)
+        {
+            StartCoroutine(AddParticle(runner));
+        }
     }
 
     private IEnumerator AddCameraFollower(NetworkRunner runner)
     {
         yield return new WaitForSeconds(2f);
         CameraFollower = runner.InstantiateInRunnerScene(Config.Data.CameraFollower);
+    }
+
+    private IEnumerator AddParticle(NetworkRunner runner)
+    {
+        yield return new WaitForSeconds(2f);
+        runner.InstantiateInRunnerScene(Config.Data.Particle.BubbleCommon);
+        runner.InstantiateInRunnerScene(Config.Data.Particle.SunLight);
     }
 
     private void OnPlayerLeft(NetworkRunner runner, PlayerRef playerRef)

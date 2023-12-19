@@ -12,6 +12,15 @@ public class DataConfig : ScriptableObject
     public PlayerConfig Player;
     public FishConfig Fish;
     public FishAreasConfig FishAreas;
+    public ParticleConfig Particle;
+}
+
+[Serializable]
+public class ParticleConfig
+{
+    public GameObject BubbleCommon;
+    public GameObject SunLight;
+    public GameObject Dust;
 }
 
 [Serializable]

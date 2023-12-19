@@ -19,7 +19,7 @@ MonoBehaviour:
   Player:
     Object: {fileID: 7630828481057321148, guid: 9895f5c0ba9b15648b62caf3e900504b,
       type: 3}
-    SpeedMove: 5
+    SpeedMove: 100
     SpeedRotate: 300
     PositionSpawned: {x: 108, y: 15, z: 173}
   Fish:
@@ -86,3 +86,9 @@ MonoBehaviour:
       Rotation: {x: 0, y: -0.0784591, z: 0, w: 0.9969173}
       Size: {x: 100, y: 25, z: 70}
       NumberFish: 25
+  Particle:
+    BubbleCommon: {fileID: 8789502228493122345, guid: f07583ae2e721be4fbe270586e6eb93b,
+      type: 3}
+    SunLight: {fileID: 5002629167441802333, guid: cb9b54d4e824c294eadfb9bb3c8766d4,
+      type: 3}
+    Dust: {fileID: 7873619849417109862, guid: 39ca56dd42b7bda4fb28f66d56c6ab10, type: 3}
