@@ -16,7 +16,7 @@ public class JellyFish : MonoBehaviour
 
     private void Update()
     {
-        if (transform.position.y > _positionYOrigin + 50)
+        if (transform.position.y > _positionYOrigin + 10)
         {
             _direction = Vector3.down;
         }

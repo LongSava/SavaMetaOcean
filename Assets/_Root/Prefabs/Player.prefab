@@ -1578,11 +1578,10 @@ GameObject:
   - component: {fileID: 7630828481057321145}
   - component: {fileID: 7630828481057321150}
   - component: {fileID: 7630828481057321151}
-  - component: {fileID: 4761643151438388545}
   - component: {fileID: 2235062142749795244}
   m_Layer: 6
   m_Name: Player
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1676,20 +1675,6 @@ MonoBehaviour:
   - {fileID: 6472225947903209628}
   - {fileID: 6700731527176544798}
   SimulationBehaviours: []
---- !u!136 &4761643151438388545
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7630828481057321148}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 1.5
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: -0.2, z: -0.3}
 --- !u!114 &2235062142749795244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2773,6 +2758,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Male_DivingSuit_rig
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0b4df4f8ace068743befb46567f38df2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 0b4df4f8ace068743befb46567f38df2,
         type: 3}
       propertyPath: m_Controller
@@ -2892,6 +2882,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Weight: 1
   m_Effectors: []
+--- !u!136 &1886591745231262224
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1207224558072395855}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2.5
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!4 &1686680212250191159 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8400955822856789975, guid: 0b4df4f8ace068743befb46567f38df2,

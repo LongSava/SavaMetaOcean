@@ -18,8 +18,8 @@ RenderSettings:
   m_FogColor: {r: 0, g: 0, b: 0, a: 1}
   m_FogMode: 1
   m_FogDensity: 0.005
-  m_LinearFogStart: 10
-  m_LinearFogEnd: 350
+  m_LinearFogStart: 0
+  m_LinearFogEnd: 700
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
@@ -241,6 +241,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: JellyFish_01 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5179224126001145943, guid: 1ff6da105feb1be40be2a596bb799218,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5524681211569386221, guid: 1ff6da105feb1be40be2a596bb799218,
         type: 3}
@@ -613,7 +618,7 @@ PrefabInstance:
     - target: {fileID: 3839091917877536585, guid: 1ff6da105feb1be40be2a596bb799218,
         type: 3}
       propertyPath: _speedMove
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3839091917877536585, guid: 1ff6da105feb1be40be2a596bb799218,
         type: 3}
@@ -653,7 +658,7 @@ PrefabInstance:
     - target: {fileID: 5524681211569386221, guid: 1ff6da105feb1be40be2a596bb799218,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 133.3
+      value: 123.3
       objectReference: {fileID: 0}
     - target: {fileID: 5524681211569386221, guid: 1ff6da105feb1be40be2a596bb799218,
         type: 3}
@@ -713,7 +718,7 @@ PrefabInstance:
     - target: {fileID: 1393525767750428199, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
       propertyPath: _speedMove
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1393525767750428199, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
@@ -724,6 +729,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: JellyFish_03 (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1505227127801308045, guid: 909322017b4a13c4d86671573a9f50ea,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2281201534556485943, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
@@ -991,7 +1001,7 @@ PrefabInstance:
     - target: {fileID: 3839091917877536585, guid: 1ff6da105feb1be40be2a596bb799218,
         type: 3}
       propertyPath: _speedMove
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3839091917877536585, guid: 1ff6da105feb1be40be2a596bb799218,
         type: 3}
@@ -1031,7 +1041,7 @@ PrefabInstance:
     - target: {fileID: 5524681211569386221, guid: 1ff6da105feb1be40be2a596bb799218,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 133.3
+      value: 101.6
       objectReference: {fileID: 0}
     - target: {fileID: 5524681211569386221, guid: 1ff6da105feb1be40be2a596bb799218,
         type: 3}
@@ -1102,6 +1112,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: JellyFish_03 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1505227127801308045, guid: 909322017b4a13c4d86671573a9f50ea,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2281201534556485943, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
@@ -1191,7 +1206,7 @@ PrefabInstance:
     - target: {fileID: 2274155867148107296, guid: 157d7012402d0094e994b7e46ca875f8,
         type: 3}
       propertyPath: _speedMove
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2274155867148107296, guid: 157d7012402d0094e994b7e46ca875f8,
         type: 3}
@@ -1287,6 +1302,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: JellyFish_04 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3281084154789225117, guid: 157d7012402d0094e994b7e46ca875f8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 157d7012402d0094e994b7e46ca875f8, type: 3}
@@ -2392,7 +2412,7 @@ PrefabInstance:
     - target: {fileID: 4631169647422312469, guid: 07c9e33034fa7b541b33d8070e117cc4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 110
+      value: 100.5
       objectReference: {fileID: 0}
     - target: {fileID: 4631169647422312469, guid: 07c9e33034fa7b541b33d8070e117cc4,
         type: 3}
@@ -2442,7 +2462,7 @@ PrefabInstance:
     - target: {fileID: 7185354200210450371, guid: 07c9e33034fa7b541b33d8070e117cc4,
         type: 3}
       propertyPath: _speedMove
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7185354200210450371, guid: 07c9e33034fa7b541b33d8070e117cc4,
         type: 3}
@@ -2467,7 +2487,7 @@ PrefabInstance:
     - target: {fileID: 3839091917877536585, guid: 1ff6da105feb1be40be2a596bb799218,
         type: 3}
       propertyPath: _speedMove
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3839091917877536585, guid: 1ff6da105feb1be40be2a596bb799218,
         type: 3}
@@ -2478,6 +2498,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: JellyFish_01 (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5179224126001145943, guid: 1ff6da105feb1be40be2a596bb799218,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5524681211569386221, guid: 1ff6da105feb1be40be2a596bb799218,
         type: 3}
@@ -2857,7 +2882,7 @@ PrefabInstance:
     - target: {fileID: 3839091917877536585, guid: 1ff6da105feb1be40be2a596bb799218,
         type: 3}
       propertyPath: _speedMove
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3839091917877536585, guid: 1ff6da105feb1be40be2a596bb799218,
         type: 3}
@@ -2897,7 +2922,7 @@ PrefabInstance:
     - target: {fileID: 5524681211569386221, guid: 1ff6da105feb1be40be2a596bb799218,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 117.4
+      value: 87.2
       objectReference: {fileID: 0}
     - target: {fileID: 5524681211569386221, guid: 1ff6da105feb1be40be2a596bb799218,
         type: 3}
@@ -2957,7 +2982,7 @@ PrefabInstance:
     - target: {fileID: 1393525767750428199, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
       propertyPath: _speedMove
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1393525767750428199, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
@@ -2968,6 +2993,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: JellyFish_03 (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1505227127801308045, guid: 909322017b4a13c4d86671573a9f50ea,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2281201534556485943, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
@@ -3182,7 +3212,7 @@ PrefabInstance:
     - target: {fileID: 4631169647422312469, guid: 07c9e33034fa7b541b33d8070e117cc4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 111.7
+      value: 97.6
       objectReference: {fileID: 0}
     - target: {fileID: 4631169647422312469, guid: 07c9e33034fa7b541b33d8070e117cc4,
         type: 3}
@@ -3232,7 +3262,7 @@ PrefabInstance:
     - target: {fileID: 7185354200210450371, guid: 07c9e33034fa7b541b33d8070e117cc4,
         type: 3}
       propertyPath: _speedMove
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7185354200210450371, guid: 07c9e33034fa7b541b33d8070e117cc4,
         type: 3}
@@ -3357,7 +3387,7 @@ PrefabInstance:
     - target: {fileID: 1393525767750428199, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
       propertyPath: _speedMove
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1393525767750428199, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
@@ -3368,6 +3398,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: JellyFish_03 (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1505227127801308045, guid: 909322017b4a13c4d86671573a9f50ea,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2281201534556485943, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
@@ -3652,7 +3687,7 @@ PrefabInstance:
     - target: {fileID: 1393525767750428199, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
       propertyPath: _speedMove
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1393525767750428199, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
@@ -3692,7 +3727,7 @@ PrefabInstance:
     - target: {fileID: 2281201534556485943, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 118.6
+      value: 102.8
       objectReference: {fileID: 0}
     - target: {fileID: 2281201534556485943, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
@@ -3752,7 +3787,7 @@ PrefabInstance:
     - target: {fileID: 3839091917877536585, guid: 1ff6da105feb1be40be2a596bb799218,
         type: 3}
       propertyPath: _speedMove
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3839091917877536585, guid: 1ff6da105feb1be40be2a596bb799218,
         type: 3}
@@ -3763,6 +3798,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: JellyFish_01 (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5179224126001145943, guid: 1ff6da105feb1be40be2a596bb799218,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5524681211569386221, guid: 1ff6da105feb1be40be2a596bb799218,
         type: 3}
@@ -4842,7 +4882,7 @@ PrefabInstance:
     - target: {fileID: 4631169647422312469, guid: 07c9e33034fa7b541b33d8070e117cc4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 110
+      value: 103.7
       objectReference: {fileID: 0}
     - target: {fileID: 4631169647422312469, guid: 07c9e33034fa7b541b33d8070e117cc4,
         type: 3}
@@ -4892,7 +4932,7 @@ PrefabInstance:
     - target: {fileID: 7185354200210450371, guid: 07c9e33034fa7b541b33d8070e117cc4,
         type: 3}
       propertyPath: _speedMove
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7185354200210450371, guid: 07c9e33034fa7b541b33d8070e117cc4,
         type: 3}
@@ -5284,6 +5324,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: JellyFish_02 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5408516309197376175, guid: 07c9e33034fa7b541b33d8070e117cc4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7185354200210450371, guid: 07c9e33034fa7b541b33d8070e117cc4,
         type: 3}
       propertyPath: _speedMove
@@ -5412,7 +5457,7 @@ PrefabInstance:
     - target: {fileID: 1393525767750428199, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
       propertyPath: _speedMove
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1393525767750428199, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
@@ -5452,7 +5497,7 @@ PrefabInstance:
     - target: {fileID: 2281201534556485943, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 118.6
+      value: 102.8
       objectReference: {fileID: 0}
     - target: {fileID: 2281201534556485943, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
@@ -6582,7 +6627,7 @@ PrefabInstance:
     - target: {fileID: 1393525767750428199, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
       propertyPath: _speedMove
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1393525767750428199, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
@@ -6622,7 +6667,7 @@ PrefabInstance:
     - target: {fileID: 2281201534556485943, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 112.2
+      value: 96.4
       objectReference: {fileID: 0}
     - target: {fileID: 2281201534556485943, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
@@ -6803,10 +6848,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: JellyFish_02 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 5408516309197376175, guid: 07c9e33034fa7b541b33d8070e117cc4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7185354200210450371, guid: 07c9e33034fa7b541b33d8070e117cc4,
         type: 3}
       propertyPath: _speedMove
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7185354200210450371, guid: 07c9e33034fa7b541b33d8070e117cc4,
         type: 3}
@@ -6931,7 +6981,7 @@ PrefabInstance:
     - target: {fileID: 1393525767750428199, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
       propertyPath: _speedMove
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1393525767750428199, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
@@ -6942,6 +6992,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: JellyFish_03 (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1505227127801308045, guid: 909322017b4a13c4d86671573a9f50ea,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2281201534556485943, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
@@ -7031,7 +7086,7 @@ PrefabInstance:
     - target: {fileID: 2274155867148107296, guid: 157d7012402d0094e994b7e46ca875f8,
         type: 3}
       propertyPath: _speedMove
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2274155867148107296, guid: 157d7012402d0094e994b7e46ca875f8,
         type: 3}
@@ -7081,7 +7136,7 @@ PrefabInstance:
     - target: {fileID: 2793093834386421799, guid: 157d7012402d0094e994b7e46ca875f8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 120
+      value: 95.2
       objectReference: {fileID: 0}
     - target: {fileID: 2793093834386421799, guid: 157d7012402d0094e994b7e46ca875f8,
         type: 3}
@@ -7341,7 +7396,7 @@ PrefabInstance:
     - target: {fileID: 1393525767750428199, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
       propertyPath: _speedMove
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1393525767750428199, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
@@ -7352,6 +7407,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: JellyFish_03 (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1505227127801308045, guid: 909322017b4a13c4d86671573a9f50ea,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2281201534556485943, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
@@ -7441,7 +7501,7 @@ PrefabInstance:
     - target: {fileID: 2274155867148107296, guid: 157d7012402d0094e994b7e46ca875f8,
         type: 3}
       propertyPath: _speedMove
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2274155867148107296, guid: 157d7012402d0094e994b7e46ca875f8,
         type: 3}
@@ -7491,7 +7551,7 @@ PrefabInstance:
     - target: {fileID: 2793093834386421799, guid: 157d7012402d0094e994b7e46ca875f8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 120
+      value: 99.4
       objectReference: {fileID: 0}
     - target: {fileID: 2793093834386421799, guid: 157d7012402d0094e994b7e46ca875f8,
         type: 3}
@@ -7656,7 +7716,7 @@ PrefabInstance:
     - target: {fileID: 3839091917877536585, guid: 1ff6da105feb1be40be2a596bb799218,
         type: 3}
       propertyPath: _speedMove
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3839091917877536585, guid: 1ff6da105feb1be40be2a596bb799218,
         type: 3}
@@ -7696,7 +7756,7 @@ PrefabInstance:
     - target: {fileID: 5524681211569386221, guid: 1ff6da105feb1be40be2a596bb799218,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 133.3
+      value: 111.7
       objectReference: {fileID: 0}
     - target: {fileID: 5524681211569386221, guid: 1ff6da105feb1be40be2a596bb799218,
         type: 3}
@@ -7756,7 +7816,7 @@ PrefabInstance:
     - target: {fileID: 2274155867148107296, guid: 157d7012402d0094e994b7e46ca875f8,
         type: 3}
       propertyPath: _speedMove
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2274155867148107296, guid: 157d7012402d0094e994b7e46ca875f8,
         type: 3}
@@ -7806,7 +7866,7 @@ PrefabInstance:
     - target: {fileID: 2793093834386421799, guid: 157d7012402d0094e994b7e46ca875f8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 120
+      value: 95.6
       objectReference: {fileID: 0}
     - target: {fileID: 2793093834386421799, guid: 157d7012402d0094e994b7e46ca875f8,
         type: 3}
@@ -8141,7 +8201,7 @@ PrefabInstance:
     - target: {fileID: 2274155867148107296, guid: 157d7012402d0094e994b7e46ca875f8,
         type: 3}
       propertyPath: _speedMove
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2274155867148107296, guid: 157d7012402d0094e994b7e46ca875f8,
         type: 3}
@@ -8238,6 +8298,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: JellyFish_04 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 3281084154789225117, guid: 157d7012402d0094e994b7e46ca875f8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 157d7012402d0094e994b7e46ca875f8, type: 3}
 --- !u!4 &780796732 stripped
@@ -8281,7 +8346,7 @@ PrefabInstance:
     - target: {fileID: 4631169647422312469, guid: 07c9e33034fa7b541b33d8070e117cc4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 143.4
+      value: 129.29999
       objectReference: {fileID: 0}
     - target: {fileID: 4631169647422312469, guid: 07c9e33034fa7b541b33d8070e117cc4,
         type: 3}
@@ -8331,7 +8396,7 @@ PrefabInstance:
     - target: {fileID: 7185354200210450371, guid: 07c9e33034fa7b541b33d8070e117cc4,
         type: 3}
       propertyPath: _speedMove
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7185354200210450371, guid: 07c9e33034fa7b541b33d8070e117cc4,
         type: 3}
@@ -8356,7 +8421,7 @@ PrefabInstance:
     - target: {fileID: 3839091917877536585, guid: 1ff6da105feb1be40be2a596bb799218,
         type: 3}
       propertyPath: _speedMove
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3839091917877536585, guid: 1ff6da105feb1be40be2a596bb799218,
         type: 3}
@@ -8396,7 +8461,7 @@ PrefabInstance:
     - target: {fileID: 5524681211569386221, guid: 1ff6da105feb1be40be2a596bb799218,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 133.3
+      value: 103.1
       objectReference: {fileID: 0}
     - target: {fileID: 5524681211569386221, guid: 1ff6da105feb1be40be2a596bb799218,
         type: 3}
@@ -9972,7 +10037,7 @@ PrefabInstance:
     - target: {fileID: 4631169647422312469, guid: 07c9e33034fa7b541b33d8070e117cc4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 110
+      value: 107.5
       objectReference: {fileID: 0}
     - target: {fileID: 4631169647422312469, guid: 07c9e33034fa7b541b33d8070e117cc4,
         type: 3}
@@ -10022,7 +10087,7 @@ PrefabInstance:
     - target: {fileID: 7185354200210450371, guid: 07c9e33034fa7b541b33d8070e117cc4,
         type: 3}
       propertyPath: _speedMove
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7185354200210450371, guid: 07c9e33034fa7b541b33d8070e117cc4,
         type: 3}
@@ -10047,7 +10112,7 @@ PrefabInstance:
     - target: {fileID: 1393525767750428199, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
       propertyPath: _speedMove
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1393525767750428199, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
@@ -10087,7 +10152,7 @@ PrefabInstance:
     - target: {fileID: 2281201534556485943, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 131.6
+      value: 115.80001
       objectReference: {fileID: 0}
     - target: {fileID: 2281201534556485943, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
@@ -10147,7 +10212,7 @@ PrefabInstance:
     - target: {fileID: 2274155867148107296, guid: 157d7012402d0094e994b7e46ca875f8,
         type: 3}
       propertyPath: _speedMove
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2274155867148107296, guid: 157d7012402d0094e994b7e46ca875f8,
         type: 3}
@@ -10197,7 +10262,7 @@ PrefabInstance:
     - target: {fileID: 2793093834386421799, guid: 157d7012402d0094e994b7e46ca875f8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 120
+      value: 103.6
       objectReference: {fileID: 0}
     - target: {fileID: 2793093834386421799, guid: 157d7012402d0094e994b7e46ca875f8,
         type: 3}
@@ -10432,7 +10497,7 @@ PrefabInstance:
     - target: {fileID: 2274155867148107296, guid: 157d7012402d0094e994b7e46ca875f8,
         type: 3}
       propertyPath: _speedMove
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2274155867148107296, guid: 157d7012402d0094e994b7e46ca875f8,
         type: 3}
@@ -10482,7 +10547,7 @@ PrefabInstance:
     - target: {fileID: 2793093834386421799, guid: 157d7012402d0094e994b7e46ca875f8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 120
+      value: 103.6
       objectReference: {fileID: 0}
     - target: {fileID: 2793093834386421799, guid: 157d7012402d0094e994b7e46ca875f8,
         type: 3}
@@ -10572,7 +10637,7 @@ PrefabInstance:
     - target: {fileID: 4631169647422312469, guid: 07c9e33034fa7b541b33d8070e117cc4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 127.4
+      value: 113.3
       objectReference: {fileID: 0}
     - target: {fileID: 4631169647422312469, guid: 07c9e33034fa7b541b33d8070e117cc4,
         type: 3}
@@ -10622,7 +10687,7 @@ PrefabInstance:
     - target: {fileID: 7185354200210450371, guid: 07c9e33034fa7b541b33d8070e117cc4,
         type: 3}
       propertyPath: _speedMove
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7185354200210450371, guid: 07c9e33034fa7b541b33d8070e117cc4,
         type: 3}
@@ -10647,7 +10712,7 @@ PrefabInstance:
     - target: {fileID: 3839091917877536585, guid: 1ff6da105feb1be40be2a596bb799218,
         type: 3}
       propertyPath: _speedMove
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3839091917877536585, guid: 1ff6da105feb1be40be2a596bb799218,
         type: 3}
@@ -10687,7 +10752,7 @@ PrefabInstance:
     - target: {fileID: 5524681211569386221, guid: 1ff6da105feb1be40be2a596bb799218,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 133.3
+      value: 95.6
       objectReference: {fileID: 0}
     - target: {fileID: 5524681211569386221, guid: 1ff6da105feb1be40be2a596bb799218,
         type: 3}
@@ -10842,7 +10907,7 @@ PrefabInstance:
     - target: {fileID: 2274155867148107296, guid: 157d7012402d0094e994b7e46ca875f8,
         type: 3}
       propertyPath: _speedMove
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2274155867148107296, guid: 157d7012402d0094e994b7e46ca875f8,
         type: 3}
@@ -10938,6 +11003,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: JellyFish_04 (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3281084154789225117, guid: 157d7012402d0094e994b7e46ca875f8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 157d7012402d0094e994b7e46ca875f8, type: 3}
@@ -11147,7 +11217,7 @@ PrefabInstance:
     - target: {fileID: 3839091917877536585, guid: 1ff6da105feb1be40be2a596bb799218,
         type: 3}
       propertyPath: _speedMove
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3839091917877536585, guid: 1ff6da105feb1be40be2a596bb799218,
         type: 3}
@@ -11187,7 +11257,7 @@ PrefabInstance:
     - target: {fileID: 5524681211569386221, guid: 1ff6da105feb1be40be2a596bb799218,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 134.1
+      value: 103.9
       objectReference: {fileID: 0}
     - target: {fileID: 5524681211569386221, guid: 1ff6da105feb1be40be2a596bb799218,
         type: 3}
@@ -11347,7 +11417,7 @@ PrefabInstance:
     - target: {fileID: 1393525767750428199, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
       propertyPath: _speedMove
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1393525767750428199, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
@@ -11387,7 +11457,7 @@ PrefabInstance:
     - target: {fileID: 2281201534556485943, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 118.6
+      value: 98.6
       objectReference: {fileID: 0}
     - target: {fileID: 2281201534556485943, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
@@ -11616,7 +11686,7 @@ PrefabInstance:
     - target: {fileID: 4631169647422312469, guid: 07c9e33034fa7b541b33d8070e117cc4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 110
+      value: 101.9
       objectReference: {fileID: 0}
     - target: {fileID: 4631169647422312469, guid: 07c9e33034fa7b541b33d8070e117cc4,
         type: 3}
@@ -11666,7 +11736,7 @@ PrefabInstance:
     - target: {fileID: 7185354200210450371, guid: 07c9e33034fa7b541b33d8070e117cc4,
         type: 3}
       propertyPath: _speedMove
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7185354200210450371, guid: 07c9e33034fa7b541b33d8070e117cc4,
         type: 3}
@@ -11786,7 +11856,7 @@ PrefabInstance:
     - target: {fileID: 2274155867148107296, guid: 157d7012402d0094e994b7e46ca875f8,
         type: 3}
       propertyPath: _speedMove
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2274155867148107296, guid: 157d7012402d0094e994b7e46ca875f8,
         type: 3}
@@ -11882,6 +11952,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: JellyFish_04 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3281084154789225117, guid: 157d7012402d0094e994b7e46ca875f8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 157d7012402d0094e994b7e46ca875f8, type: 3}
@@ -12028,7 +12103,7 @@ PrefabInstance:
     - target: {fileID: 2274155867148107296, guid: 157d7012402d0094e994b7e46ca875f8,
         type: 3}
       propertyPath: _speedMove
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2274155867148107296, guid: 157d7012402d0094e994b7e46ca875f8,
         type: 3}
@@ -12125,6 +12200,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: JellyFish_04 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 3281084154789225117, guid: 157d7012402d0094e994b7e46ca875f8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 157d7012402d0094e994b7e46ca875f8, type: 3}
 --- !u!4 &1117742629 stripped
@@ -12196,7 +12276,7 @@ PrefabInstance:
     - target: {fileID: 1393525767750428199, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
       propertyPath: _speedMove
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1393525767750428199, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
@@ -12236,7 +12316,7 @@ PrefabInstance:
     - target: {fileID: 2281201534556485943, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 118.6
+      value: 97.5
       objectReference: {fileID: 0}
     - target: {fileID: 2281201534556485943, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
@@ -12307,7 +12387,7 @@ PrefabInstance:
     - target: {fileID: 5179224126001145943, guid: 1ff6da105feb1be40be2a596bb799218,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5524681211569386221, guid: 1ff6da105feb1be40be2a596bb799218,
         type: 3}
@@ -13983,6 +14063,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: JellyFish_01 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 5179224126001145943, guid: 1ff6da105feb1be40be2a596bb799218,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5524681211569386221, guid: 1ff6da105feb1be40be2a596bb799218,
         type: 3}
       propertyPath: m_RootOrder
@@ -14372,7 +14457,7 @@ PrefabInstance:
     - target: {fileID: 3839091917877536585, guid: 1ff6da105feb1be40be2a596bb799218,
         type: 3}
       propertyPath: _speedMove
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3839091917877536585, guid: 1ff6da105feb1be40be2a596bb799218,
         type: 3}
@@ -14412,7 +14497,7 @@ PrefabInstance:
     - target: {fileID: 5524681211569386221, guid: 1ff6da105feb1be40be2a596bb799218,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 113.8
+      value: 83.6
       objectReference: {fileID: 0}
     - target: {fileID: 5524681211569386221, guid: 1ff6da105feb1be40be2a596bb799218,
         type: 3}
@@ -14598,6 +14683,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: JellyFish_03 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1505227127801308045, guid: 909322017b4a13c4d86671573a9f50ea,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2281201534556485943, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
@@ -15331,6 +15421,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: JellyFish_03 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1505227127801308045, guid: 909322017b4a13c4d86671573a9f50ea,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2281201534556485943, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
@@ -16305,7 +16400,7 @@ PrefabInstance:
     - target: {fileID: 2274155867148107296, guid: 157d7012402d0094e994b7e46ca875f8,
         type: 3}
       propertyPath: _speedMove
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2274155867148107296, guid: 157d7012402d0094e994b7e46ca875f8,
         type: 3}
@@ -16355,7 +16450,7 @@ PrefabInstance:
     - target: {fileID: 2793093834386421799, guid: 157d7012402d0094e994b7e46ca875f8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 120
+      value: 105.3
       objectReference: {fileID: 0}
     - target: {fileID: 2793093834386421799, guid: 157d7012402d0094e994b7e46ca875f8,
         type: 3}
@@ -16420,7 +16515,7 @@ PrefabInstance:
     - target: {fileID: 2274155867148107296, guid: 157d7012402d0094e994b7e46ca875f8,
         type: 3}
       propertyPath: _speedMove
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2274155867148107296, guid: 157d7012402d0094e994b7e46ca875f8,
         type: 3}
@@ -16470,7 +16565,7 @@ PrefabInstance:
     - target: {fileID: 2793093834386421799, guid: 157d7012402d0094e994b7e46ca875f8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 120
+      value: 100.8
       objectReference: {fileID: 0}
     - target: {fileID: 2793093834386421799, guid: 157d7012402d0094e994b7e46ca875f8,
         type: 3}
@@ -16635,7 +16730,7 @@ PrefabInstance:
     - target: {fileID: 1393525767750428199, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
       propertyPath: _speedMove
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1393525767750428199, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
@@ -16675,7 +16770,7 @@ PrefabInstance:
     - target: {fileID: 2281201534556485943, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 118.6
+      value: 97.9
       objectReference: {fileID: 0}
     - target: {fileID: 2281201534556485943, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
@@ -17600,7 +17695,7 @@ PrefabInstance:
     - target: {fileID: 1393525767750428199, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
       propertyPath: _speedMove
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1393525767750428199, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
@@ -17640,7 +17735,7 @@ PrefabInstance:
     - target: {fileID: 2281201534556485943, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 132.6
+      value: 116.80001
       objectReference: {fileID: 0}
     - target: {fileID: 2281201534556485943, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
@@ -17796,6 +17891,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: JellyFish_04 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3281084154789225117, guid: 157d7012402d0094e994b7e46ca875f8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 157d7012402d0094e994b7e46ca875f8, type: 3}
@@ -18990,7 +19090,7 @@ PrefabInstance:
     - target: {fileID: 1393525767750428199, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
       propertyPath: _speedMove
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1393525767750428199, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
@@ -19030,7 +19130,7 @@ PrefabInstance:
     - target: {fileID: 2281201534556485943, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 118.6
+      value: 107.4
       objectReference: {fileID: 0}
     - target: {fileID: 2281201534556485943, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
@@ -19855,7 +19955,7 @@ PrefabInstance:
     - target: {fileID: 3839091917877536585, guid: 1ff6da105feb1be40be2a596bb799218,
         type: 3}
       propertyPath: _speedMove
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3839091917877536585, guid: 1ff6da105feb1be40be2a596bb799218,
         type: 3}
@@ -19895,7 +19995,7 @@ PrefabInstance:
     - target: {fileID: 5524681211569386221, guid: 1ff6da105feb1be40be2a596bb799218,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 133.3
+      value: 97.6
       objectReference: {fileID: 0}
     - target: {fileID: 5524681211569386221, guid: 1ff6da105feb1be40be2a596bb799218,
         type: 3}
@@ -19980,7 +20080,7 @@ PrefabInstance:
     - target: {fileID: 4631169647422312469, guid: 07c9e33034fa7b541b33d8070e117cc4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 134.8
+      value: 120.700005
       objectReference: {fileID: 0}
     - target: {fileID: 4631169647422312469, guid: 07c9e33034fa7b541b33d8070e117cc4,
         type: 3}
@@ -20030,7 +20130,7 @@ PrefabInstance:
     - target: {fileID: 7185354200210450371, guid: 07c9e33034fa7b541b33d8070e117cc4,
         type: 3}
       propertyPath: _speedMove
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7185354200210450371, guid: 07c9e33034fa7b541b33d8070e117cc4,
         type: 3}
@@ -20155,7 +20255,7 @@ PrefabInstance:
     - target: {fileID: 2274155867148107296, guid: 157d7012402d0094e994b7e46ca875f8,
         type: 3}
       propertyPath: _speedMove
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2274155867148107296, guid: 157d7012402d0094e994b7e46ca875f8,
         type: 3}
@@ -20252,6 +20352,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: JellyFish_04 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 3281084154789225117, guid: 157d7012402d0094e994b7e46ca875f8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 157d7012402d0094e994b7e46ca875f8, type: 3}
 --- !u!4 &1732853640 stripped
@@ -20270,7 +20375,7 @@ PrefabInstance:
     - target: {fileID: 1393525767750428199, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
       propertyPath: _speedMove
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1393525767750428199, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
@@ -20310,7 +20415,7 @@ PrefabInstance:
     - target: {fileID: 2281201534556485943, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 118.6
+      value: 107.4
       objectReference: {fileID: 0}
     - target: {fileID: 2281201534556485943, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
@@ -20381,6 +20486,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: JellyFish_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5179224126001145943, guid: 1ff6da105feb1be40be2a596bb799218,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5524681211569386221, guid: 1ff6da105feb1be40be2a596bb799218,
         type: 3}
@@ -20594,10 +20704,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: JellyFish_02 (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 5408516309197376175, guid: 07c9e33034fa7b541b33d8070e117cc4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7185354200210450371, guid: 07c9e33034fa7b541b33d8070e117cc4,
         type: 3}
       propertyPath: _speedMove
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7185354200210450371, guid: 07c9e33034fa7b541b33d8070e117cc4,
         type: 3}
@@ -20622,7 +20737,7 @@ PrefabInstance:
     - target: {fileID: 3839091917877536585, guid: 1ff6da105feb1be40be2a596bb799218,
         type: 3}
       propertyPath: _speedMove
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3839091917877536585, guid: 1ff6da105feb1be40be2a596bb799218,
         type: 3}
@@ -20662,7 +20777,7 @@ PrefabInstance:
     - target: {fileID: 5524681211569386221, guid: 1ff6da105feb1be40be2a596bb799218,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 133.3
+      value: 137.3
       objectReference: {fileID: 0}
     - target: {fileID: 5524681211569386221, guid: 1ff6da105feb1be40be2a596bb799218,
         type: 3}
@@ -20722,7 +20837,7 @@ PrefabInstance:
     - target: {fileID: 1393525767750428199, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
       propertyPath: _speedMove
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1393525767750428199, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
@@ -20733,6 +20848,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: JellyFish_03 (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1505227127801308045, guid: 909322017b4a13c4d86671573a9f50ea,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2281201534556485943, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
@@ -20954,6 +21074,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: JellyFish_04 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3281084154789225117, guid: 157d7012402d0094e994b7e46ca875f8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 157d7012402d0094e994b7e46ca875f8, type: 3}
 --- !u!4 &1822609627 stripped
@@ -20972,7 +21097,7 @@ PrefabInstance:
     - target: {fileID: 1393525767750428199, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
       propertyPath: _speedMove
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1393525767750428199, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
@@ -21012,7 +21137,7 @@ PrefabInstance:
     - target: {fileID: 2281201534556485943, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 118.6
+      value: 102.8
       objectReference: {fileID: 0}
     - target: {fileID: 2281201534556485943, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
@@ -21183,7 +21308,7 @@ PrefabInstance:
     - target: {fileID: 1505227127801308045, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2281201534556485943, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
@@ -21333,7 +21458,7 @@ PrefabInstance:
     - target: {fileID: 3839091917877536585, guid: 1ff6da105feb1be40be2a596bb799218,
         type: 3}
       propertyPath: _speedMove
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3839091917877536585, guid: 1ff6da105feb1be40be2a596bb799218,
         type: 3}
@@ -21344,6 +21469,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: JellyFish_01 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5179224126001145943, guid: 1ff6da105feb1be40be2a596bb799218,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5524681211569386221, guid: 1ff6da105feb1be40be2a596bb799218,
         type: 3}
@@ -22325,6 +22455,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: JellyFish_01 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5179224126001145943, guid: 1ff6da105feb1be40be2a596bb799218,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5524681211569386221, guid: 1ff6da105feb1be40be2a596bb799218,
         type: 3}
       propertyPath: m_RootOrder
@@ -22484,6 +22619,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: JellyFish_02 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5408516309197376175, guid: 07c9e33034fa7b541b33d8070e117cc4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7185354200210450371, guid: 07c9e33034fa7b541b33d8070e117cc4,
         type: 3}
@@ -24165,6 +24305,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: JellyFish_02 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5408516309197376175, guid: 07c9e33034fa7b541b33d8070e117cc4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7185354200210450371, guid: 07c9e33034fa7b541b33d8070e117cc4,
         type: 3}
       propertyPath: _speedMove
@@ -24193,7 +24338,7 @@ PrefabInstance:
     - target: {fileID: 2274155867148107296, guid: 157d7012402d0094e994b7e46ca875f8,
         type: 3}
       propertyPath: _speedMove
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2274155867148107296, guid: 157d7012402d0094e994b7e46ca875f8,
         type: 3}
@@ -24243,7 +24388,7 @@ PrefabInstance:
     - target: {fileID: 2793093834386421799, guid: 157d7012402d0094e994b7e46ca875f8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 120
+      value: 104.6
       objectReference: {fileID: 0}
     - target: {fileID: 2793093834386421799, guid: 157d7012402d0094e994b7e46ca875f8,
         type: 3}
@@ -24308,7 +24453,7 @@ PrefabInstance:
     - target: {fileID: 2274155867148107296, guid: 157d7012402d0094e994b7e46ca875f8,
         type: 3}
       propertyPath: _speedMove
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2274155867148107296, guid: 157d7012402d0094e994b7e46ca875f8,
         type: 3}
@@ -24358,7 +24503,7 @@ PrefabInstance:
     - target: {fileID: 2793093834386421799, guid: 157d7012402d0094e994b7e46ca875f8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 120
+      value: 105
       objectReference: {fileID: 0}
     - target: {fileID: 2793093834386421799, guid: 157d7012402d0094e994b7e46ca875f8,
         type: 3}
@@ -24661,6 +24806,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: JellyFish_02 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5408516309197376175, guid: 07c9e33034fa7b541b33d8070e117cc4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7185354200210450371, guid: 07c9e33034fa7b541b33d8070e117cc4,
         type: 3}
       propertyPath: _speedMove
@@ -24872,7 +25022,7 @@ PrefabInstance:
     - target: {fileID: 3839091917877536585, guid: 1ff6da105feb1be40be2a596bb799218,
         type: 3}
       propertyPath: _speedMove
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3839091917877536585, guid: 1ff6da105feb1be40be2a596bb799218,
         type: 3}
@@ -24912,7 +25062,7 @@ PrefabInstance:
     - target: {fileID: 5524681211569386221, guid: 1ff6da105feb1be40be2a596bb799218,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 126.9
+      value: 96.7
       objectReference: {fileID: 0}
     - target: {fileID: 5524681211569386221, guid: 1ff6da105feb1be40be2a596bb799218,
         type: 3}
@@ -25072,7 +25222,7 @@ PrefabInstance:
     - target: {fileID: 1393525767750428199, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
       propertyPath: _speedMove
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1393525767750428199, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
@@ -25112,7 +25262,7 @@ PrefabInstance:
     - target: {fileID: 2281201534556485943, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 118.6
+      value: 104.9
       objectReference: {fileID: 0}
     - target: {fileID: 2281201534556485943, guid: 909322017b4a13c4d86671573a9f50ea,
         type: 3}
@@ -25197,7 +25347,7 @@ PrefabInstance:
     - target: {fileID: 4631169647422312469, guid: 07c9e33034fa7b541b33d8070e117cc4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 110
+      value: 98.4
       objectReference: {fileID: 0}
     - target: {fileID: 4631169647422312469, guid: 07c9e33034fa7b541b33d8070e117cc4,
         type: 3}
@@ -25247,7 +25397,7 @@ PrefabInstance:
     - target: {fileID: 7185354200210450371, guid: 07c9e33034fa7b541b33d8070e117cc4,
         type: 3}
       propertyPath: _speedMove
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7185354200210450371, guid: 07c9e33034fa7b541b33d8070e117cc4,
         type: 3}
@@ -25272,7 +25422,7 @@ PrefabInstance:
     - target: {fileID: 3839091917877536585, guid: 1ff6da105feb1be40be2a596bb799218,
         type: 3}
       propertyPath: _speedMove
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3839091917877536585, guid: 1ff6da105feb1be40be2a596bb799218,
         type: 3}
@@ -25283,6 +25433,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: JellyFish_01 (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5179224126001145943, guid: 1ff6da105feb1be40be2a596bb799218,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5524681211569386221, guid: 1ff6da105feb1be40be2a596bb799218,
         type: 3}
@@ -25444,10 +25599,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: JellyFish_02 (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 5408516309197376175, guid: 07c9e33034fa7b541b33d8070e117cc4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7185354200210450371, guid: 07c9e33034fa7b541b33d8070e117cc4,
         type: 3}
       propertyPath: _speedMove
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7185354200210450371, guid: 07c9e33034fa7b541b33d8070e117cc4,
         type: 3}
@@ -25572,7 +25732,7 @@ PrefabInstance:
     - target: {fileID: 2274155867148107296, guid: 157d7012402d0094e994b7e46ca875f8,
         type: 3}
       propertyPath: _speedMove
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2274155867148107296, guid: 157d7012402d0094e994b7e46ca875f8,
         type: 3}
@@ -25622,7 +25782,7 @@ PrefabInstance:
     - target: {fileID: 2793093834386421799, guid: 157d7012402d0094e994b7e46ca875f8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 120
+      value: 98.4
       objectReference: {fileID: 0}
     - target: {fileID: 2793093834386421799, guid: 157d7012402d0094e994b7e46ca875f8,
         type: 3}
@@ -25884,6 +26044,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: JellyFish_04 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3281084154789225117, guid: 157d7012402d0094e994b7e46ca875f8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 157d7012402d0094e994b7e46ca875f8, type: 3}
 --- !u!4 &2078042864 stripped
@@ -25992,7 +26157,7 @@ PrefabInstance:
     - target: {fileID: 3281084154789225117, guid: 157d7012402d0094e994b7e46ca875f8,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 157d7012402d0094e994b7e46ca875f8, type: 3}
@@ -26112,6 +26277,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: JellyFish_01 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5179224126001145943, guid: 1ff6da105feb1be40be2a596bb799218,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5524681211569386221, guid: 1ff6da105feb1be40be2a596bb799218,
         type: 3}
@@ -26276,7 +26446,7 @@ PrefabInstance:
     - target: {fileID: 5408516309197376175, guid: 07c9e33034fa7b541b33d8070e117cc4,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07c9e33034fa7b541b33d8070e117cc4, type: 3}
@@ -26315,7 +26485,7 @@ PrefabInstance:
     - target: {fileID: 4631169647422312469, guid: 07c9e33034fa7b541b33d8070e117cc4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 110
+      value: 100.5
       objectReference: {fileID: 0}
     - target: {fileID: 4631169647422312469, guid: 07c9e33034fa7b541b33d8070e117cc4,
         type: 3}
@@ -26365,7 +26535,7 @@ PrefabInstance:
     - target: {fileID: 7185354200210450371, guid: 07c9e33034fa7b541b33d8070e117cc4,
         type: 3}
       propertyPath: _speedMove
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7185354200210450371, guid: 07c9e33034fa7b541b33d8070e117cc4,
         type: 3}

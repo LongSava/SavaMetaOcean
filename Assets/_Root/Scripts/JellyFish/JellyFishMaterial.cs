@@ -4,15 +4,9 @@ using UnityEngine;
 public class JellyFishMaterial : MonoBehaviour
 {
     [SerializeField] private Material _material;
-    [SerializeField] private Vector2 _timeChange;
     private float _speedChange;
     private Color _colorTarget;
-    private bool _isPlayerStay;
-
-    private void Start()
-    {
-        StartCoroutine(ChangeColor());
-    }
+    private Coroutine _coroutine;
 
     private IEnumerator ChangeColor()
     {
@@ -22,14 +16,6 @@ public class JellyFishMaterial : MonoBehaviour
         var a = Mathf.Clamp(Random.value, 0.3f, 1f);
         _colorTarget = new Color(r, g, b, a);
 
-        if (_isPlayerStay)
-        {
-            _speedChange = 0.5f;
-        }
-        else
-        {
-            _speedChange = Random.Range(_timeChange.x, _timeChange.y);
-        }
         yield return new WaitForSeconds(_speedChange);
 
         StartCoroutine(ChangeColor());
@@ -40,11 +26,11 @@ public class JellyFishMaterial : MonoBehaviour
         _material.color = Color.Lerp(_material.color, _colorTarget, Time.deltaTime * _speedChange);
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            _isPlayerStay = true;
+            _coroutine = StartCoroutine(ChangeColor());
         }
     }
 
@@ -52,7 +38,7 @@ public class JellyFishMaterial : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            _isPlayerStay = false;
+            StopCoroutine(_coroutine);
         }
     }
 }
