@@ -17,6 +17,7 @@ public class FishArea : MonoBehaviour
         transform.SetPositionAndRotation(config.Position, config.Rotation);
 
         var boxCollider = gameObject.AddComponent<BoxCollider>();
+        boxCollider.isTrigger = true;
         boxCollider.size = config.Size;
         XHalf = boxCollider.bounds.size.x / 2;
         YHalf = boxCollider.bounds.size.y / 2;
