@@ -14,7 +14,7 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
+  m_Fog: 1
   m_FogColor: {r: 0, g: 0, b: 0, a: 1}
   m_FogMode: 1
   m_FogDensity: 0.005
@@ -8135,21 +8135,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6416830347948291279, guid: 6f91987eb3a28a14b978a6adf38621e8,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 6416830347948291279, guid: 6f91987eb3a28a14b978a6adf38621e8,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 6416830347948291279, guid: 6f91987eb3a28a14b978a6adf38621e8,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 6416830347948291279, guid: 6f91987eb3a28a14b978a6adf38621e8,
-        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -8197,11 +8182,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6416830347948291279, guid: 6f91987eb3a28a14b978a6adf38621e8,
-        type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f91987eb3a28a14b978a6adf38621e8, type: 3}
@@ -17824,40 +17804,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1113000268}
     m_Modifications:
-    - target: {fileID: 1387635815564603425, guid: 44c40470e67c68448b374ff7bee40d3b,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
     - target: {fileID: 1484790076656624242, guid: 44c40470e67c68448b374ff7bee40d3b,
         type: 3}
       propertyPath: m_Name
       value: OceanSeashellStage
       objectReference: {fileID: 0}
-    - target: {fileID: 1484790076656624242, guid: 44c40470e67c68448b374ff7bee40d3b,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
     - target: {fileID: 2292569815028922568, guid: 44c40470e67c68448b374ff7bee40d3b,
         type: 3}
       propertyPath: m_RootOrder
       value: 97
-      objectReference: {fileID: 0}
-    - target: {fileID: 2292569815028922568, guid: 44c40470e67c68448b374ff7bee40d3b,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2292569815028922568, guid: 44c40470e67c68448b374ff7bee40d3b,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2292569815028922568, guid: 44c40470e67c68448b374ff7bee40d3b,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2292569815028922568, guid: 44c40470e67c68448b374ff7bee40d3b,
         type: 3}
@@ -17908,26 +17863,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2292569815028922568, guid: 44c40470e67c68448b374ff7bee40d3b,
-        type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3950020456814943558, guid: 44c40470e67c68448b374ff7bee40d3b,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
-    - target: {fileID: 5765106815562393806, guid: 44c40470e67c68448b374ff7bee40d3b,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 0814762fecf04d746a7e8cec3c7a5586, type: 2}
-    - target: {fileID: 6480315938304963010, guid: 44c40470e67c68448b374ff7bee40d3b,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44c40470e67c68448b374ff7bee40d3b, type: 3}
