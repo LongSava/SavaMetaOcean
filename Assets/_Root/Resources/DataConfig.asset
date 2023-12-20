@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 855fe702201900b4eb65dc00fbedf58a, type: 3}
   m_Name: DataConfig
   m_EditorClassIdentifier: 
-  NumberPlayer: -1
+  NumberPlayer: 2
   Runner: {fileID: 5619035592542766692, guid: faf0bbcfc1315804e906f2f548a34d1c, type: 3}
   CameraFollower: {fileID: 3327078082887505698, guid: c3b376b411e244941abd59a3c2695152,
     type: 3}
@@ -92,3 +92,6 @@ MonoBehaviour:
     SunLight: {fileID: 5002629167441802333, guid: cb9b54d4e824c294eadfb9bb3c8766d4,
       type: 3}
     Dust: {fileID: 7873619849417109862, guid: 39ca56dd42b7bda4fb28f66d56c6ab10, type: 3}
+  UI:
+    Loading: {fileID: 5075285192825305569, guid: 1092b4d53c2c1f64cbdae12a3b8af8c4,
+      type: 3}

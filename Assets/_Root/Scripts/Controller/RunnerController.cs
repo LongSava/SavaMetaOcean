@@ -69,6 +69,7 @@ public class RunnerController : Singleton<RunnerController>
         else if (runner.IsPlayer)
         {
             StartCoroutine(AddParticle(runner));
+            StartCoroutine(AddLoading(runner));
         }
     }
 
@@ -83,6 +84,12 @@ public class RunnerController : Singleton<RunnerController>
         yield return new WaitForSeconds(2f);
         runner.InstantiateInRunnerScene(Config.Data.Particle.BubbleCommon);
         runner.InstantiateInRunnerScene(Config.Data.Particle.SunLight);
+    }
+
+    private IEnumerator AddLoading(NetworkRunner runner)
+    {
+        yield return new WaitForSeconds(1f);
+        runner.InstantiateInRunnerScene(Config.Data.UI.Loading);
     }
 
     private void OnPlayerLeft(NetworkRunner runner, PlayerRef playerRef)

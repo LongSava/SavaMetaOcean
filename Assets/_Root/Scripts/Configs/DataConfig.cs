@@ -13,6 +13,13 @@ public class DataConfig : ScriptableObject
     public FishConfig Fish;
     public FishAreasConfig FishAreas;
     public ParticleConfig Particle;
+    public UIConfig UI;
+}
+
+[Serializable]
+public class UIConfig
+{
+    public Canvas Loading;
 }
 
 [Serializable]
