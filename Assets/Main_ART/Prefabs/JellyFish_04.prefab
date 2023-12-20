@@ -3819,8 +3819,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3147374752004427842}
   - component: {fileID: 1500943831}
-  - component: {fileID: 3919794516149442542}
-  - component: {fileID: -1060686822638001693}
   m_Layer: 0
   m_Name: JellyFish_04
   m_TagString: Untagged
@@ -3857,39 +3855,14 @@ Animation:
   m_GameObject: {fileID: 2370696628013206264}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 397594736846607017, guid: e0c8f30ec5579874bb836d04860a706b, type: 3}
+  m_Animation: {fileID: 397594736846607017, guid: e0c8f30ec5579874bb836d04860a706b,
+    type: 3}
   m_Animations:
   - {fileID: 397594736846607017, guid: e0c8f30ec5579874bb836d04860a706b, type: 3}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
---- !u!114 &3919794516149442542
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2370696628013206264}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c92f3d6f34e34044da6fe167c04e42db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &-1060686822638001693
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2370696628013206264}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -2036201063, guid: 17213db7b1ebab440b7c51f426116757, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isDefault: 0
-  isStatic: 0
 --- !u!1 &2398292555870438862
 GameObject:
   m_ObjectHideFlags: 0

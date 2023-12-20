@@ -10,13 +10,6 @@ public class FishAreas : NetworkBehaviour
 
     public override void Spawned()
     {
-        StartCoroutine(Init());
-    }
-
-    private IEnumerator Init()
-    {
-        yield return new WaitForEndOfFrame();
-
         FindFishes();
         SetupAreas();
     }

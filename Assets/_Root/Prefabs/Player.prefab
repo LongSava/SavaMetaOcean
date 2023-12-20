@@ -1685,11 +1685,11 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7630828481057321148}
-  m_Material: {fileID: 13400000, guid: e37bd1a96d677f04f8ded36e37c037f2, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.7, y: 2, z: 2}
+  m_Size: {x: 0.7, y: 1.5, z: 2}
   m_Center: {x: 0, y: -0.5, z: 0}
 --- !u!136 &6261390868628594225
 CapsuleCollider:

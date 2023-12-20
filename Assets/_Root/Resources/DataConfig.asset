@@ -21,7 +21,7 @@ MonoBehaviour:
       type: 3}
     SpeedMove: 100
     SpeedRotate: 300
-    PositionSpawned: {x: 108, y: 15, z: 173}
+    PositionSpawned: {x: 108, y: 20, z: 173}
   Fish:
     Objects:
     - {fileID: 3930750808290060590, guid: 557279f625d6fca4dabec3748469b34e, type: 3}

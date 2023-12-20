@@ -924,7 +924,7 @@ GameObject:
   - component: {fileID: 73526390}
   - component: {fileID: 73526392}
   - component: {fileID: 73526391}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Terrain_0_0_a70c9be5-8a28-48a3-ad20-97162e82875c
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21447,7 +21447,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _material: {fileID: 2100000, guid: 1a564c951e19aad4d96da9eab52a134a, type: 2}
-  _timeChange: {x: 1, y: 5}
 --- !u!1001 &1890141737
 PrefabInstance:
   m_ObjectHideFlags: 0

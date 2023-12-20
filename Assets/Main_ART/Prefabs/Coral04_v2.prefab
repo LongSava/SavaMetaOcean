@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 6466114679243371999}
   - component: {fileID: 4491077136489093690}
   - component: {fileID: 8640876739821508135}
-  m_Layer: 0
+  - component: {fileID: 4829133610317048184}
+  m_Layer: 3
   m_Name: Coral06
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,6 +84,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!135 &4829133610317048184
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496125908148777190}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5.39
+  m_Center: {x: 0.6955795, y: 0.30973813, z: 0.32318306}
 --- !u!1 &747601259498921816
 GameObject:
   m_ObjectHideFlags: 0

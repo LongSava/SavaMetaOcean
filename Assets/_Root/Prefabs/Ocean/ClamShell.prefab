@@ -41,7 +41,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4487289546236033677}
   - component: {fileID: 5719230069166885004}
-  m_Layer: 0
+  - component: {fileID: 4090962966369348420}
+  m_Layer: 3
   m_Name: Clam_Shell_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,6 +119,19 @@ SkinnedMeshRenderer:
     m_Center: {x: 0, y: -0.024776354, z: 0.09379804}
     m_Extent: {x: 0.20701674, y: 0.18350263, z: 0.09539276}
   m_DirtyAABB: 0
+--- !u!135 &4090962966369348420
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 761081943582732896}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 6.210502
+  m_Center: {x: 0, y: 2.8139415, z: 0.74329036}
 --- !u!1 &787271978864306737
 GameObject:
   m_ObjectHideFlags: 0
