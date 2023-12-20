@@ -15027,7 +15027,8 @@ GameObject:
   - component: {fileID: 1365324541}
   - component: {fileID: 1365324543}
   - component: {fileID: 1365324542}
-  m_Layer: 0
+  - component: {fileID: 1365324544}
+  m_Layer: 3
   m_Name: Coral06 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15098,6 +15099,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1365324540}
+  m_Mesh: {fileID: 2156513522240767276, guid: eca94121043b6074bb345ab529a6b1f6, type: 3}
+--- !u!64 &1365324544
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1365324540}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
   m_Mesh: {fileID: 2156513522240767276, guid: eca94121043b6074bb345ab529a6b1f6, type: 3}
 --- !u!1001 &1368248675
 PrefabInstance:
