@@ -1111,7 +1111,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7489502975324375308}
   - component: {fileID: 2385944404725349375}
-  - component: {fileID: 2166655460685054926}
   - component: {fileID: 4146765597431509594}
   - component: {fileID: 8368266332649173585}
   m_Layer: 0
@@ -1179,14 +1178,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &2166655460685054926
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4850604632673389699}
-  m_Enabled: 1
 --- !u!114 &4146765597431509594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1628,7 +1619,7 @@ MonoBehaviour:
   _bodyOffset: {fileID: 6714111372002495271}
   _universalAdditionalCameraData: {fileID: 8368266332649173585}
   _camera: {fileID: 2385944404725349375}
-  _audioListener: {fileID: 2166655460685054926}
+  _audioListener: {fileID: 0}
   _trackedPoseDriver: {fileID: 4146765597431509594}
   _xRLeftBaseController: {fileID: 2942518129228962826}
   _xRRightBaseController: {fileID: 1190042516217940494}

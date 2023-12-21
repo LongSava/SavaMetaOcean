@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3327078082887505701}
   - component: {fileID: 3327078082887505698}
-  - component: {fileID: 8671578736741811938}
   - component: {fileID: -7347242042801703698}
   - component: {fileID: -7939762477729056413}
   - component: {fileID: 4513537101259596578}
@@ -49,14 +48,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 0}
---- !u!81 &8671578736741811938
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3327078082887505700}
-  m_Enabled: 1
 --- !u!20 &-7347242042801703698
 Camera:
   m_ObjectHideFlags: 0

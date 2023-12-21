@@ -3,5 +3,5 @@ using UnityEngine;
 
 public class EventScene : MonoBehaviour
 {
-    public Action SpawnedPlayer;
+    public Action<Player> SpawnedPlayer;
 }
