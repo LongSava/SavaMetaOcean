@@ -1,4 +1,3 @@
-using System;
 using Fusion;
 using UnityEngine;
 using DG.Tweening;
@@ -28,15 +27,12 @@ public class Loading : NetworkBehaviour
 
     private void GenerateEnvironmentClient()
     {
-        DOTween.Sequence().AppendInterval(1).AppendCallback(() =>
-        {
-            Runner.InstantiateInRunnerScene(Config.Data.Environment.Ocean);
-            Runner.InstantiateInRunnerScene(Config.Data.Environment.JellyFishs);
-            Runner.InstantiateInRunnerScene(Config.Data.Environment.ClamShells);
-            Runner.InstantiateInRunnerScene(Config.Data.Particle.BubbleCommon);
-            Runner.InstantiateInRunnerScene(Config.Data.Particle.SunLight);
-            Hide();
-        });
+        Runner.InstantiateInRunnerScene(Config.Data.Environment.Ocean);
+        Runner.InstantiateInRunnerScene(Config.Data.Environment.JellyFishs);
+        Runner.InstantiateInRunnerScene(Config.Data.Environment.ClamShells);
+        Runner.InstantiateInRunnerScene(Config.Data.Particle.BubbleCommon);
+        Runner.InstantiateInRunnerScene(Config.Data.Particle.SunLight);
+        Hide();
     }
 
     private void Hide()
