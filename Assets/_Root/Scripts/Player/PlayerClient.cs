@@ -34,6 +34,8 @@ public partial class Player
             dust.transform.SetParent(transform);
             dust.transform.localPosition = Vector3.zero;
             dust.transform.localScale = Vector3.one;
+
+            Runner.GetComponent<EventScene>().Loaded?.Invoke();
         }
     }
 

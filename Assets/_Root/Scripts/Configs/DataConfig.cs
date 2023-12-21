@@ -19,7 +19,7 @@ public class DataConfig : ScriptableObject
 [Serializable]
 public class UIConfig
 {
-    public Canvas Loading;
+    public Loading Loading;
 }
 
 [Serializable]

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 855fe702201900b4eb65dc00fbedf58a, type: 3}
   m_Name: DataConfig
   m_EditorClassIdentifier: 
-  NumberPlayer: 2
+  NumberPlayer: -1
   Runner: {fileID: 5619035592542766692, guid: faf0bbcfc1315804e906f2f548a34d1c, type: 3}
   CameraFollower: {fileID: 3327078082887505698, guid: c3b376b411e244941abd59a3c2695152,
     type: 3}
@@ -29,7 +29,7 @@ MonoBehaviour:
     - {fileID: 4928063136161313697, guid: 75bb05c37628169449eb485ddb7e9cc5, type: 3}
     - {fileID: 7674147974999670020, guid: 52cdf1672ca60dc4fa0f2384dbad0875, type: 3}
     SpeedMove: 2
-    SpeedRotate: 2
+    SpeedRotate: 1
     RangeTargetPosition: 3
     RangeSpeedMove: 1
   FishAreas:
@@ -93,5 +93,5 @@ MonoBehaviour:
       type: 3}
     Dust: {fileID: 7873619849417109862, guid: 39ca56dd42b7bda4fb28f66d56c6ab10, type: 3}
   UI:
-    Loading: {fileID: 5075285192825305569, guid: 1092b4d53c2c1f64cbdae12a3b8af8c4,
+    Loading: {fileID: 6753964874638920621, guid: 1092b4d53c2c1f64cbdae12a3b8af8c4,
       type: 3}

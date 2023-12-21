@@ -53,8 +53,12 @@ public class RunnerController : Singleton<RunnerController>
 
     private void OnInit(NetworkRunner runner)
     {
+        runner.AddComponent<EventScene>();
+
         if (runner.IsServer)
         {
+            runner.Spawn(Config.Data.UI.Loading);
+
             var totalFish = 0;
             Config.Data.FishAreas.FishAreas.ForEach(config => totalFish += config.NumberFish);
             for (int i = 0; i < totalFish; i++)
@@ -64,32 +68,13 @@ public class RunnerController : Singleton<RunnerController>
 
             runner.Spawn(Config.Data.FishAreas.Object);
 
-            StartCoroutine(AddCameraFollower(runner));
+            CameraFollower = runner.InstantiateInRunnerScene(Config.Data.CameraFollower);
         }
         else if (runner.IsPlayer)
         {
-            StartCoroutine(AddParticle(runner));
-            StartCoroutine(AddLoading(runner));
+            runner.InstantiateInRunnerScene(Config.Data.Particle.BubbleCommon);
+            runner.InstantiateInRunnerScene(Config.Data.Particle.SunLight);
         }
-    }
-
-    private IEnumerator AddCameraFollower(NetworkRunner runner)
-    {
-        yield return new WaitForSeconds(2f);
-        CameraFollower = runner.InstantiateInRunnerScene(Config.Data.CameraFollower);
-    }
-
-    private IEnumerator AddParticle(NetworkRunner runner)
-    {
-        yield return new WaitForSeconds(2f);
-        runner.InstantiateInRunnerScene(Config.Data.Particle.BubbleCommon);
-        runner.InstantiateInRunnerScene(Config.Data.Particle.SunLight);
-    }
-
-    private IEnumerator AddLoading(NetworkRunner runner)
-    {
-        yield return new WaitForSeconds(1f);
-        runner.InstantiateInRunnerScene(Config.Data.UI.Loading);
     }
 
     private void OnPlayerLeft(NetworkRunner runner, PlayerRef playerRef)
