@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Fusion;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.SceneManagement;
 
 public class RunnerController : Singleton<RunnerController>
@@ -69,7 +70,16 @@ public class RunnerController : Singleton<RunnerController>
             runner.Spawn(Config.Data.FishAreas.Object);
 
             CameraFollower = runner.InstantiateInRunnerScene(Config.Data.CameraFollower);
+
+            StartCoroutine(LoadOcean(runner));
         }
+    }
+
+    private IEnumerator LoadOcean(NetworkRunner runner)
+    {
+        var handle = Addressables.LoadAssetAsync<GameObject>("Ocean");
+        yield return handle;
+        runner.InstantiateInRunnerScene(handle.Result);
     }
 
     private void OnPlayerLeft(NetworkRunner runner, PlayerRef playerRef)

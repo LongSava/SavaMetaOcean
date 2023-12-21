@@ -14,7 +14,6 @@ public partial class Player : PTBehaviour
     [SerializeField] private Transform _bodyOffset;
     [SerializeField] private UniversalAdditionalCameraData _universalAdditionalCameraData;
     [SerializeField] private Camera _camera;
-    [SerializeField] private AudioListener _audioListener;
     [SerializeField] private TrackedPoseDriver _trackedPoseDriver;
     [SerializeField] private XRBaseController _xRLeftBaseController;
     [SerializeField] private XRBaseController _xRRightBaseController;
@@ -68,7 +67,6 @@ public partial class Player : PTBehaviour
         {
             Destroy(_universalAdditionalCameraData);
             Destroy(_camera);
-            Destroy(_audioListener);
             Destroy(_trackedPoseDriver);
             Destroy(_xRLeftBaseController);
             Destroy(_xRRightBaseController);

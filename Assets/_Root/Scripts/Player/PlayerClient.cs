@@ -1,9 +1,13 @@
+using System.Collections;
+using DG.Tweening;
 using Fusion;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 public partial class Player
 {
     [SerializeField] private InputAsset _inputAsset;
+    [SerializeField] private MeshRenderer _eyes;
     private int _lastStateRotateBody;
     private float _timerRotateBody;
 
@@ -26,13 +30,42 @@ public partial class Player
             events.OnInput = new NetworkEvents.InputEvent();
             events.OnInput.AddListener(OnInput);
 
-            var dust = Runner.InstantiateInRunnerScene(Config.Data.Particle.Dust);
-            dust.transform.SetParent(transform);
-            dust.transform.localPosition = Vector3.zero;
-            dust.transform.localScale = Vector3.one;
-
-            Runner.GetComponent<EventScene>().SpawnedPlayer?.Invoke(this);
+            StartCoroutine(LoadAsset());
         }
+    }
+
+    public IEnumerator LoadAsset()
+    {
+        var handle = Addressables.LoadAssetAsync<GameObject>("Ocean");
+        yield return handle;
+        Runner.InstantiateInRunnerScene(handle.Result);
+
+        handle = Addressables.LoadAssetAsync<GameObject>("ClamShells");
+        yield return handle;
+        Runner.InstantiateInRunnerScene(handle.Result);
+
+        handle = Addressables.LoadAssetAsync<GameObject>("JellyFishes");
+        yield return handle;
+        Runner.InstantiateInRunnerScene(handle.Result);
+
+        handle = Addressables.LoadAssetAsync<GameObject>("BubblesCommon");
+        yield return handle;
+        Runner.InstantiateInRunnerScene(handle.Result);
+
+        handle = Addressables.LoadAssetAsync<GameObject>("SunLight");
+        yield return handle;
+        Runner.InstantiateInRunnerScene(handle.Result);
+
+        handle = Addressables.LoadAssetAsync<GameObject>("Dust");
+        yield return handle;
+        var dust = Runner.InstantiateInRunnerScene(handle.Result);
+        dust.transform.SetParent(transform);
+        dust.transform.localPosition = Vector3.zero;
+        dust.transform.localScale = Vector3.one;
+
+        Runner.GetComponent<EventScene>().SpawnedPlayer?.Invoke(this);
+
+        _eyes.material.DOFade(0, 2);
     }
 
     private void OnInput(NetworkRunner runner, NetworkInput input)

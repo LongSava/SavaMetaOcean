@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 6116bb41a4270be4aabff8f5adee54ea
+  m_SerializeEntries:
+  - m_GUID: 27aa3cc0f9a3de84bad69799404cd28f
+    m_Address: Ocean
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 3c3327a3ef0a1874d888067342242005
+    m_Address: JellyFishes
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 514657dcc9c8ac04bac62d019dc38f8e
+    m_Address: ClamShells
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f07583ae2e721be4fbe270586e6eb93b
+    m_Address: BubblesCommon
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: cb9b54d4e824c294eadfb9bb3c8766d4
+    m_Address: SunLight
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 39ca56dd42b7bda4fb28f66d56c6ab10
+    m_Address: Dust
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 4071342b488526e41a239f79e3da3b85, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 0d8f1f7fa18abde429312b1c53815e50, type: 2}
+    - {fileID: 11400000, guid: 47b371f961097b3468a3b9ba0ed9ab08, type: 2}
