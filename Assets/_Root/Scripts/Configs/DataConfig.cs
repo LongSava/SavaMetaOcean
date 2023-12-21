@@ -14,6 +14,15 @@ public class DataConfig : ScriptableObject
     public FishAreasConfig FishAreas;
     public ParticleConfig Particle;
     public UIConfig UI;
+    public EnvironmentConfig Environment;
+}
+
+[Serializable]
+public class EnvironmentConfig
+{
+    public GameObject Ocean;
+    public GameObject JellyFishs;
+    public GameObject ClamShells;
 }
 
 [Serializable]

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 855fe702201900b4eb65dc00fbedf58a, type: 3}
   m_Name: DataConfig
   m_EditorClassIdentifier: 
-  NumberPlayer: -1
+  NumberPlayer: 1
   Runner: {fileID: 5619035592542766692, guid: faf0bbcfc1315804e906f2f548a34d1c, type: 3}
   CameraFollower: {fileID: 3327078082887505698, guid: c3b376b411e244941abd59a3c2695152,
     type: 3}
@@ -94,4 +94,10 @@ MonoBehaviour:
     Dust: {fileID: 7873619849417109862, guid: 39ca56dd42b7bda4fb28f66d56c6ab10, type: 3}
   UI:
     Loading: {fileID: 6753964874638920621, guid: 1092b4d53c2c1f64cbdae12a3b8af8c4,
+      type: 3}
+  Environment:
+    Ocean: {fileID: 3734188217061772770, guid: 27aa3cc0f9a3de84bad69799404cd28f, type: 3}
+    JellyFishs: {fileID: 5526246190418305007, guid: 3c3327a3ef0a1874d888067342242005,
+      type: 3}
+    ClamShells: {fileID: 3366477534728630523, guid: 514657dcc9c8ac04bac62d019dc38f8e,
       type: 3}

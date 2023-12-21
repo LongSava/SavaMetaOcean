@@ -43,8 +43,8 @@ public class RunnerController : Singleton<RunnerController>
         return runner.StartGame(new StartGameArgs()
         {
             GameMode = gameMode,
-            CustomLobbyName = "SavaOcean2",
-            SessionName = "SavaOcean2",
+            CustomLobbyName = "SavaOcean3",
+            SessionName = "SavaOcean3",
             Scene = SceneManager.GetActiveScene().buildIndex,
             SceneManager = runner.AddComponent<NetworkSceneManagerDefault>(),
             Initialized = OnInit
@@ -69,11 +69,6 @@ public class RunnerController : Singleton<RunnerController>
             runner.Spawn(Config.Data.FishAreas.Object);
 
             CameraFollower = runner.InstantiateInRunnerScene(Config.Data.CameraFollower);
-        }
-        else if (runner.IsPlayer)
-        {
-            runner.InstantiateInRunnerScene(Config.Data.Particle.BubbleCommon);
-            runner.InstantiateInRunnerScene(Config.Data.Particle.SunLight);
         }
     }
 
