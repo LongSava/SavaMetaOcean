@@ -7,7 +7,6 @@ using UnityEngine.AddressableAssets;
 public partial class Player
 {
     [SerializeField] private InputAsset _inputAsset;
-    [SerializeField] private MeshRenderer _eyes;
     private int _lastStateRotateBody;
     private float _timerRotateBody;
 

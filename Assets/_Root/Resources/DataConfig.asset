@@ -28,10 +28,10 @@ MonoBehaviour:
     - {fileID: 3788607453540743139, guid: f6ced2a2496d3124f9b3437b7e07924e, type: 3}
     - {fileID: 4928063136161313697, guid: 75bb05c37628169449eb485ddb7e9cc5, type: 3}
     - {fileID: 7674147974999670020, guid: 52cdf1672ca60dc4fa0f2384dbad0875, type: 3}
-    SpeedMove: 2
+    SpeedMove: 0
     SpeedRotate: 1
     RangeTargetPosition: 3
-    RangeSpeedMove: 1
+    RangeSpeedMove: 0
   FishAreas:
     Object: {fileID: 6354802072813465026, guid: 960f9350c4f54ff4c9772b79a1d5c069,
       type: 3}
@@ -86,9 +86,3 @@ MonoBehaviour:
       Rotation: {x: 0, y: -0.0784591, z: 0, w: 0.9969173}
       Size: {x: 100, y: 25, z: 70}
       NumberFish: 25
-  Particle:
-    BubbleCommon: {fileID: 8789502228493122345, guid: f07583ae2e721be4fbe270586e6eb93b,
-      type: 3}
-    SunLight: {fileID: 5002629167441802333, guid: cb9b54d4e824c294eadfb9bb3c8766d4,
-      type: 3}
-    Dust: {fileID: 7873619849417109862, guid: 39ca56dd42b7bda4fb28f66d56c6ab10, type: 3}

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using DG.Tweening;
 using Fusion;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -134,11 +135,16 @@ public class RunnerController : Singleton<RunnerController>
         if (_runners.Count > 1)
         {
             ChangeRunner(1);
+            DOTween.Sequence().AppendInterval(1).AppendCallback(() =>
+            {
+                ChangeCameraFollower(1);
+            });
         }
         else
         {
             ChangeRunner(0);
         }
+
     }
 
     private void DisableRunnerJustAdded()

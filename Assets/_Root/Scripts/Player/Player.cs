@@ -24,6 +24,7 @@ public partial class Player : PTBehaviour
     [SerializeField] private Transform _rightHandDevice;
     [SerializeField] private Transform _leftHandDevice;
     [SerializeField] private Vector3 _offsetHead;
+    [SerializeField] private MeshRenderer _eyes;
     [Networked] private InputData _inputData { get; set; }
     private List<Coroutine> _coroutines = new List<Coroutine>();
     private bool isSwimming;
@@ -70,6 +71,7 @@ public partial class Player : PTBehaviour
             Destroy(_trackedPoseDriver);
             Destroy(_xRLeftBaseController);
             Destroy(_xRRightBaseController);
+            Destroy(_eyes.gameObject);
         }
     }
 

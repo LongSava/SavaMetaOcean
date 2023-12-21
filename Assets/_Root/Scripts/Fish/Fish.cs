@@ -5,6 +5,7 @@ using UnityEngine;
 public class Fish : NetworkBehaviour
 {
     [SerializeField] private Animator _animator;
+    [SerializeField] private Rigidbody _rigidbody;
     private bool _isRelease = true;
     private FishFlock _flock;
     private Vector3 _offsetPosition;
@@ -34,6 +35,12 @@ public class Fish : NetworkBehaviour
     public void SetFlock(FishFlock fishFlock)
     {
         _flock = fishFlock;
+    }
+
+    public override void Render()
+    {
+        _rigidbody.velocity = Vector3.zero;
+        _rigidbody.angularVelocity = Vector3.zero;
     }
 
     public override void FixedUpdateNetwork()

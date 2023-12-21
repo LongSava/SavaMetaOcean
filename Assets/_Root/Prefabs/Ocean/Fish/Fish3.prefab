@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6956831203253121479}
   - component: {fileID: 280593188687126034}
   - component: {fileID: 8374041328434406515}
+  - component: {fileID: 8110573016643841636}
   m_Layer: 0
   m_Name: Fish3
   m_TagString: Fish
@@ -51,7 +52,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _interpolationDataSource: 0
   _animator: {fileID: 8215699726550585062}
-  _networkTransform: {fileID: 0}
+  _rigidbody: {fileID: 8374041328434406515}
 --- !u!114 &3295468284965520724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,10 +132,24 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!136 &8110573016643841636
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7674147974999670025}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.15
+  m_Height: 0.8
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &9029098670727385337
 PrefabInstance:
   m_ObjectHideFlags: 0
