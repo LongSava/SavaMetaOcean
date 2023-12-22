@@ -1715,6 +1715,7 @@ MonoBehaviour:
   _leftHandDevice: {fileID: 1362621923795822665}
   _offsetHead: {x: 0, y: -0.5, z: -0.5}
   _eyes: {fileID: 4377141189511580262}
+  _gyreLine: {fileID: 0}
 --- !u!114 &7630828481057321151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1762,8 +1763,8 @@ CapsuleCollider:
   m_Material: {fileID: 13400000, guid: e37bd1a96d677f04f8ded36e37c037f2, type: 2}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 1.5
-  m_Height: 1.5
+  m_Radius: 1
+  m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: -0.5, z: -0.5}
 --- !u!54 &6074013754965768402

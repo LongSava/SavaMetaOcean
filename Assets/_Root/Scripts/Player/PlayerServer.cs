@@ -26,5 +26,10 @@ public partial class Player
 
             _inputData = input;
         }
+
+        if (_gyreLine != null)
+        {
+            transform.Translate(_gyreLine.transform.forward * Runner.DeltaTime * Config.Data.SpeedGyreLine, Space.World);
+        }
     }
 }

@@ -25,11 +25,13 @@ public partial class Player : PTBehaviour
     [SerializeField] private Transform _leftHandDevice;
     [SerializeField] private Vector3 _offsetHead;
     [SerializeField] private MeshRenderer _eyes;
+    [SerializeField] private GyreLine _gyreLine;
     [Networked] private InputData _inputData { get; set; }
     private List<Coroutine> _coroutines = new List<Coroutine>();
     private bool isSwimming;
 
     public Transform HeadDevice { get => _headDevice; set => _headDevice = value; }
+    public GyreLine GyreLine { get => _gyreLine; set => _gyreLine = value; }
 
     private void HandleInput(InputData input)
     {

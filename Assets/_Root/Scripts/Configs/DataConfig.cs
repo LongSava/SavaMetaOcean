@@ -12,6 +12,7 @@ public class DataConfig : ScriptableObject
     public PlayerConfig Player;
     public FishConfig Fish;
     public FishAreasConfig FishAreas;
+    public float SpeedGyreLine;
 }
 
 [Serializable]

@@ -37,6 +37,9 @@ public class RunnerController : Singleton<RunnerController>
 
         events.PlayerLeft = new NetworkEvents.PlayerEvent();
         events.PlayerLeft.AddListener(OnPlayerLeft);
+
+        events.OnSceneLoadDone = new NetworkEvents.RunnerEvent();
+        events.OnSceneLoadDone.AddListener(OnSceneLoadDone);
     }
 
     private Task<StartGameResult> StartGame(NetworkRunner runner, GameMode gameMode)
@@ -71,16 +74,16 @@ public class RunnerController : Singleton<RunnerController>
             runner.Spawn(Config.Data.FishAreas.Object);
 
             CameraFollower = runner.InstantiateInRunnerScene(Config.Data.CameraFollower);
-
-            StartCoroutine(LoadOcean(runner));
         }
     }
 
-    private IEnumerator LoadOcean(NetworkRunner runner)
+    private void OnSceneLoadDone(NetworkRunner runner)
     {
-        var handle = Addressables.LoadAssetAsync<GameObject>("Ocean");
-        yield return handle;
-        runner.InstantiateInRunnerScene(handle.Result);
+        if (runner.IsServer)
+        {
+            Addressables.LoadAssetAsync<GameObject>("Ocean").Completed += handle => runner.InstantiateInRunnerScene(handle.Result);
+            Addressables.LoadAssetAsync<GameObject>("Gyre").Completed += handle => runner.InstantiateInRunnerScene(handle.Result);
+        }
     }
 
     private void OnPlayerLeft(NetworkRunner runner, PlayerRef playerRef)

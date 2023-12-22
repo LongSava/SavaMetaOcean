@@ -21,17 +21,17 @@ MonoBehaviour:
       type: 3}
     SpeedMove: 5
     SpeedRotate: 300
-    PositionSpawned: {x: 108, y: 20, z: 173}
+    PositionSpawned: {x: 20, y: 88, z: 200}
   Fish:
     Objects:
     - {fileID: 3930750808290060590, guid: 557279f625d6fca4dabec3748469b34e, type: 3}
     - {fileID: 3788607453540743139, guid: f6ced2a2496d3124f9b3437b7e07924e, type: 3}
     - {fileID: 4928063136161313697, guid: 75bb05c37628169449eb485ddb7e9cc5, type: 3}
     - {fileID: 7674147974999670020, guid: 52cdf1672ca60dc4fa0f2384dbad0875, type: 3}
-    SpeedMove: 0
+    SpeedMove: 2
     SpeedRotate: 1
     RangeTargetPosition: 3
-    RangeSpeedMove: 0
+    RangeSpeedMove: 1
   FishAreas:
     Object: {fileID: 6354802072813465026, guid: 960f9350c4f54ff4c9772b79a1d5c069,
       type: 3}
@@ -86,3 +86,4 @@ MonoBehaviour:
       Rotation: {x: 0, y: -0.0784591, z: 0, w: 0.9969173}
       Size: {x: 100, y: 25, z: 70}
       NumberFish: 25
+  SpeedGyreLine: 2
