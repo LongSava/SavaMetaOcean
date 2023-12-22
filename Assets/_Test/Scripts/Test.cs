@@ -10,7 +10,7 @@ public class Test : Singleton<Test>
     public static int RemainPlayer = -1;
     public int NumberPlayer;
     public NetworkRunner Runner;
-    public Cube Cube;
+    public GameObject Cube;
     private List<NetworkRunner> _runners = new List<NetworkRunner>();
     private Dictionary<PlayerRef, NetworkObject> _players = new Dictionary<PlayerRef, NetworkObject>();
 
@@ -71,7 +71,7 @@ public class Test : Singleton<Test>
         if (runner.IsServer)
         {
             var player = runner.Spawn(Cube, Vector3.zero, Quaternion.identity, playerRef);
-            _players.Add(playerRef, player.Object);
+            _players.Add(playerRef, player.GetComponent<NetworkObject>());
         }
     }
 
