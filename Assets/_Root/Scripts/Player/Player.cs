@@ -26,12 +26,14 @@ public partial class Player : PTBehaviour
     [SerializeField] private Vector3 _offsetHead;
     [SerializeField] private MeshRenderer _eyes;
     [SerializeField] private GyreLine _gyreLine;
+    [SerializeField] private PlayerAudio _playerAudio;
     [Networked] private InputData _inputData { get; set; }
     private List<Coroutine> _coroutines = new List<Coroutine>();
     private bool isSwimming;
 
     public Transform HeadDevice { get => _headDevice; set => _headDevice = value; }
     public GyreLine GyreLine { get => _gyreLine; set => _gyreLine = value; }
+    public PlayerAudio PlayerAudio { get => _playerAudio; set => _playerAudio = value; }
 
     private void HandleInput(InputData input)
     {
@@ -74,6 +76,7 @@ public partial class Player : PTBehaviour
             Destroy(_xRLeftBaseController);
             Destroy(_xRRightBaseController);
             Destroy(_eyes.gameObject);
+            _playerAudio.RemoveAudio();
         }
     }
 
@@ -96,12 +99,14 @@ public partial class Player : PTBehaviour
     {
         _animator.SetBool("IsSwimming", true);
         isSwimming = true;
+        _playerAudio.ChangeSnapshotToSwimming();
     }
 
     private void Tread()
     {
         _animator.SetBool("IsSwimming", false);
         isSwimming = false;
+        _playerAudio.ChangeSnapshotToBreathing();
     }
 
     private void SetWeightForChainIKHands(float weight)

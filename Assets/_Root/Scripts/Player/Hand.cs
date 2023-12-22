@@ -9,6 +9,7 @@ public class Hand : NetworkBehaviour
     [SerializeField] private Transform _fishTransform;
     [SerializeField] private List<Finger> _fingers;
     [SerializeField] private XRBaseController _xRBaseController;
+    [SerializeField] private AudioSource _fishStruggling;
     private Fish _fish;
     private float _grapValue;
     private float _grapValueOld;
@@ -39,7 +40,12 @@ public class Hand : NetworkBehaviour
             if (_grapValue == 1)
             {
                 _fish.Catched(_fishTransform);
-                StartCoroutine(SendHapticImpulse(1, 1));
+                if (!_isSendingHaptic)
+                {
+                    _isSendingHaptic = true;
+                    _xRBaseController.SendHapticImpulse(1, 0.5f);
+                    _fishStruggling.Play();
+                }
             }
             else
             {
@@ -47,6 +53,12 @@ public class Hand : NetworkBehaviour
                 if (_grapValueOld == 1)
                 {
                     _fish = null;
+                }
+                if (_isSendingHaptic)
+                {
+                    _isSendingHaptic = false;
+                    _xRBaseController.SendHapticImpulse(1, 0.5f);
+                    _fishStruggling.Stop();
                 }
             }
         }

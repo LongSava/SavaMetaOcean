@@ -43,7 +43,6 @@ public partial class Player
                 dust.transform.localScale = Vector3.one;
             };
 
-            Runner.GetComponent<EventScene>().SpawnedPlayer?.Invoke(this);
             _eyes.material.DOFade(0, 2);
         }
     }

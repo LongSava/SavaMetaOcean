@@ -5,6 +5,7 @@ public class ClamShell : MonoBehaviour
 {
     [SerializeField] private Animator _animator;
     [SerializeField] private ParticleSystem _particleSystem;
+    [SerializeField] private AudioSource _bubblesSound;
     private bool _isParticlePlaying;
     private Coroutine _coroutine;
 
@@ -24,6 +25,7 @@ public class ClamShell : MonoBehaviour
         yield return new WaitForSeconds(1);
 
         _particleSystem.Play();
+        _bubblesSound.Play();
     }
 
     public void Close()

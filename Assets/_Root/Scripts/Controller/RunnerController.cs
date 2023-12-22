@@ -62,8 +62,6 @@ public class RunnerController : Singleton<RunnerController>
 
         if (runner.IsServer)
         {
-            runner.Spawn(Config.Audio.AudioPlayer);
-
             var totalFish = 0;
             Config.Data.FishAreas.FishAreas.ForEach(config => totalFish += config.NumberFish);
             for (int i = 0; i < totalFish; i++)

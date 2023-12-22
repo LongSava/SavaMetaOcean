@@ -28,7 +28,7 @@ public class Gyre : MonoBehaviour
         var gyreLine = Instantiate(GyreLine, transform);
         gyreLine.transform.localScale = new Vector3(1, 1, Vector3.Distance(startPoint, endPoint));
         gyreLine.transform.position = (endPoint + startPoint) / 2;
-        gyreLine.transform.Rotate(gyreLine.transform.up, Vector3.SignedAngle(gyreLine.transform.forward, endPoint - startPoint, gyreLine.transform.up));
+        gyreLine.transform.Rotate(gyreLine.transform.up, -Vector3.SignedAngle(gyreLine.transform.forward, endPoint - startPoint, gyreLine.transform.up));
         gyreLine.gameObject.SetActive(true);
         gyreLine.Index = _index++;
     }
