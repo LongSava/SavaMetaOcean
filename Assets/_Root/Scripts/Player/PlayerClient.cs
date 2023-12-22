@@ -29,7 +29,14 @@ public partial class Player
             events.OnInput = new NetworkEvents.InputEvent();
             events.OnInput.AddListener(OnInput);
 
-            Addressables.LoadAssetAsync<GameObject>("Ocean").Completed += handle => Runner.InstantiateInRunnerScene(handle.Result);
+            Addressables.LoadAssetAsync<GameObject>("Ocean").Completed += handle =>
+            {
+                Runner.InstantiateInRunnerScene(handle.Result);
+                _eyes.material.DOFade(0, 2).OnComplete(() =>
+                {
+                    Destroy(_eyes.gameObject);
+                });
+            };
             Addressables.LoadAssetAsync<GameObject>("Gyre").Completed += handle => Runner.InstantiateInRunnerScene(handle.Result);
             Addressables.LoadAssetAsync<GameObject>("ClamShells").Completed += handle => Runner.InstantiateInRunnerScene(handle.Result);
             Addressables.LoadAssetAsync<GameObject>("JellyFishes").Completed += handle => Runner.InstantiateInRunnerScene(handle.Result);
@@ -42,8 +49,6 @@ public partial class Player
                 dust.transform.localPosition = Vector3.zero;
                 dust.transform.localScale = Vector3.one;
             };
-
-            _eyes.material.DOFade(0, 2);
         }
     }
 
