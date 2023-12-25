@@ -13,7 +13,11 @@ public class GyreLine : MonoBehaviour
             var player = other.GetComponent<Player>();
             if (player.GyreLine != null)
             {
-                if (player.GyreLine.Index > Index || player.GyreLine.Index == 0)
+                if (player.GyreLine.Index < Index)
+                {
+                    player.GyreLine = this;
+                }
+                else if (player.GyreLine.Index == 0)
                 {
                     player.GyreLine = this;
                 }
