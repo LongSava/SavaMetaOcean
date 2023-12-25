@@ -1,12 +1,12 @@
-using System.Collections;
+using System;
 using DG.Tweening;
 using Fusion;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
 
 public partial class Player
 {
     [SerializeField] private InputAsset _inputAsset;
+    [SerializeField] private ParticleSystem _particleSystem;
     private int _lastStateRotateBody;
     private float _timerRotateBody;
 
@@ -23,32 +23,41 @@ public partial class Player
         if (HasInputAuthority)
         {
             _inputAsset = new InputAsset();
-            _inputAsset.Enable();
 
             var events = Runner.GetComponent<NetworkEvents>();
             events.OnInput = new NetworkEvents.InputEvent();
             events.OnInput.AddListener(OnInput);
 
-            Addressables.LoadAssetAsync<GameObject>("Ocean").Completed += handle =>
+            Runner.GetComponent<EventScene>().OnAssetLoadDone += () =>
             {
-                Runner.InstantiateInRunnerScene(handle.Result);
-                _eyes.material.DOFade(0, 2).OnComplete(() =>
-                {
-                    Destroy(_eyes.gameObject);
-                });
+                EnableEyes();
             };
-            Addressables.LoadAssetAsync<GameObject>("Gyre").Completed += handle => Runner.InstantiateInRunnerScene(handle.Result);
-            Addressables.LoadAssetAsync<GameObject>("ClamShells").Completed += handle => Runner.InstantiateInRunnerScene(handle.Result);
-            Addressables.LoadAssetAsync<GameObject>("JellyFishes").Completed += handle => Runner.InstantiateInRunnerScene(handle.Result);
-            Addressables.LoadAssetAsync<GameObject>("BubblesCommon").Completed += handle => Runner.InstantiateInRunnerScene(handle.Result);
-            Addressables.LoadAssetAsync<GameObject>("SunLight").Completed += handle => Runner.InstantiateInRunnerScene(handle.Result);
-            Addressables.LoadAssetAsync<GameObject>("Dust").Completed += handle =>
+        }
+    }
+
+    public void DisableEyes(Action action = null)
+    {
+        if (HasInputAuthority)
+        {
+            _inputAsset.Disable();
+            _eyes.enabled = true;
+            _eyes.material.DOFade(1, 2).OnComplete(() =>
             {
-                var dust = Runner.InstantiateInRunnerScene(handle.Result);
-                dust.transform.SetParent(transform);
-                dust.transform.localPosition = Vector3.zero;
-                dust.transform.localScale = Vector3.one;
-            };
+                action?.Invoke();
+            });
+        }
+    }
+
+    public void EnableEyes(Action action = null)
+    {
+        if (HasInputAuthority)
+        {
+            _eyes.material.DOFade(0, 2).OnComplete(() =>
+            {
+                _inputAsset.Enable();
+                _eyes.enabled = false;
+                action?.Invoke();
+            });
         }
     }
 

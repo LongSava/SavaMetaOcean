@@ -8,12 +8,32 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.SceneManagement;
 
+public enum RoomType
+{
+    Ocean,
+    Titanic
+}
+
 public class RunnerController : Singleton<RunnerController>
 {
+    public RoomType RoomType;
+    public Vector3 PositionSpawned;
     public static int NumberPlayer = -1;
     private List<NetworkRunner> _runners = new List<NetworkRunner>();
     private Dictionary<PlayerRef, NetworkObject> _players = new Dictionary<PlayerRef, NetworkObject>();
     private CameraFollower CameraFollower;
+
+    public void Destroy()
+    {
+        _runners.ForEach(runner => Destroy(runner.gameObject));
+        _runners.Clear();
+
+        _players.Clear();
+
+        NumberPlayer = -1;
+
+        Destroy(gameObject);
+    }
 
     private void Start()
     {
@@ -30,6 +50,8 @@ public class RunnerController : Singleton<RunnerController>
 
     private void AddEvents(NetworkRunner runner)
     {
+        runner.AddComponent<EventScene>();
+
         var events = runner.AddComponent<NetworkEvents>();
 
         events.PlayerJoined = new NetworkEvents.PlayerEvent();
@@ -48,18 +70,28 @@ public class RunnerController : Singleton<RunnerController>
         return runner.StartGame(new StartGameArgs()
         {
             GameMode = gameMode,
-            CustomLobbyName = "SavaOcean3",
-            SessionName = "SavaOcean3",
+            CustomLobbyName = RoomType.ToString(),
+            SessionName = RoomType.ToString(),
             Scene = SceneManager.GetActiveScene().buildIndex,
-            SceneManager = runner.AddComponent<NetworkSceneManagerDefault>(),
-            Initialized = OnInit
+            SceneManager = runner.AddComponent<NetworkSceneManagerDefault>()
         });
     }
 
-    private void OnInit(NetworkRunner runner)
+    private void OnSceneLoadDone(NetworkRunner runner)
     {
-        runner.AddComponent<EventScene>();
+        switch (RoomType)
+        {
+            case RoomType.Ocean:
+                StartCoroutine(LoadAssetOcean(runner));
+                break;
+            case RoomType.Titanic:
+                StartCoroutine(LoadAssetTitanic(runner));
+                break;
+        }
+    }
 
+    private IEnumerator LoadAssetOcean(NetworkRunner runner)
+    {
         if (runner.IsServer)
         {
             var totalFish = 0;
@@ -73,15 +105,44 @@ public class RunnerController : Singleton<RunnerController>
 
             CameraFollower = runner.InstantiateInRunnerScene(Config.Data.CameraFollower);
         }
+
+        var handle = Addressables.LoadAssetAsync<GameObject>("Ocean");
+        yield return handle;
+        runner.InstantiateInRunnerScene(handle.Result);
+
+        handle = Addressables.LoadAssetAsync<GameObject>("Gyre");
+        yield return handle;
+        runner.InstantiateInRunnerScene(handle.Result);
+
+        handle = Addressables.LoadAssetAsync<GameObject>("ClamShells");
+        yield return handle;
+        runner.InstantiateInRunnerScene(handle.Result);
+
+        handle = Addressables.LoadAssetAsync<GameObject>("JellyFishes");
+        yield return handle;
+        runner.InstantiateInRunnerScene(handle.Result);
+
+        handle = Addressables.LoadAssetAsync<GameObject>("BubblesCommon");
+        yield return handle;
+        runner.InstantiateInRunnerScene(handle.Result);
+
+        handle = Addressables.LoadAssetAsync<GameObject>("SunLight");
+        yield return handle;
+        runner.InstantiateInRunnerScene(handle.Result);
+
+        runner.GetComponent<EventScene>().OnAssetLoadDone?.Invoke();
     }
 
-    private void OnSceneLoadDone(NetworkRunner runner)
+    private IEnumerator LoadAssetTitanic(NetworkRunner runner)
     {
         if (runner.IsServer)
         {
-            Addressables.LoadAssetAsync<GameObject>("Ocean").Completed += handle => runner.InstantiateInRunnerScene(handle.Result);
-            Addressables.LoadAssetAsync<GameObject>("Gyre").Completed += handle => runner.InstantiateInRunnerScene(handle.Result);
+            CameraFollower = runner.InstantiateInRunnerScene(Config.Data.CameraFollower);
         }
+
+        yield return null;
+
+        runner.GetComponent<EventScene>().OnAssetLoadDone?.Invoke();
     }
 
     private void OnPlayerLeft(NetworkRunner runner, PlayerRef playerRef)
@@ -101,7 +162,7 @@ public class RunnerController : Singleton<RunnerController>
     {
         if (runner.IsServer)
         {
-            var position = new Vector3(Random.Range(-5, 5), 0, Random.Range(-5, 5)) + Config.Data.Player.PositionSpawned;
+            var position = new Vector3(Random.Range(-5, 5), 0, Random.Range(-5, 5)) + PositionSpawned;
             var rotation = Quaternion.Euler(0, -90, 0);
             var player = runner.Spawn(Config.Data.Player.Object, position, rotation, playerRef);
             _players.Add(playerRef, player.GetComponent<NetworkObject>());
