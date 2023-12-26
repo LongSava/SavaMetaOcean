@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 855fe702201900b4eb65dc00fbedf58a, type: 3}
   m_Name: DataConfig
   m_EditorClassIdentifier: 
-  NumberPlayer: 0
+  NumberPlayer: 1
   Runner: {fileID: 5619035592542766692, guid: faf0bbcfc1315804e906f2f548a34d1c, type: 3}
   CameraFollower: {fileID: 3327078082887505698, guid: c3b376b411e244941abd59a3c2695152,
     type: 3}
   Player:
     Object: {fileID: 7630828481057321148, guid: 9895f5c0ba9b15648b62caf3e900504b,
       type: 3}
-    SpeedMove: 5
+    SpeedMove: 20
     SpeedRotate: 300
     PositionSpawned: {x: 20, y: 30, z: 170}
   Fish:

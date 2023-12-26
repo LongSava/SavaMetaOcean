@@ -17,25 +17,33 @@ public class LoadingController : MonoBehaviour
 
     private void Start()
     {
-        DOTween.Sequence().AppendInterval(2).AppendCallback(() =>
+        if (Config.Data.NumberPlayer == NumberPlayer.Server)
         {
-            Logo.material.DOFade(1, 3).OnComplete(() =>
+            SceneManager.LoadScene(RoomType.ToString());
+        }
+        else
+        {
+            DOTween.Sequence().AppendInterval(2).AppendCallback(() =>
             {
-                Particle.Play();
-                DOTween.Sequence().AppendInterval(1).AppendCallback(() =>
+                Logo.material.DOFade(1, 3).OnComplete(() =>
                 {
-                    Dark.material.DOFade(1, 4);
-                    Particle.transform.DOLocalMoveZ(0.4f, 4);
-                    Logo.transform.DOScale(0, 4).OnComplete(() =>
+                    Particle.Play();
+                    DOTween.Sequence().AppendInterval(1).AppendCallback(() =>
                     {
-                        Destroy(Particle.gameObject);
-                        DOTween.Sequence().AppendInterval(0.1f).AppendCallback(() =>
+                        Dark.material.DOFade(1, 4);
+                        Particle.transform.DOLocalMoveZ(0.4f, 4);
+                        Logo.material.DOFade(0, 4);
+                        Logo.transform.DOScale(30, 4).OnComplete(() =>
                         {
-                            SceneManager.LoadScene(RoomType.ToString());
+                            Destroy(Particle.gameObject);
+                            DOTween.Sequence().AppendInterval(0.1f).AppendCallback(() =>
+                            {
+                                SceneManager.LoadScene(RoomType.ToString());
+                            });
                         });
                     });
                 });
             });
-        });
+        }
     }
 }
