@@ -140,7 +140,7 @@ public class RunnerController : Singleton<RunnerController>
             CameraFollower = runner.InstantiateInRunnerScene(Config.Data.CameraFollower);
         }
 
-        yield return null;
+        yield return new WaitForSeconds(1);
 
         runner.GetComponent<EventScene>().OnAssetLoadDone?.Invoke();
     }
