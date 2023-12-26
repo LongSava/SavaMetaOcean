@@ -440,6 +440,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01e419b9ff3d58845b957a7a3a829040, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RoomType: 1
   Logo: {fileID: 337670474}
   Particle: {fileID: 1513352717116870436}
   Dark: {fileID: 826770990}

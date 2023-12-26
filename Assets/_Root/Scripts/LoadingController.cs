@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class LoadingController : MonoBehaviour
 {
+    public RoomType RoomType;
     public MeshRenderer Logo;
     public ParticleSystem Particle;
     public MeshRenderer Dark;
@@ -30,7 +31,7 @@ public class LoadingController : MonoBehaviour
                         Destroy(Particle.gameObject);
                         DOTween.Sequence().AppendInterval(0.1f).AppendCallback(() =>
                         {
-                            SceneManager.LoadScene("Game");
+                            SceneManager.LoadScene(RoomType.ToString());
                         });
                     });
                 });

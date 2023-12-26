@@ -104,31 +104,41 @@ public class RunnerController : Singleton<RunnerController>
             runner.Spawn(Config.Data.FishAreas.Object);
 
             CameraFollower = runner.InstantiateInRunnerScene(Config.Data.CameraFollower);
+
+            var handleServer = Addressables.LoadAssetAsync<GameObject>("Ocean");
+            yield return handleServer;
+            runner.InstantiateInRunnerScene(handleServer.Result);
+
+            handleServer = Addressables.LoadAssetAsync<GameObject>("Gyre");
+            yield return handleServer;
+            runner.InstantiateInRunnerScene(handleServer.Result);
         }
+        else
+        {
+            var handleClient = Addressables.LoadAssetAsync<GameObject>("Ocean");
+            yield return handleClient;
+            runner.InstantiateInRunnerScene(handleClient.Result);
 
-        var handle = Addressables.LoadAssetAsync<GameObject>("Ocean");
-        yield return handle;
-        runner.InstantiateInRunnerScene(handle.Result);
+            handleClient = Addressables.LoadAssetAsync<GameObject>("Gyre");
+            yield return handleClient;
+            runner.InstantiateInRunnerScene(handleClient.Result);
 
-        handle = Addressables.LoadAssetAsync<GameObject>("Gyre");
-        yield return handle;
-        runner.InstantiateInRunnerScene(handle.Result);
+            handleClient = Addressables.LoadAssetAsync<GameObject>("ClamShells");
+            yield return handleClient;
+            runner.InstantiateInRunnerScene(handleClient.Result);
 
-        handle = Addressables.LoadAssetAsync<GameObject>("ClamShells");
-        yield return handle;
-        runner.InstantiateInRunnerScene(handle.Result);
+            handleClient = Addressables.LoadAssetAsync<GameObject>("JellyFishes");
+            yield return handleClient;
+            runner.InstantiateInRunnerScene(handleClient.Result);
 
-        handle = Addressables.LoadAssetAsync<GameObject>("JellyFishes");
-        yield return handle;
-        runner.InstantiateInRunnerScene(handle.Result);
+            handleClient = Addressables.LoadAssetAsync<GameObject>("BubblesCommon");
+            yield return handleClient;
+            runner.InstantiateInRunnerScene(handleClient.Result);
 
-        handle = Addressables.LoadAssetAsync<GameObject>("BubblesCommon");
-        yield return handle;
-        runner.InstantiateInRunnerScene(handle.Result);
-
-        handle = Addressables.LoadAssetAsync<GameObject>("SunLight");
-        yield return handle;
-        runner.InstantiateInRunnerScene(handle.Result);
+            handleClient = Addressables.LoadAssetAsync<GameObject>("SunLight");
+            yield return handleClient;
+            runner.InstantiateInRunnerScene(handleClient.Result);
+        }
 
         runner.GetComponent<EventScene>().OnAssetLoadDone?.Invoke();
     }

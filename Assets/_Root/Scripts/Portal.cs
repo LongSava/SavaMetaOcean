@@ -10,20 +10,24 @@ public class Portal : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             var player = other.GetComponent<Player>();
-            player.DisableEyes(() =>
+
+            if (player.HasInputAuthority)
             {
-                switch (RoomType)
+                player.DisableEyes(() =>
                 {
-                    case RoomType.Ocean:
-                        RunnerController.Instance.Destroy();
-                        SceneManager.LoadScene("Ocean");
-                        break;
-                    case RoomType.Titanic:
-                        RunnerController.Instance.Destroy();
-                        SceneManager.LoadScene("Titanic");
-                        break;
-                }
-            });
+                    switch (RoomType)
+                    {
+                        case RoomType.Ocean:
+                            RunnerController.Instance.Destroy();
+                            SceneManager.LoadScene("Ocean");
+                            break;
+                        case RoomType.Titanic:
+                            RunnerController.Instance.Destroy();
+                            SceneManager.LoadScene("Titanic");
+                            break;
+                    }
+                });
+            }
         }
     }
 }
