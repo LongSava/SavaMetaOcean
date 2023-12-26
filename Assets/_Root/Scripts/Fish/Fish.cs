@@ -67,6 +67,7 @@ public class Fish : NetworkBehaviour
 
     public void Catched(Transform location)
     {
+        _rigidbody.isKinematic = true;
         transform.SetPositionAndRotation(location.position, location.rotation);
         _isRelease = false;
         _animator.speed = Config.Data.Fish.SpeedMove * 5;
@@ -74,6 +75,7 @@ public class Fish : NetworkBehaviour
 
     public void Released()
     {
+        _rigidbody.isKinematic = false;
         _isRelease = true;
         _animator.speed = Config.Data.Fish.SpeedMove;
     }
