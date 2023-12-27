@@ -2367,7 +2367,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &2360046240110575589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3975,6 +3975,7 @@ MonoBehaviour:
   - {fileID: 2064294351152161304}
   _xRBaseController: {fileID: 2942518129228962826}
   _fishStruggling: {fileID: 8341829626831161021}
+  _boxCollider: {fileID: 8220818265166183149}
 --- !u!1 &2531080855228947139 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4549111882529890269, guid: 0b4df4f8ace068743befb46567f38df2,
@@ -4062,6 +4063,7 @@ MonoBehaviour:
   - {fileID: 6700731527176544798}
   _xRBaseController: {fileID: 1190042516217940494}
   _fishStruggling: {fileID: 8341829626831161021}
+  _boxCollider: {fileID: 6096796955019801060}
 --- !u!4 &4343646471069442988 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -6897756558726502734, guid: 0b4df4f8ace068743befb46567f38df2,

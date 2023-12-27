@@ -10,6 +10,7 @@ public class Hand : NetworkBehaviour
     [SerializeField] private List<Finger> _fingers;
     [SerializeField] private XRBaseController _xRBaseController;
     [SerializeField] private AudioSource _fishStruggling;
+    [SerializeField] private BoxCollider _boxCollider;
     private Fish _fish;
     private float _grapValue;
     private float _grapValueOld;
@@ -39,6 +40,7 @@ public class Hand : NetworkBehaviour
         {
             if (_grapValue == 1)
             {
+                _boxCollider.isTrigger = true;
                 _fish.Catched(_fishTransform);
                 if (!_isSendingHaptic)
                 {
@@ -49,6 +51,7 @@ public class Hand : NetworkBehaviour
             }
             else
             {
+                _boxCollider.isTrigger = false;
                 _fish.Released();
                 if (_grapValueOld == 1)
                 {

@@ -37,12 +37,6 @@ public class Fish : NetworkBehaviour
         _flock = fishFlock;
     }
 
-    public override void Render()
-    {
-        _rigidbody.velocity = Vector3.zero;
-        _rigidbody.angularVelocity = Vector3.zero;
-    }
-
     public override void FixedUpdateNetwork()
     {
         if (_flock != null && _isRelease)
