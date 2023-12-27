@@ -11,8 +11,7 @@ public class Fish : NetworkBehaviour
     private Vector3 _offsetPosition;
     private float _speedMove;
     private Player _player;
-
-    public bool IsRelease { get => _isRelease; set => _isRelease = value; }
+    private Transform _fishTransform;
 
     public override void Spawned()
     {
@@ -59,17 +58,23 @@ public class Fish : NetworkBehaviour
         }
     }
 
-    public void Catched(Transform location)
+    public override void Render()
     {
-        _rigidbody.isKinematic = true;
-        transform.SetPositionAndRotation(location.position, location.rotation);
+        if (!_isRelease)
+        {
+            transform.SetPositionAndRotation(_fishTransform.position, _fishTransform.rotation);
+        }
+    }
+
+    public void Catched(Transform fishTransform)
+    {
+        _fishTransform = fishTransform;
         _isRelease = false;
         _animator.speed = Config.Data.Fish.SpeedMove * 5;
     }
 
     public void Released()
     {
-        _rigidbody.isKinematic = false;
         _isRelease = true;
         _animator.speed = Config.Data.Fish.SpeedMove;
     }

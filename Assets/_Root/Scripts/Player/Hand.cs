@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Fusion;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
@@ -13,13 +14,8 @@ public class Hand : NetworkBehaviour
     [SerializeField] private BoxCollider _boxCollider;
     private Fish _fish;
     private float _grapValue;
-    private float _grapValueOld;
-    private bool _isSendingHaptic;
-
-    public void SetFish(Fish fish)
-    {
-        _fish = fish;
-    }
+    private bool _isImpulseGrap;
+    private Dictionary<NetworkBehaviourId, Fish> _fishes = new Dictionary<NetworkBehaviourId, Fish>();
 
     public void SetGrapValue(bool isGrapped)
     {
@@ -36,66 +32,55 @@ public class Hand : NetworkBehaviour
 
     public override void Render()
     {
-        if (_fish != null)
+        if (_grapValue == 1) Grap();
+        else Ungrap();
+    }
+
+    private void Grap()
+    {
+        if (_fish == null && _fishes.Count > 0)
         {
-            if (_grapValue == 1)
+            _fish = _fishes.First().Value;
+            _boxCollider.isTrigger = true;
+            _fish.Catched(_fishTransform);
+            if (!_isImpulseGrap)
             {
-                _boxCollider.isTrigger = true;
-                _fish.Catched(_fishTransform);
-                if (!_isSendingHaptic)
-                {
-                    _isSendingHaptic = true;
-                    _xRBaseController.SendHapticImpulse(1, 0.5f);
-                    _fishStruggling.Play();
-                }
-            }
-            else
-            {
-                _boxCollider.isTrigger = false;
-                _fish.Released();
-                if (_grapValueOld == 1)
-                {
-                    _fish = null;
-                }
-                if (_isSendingHaptic)
-                {
-                    _isSendingHaptic = false;
-                    _xRBaseController.SendHapticImpulse(1, 0.5f);
-                    _fishStruggling.Stop();
-                }
+                _isImpulseGrap = true;
+                _xRBaseController.SendHapticImpulse(1, 0.5f);
+                _fishStruggling.Play();
             }
         }
-        _grapValueOld = _grapValue;
+    }
+
+    private void Ungrap()
+    {
+        if (_fish != null)
+        {
+            if (_isImpulseGrap)
+            {
+                _isImpulseGrap = false;
+                _xRBaseController.SendHapticImpulse(1, 0.5f);
+                _fishStruggling.Stop();
+            }
+            _fish.Released();
+            _boxCollider.isTrigger = false;
+            _fish = null;
+        }
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (_fish == null && other.CompareTag("Fish"))
+        if (other.CompareTag("Fish") && other.TryGetComponent(out Fish fish) && !_fishes.ContainsKey(fish.Id))
         {
-            var fish = other.GetComponent<Fish>();
-            if (fish.IsRelease)
-            {
-                _fish = fish;
-            }
+            _fishes.Add(fish.Id, fish);
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Fish") && _grapValue == 0)
+        if (other.CompareTag("Fish") && other.TryGetComponent(out Fish fish) && _fishes.ContainsKey(fish.Id))
         {
-            _fish = null;
-        }
-    }
-
-    private IEnumerator SendHapticImpulse(float amplitude, float duration)
-    {
-        if (!_isSendingHaptic)
-        {
-            _isSendingHaptic = true;
-            _xRBaseController.SendHapticImpulse(amplitude, duration);
-            yield return new WaitForSeconds(duration * 2);
-            _isSendingHaptic = false;
+            _fishes.Remove(fish.Id);
         }
     }
 }

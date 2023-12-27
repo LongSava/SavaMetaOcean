@@ -264,7 +264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RoomType: 0
-  PositionSpawned: {x: 180, y: 30, z: 320}
+  PositionSpawned: {x: 180, y: 50, z: 320}
 --- !u!1 &1753437746
 GameObject:
   m_ObjectHideFlags: 0
