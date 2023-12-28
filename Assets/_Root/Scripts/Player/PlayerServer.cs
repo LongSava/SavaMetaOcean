@@ -3,29 +3,33 @@ using UnityEngine;
 public partial class Player
 {
     private float _speedMove;
-
-    public override void SpawnedServer()
-    {
-        _speedMove = Config.Data.Player.SpeedMove;
-    }
+    private Vector3 _direction;
 
     public override void FixedUpdateServer()
     {
         if (GetInput(out InputData input))
         {
-            var speedAddition = 2 * Runner.DeltaTime * (input.TriggerButtonRight.IsSet(Buttons.TriggerButtonRight) ? 1 : -1);
-            _speedMove = Mathf.Clamp(_speedMove + speedAddition, Config.Data.Player.SpeedMove, Config.Data.Player.SpeedMove * 3);
-
-            var position = _speedMove * input.MoveBody * Runner.DeltaTime * transform.InverseTransformVector(_headDevice.forward);
-            transform.Translate(position);
-
-            var rotation = Config.Data.Player.SpeedRotate * input.RotateBody * Runner.DeltaTime * Vector3.up;
-            transform.Rotate(rotation);
-
             HandleInput(input);
 
             _inputData = input;
         }
+
+        if (input.MoveBody != 0)
+        {
+            _direction = input.MoveBody * transform.InverseTransformVector(_headDevice.forward);
+            _speedMove += 15 * Runner.DeltaTime;
+        }
+        else
+        {
+            _speedMove -= 15 * Runner.DeltaTime;
+        }
+        _speedMove = Mathf.Clamp(_speedMove, 0, Config.Data.Player.SpeedMove);
+
+        var position = _speedMove * Runner.DeltaTime * _direction;
+        transform.Translate(position);
+
+        var rotation = Config.Data.Player.SpeedRotate * input.RotateBody * Runner.DeltaTime * Vector3.up;
+        transform.Rotate(rotation);
 
         if (_gyreLine != null)
         {
