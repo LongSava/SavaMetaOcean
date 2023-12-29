@@ -36,7 +36,7 @@ public class LoadingController : MonoBehaviour
                         Logo.transform.DOScale(30, 4).OnComplete(() =>
                         {
                             Destroy(Particle.gameObject);
-                            DOTween.Sequence().AppendInterval(0.1f).AppendCallback(() =>
+                            DOTween.Sequence().AppendInterval(1).AppendCallback(() =>
                             {
                                 SceneManager.LoadScene(RoomType.ToString());
                             });
