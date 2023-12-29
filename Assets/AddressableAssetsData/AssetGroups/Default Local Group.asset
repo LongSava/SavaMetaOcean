@@ -17,10 +17,6 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 6116bb41a4270be4aabff8f5adee54ea
   m_SerializeEntries:
-  - m_GUID: 27aa3cc0f9a3de84bad69799404cd28f
-    m_Address: Ocean
-    m_ReadOnly: 0
-    m_SerializedLabels: []
   - m_GUID: 3c3327a3ef0a1874d888067342242005
     m_Address: JellyFishes
     m_ReadOnly: 0
@@ -43,6 +39,10 @@ MonoBehaviour:
     m_SerializedLabels: []
   - m_GUID: 01e5694d15622504696d1e60b46a4a18
     m_Address: Gyre
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 576d144978ae0734bbbd793f0a2cabe4
+    m_Address: Ocean
     m_ReadOnly: 0
     m_SerializedLabels: []
   m_ReadOnly: 0

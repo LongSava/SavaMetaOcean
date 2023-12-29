@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2b7aca8798b01ca4499af03f3bc29859
+guid: da22aaab3375be94d862ea74a989a8f2
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -7,13 +7,13 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Default_Material
-    second: {fileID: 2100000, guid: 12b699748a12a784587c397909975469, type: 2}
+      name: M_Bed
+    second: {fileID: 2100000, guid: 390ef2c5e04500d4f802c70622fa2b05, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: M_Bed
-    second: {fileID: 2100000, guid: 390ef2c5e04500d4f802c70622fa2b05, type: 2}
+      name: M_Bench
+    second: {fileID: 2100000, guid: d4741384dc68dcd468d8e80da0557fe7, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -117,6 +117,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: M_Pots
+    second: {fileID: 2100000, guid: 12b699748a12a784587c397909975469, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: M_ShipFloor
     second: {fileID: 2100000, guid: fa0c8372d00c8614ca12b555f5554c6e, type: 2}
   - first:
@@ -154,11 +159,6 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: M_Window
     second: {fileID: 2100000, guid: 8d196c023e8473f4491c8cde07cc8691, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: M_bench
-    second: {fileID: 2100000, guid: d4741384dc68dcd468d8e80da0557fe7, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

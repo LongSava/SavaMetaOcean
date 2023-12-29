@@ -2,7 +2,6 @@ using System;
 using DG.Tweening;
 using Fusion;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public partial class Player
 {

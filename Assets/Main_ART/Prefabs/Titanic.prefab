@@ -134,7 +134,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.0000001, z: 1.0000001}
+  m_Size: {x: 1, y: 1.0000001, z: 0.9}
   m_Center: {x: 0, y: -0.000030517578, z: -0.000030517578}
 --- !u!1 &3402569286902515175
 GameObject:
@@ -273,6 +273,51 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: -0.000011444093, z: -0.000030606985}
+--- !u!1 &6078119652884981244
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8016125232851338934}
+  - component: {fileID: 678249612263312633}
+  m_Layer: 3
+  m_Name: Cube (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8016125232851338934
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6078119652884981244}
+  m_LocalRotation: {x: 0.015531417, y: 0.5481052, z: -0.109770045, w: 0.8290296}
+  m_LocalPosition: {x: 0.218, y: -0.044, z: -0.075}
+  m_LocalScale: {x: 0.25, y: 0.73, z: 0.43}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5141011207067569886}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 8.4, y: 66.234, z: -9.6}
+--- !u!65 &678249612263312633
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6078119652884981244}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0000006, y: 1, z: 1.0000008}
+  m_Center: {x: -0.000061035214, y: -0.000008583071, z: -0.0001831056}
 --- !u!1 &6331617762413791449
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,7 +346,9 @@ Transform:
   m_LocalPosition: {x: 51.8, y: 7.9, z: -2.5}
   m_LocalScale: {x: 39.818924, y: 15.224184, z: 29.5585}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 7574797322420289761}
+  - {fileID: 8016125232851338934}
   m_Father: {fileID: 2626594816523951965}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 12.67, y: 0, z: 0}
@@ -316,8 +363,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.0000001, z: 1.0000001}
-  m_Center: {x: 0, y: -0.000030517578, z: -0.000030517578}
+  m_Size: {x: 0.59, y: 1.0000001, z: 0.82}
+  m_Center: {x: -0.24, y: -0.000030517578, z: -0.000030517578}
 --- !u!1 &6334145827758465556
 GameObject:
   m_ObjectHideFlags: 0
@@ -363,3 +410,48 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.0000001, z: 1.0000001}
   m_Center: {x: 0, y: -0.000030517578, z: -0.000030517578}
+--- !u!1 &7483724746153632828
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7574797322420289761}
+  - component: {fileID: 2004417869775319148}
+  m_Layer: 3
+  m_Name: Cube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7574797322420289761
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7483724746153632828}
+  m_LocalRotation: {x: 0.029918928, y: -0.59115607, z: -0.16061006, w: 0.7898378}
+  m_LocalPosition: {x: 0.268, y: 0.009, z: 0.052}
+  m_LocalScale: {x: 0.25, y: 0.69, z: 0.43}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5141011207067569886}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -8.2, y: -72.4, z: -16.982}
+--- !u!65 &2004417869775319148
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7483724746153632828}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0000006, y: 1, z: 1.0000008}
+  m_Center: {x: -0.000061035214, y: -0.000008583071, z: -0.0001831056}
