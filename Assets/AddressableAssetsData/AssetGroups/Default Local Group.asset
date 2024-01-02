@@ -41,10 +41,6 @@ MonoBehaviour:
     m_Address: Gyre
     m_ReadOnly: 0
     m_SerializedLabels: []
-  - m_GUID: 576d144978ae0734bbbd793f0a2cabe4
-    m_Address: Ocean
-    m_ReadOnly: 0
-    m_SerializedLabels: []
   - m_GUID: 67cc29e4bc941c24486f5da89239799c
     m_Address: Volume
     m_ReadOnly: 0
@@ -59,6 +55,10 @@ MonoBehaviour:
     m_SerializedLabels: []
   - m_GUID: b047d4ba9b0cd5d49a2996e2b013cf6e
     m_Address: Titanic
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: d683805d7442f054ba9f5fd1d7299dbc
+    m_Address: Ocean
     m_ReadOnly: 0
     m_SerializedLabels: []
   m_ReadOnly: 0

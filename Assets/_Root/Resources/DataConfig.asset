@@ -19,7 +19,7 @@ MonoBehaviour:
   Player:
     Object: {fileID: 7630828481057321148, guid: 9895f5c0ba9b15648b62caf3e900504b,
       type: 3}
-    SpeedMove: 40
+    SpeedMove: 30
     SpeedRotate: 300
     PositionSpawned: {x: 20, y: 30, z: 170}
   Fish:
@@ -82,7 +82,7 @@ MonoBehaviour:
       - SpeedMove: 2
       - SpeedMove: 2
       - SpeedMove: 2
-      Position: {x: 193, y: 70, z: 363}
+      Position: {x: 193, y: 90, z: 363}
       Rotation: {x: 0, y: -0.0784591, z: 0, w: 0.9969173}
       Size: {x: 100, y: 25, z: 70}
       NumberFish: 25

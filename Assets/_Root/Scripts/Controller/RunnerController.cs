@@ -111,18 +111,6 @@ public class RunnerController : Singleton<RunnerController>
 
             runner.GetComponent<EventScene>().OnAssetLoadDone?.Invoke();
 
-            handleServer = Addressables.LoadAssetAsync<GameObject>("Ancient");
-            yield return handleServer;
-            runner.InstantiateInRunnerScene(handleServer.Result);
-
-            handleServer = Addressables.LoadAssetAsync<GameObject>("Stage");
-            yield return handleServer;
-            runner.InstantiateInRunnerScene(handleServer.Result);
-
-            handleServer = Addressables.LoadAssetAsync<GameObject>("Titanic");
-            yield return handleServer;
-            runner.InstantiateInRunnerScene(handleServer.Result);
-
             handleServer = Addressables.LoadAssetAsync<GameObject>("Gyre");
             yield return handleServer;
             runner.InstantiateInRunnerScene(handleServer.Result);
@@ -142,18 +130,6 @@ public class RunnerController : Singleton<RunnerController>
             runner.InstantiateInRunnerScene(handleClient.Result);
 
             runner.GetComponent<EventScene>().OnAssetLoadDone?.Invoke();
-
-            handleClient = Addressables.LoadAssetAsync<GameObject>("Ancient");
-            yield return handleClient;
-            runner.InstantiateInRunnerScene(handleClient.Result);
-
-            handleClient = Addressables.LoadAssetAsync<GameObject>("Stage");
-            yield return handleClient;
-            runner.InstantiateInRunnerScene(handleClient.Result);
-
-            handleClient = Addressables.LoadAssetAsync<GameObject>("Titanic");
-            yield return handleClient;
-            runner.InstantiateInRunnerScene(handleClient.Result);
 
             handleClient = Addressables.LoadAssetAsync<GameObject>("Gyre");
             yield return handleClient;
