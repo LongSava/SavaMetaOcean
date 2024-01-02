@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using Fusion;
+using Unity.XR.CoreUtils;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
 using UnityEngine.InputSystem.XR;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit.Inputs;
 
 public partial class Player : PTBehaviour
 {
@@ -27,6 +29,9 @@ public partial class Player : PTBehaviour
     [SerializeField] private MeshRenderer _eyes;
     [SerializeField] private GyreLine _gyreLine;
     [SerializeField] private PlayerAudio _playerAudio;
+    [SerializeField] private XROrigin _xrOrigin;
+    [SerializeField] private InputActionManager _inputActionManager;
+    [SerializeField] private XRInteractionManager _xRInteractionManager;
     [Networked] private InputData _inputData { get; set; }
     private List<Coroutine> _coroutines = new List<Coroutine>();
     private bool isSwimming;
@@ -77,6 +82,12 @@ public partial class Player : PTBehaviour
             Destroy(_xRRightBaseController);
             Destroy(_eyes.gameObject);
             _playerAudio.RemoveAudio();
+        }
+        else
+        {
+            _xrOrigin.enabled = true;
+            _inputActionManager.enabled = true;
+            _xRInteractionManager.enabled = true;
         }
     }
 

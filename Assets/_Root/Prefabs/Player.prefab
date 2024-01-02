@@ -1354,7 +1354,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.01
-  far clip plane: 2000
+  far clip plane: 1000
   field of view: 60.000004
   orthographic: 0
   orthographic size: 5
@@ -2185,7 +2185,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7327962552130255878}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e0cb9aa70a22847b5925ee5f067c10a9, type: 3}
   m_Name: 
@@ -2202,7 +2202,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7327962552130255878}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 017c5e3933235514c9520e1dace2a4b2, type: 3}
   m_Name: 
@@ -2216,7 +2216,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7327962552130255878}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 83e4e6cca11330d4088d729ab4fc9d9f, type: 3}
   m_Name: 
@@ -2299,6 +2299,9 @@ MonoBehaviour:
   _eyes: {fileID: 4377141189511580262}
   _gyreLine: {fileID: 0}
   _playerAudio: {fileID: 2294425363070533100}
+  _xrOrigin: {fileID: 2081354247098469823}
+  _inputActionManager: {fileID: 3125492294378683585}
+  _xRInteractionManager: {fileID: 8223422466144815103}
   _particleSystem: {fileID: 0}
 --- !u!114 &7630828481057321151
 MonoBehaviour:
@@ -2437,7 +2440,7 @@ RotationConstraint:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7729133636512191488}
   m_Enabled: 1
-  m_Weight: 0.5
+  m_Weight: 1
   m_RotationAtRest: {x: 0, y: 0, z: 0}
   m_RotationOffset: {x: 0, y: 0, z: 0}
   m_AffectRotationX: 0
