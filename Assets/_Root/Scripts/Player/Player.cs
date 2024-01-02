@@ -1,13 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using Fusion;
-using Unity.XR.CoreUtils;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
 using UnityEngine.InputSystem.XR;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.XR.Interaction.Toolkit;
-using UnityEngine.XR.Interaction.Toolkit.Inputs;
 
 public partial class Player : PTBehaviour
 {
@@ -16,9 +14,6 @@ public partial class Player : PTBehaviour
     [SerializeField] private Transform _bodyOffset;
     [SerializeField] private UniversalAdditionalCameraData _universalAdditionalCameraData;
     [SerializeField] private Camera _camera;
-    [SerializeField] private TrackedPoseDriver _trackedPoseDriver;
-    [SerializeField] private XRBaseController _xRLeftBaseController;
-    [SerializeField] private XRBaseController _xRRightBaseController;
     [SerializeField] private List<ChainIKConstraint> _chainIKHands;
     [SerializeField] private Hand _leftHand;
     [SerializeField] private Hand _rightHand;
@@ -29,9 +24,6 @@ public partial class Player : PTBehaviour
     [SerializeField] private MeshRenderer _eyes;
     [SerializeField] private GyreLine _gyreLine;
     [SerializeField] private PlayerAudio _playerAudio;
-    [SerializeField] private XROrigin _xrOrigin;
-    [SerializeField] private InputActionManager _inputActionManager;
-    [SerializeField] private XRInteractionManager _xRInteractionManager;
     [Networked] private InputData _inputData { get; set; }
     private List<Coroutine> _coroutines = new List<Coroutine>();
     private bool isSwimming;
@@ -73,21 +65,14 @@ public partial class Player : PTBehaviour
     {
         base.Spawned();
         Tread();
+        _leftHand.SetPlayer(this);
+        _rightHand.SetPlayer(this);
         if (!HasInputAuthority)
         {
             Destroy(_universalAdditionalCameraData);
             Destroy(_camera);
-            Destroy(_trackedPoseDriver);
-            Destroy(_xRLeftBaseController);
-            Destroy(_xRRightBaseController);
             Destroy(_eyes.gameObject);
             _playerAudio.RemoveAudio();
-        }
-        else
-        {
-            _xrOrigin.enabled = true;
-            _inputActionManager.enabled = true;
-            _xRInteractionManager.enabled = true;
         }
     }
 

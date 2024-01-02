@@ -154,7 +154,6 @@ public partial class Player
             var rotateHead = _inputAsset.Player.RotateHead.ReadValue<float>();
             if (rotateHead != 0)
             {
-                _trackedPoseDriver.enabled = false;
                 _headDevice.Rotate(30 * rotateHead * Runner.DeltaTime * Vector3.right);
             }
         }

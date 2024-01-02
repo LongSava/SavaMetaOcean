@@ -2185,7 +2185,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7327962552130255878}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e0cb9aa70a22847b5925ee5f067c10a9, type: 3}
   m_Name: 
@@ -2202,7 +2202,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7327962552130255878}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 017c5e3933235514c9520e1dace2a4b2, type: 3}
   m_Name: 
@@ -2216,7 +2216,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7327962552130255878}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 83e4e6cca11330d4088d729ab4fc9d9f, type: 3}
   m_Name: 
@@ -2284,9 +2284,6 @@ MonoBehaviour:
   _bodyOffset: {fileID: 6714111372002495271}
   _universalAdditionalCameraData: {fileID: 8368266332649173585}
   _camera: {fileID: 2385944404725349375}
-  _trackedPoseDriver: {fileID: 4146765597431509594}
-  _xRLeftBaseController: {fileID: 2942518129228962826}
-  _xRRightBaseController: {fileID: 1190042516217940494}
   _chainIKHands:
   - {fileID: 2476911942058801638}
   - {fileID: 5643876387236856487}
@@ -2299,9 +2296,6 @@ MonoBehaviour:
   _eyes: {fileID: 4377141189511580262}
   _gyreLine: {fileID: 0}
   _playerAudio: {fileID: 2294425363070533100}
-  _xrOrigin: {fileID: 2081354247098469823}
-  _inputActionManager: {fileID: 3125492294378683585}
-  _xRInteractionManager: {fileID: 8223422466144815103}
   _particleSystem: {fileID: 0}
 --- !u!114 &7630828481057321151
 MonoBehaviour:
@@ -3979,6 +3973,7 @@ MonoBehaviour:
   _xRBaseController: {fileID: 2942518129228962826}
   _fishStruggling: {fileID: 8341829626831161021}
   _boxCollider: {fileID: 8220818265166183149}
+  _player: {fileID: 0}
 --- !u!1 &2531080855228947139 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4549111882529890269, guid: 0b4df4f8ace068743befb46567f38df2,
@@ -4067,6 +4062,7 @@ MonoBehaviour:
   _xRBaseController: {fileID: 1190042516217940494}
   _fishStruggling: {fileID: 8341829626831161021}
   _boxCollider: {fileID: 6096796955019801060}
+  _player: {fileID: 0}
 --- !u!4 &4343646471069442988 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -6897756558726502734, guid: 0b4df4f8ace068743befb46567f38df2,
