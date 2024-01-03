@@ -69,6 +69,10 @@ MonoBehaviour:
     m_Address: Ocean
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: af99c7dd617a26c40a7ceac7b41c0e69
+    m_Address: Terrain
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 4071342b488526e41a239f79e3da3b85, type: 2}
   m_SchemaSet:

@@ -109,6 +109,10 @@ public class RunnerController : Singleton<RunnerController>
             yield return handleServer;
             runner.InstantiateInRunnerScene(handleServer.Result);
 
+            handleServer = Addressables.LoadAssetAsync<GameObject>("Terrain");
+            yield return handleServer;
+            runner.InstantiateInRunnerScene(handleServer.Result);
+
             runner.GetComponent<EventScene>().OnAssetLoadDone?.Invoke(RoomType.Ocean);
 
             handleServer = Addressables.LoadAssetAsync<GameObject>("Gyre");
@@ -118,6 +122,10 @@ public class RunnerController : Singleton<RunnerController>
         else
         {
             var handleClient = Addressables.LoadAssetAsync<GameObject>("Ocean");
+            yield return handleClient;
+            runner.InstantiateInRunnerScene(handleClient.Result);
+
+            handleClient = Addressables.LoadAssetAsync<GameObject>("Terrain");
             yield return handleClient;
             runner.InstantiateInRunnerScene(handleClient.Result);
 
