@@ -21,7 +21,9 @@ public class PlayerConfig
     public GameObject Object;
     public float SpeedMove;
     public float SpeedRotate;
-    public Vector3 PositionSpawned;
+    public Vector3 PositionSpawnedOcean;
+    public Vector3 PositionSpawnedTitanic;
+    public Vector3 PositionSpawnedTitanicToOcean;
 }
 
 [Serializable]

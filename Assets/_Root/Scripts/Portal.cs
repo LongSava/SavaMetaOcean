@@ -19,11 +19,11 @@ public class Portal : MonoBehaviour
                     {
                         case RoomType.Ocean:
                             RunnerController.Instance.Destroy();
-                            SceneManager.LoadScene("Ocean");
+                            SceneController.Instance.LoadScene(SceneType.Ocean);
                             break;
                         case RoomType.Titanic:
                             RunnerController.Instance.Destroy();
-                            SceneManager.LoadScene("Titanic");
+                            SceneController.Instance.LoadScene(SceneType.Titanic);
                             break;
                     }
                 });

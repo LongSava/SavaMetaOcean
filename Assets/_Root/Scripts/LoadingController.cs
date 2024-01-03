@@ -19,7 +19,7 @@ public class LoadingController : MonoBehaviour
     {
         if (Config.Data.NumberPlayer == NumberPlayer.Server)
         {
-            SceneManager.LoadScene(RoomType.ToString());
+            SceneController.Instance.LoadScene(RoomType.ToString());
         }
         else
         {
@@ -38,7 +38,7 @@ public class LoadingController : MonoBehaviour
                             Destroy(Particle.gameObject);
                             DOTween.Sequence().AppendInterval(1).AppendCallback(() =>
                             {
-                                SceneManager.LoadScene(RoomType.ToString());
+                                SceneController.Instance.LoadScene(RoomType.ToString());
                             });
                         });
                     });

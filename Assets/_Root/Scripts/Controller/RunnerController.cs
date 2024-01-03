@@ -186,7 +186,19 @@ public class RunnerController : Singleton<RunnerController>
     {
         if (runner.IsServer)
         {
-            var position = new Vector3(Random.Range(-5, 5), 0, Random.Range(-5, 5)) + PositionSpawned;
+            var position = new Vector3(Random.Range(-20, 20), 0, Random.Range(-20, 20));
+            switch (SceneController.Instance.SceneFrom)
+            {
+                case SceneType.Loading:
+                    position += Config.Data.Player.PositionSpawnedOcean;
+                    break;
+                case SceneType.Ocean:
+                    position += Config.Data.Player.PositionSpawnedTitanic;
+                    break;
+                case SceneType.Titanic:
+                    position += Config.Data.Player.PositionSpawnedTitanicToOcean;
+                    break;
+            }
             var rotation = Quaternion.Euler(0, -90, 0);
             var player = runner.Spawn(Config.Data.Player.Object, position, rotation, playerRef);
             _players.Add(playerRef, player.GetComponent<NetworkObject>());
