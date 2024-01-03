@@ -2,6 +2,7 @@ using System;
 using DG.Tweening;
 using Fusion;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 public partial class Player
 {
@@ -28,9 +29,14 @@ public partial class Player
             events.OnInput = new NetworkEvents.InputEvent();
             events.OnInput.AddListener(OnInput);
 
-            Runner.GetComponent<EventScene>().OnAssetLoadDone += () =>
+            Runner.GetComponent<EventScene>().OnAssetLoadDone += (roomType) =>
             {
-                EnableEyes();
+                Addressables.LoadAssetAsync<GameObject>("Fog" + roomType.ToString()).Completed += handle =>
+                {
+                    var fogOcean = Runner.InstantiateInRunnerScene(handle.Result);
+                    fogOcean.transform.SetParent(transform);
+                    EnableEyes();
+                };
             };
         }
     }

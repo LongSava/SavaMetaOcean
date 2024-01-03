@@ -109,7 +109,7 @@ public class RunnerController : Singleton<RunnerController>
             yield return handleServer;
             runner.InstantiateInRunnerScene(handleServer.Result);
 
-            runner.GetComponent<EventScene>().OnAssetLoadDone?.Invoke();
+            runner.GetComponent<EventScene>().OnAssetLoadDone?.Invoke(RoomType.Ocean);
 
             handleServer = Addressables.LoadAssetAsync<GameObject>("Gyre");
             yield return handleServer;
@@ -129,7 +129,7 @@ public class RunnerController : Singleton<RunnerController>
             yield return handleClient;
             runner.InstantiateInRunnerScene(handleClient.Result);
 
-            runner.GetComponent<EventScene>().OnAssetLoadDone?.Invoke();
+            runner.GetComponent<EventScene>().OnAssetLoadDone?.Invoke(RoomType.Ocean);
 
             handleClient = Addressables.LoadAssetAsync<GameObject>("Gyre");
             yield return handleClient;
@@ -158,7 +158,7 @@ public class RunnerController : Singleton<RunnerController>
 
         yield return new WaitForSeconds(1);
 
-        runner.GetComponent<EventScene>().OnAssetLoadDone?.Invoke();
+        runner.GetComponent<EventScene>().OnAssetLoadDone?.Invoke(RoomType.Titanic);
     }
 
     private void OnPlayerLeft(NetworkRunner runner, PlayerRef playerRef)

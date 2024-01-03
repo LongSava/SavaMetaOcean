@@ -61,6 +61,14 @@ MonoBehaviour:
     m_Address: Ocean
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 919221b2aa7479540bf2c9604f9b5562
+    m_Address: FogOcean
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 03a2b3bebe6b4964ea37b815df9c1adb
+    m_Address: FogTitanic
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 4071342b488526e41a239f79e3da3b85, type: 2}
   m_SchemaSet:

@@ -215,7 +215,7 @@ Shader "Hidden/BOXOPHOBIC/Atmospherics/Height Fog Global"
 			#pragma multi_compile AHF_CAMERAMODE_PERSPECTIVE AHF_CAMERAMODE_ORTHOGRAPHIC AHF_CAMERAMODE_BOTH
 			//Atmospheric Height Fog Defines
 			#define AHF_DISABLE_NOISE3D
-			//#define AHF_DISABLE_DIRECTIONAL
+			#define AHF_DISABLE_DIRECTIONAL
 			//#define AHF_DISABLE_SKYBOXFOG
 			#define AHF_DISABLE_FALLOFF
 			//#define AHF_DEBUG_WORLDPOS
