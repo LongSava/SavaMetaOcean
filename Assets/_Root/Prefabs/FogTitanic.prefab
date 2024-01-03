@@ -117,7 +117,7 @@ MonoBehaviour:
   fogColorEnd: {r: 0, g: 0, b: 0, a: 1}
   fogColorDuo: 1
   fogDistanceStart: 0
-  fogDistanceEnd: 150
+  fogDistanceEnd: 200
   fogDistanceFalloff: 1
   fogHeightStart: -100
   fogHeightEnd: -10
