@@ -1,36 +1,18 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class JellyFishMaterial : MonoBehaviour
 {
-    [SerializeField] private Material _material;
-    private float _speedChange;
-    private Color _colorTarget;
-    private Coroutine _coroutine;
+    [SerializeField] private List<Material> _materials;
+    [SerializeField] private List<SkinnedMeshRenderer> _skinnedMeshRenderers;
 
-    private IEnumerator ChangeColor()
-    {
-        var r = Random.value;
-        var g = Random.value;
-        var b = Random.value;
-        var a = Mathf.Clamp(Random.value, 0.3f, 1f);
-        _colorTarget = new Color(r, g, b, a);
-
-        yield return new WaitForSeconds(_speedChange);
-
-        StartCoroutine(ChangeColor());
-    }
-
-    private void Update()
-    {
-        _material.color = Color.Lerp(_material.color, _colorTarget, Time.deltaTime * _speedChange);
-    }
-
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            _coroutine = StartCoroutine(ChangeColor());
+            var material = _materials[Random.Range(0, _materials.Count - 1)];
+            _skinnedMeshRenderers.ForEach(skinnedMeshRenderer => skinnedMeshRenderer.material = material);
         }
     }
 
@@ -38,7 +20,7 @@ public class JellyFishMaterial : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            StopCoroutine(_coroutine);
+            _skinnedMeshRenderers.ForEach(skinnedMeshRenderer => skinnedMeshRenderer.material = _materials[_materials.Count - 1]);
         }
     }
 }

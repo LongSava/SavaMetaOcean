@@ -5620,6 +5620,8 @@ GameObject:
   - component: {fileID: 2793093834386421799}
   - component: {fileID: 2274155867148107296}
   - component: {fileID: 1758838665574425237}
+  - component: {fileID: 3374918381179009143}
+  - component: {fileID: 8252573431311125930}
   m_Layer: 0
   m_Name: JellyFish_04
   m_TagString: Untagged
@@ -5659,11 +5661,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfba93fc89a4f434ab79de3d83231599, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _material: {fileID: 2100000, guid: 1a564c951e19aad4d96da9eab52a134a, type: 2}
   _animator: {fileID: 1758838665574425237}
   _speedAnimator: 1
   _speedMove: 0
-  _timeChangeMaterial: 0
 --- !u!95 &1758838665574425237
 Animator:
   serializedVersion: 5
@@ -5685,6 +5685,42 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3374918381179009143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3281084154789225117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4508b9134ed1a4740aa05e7c6c42acfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _materials:
+  - {fileID: 2100000, guid: 1b86b5b4e9433a4438dd0e1dc881ba04, type: 2}
+  - {fileID: 2100000, guid: 25b01be30f76c544ba59fb5b45891f8c, type: 2}
+  - {fileID: 2100000, guid: dd0f7277f717c3e4eba4c007ac37ff07, type: 2}
+  - {fileID: 2100000, guid: 1a564c951e19aad4d96da9eab52a134a, type: 2}
+  _skinnedMeshRenderers:
+  - {fileID: 2956931531188600093}
+  - {fileID: 5351266117711523172}
+  - {fileID: 1969129688611801567}
+  - {fileID: 8210878207631858333}
+--- !u!136 &8252573431311125930
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3281084154789225117}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 20
+  m_Height: 120
+  m_Direction: 1
+  m_Center: {x: 0, y: -50, z: 0}
 --- !u!1 &3346390563144813689
 GameObject:
   m_ObjectHideFlags: 0
