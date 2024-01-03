@@ -40,17 +40,52 @@ MonoBehaviour:
       - SpeedMove: 5
       - SpeedMove: 5
       - SpeedMove: 5
-      Position: {x: 30, y: 20, z: 180}
+      - SpeedMove: 5
+      - SpeedMove: 5
+      - SpeedMove: 5
+      - SpeedMove: 5
+      - SpeedMove: 5
+      - SpeedMove: 5
+      - SpeedMove: 5
+      - SpeedMove: 5
+      - SpeedMove: 5
+      - SpeedMove: 5
+      - SpeedMove: 5
+      - SpeedMove: 5
+      - SpeedMove: 5
+      - SpeedMove: 5
+      - SpeedMove: 5
+      - SpeedMove: 5
+      - SpeedMove: 5
+      Position: {x: 30, y: 20, z: 140}
       Rotation: {x: 0, y: 0, z: 0, w: 0}
-      Size: {x: 70, y: 10, z: 70}
-      NumberFish: 25
+      Size: {x: 70, y: 10, z: 140}
+      NumberFish: 50
     - FishFlocks:
       - SpeedMove: 2
       - SpeedMove: 2
-      Position: {x: 30, y: 40, z: 180}
+      - SpeedMove: 2
+      - SpeedMove: 2
+      - SpeedMove: 2
+      - SpeedMove: 2
+      - SpeedMove: 2
+      - SpeedMove: 2
+      - SpeedMove: 2
+      - SpeedMove: 2
+      - SpeedMove: 2
+      - SpeedMove: 2
+      - SpeedMove: 2
+      - SpeedMove: 2
+      - SpeedMove: 2
+      - SpeedMove: 2
+      - SpeedMove: 2
+      - SpeedMove: 2
+      - SpeedMove: 2
+      - SpeedMove: 2
+      Position: {x: 30, y: 40, z: 140}
       Rotation: {x: 0, y: 0, z: 0, w: 0}
-      Size: {x: 70, y: 25, z: 70}
-      NumberFish: 10
+      Size: {x: 70, y: 25, z: 140}
+      NumberFish: 50
     - FishFlocks:
       - SpeedMove: 2
       - SpeedMove: 2
