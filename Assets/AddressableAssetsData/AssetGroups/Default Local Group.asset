@@ -57,16 +57,16 @@ MonoBehaviour:
     m_Address: Titanic
     m_ReadOnly: 0
     m_SerializedLabels: []
-  - m_GUID: d683805d7442f054ba9f5fd1d7299dbc
-    m_Address: Ocean
-    m_ReadOnly: 0
-    m_SerializedLabels: []
   - m_GUID: 919221b2aa7479540bf2c9604f9b5562
     m_Address: FogOcean
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: 03a2b3bebe6b4964ea37b815df9c1adb
     m_Address: FogTitanic
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c52254c29d0a1a04e9ffb631a1eebe45
+    m_Address: Ocean
     m_ReadOnly: 0
     m_SerializedLabels: []
   m_ReadOnly: 0
