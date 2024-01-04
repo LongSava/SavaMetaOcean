@@ -109,6 +109,10 @@ public class RunnerController : Singleton<RunnerController>
             yield return handleServer;
             runner.InstantiateInRunnerScene(handleServer.Result);
 
+            handleServer = Addressables.LoadAssetAsync<GameObject>("Ocean2");
+            yield return handleServer;
+            runner.InstantiateInRunnerScene(handleServer.Result);
+
             handleServer = Addressables.LoadAssetAsync<GameObject>("Terrain");
             yield return handleServer;
             runner.InstantiateInRunnerScene(handleServer.Result);
@@ -121,15 +125,7 @@ public class RunnerController : Singleton<RunnerController>
         }
         else
         {
-            var handleClient = Addressables.LoadAssetAsync<GameObject>("Ocean");
-            yield return handleClient;
-            runner.InstantiateInRunnerScene(handleClient.Result);
-
-            handleClient = Addressables.LoadAssetAsync<GameObject>("Terrain");
-            yield return handleClient;
-            runner.InstantiateInRunnerScene(handleClient.Result);
-
-            handleClient = Addressables.LoadAssetAsync<GameObject>("Volume");
+            var handleClient = Addressables.LoadAssetAsync<GameObject>("Volume");
             yield return handleClient;
             runner.InstantiateInRunnerScene(handleClient.Result);
 
@@ -137,7 +133,30 @@ public class RunnerController : Singleton<RunnerController>
             yield return handleClient;
             runner.InstantiateInRunnerScene(handleClient.Result);
 
-            runner.GetComponent<EventScene>().OnAssetLoadDone?.Invoke(RoomType.Ocean);
+            if (SceneController.Instance.SceneFrom == SceneType.Loading)
+            {
+                handleClient = Addressables.LoadAssetAsync<GameObject>("Ocean");
+                yield return handleClient;
+                runner.InstantiateInRunnerScene(handleClient.Result);
+
+                runner.GetComponent<EventScene>().OnAssetLoadDone?.Invoke(RoomType.Ocean);
+
+                handleClient = Addressables.LoadAssetAsync<GameObject>("Ocean2");
+                yield return handleClient;
+                runner.InstantiateInRunnerScene(handleClient.Result);
+            }
+            else
+            {
+                handleClient = Addressables.LoadAssetAsync<GameObject>("Ocean2");
+                yield return handleClient;
+                runner.InstantiateInRunnerScene(handleClient.Result);
+
+                runner.GetComponent<EventScene>().OnAssetLoadDone?.Invoke(RoomType.Ocean);
+
+                handleClient = Addressables.LoadAssetAsync<GameObject>("Ocean");
+                yield return handleClient;
+                runner.InstantiateInRunnerScene(handleClient.Result);
+            }
 
             handleClient = Addressables.LoadAssetAsync<GameObject>("Gyre");
             yield return handleClient;

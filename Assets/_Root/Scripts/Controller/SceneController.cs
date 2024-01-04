@@ -25,7 +25,7 @@ public class SceneController : Singleton<SceneController>
                 LoadScene(SceneType.Ocean);
                 break;
             case "Titanic":
-                LoadScene(SceneType.Ocean);
+                LoadScene(SceneType.Titanic);
                 break;
         }
     }
