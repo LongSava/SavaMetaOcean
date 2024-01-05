@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using Fusion;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
-using UnityEngine.InputSystem.XR;
 using UnityEngine.Rendering.Universal;
-using UnityEngine.XR.Interaction.Toolkit;
 
 public partial class Player : PTBehaviour
 {
