@@ -69,6 +69,8 @@ public partial class Player
 
     private void OnInput(NetworkRunner runner, NetworkInput input)
     {
+        if (!_isReady) return;
+
         var inputData = new InputData();
 
         inputData.GripButtonLeft.Set(Buttons.GripButtonLeft, _inputAsset.Player.GripButtonLeft.IsPressed());
@@ -117,50 +119,52 @@ public partial class Player
             inputData.RotateBody = _lastStateRotateBody;
         }
 
-        inputData.PositionHead = _headDevice.position;
-        inputData.RotationHead = _headDevice.rotation;
-        inputData.PositionRightHand = _rightHandDevice.position;
-        inputData.RotationRightHand = _rightHandDevice.rotation;
-        inputData.PositionLeftHand = _leftHandDevice.position;
-        inputData.RotationLeftHand = _leftHandDevice.rotation;
+        inputData.PositionHead = _device.Head.transform.position;
+        inputData.RotationHead = _device.Head.transform.rotation;
+        inputData.PositionRightHand = _device.RightHand.transform.position;
+        inputData.RotationRightHand = _device.RightHand.transform.rotation;
+        inputData.PositionLeftHand = _device.LeftHand.transform.position;
+        inputData.RotationLeftHand = _device.LeftHand.transform.rotation;
 
         input.Set(inputData);
     }
 
     public override void RenderClient()
     {
+        if (!_isReady) return;
+
         if (HasInputAuthority && Runner.ProvideInput)
         {
             var moveY = _inputAsset.Player.MoveBody.ReadValue<Vector2>().y;
             if (moveY == 0)
             {
                 Tread();
-                SetWeightForChainIKHands(1);
+                _model.SetWeightForChainIKHands(1);
             }
             else if (moveY > 0)
             {
                 Swim();
-                SetWeightForChainIKHands(0);
+                _model.SetWeightForChainIKHands(0);
             }
             else
             {
                 Tread();
-                SetWeightForChainIKHands(0);
+                _model.SetWeightForChainIKHands(0);
             }
 
-            _leftHand.SetGrapValue(_inputAsset.Player.GripLeft.ReadValue<float>());
-            _rightHand.SetGrapValue(_inputAsset.Player.GripRight.ReadValue<float>());
+            _model.SetGrapValueLeftHand(_inputAsset.Player.GripLeft.ReadValue<float>());
+            _model.SetGrapValueRightHand(_inputAsset.Player.GripRight.ReadValue<float>());
 
             var mouseMove = _inputAsset.Player.MoveMouse.ReadValue<Vector2>();
             if (mouseMove != Vector2.zero)
             {
-                _leftHandDevice.position = _camera.ScreenToWorldPoint(new Vector3(mouseMove.x, mouseMove.y, 1.5f));
+                _device.LeftHand.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(mouseMove.x, mouseMove.y, 1.5f));
             }
 
             var rotateHead = _inputAsset.Player.RotateHead.ReadValue<float>();
             if (rotateHead != 0)
             {
-                _headDevice.Rotate(30 * rotateHead * Runner.DeltaTime * Vector3.right);
+                _device.Head.transform.Rotate(30 * rotateHead * Runner.DeltaTime * Vector3.right);
             }
         }
     }

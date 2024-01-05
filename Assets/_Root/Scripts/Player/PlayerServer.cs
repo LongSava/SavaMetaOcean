@@ -16,7 +16,7 @@ public partial class Player
 
         if (input.MoveBody != 0)
         {
-            _direction = input.MoveBody * transform.InverseTransformVector(_headDevice.forward);
+            _direction = input.MoveBody * transform.InverseTransformVector(_model.Head.transform.forward);
             _speedMove += 15 * Runner.DeltaTime;
         }
         else
@@ -25,8 +25,7 @@ public partial class Player
         }
         _speedMove = Mathf.Clamp(_speedMove, 0, Config.Data.Player.SpeedMove);
 
-        var position = _speedMove * Runner.DeltaTime * _direction;
-        transform.Translate(position);
+        _rigidbody.MovePosition(transform.position + _speedMove * Runner.DeltaTime * _direction);
 
         var rotation = Config.Data.Player.SpeedRotate * input.RotateBody * Runner.DeltaTime * Vector3.up;
         transform.Rotate(rotation);

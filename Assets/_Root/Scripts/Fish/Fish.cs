@@ -45,8 +45,8 @@ public class Fish : NetworkBehaviour
             Quaternion targetRotation;
             if (_player != null)
             {
-                Vector3 direction = _player.HeadDevice.InverseTransformPoint(transform.position);
-                targetRotation = Quaternion.LookRotation((direction.x > 0 ? 1 : -1) * 10 * _player.HeadDevice.right - transform.position);
+                Vector3 direction = _player.transform.InverseTransformPoint(transform.position);
+                targetRotation = Quaternion.LookRotation((direction.x > 0 ? 1 : -1) * 10 * _player.transform.right - transform.position);
             }
             else
             {

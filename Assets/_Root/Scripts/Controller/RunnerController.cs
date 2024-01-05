@@ -313,7 +313,7 @@ public class RunnerController : Singleton<RunnerController>
             }
             if (players.Count > 0 && index <= players.Count)
             {
-                CameraFollower.Target = players[index - 1].HeadDevice;
+                CameraFollower.Target = players[index - 1].transform;
             }
         }
     }
