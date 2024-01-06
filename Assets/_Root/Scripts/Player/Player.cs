@@ -4,7 +4,6 @@ using UnityEngine;
 
 public partial class Player : PTBehaviour
 {
-    [SerializeField] private MeshRenderer _eyes;
     [SerializeField] private GyreLine _gyreLine;
     [SerializeField] private PlayerAudio _playerAudio;
     [SerializeField] private Rigidbody _rigidbody;
@@ -54,20 +53,24 @@ public partial class Player : PTBehaviour
 
         _model = Runner.InstantiateInRunnerScene(_modelPrefab);
         _model.transform.SetParent(_body);
+        _model.transform.localPosition = Vector3.zero;
+        _model.transform.localRotation = Quaternion.identity;
         _model.SetupTarget(transform);
-        _model.SetPlayerLeftHand(this);
-        _model.SetPlayerRightHand(this);
+        _model.LeftHand.Grapped += () => { if (HasInputAuthority) _device.LeftHand.SendHapticImpulse(1, 0.5f); };
+        _model.RightHand.Grapped += () => { if (HasInputAuthority) _device.RightHand.SendHapticImpulse(1, 0.5f); };
 
         if (HasInputAuthority)
         {
             _device = Runner.InstantiateInRunnerScene(_devicePrefab);
             _device.transform.SetParent(_body);
+            _device.transform.localPosition = Vector3.zero;
+            _device.transform.localRotation = Quaternion.identity;
 
             _model.SetupConstraint(_device.Head.transform, _device.LeftHand.transform, _device.RightHand.transform);
+            _model.HideHelmet();
         }
         else
         {
-            Destroy(_eyes.gameObject);
             _playerAudio.RemoveAudio();
         }
 

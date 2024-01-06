@@ -6,6 +6,7 @@ using Fusion;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
 public enum RoomType
@@ -22,6 +23,7 @@ public class RunnerController : Singleton<RunnerController>
     private List<NetworkRunner> _runners = new List<NetworkRunner>();
     private Dictionary<PlayerRef, NetworkObject> _players = new Dictionary<PlayerRef, NetworkObject>();
     private CameraFollower CameraFollower;
+    public Volume Volume;
 
     public void Destroy()
     {
@@ -127,7 +129,7 @@ public class RunnerController : Singleton<RunnerController>
         {
             var handleClient = Addressables.LoadAssetAsync<GameObject>("Volume");
             yield return handleClient;
-            runner.InstantiateInRunnerScene(handleClient.Result);
+            Volume = runner.InstantiateInRunnerScene(handleClient.Result).GetComponent<Volume>();
 
             handleClient = Addressables.LoadAssetAsync<GameObject>("JellyFishes");
             yield return handleClient;

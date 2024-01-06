@@ -1,26 +1,21 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Fusion;
 using UnityEngine;
-using UnityEngine.XR.Interaction.Toolkit;
 
-public class Hand : NetworkBehaviour
+public class Hand : MonoBehaviour
 {
+    public Action Grapped;
+    public Action UnGrapped;
     [SerializeField] private Transform _fishTransform;
     [SerializeField] private List<Finger> _fingers;
-    [SerializeField] private XRBaseController _xRBaseController;
     [SerializeField] private AudioSource _fishStruggling;
     [SerializeField] private BoxCollider _boxCollider;
-    [SerializeField] private Player _player;
     private Fish _fish;
     private float _grapValue;
     private bool _isImpulseGrap;
     private Dictionary<NetworkBehaviourId, Fish> _fishes = new Dictionary<NetworkBehaviourId, Fish>();
-
-    public void SetPlayer(Player player)
-    {
-        _player = player;
-    }
 
     public void SetGrapValue(bool isGrapped)
     {
@@ -35,7 +30,7 @@ public class Hand : NetworkBehaviour
         _fingers.ForEach(finger => finger.Grap(grapValue));
     }
 
-    public override void Render()
+    public void Update()
     {
         if (_grapValue == 1) Grap();
         else Ungrap();
@@ -51,7 +46,7 @@ public class Hand : NetworkBehaviour
             if (!_isImpulseGrap)
             {
                 _isImpulseGrap = true;
-                SendHaptic();
+                Grapped?.Invoke();
                 _fishStruggling.Play();
             }
         }
@@ -64,20 +59,12 @@ public class Hand : NetworkBehaviour
             if (_isImpulseGrap)
             {
                 _isImpulseGrap = false;
-                SendHaptic();
+                UnGrapped?.Invoke();
                 _fishStruggling.Stop();
             }
             _fish.Released();
             _boxCollider.isTrigger = false;
             _fish = null;
-        }
-    }
-
-    private void SendHaptic()
-    {
-        if (_player.HasInputAuthority)
-        {
-            _xRBaseController.SendHapticImpulse(1, 0.5f);
         }
     }
 

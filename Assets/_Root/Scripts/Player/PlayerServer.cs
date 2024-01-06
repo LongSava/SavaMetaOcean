@@ -16,7 +16,7 @@ public partial class Player
 
         if (input.MoveBody != 0)
         {
-            _direction = input.MoveBody * transform.InverseTransformVector(_model.Head.transform.forward);
+            _direction = input.MoveBody * transform.forward;
             _speedMove += 15 * Runner.DeltaTime;
         }
         else

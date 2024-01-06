@@ -15,8 +15,14 @@ public class Model : MonoBehaviour
     public Hand LeftHand;
     public Hand RightHand;
     public Animator Animator;
+    public SkinnedMeshRenderer Helmet;
     public bool IsSwimming;
     public List<Coroutine> Coroutines = new List<Coroutine>();
+
+    public void HideHelmet()
+    {
+        Helmet.enabled = false;
+    }
 
     public void SetGrapValueLeftHand(float grapValue)
     {
@@ -28,11 +34,6 @@ public class Model : MonoBehaviour
         LeftHand.SetGrapValue(grapValue);
     }
 
-    public void SetPlayerLeftHand(Player player)
-    {
-        LeftHand.SetPlayer(player);
-    }
-
     public void SetGrapValueRightHand(float grapValue)
     {
         RightHand.SetGrapValue(grapValue);
@@ -41,11 +42,6 @@ public class Model : MonoBehaviour
     public void SetGrapValueRightHand(bool grapValue)
     {
         RightHand.SetGrapValue(grapValue);
-    }
-
-    public void SetPlayerRightHand(Player player)
-    {
-        RightHand.SetPlayer(player);
     }
 
     public void SetupTarget(Transform target)

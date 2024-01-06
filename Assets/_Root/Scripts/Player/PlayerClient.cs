@@ -1,15 +1,17 @@
 using System;
+using System.Collections;
 using DG.Tweening;
 using Fusion;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using UnityEngine.Rendering.Universal;
 
 public partial class Player
 {
     [SerializeField] private InputAsset _inputAsset;
-    [SerializeField] private ParticleSystem _particleSystem;
     private int _lastStateRotateBody;
     private float _timerRotateBody;
+    private ColorAdjustments _colorAdjustments;
 
     public override void FixedUpdateClient()
     {
@@ -29,42 +31,31 @@ public partial class Player
             events.OnInput = new NetworkEvents.InputEvent();
             events.OnInput.AddListener(OnInput);
 
-            Runner.GetComponent<EventScene>().OnAssetLoadDone += (roomType) =>
-            {
-                Addressables.LoadAssetAsync<GameObject>("Fog" + roomType.ToString()).Completed += handle =>
-                {
-                    var fogOcean = Runner.InstantiateInRunnerScene(handle.Result);
-                    fogOcean.transform.SetParent(transform);
-                    EnableEyes();
-                };
-            };
+            Runner.GetComponent<EventScene>().OnAssetLoadDone += roomType => StartCoroutine(OnAssetLoadDone(roomType));
         }
     }
 
-    public void DisableEyes(Action action = null)
+    private IEnumerator OnAssetLoadDone(RoomType roomType)
     {
-        if (HasInputAuthority)
+        var handle = Addressables.LoadAssetAsync<GameObject>("Fog" + roomType.ToString());
+        yield return handle;
+        var fogOcean = Runner.InstantiateInRunnerScene(handle.Result);
+        fogOcean.transform.SetParent(transform);
+
+        if (RunnerController.Instance.Volume.profile.TryGet(out _colorAdjustments))
         {
-            _inputAsset.Disable();
-            _eyes.enabled = true;
-            _eyes.material.DOFade(1, 2).OnComplete(() =>
-            {
-                action?.Invoke();
-            });
+            EnableEyes();
         }
     }
 
     public void EnableEyes(Action action = null)
     {
-        if (HasInputAuthority)
-        {
-            _eyes.material.DOFade(0, 2).OnComplete(() =>
-            {
-                _inputAsset.Enable();
-                _eyes.enabled = false;
-                action?.Invoke();
-            });
-        }
+        DOTween.To(() => _colorAdjustments.postExposure.value, (value) => _colorAdjustments.postExposure.value = value, 0, 2);
+    }
+
+    public void DisableEyes(Action action = null)
+    {
+        DOTween.To(() => _colorAdjustments.postExposure.value, (value) => _colorAdjustments.postExposure.value = value, -10, 2);
     }
 
     private void OnInput(NetworkRunner runner, NetworkInput input)
