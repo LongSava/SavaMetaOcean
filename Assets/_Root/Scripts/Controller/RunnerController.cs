@@ -116,10 +116,6 @@ public class RunnerController : Singleton<RunnerController>
             yield return handleServer;
             runner.InstantiateInRunnerScene(handleServer.Result);
 
-            handleServer = Addressables.LoadAssetAsync<GameObject>("Terrain");
-            yield return handleServer;
-            runner.InstantiateInRunnerScene(handleServer.Result);
-
             runner.GetComponent<EventScene>().RoomType = RoomType.Ocean;
 
             handleServer = Addressables.LoadAssetAsync<GameObject>("Gyre");
