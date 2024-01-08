@@ -41694,8 +41694,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79fd44485f000e1438f9ad6d9101b88e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RoomType: 1
+  RoomType: 2
   PositionSpawned: {x: -2, y: 10, z: 255}
+  Volume: {fileID: 0}
 --- !u!4 &1369523192
 Transform:
   m_ObjectHideFlags: 0
