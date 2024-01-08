@@ -25,7 +25,7 @@ public class FishArea : MonoBehaviour
 
         config.FishFlocks.ForEach(config =>
         {
-            var fishFlock = runner.InstantiateInRunnerScene(new GameObject("FishFlock")).AddComponent<FishFlock>();
+            var fishFlock = new GameObject("FishFlock").AddComponent<FishFlock>();
             fishFlock.transform.SetParent(transform);
             fishFlock.Init(config, this);
             FishFlocks.Add(fishFlock);

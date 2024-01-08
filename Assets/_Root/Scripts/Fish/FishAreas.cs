@@ -25,7 +25,7 @@ public class FishAreas : NetworkBehaviour
             }
         }
 
-        var fishesObject = Runner.InstantiateInRunnerScene(new GameObject("Fishes"));
+        var fishesObject = new GameObject("Fishes");
         fishesObject.transform.SetParent(transform);
         _fishes.ForEach(fish => fish.transform.SetParent(fishesObject.transform));
     }
@@ -36,7 +36,7 @@ public class FishAreas : NetworkBehaviour
         {
             Config.Data.FishAreas.FishAreas.ForEach(config =>
             {
-                var fishArea = Runner.InstantiateInRunnerScene(new GameObject("FishArea")).AddComponent<FishArea>();
+                var fishArea = new GameObject("FishArea").AddComponent<FishArea>();
                 fishArea.transform.SetParent(transform);
                 fishArea.Init(config, Runner);
                 _fishAreas.Add(fishArea);
