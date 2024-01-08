@@ -14,7 +14,7 @@ public class JellyFish : MonoBehaviour
         _positionYOrigin = transform.position.y;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (transform.position.y > _positionYOrigin + 10)
         {
@@ -25,6 +25,6 @@ public class JellyFish : MonoBehaviour
             _direction = Vector3.up;
         }
 
-        transform.Translate(_speedMove * Time.deltaTime * _direction);
+        transform.Translate(_speedMove * Time.fixedDeltaTime * _direction);
     }
 }

@@ -649,7 +649,7 @@ GameObject:
   - component: {fileID: 7630828481057321151}
   - component: {fileID: 6261390868628594225}
   - component: {fileID: 6074013754965768402}
-  - component: {fileID: 2360046240110575589}
+  - component: {fileID: 3644050778776436275}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -686,7 +686,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interpolationDataSource: 0
-  _eyes: {fileID: 0}
   _gyreLine: {fileID: 0}
   _playerAudio: {fileID: 2294425363070533100}
   _rigidbody: {fileID: 6074013754965768402}
@@ -695,7 +694,6 @@ MonoBehaviour:
   _devicePrefab: {fileID: 7960057943566153091, guid: 93b0116f18724a44b856966e7be549e5,
     type: 3}
   _body: {fileID: 2994827912066038434}
-  _particleSystem: {fileID: 0}
 --- !u!114 &7630828481057321151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -719,7 +717,7 @@ MonoBehaviour:
   NestedObjects: []
   NetworkedBehaviours:
   - {fileID: 7630828481057321150}
-  - {fileID: 2360046240110575589}
+  - {fileID: 3644050778776436275}
   - {fileID: 2294425363070533100}
   SimulationBehaviours: []
 --- !u!136 &6261390868628594225
@@ -752,7 +750,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &2360046240110575589
+--- !u!114 &3644050778776436275
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -761,7 +759,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7630828481057321148}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1710889294, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Script: {fileID: 158639473, guid: e725a070cec140c4caffb81624c8c787, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _interpolationDataSource: 0

@@ -25,6 +25,8 @@ public partial class Player
         }
         _speedMove = Mathf.Clamp(_speedMove, 0, Config.Data.Player.SpeedMove);
 
+        // transform.position += _speedMove * Runner.DeltaTime * _direction;
+
         _rigidbody.MovePosition(transform.position + _speedMove * Runner.DeltaTime * _direction);
 
         var rotation = Config.Data.Player.SpeedRotate * input.RotateBody * Runner.DeltaTime * Vector3.up;

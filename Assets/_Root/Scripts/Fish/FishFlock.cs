@@ -19,9 +19,9 @@ public class FishFlock : MonoBehaviour
         RandomTargetPosition();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        transform.position = Vector3.MoveTowards(transform.position, _targetTransform.position, Time.deltaTime * Config.SpeedMove);
+        transform.position = Vector3.MoveTowards(transform.position, _targetTransform.position, Time.fixedDeltaTime * Config.SpeedMove);
         if (transform.position == _targetTransform.position)
         {
             RandomTargetPosition();

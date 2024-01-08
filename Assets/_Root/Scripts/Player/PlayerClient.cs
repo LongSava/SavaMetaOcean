@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using AtmosphericHeightFog;
 using DG.Tweening;
 using Fusion;
 using UnityEngine;
@@ -31,31 +32,49 @@ public partial class Player
             events.OnInput = new NetworkEvents.InputEvent();
             events.OnInput.AddListener(OnInput);
 
-            Runner.GetComponent<EventScene>().OnAssetLoadDone += roomType => StartCoroutine(OnAssetLoadDone(roomType));
+            StartCoroutine(CheckAssetLoadDone());
         }
     }
 
-    private IEnumerator OnAssetLoadDone(RoomType roomType)
+    private IEnumerator CheckAssetLoadDone()
     {
-        var handle = Addressables.LoadAssetAsync<GameObject>("Fog" + roomType.ToString());
-        yield return handle;
-        var fogOcean = Runner.InstantiateInRunnerScene(handle.Result);
-        fogOcean.transform.SetParent(transform);
+        var eventScene = Runner.GetComponent<EventScene>();
 
-        if (RunnerController.Instance.Volume.profile.TryGet(out _colorAdjustments))
+        while (true)
         {
-            EnableEyes();
+            if (eventScene.RoomType != RoomType.None)
+            {
+                Addressables.LoadAssetAsync<GameObject>("Fog" + eventScene.RoomType.ToString()).Completed += handle =>
+                {
+                    var fogOcean = Runner.InstantiateInRunnerScene(handle.Result).GetComponent<HeightFogGlobal>();
+                    fogOcean.transform.SetParent(transform);
+                    fogOcean.mainCamera = _device.Head;
+
+                    if (RunnerController.Instance.Volume.profile.TryGet(out _colorAdjustments))
+                    {
+                        EnableEyes();
+                    }
+                };
+
+                break;
+            }
+
+            yield return null;
         }
     }
 
     public void EnableEyes(Action action = null)
     {
+        _colorAdjustments.postExposure.value = -10;
         DOTween.To(() => _colorAdjustments.postExposure.value, (value) => _colorAdjustments.postExposure.value = value, 0, 2);
+        _inputAsset.Enable();
     }
 
     public void DisableEyes(Action action = null)
     {
+        _colorAdjustments.postExposure.value = 0;
         DOTween.To(() => _colorAdjustments.postExposure.value, (value) => _colorAdjustments.postExposure.value = value, -10, 2);
+        _inputAsset.Disable();
     }
 
     private void OnInput(NetworkRunner runner, NetworkInput input)
@@ -110,7 +129,7 @@ public partial class Player
             inputData.RotateBody = _lastStateRotateBody;
         }
 
-        inputData.PositionHead = _device.Head.transform.position;
+        // inputData.PositionHead = _device.Head.transform.position;
         inputData.RotationHead = _device.Head.transform.rotation;
         inputData.PositionRightHand = _device.RightHand.transform.position;
         inputData.RotationRightHand = _device.RightHand.transform.rotation;
@@ -147,7 +166,7 @@ public partial class Player
             _model.SetGrapValueRightHand(_inputAsset.Player.GripRight.ReadValue<float>());
 
             var mouseMove = _inputAsset.Player.MoveMouse.ReadValue<Vector2>();
-            if (mouseMove != Vector2.zero)
+            if (mouseMove != Vector2.zero && Camera.main != null)
             {
                 _device.LeftHand.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(mouseMove.x, mouseMove.y, 1.5f));
             }

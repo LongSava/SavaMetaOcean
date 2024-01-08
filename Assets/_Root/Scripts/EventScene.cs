@@ -3,5 +3,5 @@ using UnityEngine;
 
 public class EventScene : MonoBehaviour
 {
-    public Action<RoomType> OnAssetLoadDone;
+    public RoomType RoomType = RoomType.None;
 }

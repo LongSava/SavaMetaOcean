@@ -11,8 +11,9 @@ using UnityEngine.SceneManagement;
 
 public enum RoomType
 {
-    Ocean,
-    Titanic
+    None = 0,
+    Ocean = 1,
+    Titanic = 2
 }
 
 public class RunnerController : Singleton<RunnerController>
@@ -119,7 +120,7 @@ public class RunnerController : Singleton<RunnerController>
             yield return handleServer;
             runner.InstantiateInRunnerScene(handleServer.Result);
 
-            runner.GetComponent<EventScene>().OnAssetLoadDone?.Invoke(RoomType.Ocean);
+            runner.GetComponent<EventScene>().RoomType = RoomType.Ocean;
 
             handleServer = Addressables.LoadAssetAsync<GameObject>("Gyre");
             yield return handleServer;
@@ -127,11 +128,7 @@ public class RunnerController : Singleton<RunnerController>
         }
         else
         {
-            var handleClient = Addressables.LoadAssetAsync<GameObject>("Volume");
-            yield return handleClient;
-            Volume = runner.InstantiateInRunnerScene(handleClient.Result).GetComponent<Volume>();
-
-            handleClient = Addressables.LoadAssetAsync<GameObject>("JellyFishes");
+            var handleClient = Addressables.LoadAssetAsync<GameObject>("JellyFishes");
             yield return handleClient;
             runner.InstantiateInRunnerScene(handleClient.Result);
 
@@ -141,7 +138,7 @@ public class RunnerController : Singleton<RunnerController>
                 yield return handleClient;
                 runner.InstantiateInRunnerScene(handleClient.Result);
 
-                runner.GetComponent<EventScene>().OnAssetLoadDone?.Invoke(RoomType.Ocean);
+                runner.GetComponent<EventScene>().RoomType = RoomType.Ocean;
 
                 handleClient = Addressables.LoadAssetAsync<GameObject>("Ocean2");
                 yield return handleClient;
@@ -153,7 +150,7 @@ public class RunnerController : Singleton<RunnerController>
                 yield return handleClient;
                 runner.InstantiateInRunnerScene(handleClient.Result);
 
-                runner.GetComponent<EventScene>().OnAssetLoadDone?.Invoke(RoomType.Ocean);
+                runner.GetComponent<EventScene>().RoomType = RoomType.Ocean;
 
                 handleClient = Addressables.LoadAssetAsync<GameObject>("Ocean");
                 yield return handleClient;
@@ -187,7 +184,7 @@ public class RunnerController : Singleton<RunnerController>
 
         yield return new WaitForSeconds(1);
 
-        runner.GetComponent<EventScene>().OnAssetLoadDone?.Invoke(RoomType.Titanic);
+        runner.GetComponent<EventScene>().RoomType = RoomType.Titanic;
     }
 
     private void OnPlayerLeft(NetworkRunner runner, PlayerRef playerRef)
@@ -228,6 +225,11 @@ public class RunnerController : Singleton<RunnerController>
 
     private async void AddRunners()
     {
+        Addressables.LoadAssetAsync<GameObject>("Volume").Completed += handle =>
+        {
+            Volume = Instantiate(handle.Result, transform).GetComponent<Volume>();
+        };
+
         if (NumberPlayer == -1)
         {
             if ((int)Config.Data.NumberPlayer == -1)
