@@ -8,7 +8,7 @@ public class Portal : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            var player = other.GetComponent<Player>();
+            var player = other.GetComponentInParent<Player>();
 
             if (player.HasInputAuthority)
             {

@@ -83,7 +83,7 @@ public class Fish : NetworkBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            _player = other.GetComponent<Player>();
+            _player = other.GetComponentInParent<Player>();
         }
     }
 

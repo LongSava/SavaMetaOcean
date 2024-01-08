@@ -10,7 +10,7 @@ public class GyreLine : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            var player = other.GetComponent<Player>();
+            var player = other.GetComponentInParent<Player>();
             if (player.GyreLine != null)
             {
                 if (player.GyreLine.Index < Index)
@@ -33,7 +33,7 @@ public class GyreLine : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            other.GetComponent<Player>().GyreLine = null;
+            other.GetComponentInParent<Player>().GyreLine = null;
         }
     }
 }

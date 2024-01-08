@@ -30,9 +30,13 @@ public partial class Player
         var rotation = Config.Data.Player.SpeedRotate * input.RotateBody * Runner.DeltaTime * Vector3.up;
         transform.Rotate(rotation);
 
-        if (_gyreLine != null)
+        if (_gyreLine == null)
         {
-            transform.Translate(_gyreLine.transform.forward * Runner.DeltaTime * Config.Data.SpeedGyreLine, Space.World);
+            _rigidbody.MovePosition(transform.position + _speedMove * Runner.DeltaTime * _direction);
+        }
+        else
+        {
+            _rigidbody.MovePosition(transform.position + _speedMove * Runner.DeltaTime * _direction + _gyreLine.transform.forward * Runner.DeltaTime * Config.Data.SpeedGyreLine);
         }
     }
 }
