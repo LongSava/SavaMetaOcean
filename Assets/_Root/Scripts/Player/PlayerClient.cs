@@ -48,7 +48,7 @@ public partial class Player
                 {
                     var fogOcean = Runner.InstantiateInRunnerScene(handle.Result).GetComponent<HeightFogGlobal>();
                     fogOcean.transform.SetParent(transform);
-                    fogOcean.mainCamera = _device.Head;
+                    fogOcean.mainCamera = _device.Camera;
 
                     if (RunnerController.Instance.Volume.profile.TryGet(out _colorAdjustments))
                     {
@@ -129,7 +129,7 @@ public partial class Player
             inputData.RotateBody = _lastStateRotateBody;
         }
 
-        // inputData.PositionHead = _device.Head.transform.position;
+        inputData.PositionHead = _device.Head.transform.position;
         inputData.RotationHead = _device.Head.transform.rotation;
         inputData.PositionRightHand = _device.RightHand.transform.position;
         inputData.RotationRightHand = _device.RightHand.transform.rotation;
@@ -164,6 +164,8 @@ public partial class Player
 
             _model.SetGrapValueLeftHand(_inputAsset.Player.GripLeft.ReadValue<float>());
             _model.SetGrapValueRightHand(_inputAsset.Player.GripRight.ReadValue<float>());
+
+            _model.UpdatePositionAndRotation(_device.Head.transform.position, _device.Head.transform.rotation);
         }
     }
 }

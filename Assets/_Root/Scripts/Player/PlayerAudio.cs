@@ -2,7 +2,7 @@ using Fusion;
 using UnityEngine;
 using UnityEngine.Audio;
 
-public class PlayerAudio : NetworkBehaviour
+public class PlayerAudio : MonoBehaviour
 {
     public AudioMixer AudioMixer;
     public AudioSource Breathing;

@@ -211,7 +211,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b16d75057a75874fb01203aba374eaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interpolationDataSource: 0
   AudioMixer: {fileID: 24100000, guid: 3691ecfe70fc14740b981f29c0050f24, type: 2}
   Breathing: {fileID: 2857025313532778759}
   Swimming: {fileID: 1292651845947070506}
@@ -614,12 +613,11 @@ GameObject:
   - component: {fileID: 7630828481057321145}
   - component: {fileID: 7630828481057321150}
   - component: {fileID: 7630828481057321151}
-  - component: {fileID: 6261390868628594225}
   - component: {fileID: 6074013754965768402}
   - component: {fileID: 3644050778776436275}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -685,22 +683,7 @@ MonoBehaviour:
   NetworkedBehaviours:
   - {fileID: 7630828481057321150}
   - {fileID: 3644050778776436275}
-  - {fileID: 2294425363070533100}
   SimulationBehaviours: []
---- !u!136 &6261390868628594225
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7630828481057321148}
-  m_Material: {fileID: 13400000, guid: e37bd1a96d677f04f8ded36e37c037f2, type: 2}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 1
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: -0.5, z: 0}
 --- !u!54 &6074013754965768402
 Rigidbody:
   m_ObjectHideFlags: 0

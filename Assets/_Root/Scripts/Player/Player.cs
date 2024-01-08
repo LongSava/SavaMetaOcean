@@ -23,7 +23,7 @@ public partial class Player : PTBehaviour
     {
         if (!_isReady) return;
 
-        _model.Head.rotation = input.RotationHead;
+        _model.UpdatePositionAndRotation(input.PositionHead, input.RotationHead);
         _model.RightHand.transform.SetPositionAndRotation(input.PositionRightHand, input.RotationRightHand);
         _model.LeftHand.transform.SetPositionAndRotation(input.PositionLeftHand, input.RotationLeftHand);
 
@@ -55,7 +55,6 @@ public partial class Player : PTBehaviour
         _model.transform.SetParent(_body);
         _model.transform.localPosition = Vector3.zero;
         _model.transform.localRotation = Quaternion.identity;
-        _model.SetupTarget(_body);
 
         if (HasInputAuthority)
         {
@@ -68,7 +67,7 @@ public partial class Player : PTBehaviour
             _device.transform.localPosition = Vector3.zero;
             _device.transform.localRotation = Quaternion.identity;
 
-            _model.SetupConstraint(_device.Head.transform, _device.LeftHand.transform, _device.RightHand.transform);
+            _model.SetupIK(_device.LeftHand.transform, _device.RightHand.transform);
         }
         else
         {

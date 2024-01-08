@@ -6,11 +6,8 @@ using UnityEngine.Animations.Rigging;
 
 public class Model : MonoBehaviour
 {
-    public Transform Target;
     public Transform Head;
     public RigBuilder RigBuilder;
-    public RotationConstraint ModelConstraint;
-    public RotationConstraint HeadConstraint;
     public ChainIKConstraint LeftHandIK;
     public ChainIKConstraint RightHandIK;
     public Hand LeftHand;
@@ -45,31 +42,17 @@ public class Model : MonoBehaviour
         RightHand.SetGrapValue(grapValue);
     }
 
-    public void SetupTarget(Transform target)
+    public void UpdatePositionAndRotation(Vector3 positionHead, Quaternion rotationHead)
     {
-        Target = target;
+        transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.eulerAngles.x, rotationHead.eulerAngles.y, transform.rotation.eulerAngles.z));
+        Head.rotation = Quaternion.Euler(new Vector3(rotationHead.eulerAngles.x, Head.rotation.eulerAngles.y, Head.rotation.eulerAngles.z));
+        transform.position += positionHead - Head.position;
     }
 
-    private void Update()
+    public void SetupIK(Transform leftHand, Transform rightHand)
     {
-        var position = transform.position + Target.position - Head.position;
-        var rotation = Quaternion.RotateTowards(transform.rotation, IsSwimming ? Head.rotation : Quaternion.identity, Time.deltaTime * 30);
-        transform.SetPositionAndRotation(position, rotation);
-    }
-
-    public void SetupConstraint(Transform head, Transform leftHand, Transform rightHand)
-    {
-        var source = new ConstraintSource { sourceTransform = head };
-
-        ModelConstraint.SetSource(0, source);
-        ModelConstraint.constraintActive = true;
-
-        HeadConstraint.SetSource(0, source);
-        HeadConstraint.constraintActive = true;
-
         LeftHandIK.data.target = leftHand;
         RightHandIK.data.target = rightHand;
-
         RigBuilder.Build();
     }
 

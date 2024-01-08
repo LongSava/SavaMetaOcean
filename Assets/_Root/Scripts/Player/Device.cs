@@ -5,9 +5,10 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class Device : MonoBehaviour
 {
-    public Camera Head;
-    public Transform LeftHand;
-    public Transform RightHand;
+    public Camera Camera;
     public XRBaseController LeftHandController;
     public XRBaseController RightHandController;
+    public Transform Head;
+    public Transform LeftHand;
+    public Transform RightHand;
 }

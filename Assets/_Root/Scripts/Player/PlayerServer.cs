@@ -16,7 +16,7 @@ public partial class Player
 
         if (input.MoveBody != 0)
         {
-            _direction = input.MoveBody * transform.forward;
+            _direction = input.MoveBody * _model.Head.forward;
             _speedMove += 15 * Runner.DeltaTime;
         }
         else
@@ -24,8 +24,6 @@ public partial class Player
             _speedMove -= 15 * Runner.DeltaTime;
         }
         _speedMove = Mathf.Clamp(_speedMove, 0, Config.Data.Player.SpeedMove);
-
-        // transform.position += _speedMove * Runner.DeltaTime * _direction;
 
         _rigidbody.MovePosition(transform.position + _speedMove * Runner.DeltaTime * _direction);
 

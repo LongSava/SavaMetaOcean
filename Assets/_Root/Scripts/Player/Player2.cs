@@ -30,7 +30,6 @@ public class Player2 : NetworkBehaviour
         events.OnInput.AddListener(OnInput);
 
         model = Runner.InstantiateInRunnerScene(ModelPrefab);
-        model.SetupTarget(transform);
         model.transform.SetParent(Body);
 
         if (HasInputAuthority)
@@ -38,7 +37,7 @@ public class Player2 : NetworkBehaviour
             xr = Runner.InstantiateInRunnerScene(XRPrefab);
             xr.transform.SetParent(Body);
 
-            model.SetupConstraint(xr.Head.transform, xr.LeftHand.transform, xr.RightHand.transform);
+            model.SetupIK(xr.LeftHand.transform, xr.RightHand.transform);
         }
     }
 

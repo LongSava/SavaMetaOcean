@@ -45,7 +45,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f59f28b05ab10146a2fcaed5d424657, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interpolationDataSource: 0
   _fingerTip: {fileID: 9196061849902428293}
   _fingerTipOffset: {x: 0, y: -0.05, z: 0.25}
 --- !u!1 &181568810775929491
@@ -254,7 +253,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f59f28b05ab10146a2fcaed5d424657, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interpolationDataSource: 0
   _fingerTip: {fileID: 9196061851371851067}
   _fingerTipOffset: {x: 0, y: -0.05, z: 0.25}
 --- !u!1 &278131651895799052
@@ -560,7 +558,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f59f28b05ab10146a2fcaed5d424657, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interpolationDataSource: 0
   _fingerTip: {fileID: 9196061849647618105}
   _fingerTipOffset: {x: 0, y: 0.2, z: 0.3}
 --- !u!1 &1500123592748877431
@@ -608,7 +605,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f59f28b05ab10146a2fcaed5d424657, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interpolationDataSource: 0
   _fingerTip: {fileID: 9196061850795091459}
   _fingerTipOffset: {x: 0, y: -0.05, z: 0.25}
 --- !u!1 &1672515449879241825
@@ -682,7 +678,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3348657279232886496}
-  - component: {fileID: 9196061851498619478}
   m_Layer: 0
   m_Name: mixamorig:Head
   m_TagString: Untagged
@@ -706,25 +701,6 @@ Transform:
   m_Father: {fileID: 2734402062543712154}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1818360609 &9196061851498619478
-RotationConstraint:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1790638368854700268}
-  m_Enabled: 1
-  m_Weight: 1
-  m_RotationAtRest: {x: 0, y: 0, z: 0}
-  m_RotationOffset: {x: 0, y: 0, z: 0}
-  m_AffectRotationX: 1
-  m_AffectRotationY: 0
-  m_AffectRotationZ: 0
-  m_IsContraintActive: 0
-  m_IsLocked: 1
-  m_Sources:
-  - sourceTransform: {fileID: 0}
-    weight: 1
 --- !u!1 &1850606559389111848
 GameObject:
   m_ObjectHideFlags: 0
@@ -834,7 +810,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f59f28b05ab10146a2fcaed5d424657, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interpolationDataSource: 0
   _fingerTip: {fileID: 9196061849953005304}
   _fingerTipOffset: {x: 0, y: 0.1, z: 0.25}
 --- !u!1 &2955892263201133017
@@ -1044,7 +1019,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f59f28b05ab10146a2fcaed5d424657, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interpolationDataSource: 0
   _fingerTip: {fileID: 9196061849860266214}
   _fingerTipOffset: {x: 0, y: 0.2, z: 0.3}
 --- !u!1 &4075351197273098164
@@ -1319,7 +1293,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f59f28b05ab10146a2fcaed5d424657, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interpolationDataSource: 0
   _fingerTip: {fileID: 9196061850879500359}
   _fingerTipOffset: {x: 0, y: -0.05, z: 0.25}
 --- !u!1 &4755722806253140548
@@ -2308,7 +2281,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f59f28b05ab10146a2fcaed5d424657, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interpolationDataSource: 0
   _fingerTip: {fileID: 9196061850459452460}
   _fingerTipOffset: {x: 0, y: -0.05, z: 0.25}
 --- !u!1 &7082264217048901859
@@ -2476,7 +2448,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f59f28b05ab10146a2fcaed5d424657, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interpolationDataSource: 0
   _fingerTip: {fileID: 9196061851097497123}
   _fingerTipOffset: {x: 0, y: 0.1, z: 0.25}
 --- !u!1 &7356311147454564560
@@ -2653,7 +2624,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f59f28b05ab10146a2fcaed5d424657, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interpolationDataSource: 0
   _fingerTip: {fileID: 9196061849933556085}
   _fingerTipOffset: {x: 0, y: -0.05, z: 0.25}
 --- !u!1 &7520595130122912515
@@ -2877,12 +2847,12 @@ GameObject:
   - component: {fileID: 8652612229259514979}
   - component: {fileID: 2009124500592673503}
   - component: {fileID: 3383448165512056345}
-  - component: {fileID: 9196061850400379414}
   - component: {fileID: 9196061851100298319}
   - component: {fileID: 9196061851100298316}
+  - component: {fileID: 4225391871702580290}
   m_Layer: 0
   m_Name: Model
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2921,11 +2891,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f669077a09f0fb4a9c3088ce63002cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Target: {fileID: 0}
   Head: {fileID: 3348657279232886496}
   RigBuilder: {fileID: 9196061851100298316}
-  ModelConstraint: {fileID: 9196061850400379414}
-  HeadConstraint: {fileID: 9196061851498619478}
+  ModelConstraint: {fileID: 0}
+  HeadConstraint: {fileID: 0}
   LeftHandIK: {fileID: 9196061850495799961}
   RightHandIK: {fileID: 9196061851326523607}
   LeftHand: {fileID: 9196061851086730239}
@@ -2954,25 +2923,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!1818360609 &9196061850400379414
-RotationConstraint:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8313522137172709081}
-  m_Enabled: 1
-  m_Weight: 1
-  m_RotationAtRest: {x: 0, y: 0, z: 0}
-  m_RotationOffset: {x: 0, y: 0, z: 0}
-  m_AffectRotationX: 0
-  m_AffectRotationY: 1
-  m_AffectRotationZ: 0
-  m_IsContraintActive: 0
-  m_IsLocked: 1
-  m_Sources:
-  - sourceTransform: {fileID: 0}
-    weight: 1
 --- !u!114 &9196061851100298319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3003,6 +2953,20 @@ MonoBehaviour:
   - m_Rig: {fileID: 9196061851100298319}
     m_Active: 1
   m_Effectors: []
+--- !u!136 &4225391871702580290
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8313522137172709081}
+  m_Material: {fileID: 13400000, guid: e37bd1a96d677f04f8ded36e37c037f2, type: 2}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 1
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &8800530805806865320
 GameObject:
   m_ObjectHideFlags: 0
