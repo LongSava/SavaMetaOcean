@@ -10,9 +10,4 @@ public class Device : MonoBehaviour
     public Transform RightHand;
     public XRBaseController LeftHandController;
     public XRBaseController RightHandController;
-
-    private void Update()
-    {
-        transform.localPosition = -Head.transform.localPosition;
-    }
 }

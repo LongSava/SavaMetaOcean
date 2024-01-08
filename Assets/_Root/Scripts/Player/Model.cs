@@ -52,16 +52,14 @@ public class Model : MonoBehaviour
 
     private void Update()
     {
-        transform.position += Target.position - Head.position;
-        // transform.rotation = Quaternion.RotateTowards(transform.rotation, IsSwimming ? Head.rotation : Quaternion.identity, Time.deltaTime * 30);
+        var position = transform.position + Target.position - Head.position;
+        var rotation = Quaternion.RotateTowards(transform.rotation, IsSwimming ? Head.rotation : Quaternion.identity, Time.deltaTime * 30);
+        transform.SetPositionAndRotation(position, rotation);
     }
 
     public void SetupConstraint(Transform head, Transform leftHand, Transform rightHand)
     {
-        var source = new ConstraintSource
-        {
-            sourceTransform = head
-        };
+        var source = new ConstraintSource { sourceTransform = head };
 
         ModelConstraint.SetSource(0, source);
         ModelConstraint.constraintActive = true;
@@ -87,7 +85,7 @@ public class Model : MonoBehaviour
         Coroutines.Clear();
 
         Coroutines.Add(StartCoroutine(SetWeightForChainIKHand(LeftHandIK, weight, 0.3f)));
-        Coroutines.Add(StartCoroutine(SetWeightForChainIKHand(LeftHandIK, weight, 0.3f)));
+        Coroutines.Add(StartCoroutine(SetWeightForChainIKHand(RightHandIK, weight, 0.3f)));
     }
 
     private IEnumerator SetWeightForChainIKHand(ChainIKConstraint chainIK, float weight, float time)
