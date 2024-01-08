@@ -2923,6 +2923,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Target: {fileID: 0}
   Head: {fileID: 3348657279232886496}
+  RigBuilder: {fileID: 9196061851100298316}
   ModelConstraint: {fileID: 9196061850400379414}
   HeadConstraint: {fileID: 9196061851498619478}
   LeftHandIK: {fileID: 9196061850495799961}

@@ -59,8 +59,8 @@ public partial class Player : PTBehaviour
 
         if (HasInputAuthority)
         {
-            _model.LeftHand.Grapped += () => _device.LeftHand.SendHapticImpulse(1, 0.5f);
-            _model.RightHand.Grapped += () => _device.RightHand.SendHapticImpulse(1, 0.5f);
+            _model.LeftHand.Grapped += () => _device.LeftHandController.SendHapticImpulse(1, 0.5f);
+            _model.RightHand.Grapped += () => _device.RightHandController.SendHapticImpulse(1, 0.5f);
             _model.HideHelmet();
 
             _device = Runner.InstantiateInRunnerScene(_devicePrefab);

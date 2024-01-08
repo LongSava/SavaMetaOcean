@@ -8,6 +8,7 @@ public class Model : MonoBehaviour
 {
     public Transform Target;
     public Transform Head;
+    public RigBuilder RigBuilder;
     public RotationConstraint ModelConstraint;
     public RotationConstraint HeadConstraint;
     public ChainIKConstraint LeftHandIK;
@@ -52,7 +53,7 @@ public class Model : MonoBehaviour
     private void Update()
     {
         transform.position += Target.position - Head.position;
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, IsSwimming ? Head.rotation : Quaternion.identity, Time.deltaTime * 30);
+        // transform.rotation = Quaternion.RotateTowards(transform.rotation, IsSwimming ? Head.rotation : Quaternion.identity, Time.deltaTime * 30);
     }
 
     public void SetupConstraint(Transform head, Transform leftHand, Transform rightHand)
@@ -70,6 +71,8 @@ public class Model : MonoBehaviour
 
         LeftHandIK.data.target = leftHand;
         RightHandIK.data.target = rightHand;
+
+        RigBuilder.Build();
     }
 
     public void Swimming(bool isSwimming)

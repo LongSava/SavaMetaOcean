@@ -6,6 +6,13 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class Device : MonoBehaviour
 {
     public Camera Head;
-    public XRBaseController LeftHand;
-    public XRBaseController RightHand;
+    public Transform LeftHand;
+    public Transform RightHand;
+    public XRBaseController LeftHandController;
+    public XRBaseController RightHandController;
+
+    private void Update()
+    {
+        transform.localPosition = -Head.transform.localPosition;
+    }
 }

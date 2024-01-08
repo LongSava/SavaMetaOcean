@@ -164,18 +164,6 @@ public partial class Player
 
             _model.SetGrapValueLeftHand(_inputAsset.Player.GripLeft.ReadValue<float>());
             _model.SetGrapValueRightHand(_inputAsset.Player.GripRight.ReadValue<float>());
-
-            var mouseMove = _inputAsset.Player.MoveMouse.ReadValue<Vector2>();
-            if (mouseMove != Vector2.zero && Camera.main != null)
-            {
-                _device.LeftHand.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(mouseMove.x, mouseMove.y, 1.5f));
-            }
-
-            var rotateHead = _inputAsset.Player.RotateHead.ReadValue<float>();
-            if (rotateHead != 0)
-            {
-                _device.Head.transform.Rotate(30 * rotateHead * Runner.DeltaTime * Vector3.right);
-            }
         }
     }
 }
