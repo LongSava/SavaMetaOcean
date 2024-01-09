@@ -45,14 +45,14 @@ public class Model : MonoBehaviour
 
     public void UpdatePositionAndRotation(Vector3 positionHead, Quaternion rotationHead)
     {
+        Head.rotation = rotationHead;
         if (IsSwimming)
         {
-            transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.eulerAngles.x, rotationHead.eulerAngles.y, transform.rotation.eulerAngles.z));
-            Head.rotation = Quaternion.Euler(new Vector3(rotationHead.eulerAngles.x, Head.rotation.eulerAngles.y, Head.rotation.eulerAngles.z));
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, rotationHead, Time.deltaTime * 60);
         }
         else
         {
-            Head.rotation = rotationHead;
+            transform.localRotation = Quaternion.RotateTowards(transform.localRotation, Quaternion.identity, Time.deltaTime * 60);
         }
         transform.position += positionHead - Head.position;
     }

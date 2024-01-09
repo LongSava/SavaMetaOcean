@@ -14,14 +14,6 @@ public partial class Player
     private float _timerRotateBody;
     private ColorAdjustments _colorAdjustments;
 
-    public override void FixedUpdateClient()
-    {
-        if (!HasInputAuthority)
-        {
-            HandleInput(_inputData);
-        }
-    }
-
     public override void SpawnedClient()
     {
         if (HasInputAuthority)

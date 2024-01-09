@@ -9,14 +9,12 @@ public partial class Player
     {
         if (GetInput(out InputData input))
         {
-            HandleInput(input);
-
             _inputData = input;
         }
 
-        if (input.MoveBody != 0)
+        if (_inputData.MoveBody != 0)
         {
-            _direction = input.MoveBody * _model.Head.forward;
+            _direction = _inputData.MoveBody * _model.Head.forward;
             _speedMove += 15 * Runner.DeltaTime;
         }
         else
@@ -27,7 +25,7 @@ public partial class Player
 
         _rigidbody.MovePosition(transform.position + _speedMove * Runner.DeltaTime * _direction);
 
-        var rotation = Config.Data.Player.SpeedRotate * input.RotateBody * Runner.DeltaTime * Vector3.up;
+        var rotation = Config.Data.Player.SpeedRotate * _inputData.RotateBody * Runner.DeltaTime * Vector3.up;
         transform.Rotate(rotation);
 
         if (_gyreLine == null)

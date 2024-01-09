@@ -19,20 +19,27 @@ public partial class Player : PTBehaviour
 
     public GyreLine GyreLine { get => _gyreLine; set => _gyreLine = value; }
 
-    private void HandleInput(InputData input)
+    public override void Render()
     {
-        if (!_isReady) return;
+        base.Render();
 
-        _model.UpdatePositionAndRotation(input.PositionHead, input.RotationHead);
-        _model.RightHand.transform.SetPositionAndRotation(input.PositionRightHand, input.RotationRightHand);
-        _model.LeftHand.transform.SetPositionAndRotation(input.PositionLeftHand, input.RotationLeftHand);
+        HandleInput();
+    }
 
-        if (input.MoveBody == 0)
+    private void HandleInput()
+    {
+        if (HasInputAuthority || !_isReady) return;
+
+        _model.UpdatePositionAndRotation(_inputData.PositionHead, _inputData.RotationHead);
+        _model.RightHand.transform.SetPositionAndRotation(_inputData.PositionRightHand, _inputData.RotationRightHand);
+        _model.LeftHand.transform.SetPositionAndRotation(_inputData.PositionLeftHand, _inputData.RotationLeftHand);
+
+        if (_inputData.MoveBody == 0)
         {
             Tread();
             _model.SetWeightForChainIKHands(1);
         }
-        else if (input.MoveBody > 0)
+        else if (_inputData.MoveBody > 0)
         {
             Swim();
             _model.SetWeightForChainIKHands(0);
@@ -43,8 +50,8 @@ public partial class Player : PTBehaviour
             _model.SetWeightForChainIKHands(0);
         }
 
-        _model.SetGrapValueLeftHand(input.GripButtonLeft.IsSet(Buttons.GripButtonLeft));
-        _model.SetGrapValueRightHand(input.GripButtonRight.IsSet(Buttons.GripButtonRight));
+        _model.SetGrapValueLeftHand(_inputData.GripButtonLeft.IsSet(Buttons.GripButtonLeft));
+        _model.SetGrapValueRightHand(_inputData.GripButtonRight.IsSet(Buttons.GripButtonRight));
     }
 
     public override void Spawned()
