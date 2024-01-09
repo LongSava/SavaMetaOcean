@@ -43,18 +43,18 @@ public class Model : MonoBehaviour
         RightHand.SetGrapValue(grapValue);
     }
 
-    public void UpdatePositionAndRotation(Vector3 positionHead, Quaternion rotationHead)
+    public void UpdatePositionAndRotation(Vector3 positionHead, Quaternion rotationHead,
+                                            Vector3 positionRightHand, Quaternion rotationRightHand,
+                                            Vector3 positionLeftHand, Quaternion rotationLeftHand)
     {
-        Head.rotation = rotationHead;
-        if (IsSwimming)
-        {
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, rotationHead, Time.deltaTime * 60);
-        }
-        else
-        {
-            transform.localRotation = Quaternion.RotateTowards(transform.localRotation, Quaternion.identity, Time.deltaTime * 60);
-        }
-        transform.position += positionHead - Head.position;
+        HeadIK.transform.rotation = rotationHead;
+
+        if (IsSwimming) transform.rotation = Quaternion.RotateTowards(transform.rotation, rotationHead, Time.deltaTime * 60);
+        else transform.localRotation = Quaternion.RotateTowards(transform.localRotation, Quaternion.identity, Time.deltaTime * 60);
+        transform.position += positionHead - Head.transform.position;
+
+        RightHandIK.transform.SetPositionAndRotation(positionRightHand, rotationRightHand);
+        LeftHandIK.transform.SetPositionAndRotation(positionLeftHand, rotationLeftHand);
     }
 
     public void SetupIK(Transform head, Transform leftHand, Transform rightHand)

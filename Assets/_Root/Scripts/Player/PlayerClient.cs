@@ -133,31 +133,16 @@ public partial class Player
 
     public override void RenderClient()
     {
-        if (!_isReady) return;
+        if (!_isReady || !HasInputAuthority || !Runner.ProvideInput) return;
 
-        if (HasInputAuthority && Runner.ProvideInput)
-        {
-            var moveY = _inputAsset.Player.MoveBody.ReadValue<Vector2>().y;
-            if (moveY == 0)
-            {
-                Tread();
-                _model.SetWeightForChainIKHands(1);
-            }
-            else if (moveY > 0)
-            {
-                Swim();
-                _model.SetWeightForChainIKHands(0);
-            }
-            else
-            {
-                Tread();
-                _model.SetWeightForChainIKHands(0);
-            }
+        var moveY = _inputAsset.Player.MoveBody.ReadValue<Vector2>().y;
+        var grapValueLeftHand = _inputAsset.Player.GripButtonLeft.IsPressed();
+        var grapValueRightHand = _inputAsset.Player.GripButtonRight.IsPressed();
 
-            _model.SetGrapValueLeftHand(_inputAsset.Player.GripLeft.ReadValue<float>());
-            _model.SetGrapValueRightHand(_inputAsset.Player.GripRight.ReadValue<float>());
-
-            _model.UpdatePositionAndRotation(_device.Head.transform.position, _device.Head.transform.rotation);
-        }
+        HandleInput(moveY,
+                    grapValueLeftHand, grapValueRightHand,
+                    _device.Head.position, _device.Head.rotation,
+                    _device.RightHand.position, _device.RightHand.rotation,
+                    _device.LeftHand.position, _device.LeftHand.rotation);
     }
 }

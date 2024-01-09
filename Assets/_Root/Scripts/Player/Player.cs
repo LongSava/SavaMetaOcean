@@ -23,23 +23,29 @@ public partial class Player : PTBehaviour
     {
         base.Render();
 
-        HandleInput();
-    }
-
-    private void HandleInput()
-    {
         if (HasInputAuthority || !_isReady) return;
 
-        _model.UpdatePositionAndRotation(_inputData.PositionHead, _inputData.RotationHead);
-        _model.RightHand.transform.SetPositionAndRotation(_inputData.PositionRightHand, _inputData.RotationRightHand);
-        _model.LeftHand.transform.SetPositionAndRotation(_inputData.PositionLeftHand, _inputData.RotationLeftHand);
+        HandleInput(_inputData.MoveBody,
+                    _inputData.GripButtonLeft.IsSet(Buttons.GripButtonLeft), _inputData.GripButtonRight.IsSet(Buttons.GripButtonRight),
+                    _inputData.PositionHead, _inputData.RotationHead,
+                    _inputData.PositionRightHand, _inputData.RotationRightHand,
+                    _inputData.PositionLeftHand, _inputData.RotationLeftHand);
+    }
 
-        if (_inputData.MoveBody == 0)
+    private void HandleInput(float moveY,
+                            bool grapValueLeftHand, bool grapValueRightHand,
+                            Vector3 positionHead, Quaternion rotationHead,
+                            Vector3 positionRightHand, Quaternion rotationRightHand,
+                            Vector3 positionLeftHand, Quaternion rotationLeftHand)
+    {
+        _model.UpdatePositionAndRotation(positionHead, rotationHead, positionRightHand, rotationRightHand, positionLeftHand, rotationLeftHand);
+
+        if (moveY == 0)
         {
             Tread();
             _model.SetWeightForChainIKHands(1);
         }
-        else if (_inputData.MoveBody > 0)
+        else if (moveY > 0)
         {
             Swim();
             _model.SetWeightForChainIKHands(0);
@@ -50,8 +56,8 @@ public partial class Player : PTBehaviour
             _model.SetWeightForChainIKHands(0);
         }
 
-        _model.SetGrapValueLeftHand(_inputData.GripButtonLeft.IsSet(Buttons.GripButtonLeft));
-        _model.SetGrapValueRightHand(_inputData.GripButtonRight.IsSet(Buttons.GripButtonRight));
+        _model.SetGrapValueLeftHand(grapValueLeftHand);
+        _model.SetGrapValueRightHand(grapValueRightHand);
     }
 
     public override void Spawned()
@@ -78,6 +84,7 @@ public partial class Player : PTBehaviour
         }
         else
         {
+            _model.SetupIK(_model.HeadIK.transform, _model.LeftHandIK.transform, _model.RightHandIK.transform);
             _playerAudio.RemoveAudio();
         }
 

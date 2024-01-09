@@ -2122,9 +2122,9 @@ MonoBehaviour:
         transform: {fileID: 0}
         weight: 0
     m_ConstrainedPositionAxes:
-      x: 0
-      y: 0
-      z: 0
+      x: 1
+      y: 1
+      z: 1
     m_ConstrainedRotationAxes:
       x: 1
       y: 1
