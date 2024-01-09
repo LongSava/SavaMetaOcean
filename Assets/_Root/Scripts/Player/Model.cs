@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Fusion;
 using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.Animations.Rigging;
@@ -45,16 +46,25 @@ public class Model : MonoBehaviour
 
     public void UpdatePositionAndRotation(Vector3 positionHead, Quaternion rotationHead,
                                             Vector3 positionRightHand, Quaternion rotationRightHand,
-                                            Vector3 positionLeftHand, Quaternion rotationLeftHand)
+                                            Vector3 positionLeftHand, Quaternion rotationLeftHand,
+                                            NetworkRunner runner)
     {
         HeadIK.transform.rotation = rotationHead;
 
-        if (IsSwimming) transform.rotation = Quaternion.RotateTowards(transform.rotation, rotationHead, Time.deltaTime * 60);
-        else transform.localRotation = Quaternion.RotateTowards(transform.localRotation, Quaternion.identity, Time.deltaTime * 60);
+        if (IsSwimming) transform.rotation = Quaternion.RotateTowards(transform.rotation, rotationHead, Time.deltaTime * 30);
+        else transform.localRotation = Quaternion.RotateTowards(transform.localRotation, Quaternion.identity, Time.deltaTime * 30);
         transform.position += positionHead - Head.transform.position;
 
-        RightHandIK.transform.SetPositionAndRotation(positionRightHand, rotationRightHand);
-        LeftHandIK.transform.SetPositionAndRotation(positionLeftHand, rotationLeftHand);
+        if (runner.IsServer)
+        {
+            RightHand.transform.SetPositionAndRotation(positionRightHand, rotationRightHand);
+            LeftHand.transform.SetPositionAndRotation(positionLeftHand, rotationLeftHand);
+        }
+        else
+        {
+            RightHandIK.transform.SetPositionAndRotation(positionRightHand, rotationRightHand);
+            LeftHandIK.transform.SetPositionAndRotation(positionLeftHand, rotationLeftHand);
+        }
     }
 
     public void SetupIK(Transform head, Transform leftHand, Transform rightHand)

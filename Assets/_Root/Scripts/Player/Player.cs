@@ -38,7 +38,7 @@ public partial class Player : PTBehaviour
                             Vector3 positionRightHand, Quaternion rotationRightHand,
                             Vector3 positionLeftHand, Quaternion rotationLeftHand)
     {
-        _model.UpdatePositionAndRotation(positionHead, rotationHead, positionRightHand, rotationRightHand, positionLeftHand, rotationLeftHand);
+        _model.UpdatePositionAndRotation(positionHead, rotationHead, positionRightHand, rotationRightHand, positionLeftHand, rotationLeftHand, Runner);
 
         if (moveY == 0)
         {
