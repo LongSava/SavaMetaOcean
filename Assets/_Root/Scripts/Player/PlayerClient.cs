@@ -129,12 +129,12 @@ public partial class Player
             inputData.RotateBody = _lastStateRotateBody;
         }
 
-        inputData.PositionHead = _device.Head.transform.position;
-        inputData.RotationHead = _device.Head.transform.rotation;
-        inputData.PositionRightHand = _device.RightHand.transform.position;
-        inputData.RotationRightHand = _device.RightHand.transform.rotation;
-        inputData.PositionLeftHand = _device.LeftHand.transform.position;
-        inputData.RotationLeftHand = _device.LeftHand.transform.rotation;
+        inputData.PositionHead = _model.Head.transform.position;
+        inputData.RotationHead = _model.Head.transform.rotation;
+        inputData.PositionRightHand = _model.RightHand.transform.position;
+        inputData.RotationRightHand = _model.RightHand.transform.rotation;
+        inputData.PositionLeftHand = _model.LeftHand.transform.position;
+        inputData.RotationLeftHand = _model.LeftHand.transform.rotation;
 
         input.Set(inputData);
     }

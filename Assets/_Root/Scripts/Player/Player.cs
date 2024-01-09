@@ -44,7 +44,7 @@ public partial class Player : PTBehaviour
         }
 
         _model.SetGrapValueLeftHand(input.GripButtonLeft.IsSet(Buttons.GripButtonLeft));
-        _model.SetGrapValueRightHand(input.GripButtonLeft.IsSet(Buttons.GripButtonRight));
+        _model.SetGrapValueRightHand(input.GripButtonRight.IsSet(Buttons.GripButtonRight));
     }
 
     public override void Spawned()
