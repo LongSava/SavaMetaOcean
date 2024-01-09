@@ -67,7 +67,7 @@ public partial class Player : PTBehaviour
             _device.transform.localPosition = Vector3.zero;
             _device.transform.localRotation = Quaternion.identity;
 
-            _model.SetupIK(_device.LeftHand.transform, _device.RightHand.transform);
+            _model.SetupIK(_device.Head.transform, _device.LeftHand.transform, _device.RightHand.transform);
         }
         else
         {

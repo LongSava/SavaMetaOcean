@@ -37,7 +37,7 @@ public class Player2 : NetworkBehaviour
             xr = Runner.InstantiateInRunnerScene(XRPrefab);
             xr.transform.SetParent(Body);
 
-            model.SetupIK(xr.LeftHand.transform, xr.RightHand.transform);
+            model.SetupIK(xr.Head.transform, xr.LeftHand.transform, xr.RightHand.transform);
         }
     }
 

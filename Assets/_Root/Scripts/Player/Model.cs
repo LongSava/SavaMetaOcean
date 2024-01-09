@@ -8,6 +8,7 @@ public class Model : MonoBehaviour
 {
     public Transform Head;
     public RigBuilder RigBuilder;
+    public MultiParentConstraint HeadIK;
     public ChainIKConstraint LeftHandIK;
     public ChainIKConstraint RightHandIK;
     public Hand LeftHand;
@@ -44,13 +45,24 @@ public class Model : MonoBehaviour
 
     public void UpdatePositionAndRotation(Vector3 positionHead, Quaternion rotationHead)
     {
-        transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.eulerAngles.x, rotationHead.eulerAngles.y, transform.rotation.eulerAngles.z));
-        Head.rotation = Quaternion.Euler(new Vector3(rotationHead.eulerAngles.x, Head.rotation.eulerAngles.y, Head.rotation.eulerAngles.z));
+        if (IsSwimming)
+        {
+            transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.eulerAngles.x, rotationHead.eulerAngles.y, transform.rotation.eulerAngles.z));
+            Head.rotation = Quaternion.Euler(new Vector3(rotationHead.eulerAngles.x, Head.rotation.eulerAngles.y, Head.rotation.eulerAngles.z));
+        }
+        else
+        {
+            Head.rotation = rotationHead;
+        }
         transform.position += positionHead - Head.position;
     }
 
-    public void SetupIK(Transform leftHand, Transform rightHand)
+    public void SetupIK(Transform head, Transform leftHand, Transform rightHand)
     {
+        HeadIK.data.sourceObjects = new WeightedTransformArray()
+        {
+            new WeightedTransform(head, 1)
+        };
         LeftHandIK.data.target = leftHand;
         RightHandIK.data.target = rightHand;
         RigBuilder.Build();
