@@ -137,14 +137,6 @@ public class RunnerController : Singleton<RunnerController>
             handleClient = Addressables.LoadAssetAsync<GameObject>("ClamShells");
             yield return handleClient;
             runner.InstantiateInRunnerScene(handleClient.Result);
-
-            handleClient = Addressables.LoadAssetAsync<GameObject>("BubblesCommon");
-            yield return handleClient;
-            runner.InstantiateInRunnerScene(handleClient.Result);
-
-            handleClient = Addressables.LoadAssetAsync<GameObject>("SunLight");
-            yield return handleClient;
-            runner.InstantiateInRunnerScene(handleClient.Result);
         }
     }
 

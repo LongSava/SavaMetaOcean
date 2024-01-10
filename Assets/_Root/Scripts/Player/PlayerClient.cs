@@ -36,17 +36,10 @@ public partial class Player
         {
             if (eventScene.RoomType != RoomType.None)
             {
-                Addressables.LoadAssetAsync<GameObject>("Fog" + eventScene.RoomType.ToString()).Completed += handle =>
+                if (RunnerController.Instance.Volume.profile.TryGet(out _colorAdjustments))
                 {
-                    var fogOcean = Runner.InstantiateInRunnerScene(handle.Result).GetComponent<HeightFogGlobal>();
-                    fogOcean.transform.SetParent(transform);
-                    fogOcean.mainCamera = _device.Camera;
-
-                    if (RunnerController.Instance.Volume.profile.TryGet(out _colorAdjustments))
-                    {
-                        EnableEyes();
-                    }
-                };
+                    EnableEyes();
+                }
 
                 break;
             }

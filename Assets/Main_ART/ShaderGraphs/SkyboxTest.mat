@@ -48,9 +48,9 @@ Material:
     - _ZenithBlendPower: 6
     m_Colors:
     - _AnimationSpeed: {r: 0.2, g: 0, b: 0, a: 1}
-    - _ColorTexture: {r: 0.16509435, g: 0.46640322, b: 0.6603774, a: 0}
-    - _HorizonColor: {r: 0.04142934, g: 0.13966495, b: 0.1792453, a: 0}
-    - _NadirColor: {r: 0.2924528, g: 0.23589355, b: 0.23589355, a: 0}
+    - _ColorTexture: {r: 0, g: 0, b: 0, a: 0}
+    - _HorizonColor: {r: 0, g: 0, b: 0, a: 0}
+    - _NadirColor: {r: 0, g: 0, b: 0, a: 0}
     - _Scale: {r: 1, g: 1, b: 0, a: 0}
-    - _ZenithColor: {r: 0.24719651, g: 0.2647237, b: 0.5188679, a: 0}
+    - _ZenithColor: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
