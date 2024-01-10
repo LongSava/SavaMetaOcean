@@ -12,24 +12,4 @@ public class Device : MonoBehaviour
     public Transform Head;
     public Transform LeftHand;
     public Transform RightHand;
-    public List<Light> Lights;
-    private bool _lastTrigger;
-    private bool _enableLight;
-
-    public void CheckFlashLightFar(bool triggerValueRightHand)
-    {
-        if (_lastTrigger != triggerValueRightHand)
-        {
-            _lastTrigger = triggerValueRightHand;
-            if (_lastTrigger == true)
-            {
-                _enableLight = !_enableLight;
-                Lights.ForEach(light =>
-                {
-                    light.intensity = _enableLight ? 200 : 50;
-                    light.range = _enableLight ? 400 : 100;
-                });
-            }
-        }
-    }
 }

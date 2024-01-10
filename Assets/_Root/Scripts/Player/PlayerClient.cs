@@ -13,8 +13,6 @@ public partial class Player
     private int _lastStateRotateBody;
     private float _timerRotateBody;
     private ColorAdjustments _colorAdjustments;
-    private bool _lastTriggerButtonRight;
-    private bool _enableFlashLightFar;
 
     public override void SpawnedClient()
     {
@@ -38,10 +36,16 @@ public partial class Player
         {
             if (eventScene.RoomType != RoomType.None)
             {
-                if (RunnerController.Instance.Volume.profile.TryGet(out _colorAdjustments))
+                Addressables.LoadAssetAsync<GameObject>("Dust").Completed += handle =>
                 {
-                    EnableEyes();
-                }
+                    var dust = Runner.InstantiateInRunnerScene(handle.Result);
+                    dust.transform.SetParent(_model.Head);
+
+                    if (RunnerController.Instance.Volume.profile.TryGet(out _colorAdjustments))
+                    {
+                        EnableEyes();
+                    }
+                };
 
                 break;
             }

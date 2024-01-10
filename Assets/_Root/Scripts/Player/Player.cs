@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Fusion;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 public partial class Player : PTBehaviour
 {
@@ -16,6 +17,7 @@ public partial class Player : PTBehaviour
     private Device _device;
     private Model _model;
     private bool _isReady;
+    private FlashLight _flashLight;
 
     public GyreLine GyreLine { get => _gyreLine; set => _gyreLine = value; }
 
@@ -59,7 +61,7 @@ public partial class Player : PTBehaviour
         _model.SetGrapValueLeftHand(grapValueLeftHand);
         _model.SetGrapValueRightHand(grapValueRightHand);
 
-        if (_device != null) _device.CheckFlashLightFar(triggerValueRightHand);
+        _flashLight.CheckFlashLightFar(triggerValueRightHand);
     }
 
     public override void Spawned()
@@ -92,7 +94,17 @@ public partial class Player : PTBehaviour
 
         Tread();
 
-        _isReady = true;
+        Addressables.LoadAssetAsync<GameObject>("FlashLight").Completed += handle =>
+        {
+            _flashLight = Runner.InstantiateInRunnerScene(handle.Result).GetComponent<FlashLight>();
+
+            if (HasInputAuthority) _flashLight.transform.SetParent(_device.Head);
+            else _flashLight.transform.SetParent(_model.Head);
+
+            _flashLight.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
+
+            _isReady = true;
+        };
     }
 
     private void Swim()

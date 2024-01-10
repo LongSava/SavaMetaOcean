@@ -57,6 +57,10 @@ MonoBehaviour:
     m_Address: Ocean
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 22646854be1e1a340a11d077b834322c
+    m_Address: FlashLight
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 4071342b488526e41a239f79e3da3b85, type: 2}
   m_SchemaSet:

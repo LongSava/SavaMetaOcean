@@ -120,11 +120,7 @@ public class RunnerController : Singleton<RunnerController>
         }
         else
         {
-            var handleClient = Addressables.LoadAssetAsync<GameObject>("JellyFishes");
-            yield return handleClient;
-            runner.InstantiateInRunnerScene(handleClient.Result);
-
-            handleClient = Addressables.LoadAssetAsync<GameObject>("Ocean");
+            var handleClient = Addressables.LoadAssetAsync<GameObject>("Ocean");
             yield return handleClient;
             runner.InstantiateInRunnerScene(handleClient.Result);
 
