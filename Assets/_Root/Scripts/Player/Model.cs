@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using Fusion;
 using UnityEngine;
-using UnityEngine.Animations;
 using UnityEngine.Animations.Rigging;
 
 public class Model : MonoBehaviour
@@ -52,7 +51,7 @@ public class Model : MonoBehaviour
         HeadIK.transform.rotation = rotationHead;
 
         if (IsSwimming) transform.rotation = Quaternion.RotateTowards(transform.rotation, rotationHead, Time.deltaTime * 30);
-        else transform.rotation = Quaternion.RotateTowards(transform.rotation, rotationHead, Time.deltaTime * 100);
+        else transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, rotationHead.eulerAngles.y, 0), Time.deltaTime * 60);
         transform.position += positionHead - Head.transform.position;
 
         if (runner.IsServer)
