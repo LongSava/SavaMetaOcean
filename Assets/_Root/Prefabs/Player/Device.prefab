@@ -1197,6 +1197,9 @@ MonoBehaviour:
   Head: {fileID: 7890018271847639213}
   LeftHand: {fileID: 4892263734460534691}
   RightHand: {fileID: 4807936698432983511}
+  Lights:
+  - {fileID: 2708447868876318498}
+  - {fileID: 5624634663096622526}
 --- !u!114 &8817553868842247455
 MonoBehaviour:
   m_ObjectHideFlags: 0

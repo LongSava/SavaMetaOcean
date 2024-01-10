@@ -13,6 +13,8 @@ public partial class Player
     private int _lastStateRotateBody;
     private float _timerRotateBody;
     private ColorAdjustments _colorAdjustments;
+    private bool _lastTriggerButtonRight;
+    private bool _enableFlashLightFar;
 
     public override void SpawnedClient()
     {
@@ -51,13 +53,13 @@ public partial class Player
     public void EnableEyes(Action action = null)
     {
         _colorAdjustments.postExposure.value = -10;
-        DOTween.To(() => _colorAdjustments.postExposure.value, (value) => _colorAdjustments.postExposure.value = value, 1, 2);
+        DOTween.To(() => _colorAdjustments.postExposure.value, (value) => _colorAdjustments.postExposure.value = value, 0, 2);
         _inputAsset.Enable();
     }
 
     public void DisableEyes(Action action = null)
     {
-        _colorAdjustments.postExposure.value = 1;
+        _colorAdjustments.postExposure.value = 0;
         DOTween.To(() => _colorAdjustments.postExposure.value, (value) => _colorAdjustments.postExposure.value = value, -10, 2);
         _inputAsset.Disable();
     }
@@ -131,8 +133,9 @@ public partial class Player
         var moveY = _inputAsset.Player.MoveBody.ReadValue<Vector2>().y;
         var grapValueLeftHand = _inputAsset.Player.GripButtonLeft.IsPressed();
         var grapValueRightHand = _inputAsset.Player.GripButtonRight.IsPressed();
+        var triggerValueRightHand = _inputAsset.Player.TriggerButtonRight.IsPressed();
 
-        HandleInput(moveY,
+        HandleInput(moveY, triggerValueRightHand,
                     grapValueLeftHand, grapValueRightHand,
                     _device.Head.position, _device.Head.rotation,
                     _device.RightHand.position, _device.RightHand.rotation,

@@ -46,24 +46,6 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""GripLeft"",
-                    ""type"": ""Value"",
-                    ""id"": ""50d28564-561d-4d17-8d62-ca6ace79f7d2"",
-                    ""expectedControlType"": ""Axis"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""GripRight"",
-                    ""type"": ""Value"",
-                    ""id"": ""18f91b56-b099-4de3-9f75-b7d0b548f331"",
-                    ""expectedControlType"": ""Axis"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
                     ""name"": ""GripButtonLeft"",
                     ""type"": ""Button"",
                     ""id"": ""1da2f718-9120-4912-baca-bf853040236c"",
@@ -101,12 +83,12 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""TriggerButtonRight"",
-                    ""type"": ""Value"",
+                    ""type"": ""Button"",
                     ""id"": ""0e7372d7-31e0-4ebb-b08d-f08858f62b73"",
-                    ""expectedControlType"": ""Axis"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": true
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -156,28 +138,6 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""fc93305b-21f4-4825-95fd-233a81e8b708"",
-                    ""path"": ""<XRController>{LeftHand}/grip"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""GripLeft"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""65db6ea3-7022-474c-91b4-98ebb4461190"",
-                    ""path"": ""<XRController>{RightHand}/grip"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""GripRight"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""8169a6d0-b660-437f-8468-43d528189ba8"",
                     ""path"": ""<XRController>{LeftHand}/gripButton"",
                     ""interactions"": """",
@@ -217,28 +177,6 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""GripButtonRight"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""e06b3e72-d084-4ec4-95ad-4022e312e5e9"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""GripLeft"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""a0daba71-4e2f-476e-8276-dc9501d383e9"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""GripRight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -422,8 +360,6 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_MoveBody = m_Player.FindAction("MoveBody", throwIfNotFound: true);
         m_Player_RotateBody = m_Player.FindAction("RotateBody", throwIfNotFound: true);
-        m_Player_GripLeft = m_Player.FindAction("GripLeft", throwIfNotFound: true);
-        m_Player_GripRight = m_Player.FindAction("GripRight", throwIfNotFound: true);
         m_Player_GripButtonLeft = m_Player.FindAction("GripButtonLeft", throwIfNotFound: true);
         m_Player_GripButtonRight = m_Player.FindAction("GripButtonRight", throwIfNotFound: true);
         m_Player_MoveMouse = m_Player.FindAction("MoveMouse", throwIfNotFound: true);
@@ -492,8 +428,6 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_MoveBody;
     private readonly InputAction m_Player_RotateBody;
-    private readonly InputAction m_Player_GripLeft;
-    private readonly InputAction m_Player_GripRight;
     private readonly InputAction m_Player_GripButtonLeft;
     private readonly InputAction m_Player_GripButtonRight;
     private readonly InputAction m_Player_MoveMouse;
@@ -505,8 +439,6 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
         public PlayerActions(@InputAsset wrapper) { m_Wrapper = wrapper; }
         public InputAction @MoveBody => m_Wrapper.m_Player_MoveBody;
         public InputAction @RotateBody => m_Wrapper.m_Player_RotateBody;
-        public InputAction @GripLeft => m_Wrapper.m_Player_GripLeft;
-        public InputAction @GripRight => m_Wrapper.m_Player_GripRight;
         public InputAction @GripButtonLeft => m_Wrapper.m_Player_GripButtonLeft;
         public InputAction @GripButtonRight => m_Wrapper.m_Player_GripButtonRight;
         public InputAction @MoveMouse => m_Wrapper.m_Player_MoveMouse;
@@ -527,12 +459,6 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
             @RotateBody.started += instance.OnRotateBody;
             @RotateBody.performed += instance.OnRotateBody;
             @RotateBody.canceled += instance.OnRotateBody;
-            @GripLeft.started += instance.OnGripLeft;
-            @GripLeft.performed += instance.OnGripLeft;
-            @GripLeft.canceled += instance.OnGripLeft;
-            @GripRight.started += instance.OnGripRight;
-            @GripRight.performed += instance.OnGripRight;
-            @GripRight.canceled += instance.OnGripRight;
             @GripButtonLeft.started += instance.OnGripButtonLeft;
             @GripButtonLeft.performed += instance.OnGripButtonLeft;
             @GripButtonLeft.canceled += instance.OnGripButtonLeft;
@@ -558,12 +484,6 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
             @RotateBody.started -= instance.OnRotateBody;
             @RotateBody.performed -= instance.OnRotateBody;
             @RotateBody.canceled -= instance.OnRotateBody;
-            @GripLeft.started -= instance.OnGripLeft;
-            @GripLeft.performed -= instance.OnGripLeft;
-            @GripLeft.canceled -= instance.OnGripLeft;
-            @GripRight.started -= instance.OnGripRight;
-            @GripRight.performed -= instance.OnGripRight;
-            @GripRight.canceled -= instance.OnGripRight;
             @GripButtonLeft.started -= instance.OnGripButtonLeft;
             @GripButtonLeft.performed -= instance.OnGripButtonLeft;
             @GripButtonLeft.canceled -= instance.OnGripButtonLeft;
@@ -645,8 +565,6 @@ public partial class @InputAsset: IInputActionCollection2, IDisposable
     {
         void OnMoveBody(InputAction.CallbackContext context);
         void OnRotateBody(InputAction.CallbackContext context);
-        void OnGripLeft(InputAction.CallbackContext context);
-        void OnGripRight(InputAction.CallbackContext context);
         void OnGripButtonLeft(InputAction.CallbackContext context);
         void OnGripButtonRight(InputAction.CallbackContext context);
         void OnMoveMouse(InputAction.CallbackContext context);

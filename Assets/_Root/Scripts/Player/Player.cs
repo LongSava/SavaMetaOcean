@@ -25,14 +25,14 @@ public partial class Player : PTBehaviour
 
         if (HasInputAuthority || !_isReady) return;
 
-        HandleInput(_inputData.MoveBody,
+        HandleInput(_inputData.MoveBody, _inputData.TriggerButtonRight.IsSet(Buttons.TriggerButtonRight),
                     _inputData.GripButtonLeft.IsSet(Buttons.GripButtonLeft), _inputData.GripButtonRight.IsSet(Buttons.GripButtonRight),
                     _inputData.PositionHead, _inputData.RotationHead,
                     _inputData.PositionRightHand, _inputData.RotationRightHand,
                     _inputData.PositionLeftHand, _inputData.RotationLeftHand);
     }
 
-    private void HandleInput(float moveY,
+    private void HandleInput(float moveY, bool triggerValueRightHand,
                             bool grapValueLeftHand, bool grapValueRightHand,
                             Vector3 positionHead, Quaternion rotationHead,
                             Vector3 positionRightHand, Quaternion rotationRightHand,
@@ -58,6 +58,8 @@ public partial class Player : PTBehaviour
 
         _model.SetGrapValueLeftHand(grapValueLeftHand);
         _model.SetGrapValueRightHand(grapValueRightHand);
+
+        if (_device != null) _device.CheckFlashLightFar(triggerValueRightHand);
     }
 
     public override void Spawned()
