@@ -112,10 +112,6 @@ public class RunnerController : Singleton<RunnerController>
             yield return handleServer;
             runner.InstantiateInRunnerScene(handleServer.Result);
 
-            handleServer = Addressables.LoadAssetAsync<GameObject>("Ocean2");
-            yield return handleServer;
-            runner.InstantiateInRunnerScene(handleServer.Result);
-
             runner.GetComponent<EventScene>().RoomType = RoomType.Ocean;
 
             handleServer = Addressables.LoadAssetAsync<GameObject>("Gyre");
@@ -128,30 +124,11 @@ public class RunnerController : Singleton<RunnerController>
             yield return handleClient;
             runner.InstantiateInRunnerScene(handleClient.Result);
 
-            if (SceneController.Instance.SceneFrom == SceneType.Loading)
-            {
-                handleClient = Addressables.LoadAssetAsync<GameObject>("Ocean");
-                yield return handleClient;
-                runner.InstantiateInRunnerScene(handleClient.Result);
+            handleClient = Addressables.LoadAssetAsync<GameObject>("Ocean");
+            yield return handleClient;
+            runner.InstantiateInRunnerScene(handleClient.Result);
 
-                runner.GetComponent<EventScene>().RoomType = RoomType.Ocean;
-
-                handleClient = Addressables.LoadAssetAsync<GameObject>("Ocean2");
-                yield return handleClient;
-                runner.InstantiateInRunnerScene(handleClient.Result);
-            }
-            else
-            {
-                handleClient = Addressables.LoadAssetAsync<GameObject>("Ocean2");
-                yield return handleClient;
-                runner.InstantiateInRunnerScene(handleClient.Result);
-
-                runner.GetComponent<EventScene>().RoomType = RoomType.Ocean;
-
-                handleClient = Addressables.LoadAssetAsync<GameObject>("Ocean");
-                yield return handleClient;
-                runner.InstantiateInRunnerScene(handleClient.Result);
-            }
+            runner.GetComponent<EventScene>().RoomType = RoomType.Ocean;
 
             handleClient = Addressables.LoadAssetAsync<GameObject>("Gyre");
             yield return handleClient;

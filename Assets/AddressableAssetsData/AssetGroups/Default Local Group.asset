@@ -45,18 +45,6 @@ MonoBehaviour:
     m_Address: Volume
     m_ReadOnly: 0
     m_SerializedLabels: []
-  - m_GUID: d0e93b74eb3885c4385e13cc986058be
-    m_Address: Stage
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: d07d27b7623436341aa22ea6a1cbc7e9
-    m_Address: Ancient
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: b047d4ba9b0cd5d49a2996e2b013cf6e
-    m_Address: Titanic
-    m_ReadOnly: 0
-    m_SerializedLabels: []
   - m_GUID: 919221b2aa7479540bf2c9604f9b5562
     m_Address: FogOcean
     m_ReadOnly: 0
@@ -65,16 +53,8 @@ MonoBehaviour:
     m_Address: FogTitanic
     m_ReadOnly: 0
     m_SerializedLabels: []
-  - m_GUID: c52254c29d0a1a04e9ffb631a1eebe45
+  - m_GUID: 40a4b3e8c9747894298d5c90aa12b577
     m_Address: Ocean
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: af99c7dd617a26c40a7ceac7b41c0e69
-    m_Address: Terrain
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: 6742df30cb53ab441922c4430451f32c
-    m_Address: Ocean2
     m_ReadOnly: 0
     m_SerializedLabels: []
   m_ReadOnly: 0

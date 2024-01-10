@@ -8,12 +8,12 @@ using UnityEngine.Animations.Rigging;
 public class Model : MonoBehaviour
 {
     public Transform Head;
+    public Hand LeftHand;
+    public Hand RightHand;
     public RigBuilder RigBuilder;
     public MultiParentConstraint HeadIK;
     public ChainIKConstraint LeftHandIK;
     public ChainIKConstraint RightHandIK;
-    public Hand LeftHand;
-    public Hand RightHand;
     public Animator Animator;
     public SkinnedMeshRenderer Helmet;
     public bool IsSwimming;

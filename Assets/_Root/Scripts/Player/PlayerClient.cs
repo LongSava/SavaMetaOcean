@@ -58,13 +58,13 @@ public partial class Player
     public void EnableEyes(Action action = null)
     {
         _colorAdjustments.postExposure.value = -10;
-        DOTween.To(() => _colorAdjustments.postExposure.value, (value) => _colorAdjustments.postExposure.value = value, -1, 2);
+        DOTween.To(() => _colorAdjustments.postExposure.value, (value) => _colorAdjustments.postExposure.value = value, 1, 2);
         _inputAsset.Enable();
     }
 
     public void DisableEyes(Action action = null)
     {
-        _colorAdjustments.postExposure.value = -1;
+        _colorAdjustments.postExposure.value = 1;
         DOTween.To(() => _colorAdjustments.postExposure.value, (value) => _colorAdjustments.postExposure.value = value, -10, 2);
         _inputAsset.Disable();
     }
