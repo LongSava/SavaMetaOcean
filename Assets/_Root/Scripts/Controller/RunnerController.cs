@@ -317,7 +317,14 @@ public class RunnerController : Singleton<RunnerController>
                     var model = player.GetComponentInChildren<Model>();
                     if (model != null)
                     {
-                        model.EnableHelmet(!player.HasInputAuthority);
+                        if (player.HasInputAuthority)
+                        {
+                            model.EnableHelmet(false);
+                        }
+                        else
+                        {
+                            model.EnableHelmet(active);
+                        }
                     }
                 }
             }

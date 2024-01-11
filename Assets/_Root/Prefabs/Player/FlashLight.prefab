@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1519442179425711429}
   m_LocalRotation: {x: 0.0000000018626451, y: 0.13052616, z: 4.656613e-10, w: 0.9914449}
-  m_LocalPosition: {x: -0.15, y: 0.1, z: 0}
+  m_LocalPosition: {x: -0.15, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -48,7 +48,7 @@ Light:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 75
   m_Range: 100
-  m_SpotAngle: 60
+  m_SpotAngle: 80
   m_InnerSpotAngle: 20
   m_CookieSize: 10
   m_Shadows:
@@ -169,7 +169,7 @@ MonoBehaviour:
   hdrpExposureWeight: 0
   blendingMode: 0
   spotAngleFromLight: 1
-  spotAngle: 60
+  spotAngle: 80
   spotAngleMultiplier: 1
   coneRadiusStart: 0
   shaderAccuracy: 0
@@ -182,14 +182,14 @@ MonoBehaviour:
   attenuationEquation: 1
   attenuationCustomBlending: 0.5
   fallOffStart: 0
-  fallOffEnd: 10
+  fallOffEnd: 5
   fallOffEndFromLight: 1
-  fallOffEndMultiplier: 0.1
-  depthBlendDistance: 2
+  fallOffEndMultiplier: 0.05
+  depthBlendDistance: 0
   cameraClippingDistance: 0.5
-  glareFrontal: 0.5
-  glareBehind: 0.5
-  fresnelPow: 8
+  glareFrontal: 0
+  glareBehind: 0
+  fresnelPow: 10
   noiseMode: 0
   noiseIntensity: 0.5
   noiseScaleUseGlobal: 1
@@ -230,7 +230,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5074768520496117102}
   m_LocalRotation: {x: 0.0000000018626451, y: -0.13052624, z: -2.3283064e-10, w: 0.9914449}
-  m_LocalPosition: {x: 0.15000002, y: 0.1, z: 0}
+  m_LocalPosition: {x: 0.15000002, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -251,7 +251,7 @@ Light:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 75
   m_Range: 100
-  m_SpotAngle: 60
+  m_SpotAngle: 80
   m_InnerSpotAngle: 20
   m_CookieSize: 10
   m_Shadows:
@@ -372,7 +372,7 @@ MonoBehaviour:
   hdrpExposureWeight: 0
   blendingMode: 0
   spotAngleFromLight: 1
-  spotAngle: 60
+  spotAngle: 80
   spotAngleMultiplier: 1
   coneRadiusStart: 0
   shaderAccuracy: 0
@@ -385,14 +385,14 @@ MonoBehaviour:
   attenuationEquation: 1
   attenuationCustomBlending: 0.5
   fallOffStart: 0
-  fallOffEnd: 10
+  fallOffEnd: 5
   fallOffEndFromLight: 1
-  fallOffEndMultiplier: 0.1
-  depthBlendDistance: 2
+  fallOffEndMultiplier: 0.05
+  depthBlendDistance: 0
   cameraClippingDistance: 0.5
-  glareFrontal: 0.5
-  glareBehind: 0.5
-  fresnelPow: 8
+  glareFrontal: 0
+  glareBehind: 0
+  fresnelPow: 10
   noiseMode: 0
   noiseIntensity: 0.5
   noiseScaleUseGlobal: 1

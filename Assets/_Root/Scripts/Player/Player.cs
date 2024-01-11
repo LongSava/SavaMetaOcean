@@ -102,6 +102,7 @@ public partial class Player : PTBehaviour
 
             _flashLight.EnableBeam(Object.IsProxy);
             _flashLight.EnableClipping(HasInputAuthority);
+            _flashLight.EnableImportantRenderMode(HasInputAuthority);
 
             _flashLight.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
             _flashLight.transform.localScale = Vector3.one;

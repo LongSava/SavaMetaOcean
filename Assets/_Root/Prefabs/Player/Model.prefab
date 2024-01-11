@@ -1125,7 +1125,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2924004993337788903}
   - component: {fileID: 4264803519329907460}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Avatar_Male_DivingSuit_Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1621,7 +1621,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4801363393213572424}
   - component: {fileID: 7890809303428247601}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Avatar_Male_DivingSuit_Glove
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2376,7 +2376,7 @@ GameObject:
   m_Component:
   - component: {fileID: 262553961563170227}
   - component: {fileID: 4782092571742253828}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Avatar_Male_DivingSuit_Helmet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3093,7 +3093,7 @@ GameObject:
   m_Component:
   - component: {fileID: 577546182877289002}
   - component: {fileID: 638766095561074530}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Avatar_Male_DivingSuit_Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3937,7 +3937,7 @@ PrefabInstance:
     - target: {fileID: 454425943387409499, guid: 39ca56dd42b7bda4fb28f66d56c6ab10,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 454425943387409499, guid: 39ca56dd42b7bda4fb28f66d56c6ab10,
         type: 3}
@@ -3997,7 +3997,7 @@ PrefabInstance:
     - target: {fileID: 6491944205734989750, guid: 39ca56dd42b7bda4fb28f66d56c6ab10,
         type: 3}
       propertyPath: InitialModule.startSize.scalar
-      value: 0.07
+      value: 0.08
       objectReference: {fileID: 0}
     - target: {fileID: 6491944205734989750, guid: 39ca56dd42b7bda4fb28f66d56c6ab10,
         type: 3}

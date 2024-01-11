@@ -31,8 +31,8 @@ public class FlashLight : MonoBehaviour
     {
         Lights.ForEach(light =>
         {
-            light.intensity = enable ? 200 : 50;
-            light.range = enable ? 400 : 100;
+            light.intensity = enable ? 400 : 50;
+            light.range = enable ? 300 : 100;
         });
     }
 
@@ -55,5 +55,10 @@ public class FlashLight : MonoBehaviour
     public void EnableClipping(bool enable)
     {
         Beams.ForEach(beam => beam.cameraClippingDistance = enable ? 100 : 0);
+    }
+
+    public void EnableImportantRenderMode(bool enable)
+    {
+        Lights.ForEach(light => light.renderMode = enable ? LightRenderMode.ForcePixel : LightRenderMode.Auto);
     }
 }
