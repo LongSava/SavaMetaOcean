@@ -302,6 +302,25 @@ public class RunnerController : Singleton<RunnerController>
         {
             var cameras = gameObject.GetComponentsInChildren<Camera>();
             if (cameras.Length > 0) foreach (var camera in cameras) camera.enabled = active;
+
+            var players = gameObject.GetComponentsInChildren<Player>();
+            if (players.Length > 0)
+            {
+                foreach (var player in players)
+                {
+                    var flashLight = player.GetComponentInChildren<FlashLight>();
+                    if (flashLight != null)
+                    {
+                        flashLight.EnableLightAndBeam(active);
+                    }
+
+                    var model = player.GetComponentInChildren<Model>();
+                    if (model != null)
+                    {
+                        model.EnableHelmet(!player.HasInputAuthority);
+                    }
+                }
+            }
         }
     }
 }

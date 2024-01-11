@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Fusion;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -77,7 +76,7 @@ public partial class Player : PTBehaviour
         {
             _model.LeftHand.Grapped += () => _device.LeftHandController.SendHapticImpulse(1, 0.5f);
             _model.RightHand.Grapped += () => _device.RightHandController.SendHapticImpulse(1, 0.5f);
-            _model.HideHelmet();
+            _model.EnableHelmet(false);
 
             _device = Runner.InstantiateInRunnerScene(_devicePrefab);
             _device.transform.SetParent(_body);
@@ -101,7 +100,11 @@ public partial class Player : PTBehaviour
             if (HasInputAuthority) _flashLight.transform.SetParent(_device.Head);
             else _flashLight.transform.SetParent(_model.Head);
 
+            _flashLight.EnableBeam(Object.IsProxy);
+            _flashLight.EnableClipping(HasInputAuthority);
+
             _flashLight.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
+            _flashLight.transform.localScale = Vector3.one;
 
             _isReady = true;
         };

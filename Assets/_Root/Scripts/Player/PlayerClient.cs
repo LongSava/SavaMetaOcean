@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using AtmosphericHeightFog;
 using DG.Tweening;
 using Fusion;
 using UnityEngine;

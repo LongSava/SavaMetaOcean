@@ -18,24 +18,14 @@ public class Model : MonoBehaviour
     public bool IsSwimming;
     public List<Coroutine> Coroutines = new List<Coroutine>();
 
-    public void HideHelmet()
+    public void EnableHelmet(bool enable)
     {
-        Helmet.enabled = false;
-    }
-
-    public void SetGrapValueLeftHand(float grapValue)
-    {
-        LeftHand.SetGrapValue(grapValue);
+        Helmet.enabled = enable;
     }
 
     public void SetGrapValueLeftHand(bool grapValue)
     {
         LeftHand.SetGrapValue(grapValue);
-    }
-
-    public void SetGrapValueRightHand(float grapValue)
-    {
-        RightHand.SetGrapValue(grapValue);
     }
 
     public void SetGrapValueRightHand(bool grapValue)
