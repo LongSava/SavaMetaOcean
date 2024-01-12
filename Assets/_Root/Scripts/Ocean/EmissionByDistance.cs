@@ -35,11 +35,8 @@ public class EmissionByDistance : MonoBehaviour
         {
             var distance = Vector3.Distance(Player.transform.position, transform.position);
             var percent = Mathf.Clamp01(1 - distance / (Player.FlashLight.EnableLightFar ? Config.Data.Vision.Emission.Far : Config.Data.Vision.Emission.Near));
-            Renderer.material.SetColor("_EmissionColor", new Color(percent, percent, percent));
-        }
-        else
-        {
-            Renderer.material.SetColor("_EmissionColor", Color.black);
+            var result = percent * percent;
+            Renderer.material.SetColor("_EmissionColor", new Color(result, result, result));
         }
     }
 }
