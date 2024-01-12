@@ -12,7 +12,23 @@ public class DataConfig : ScriptableObject
     public PlayerConfig Player;
     public FishConfig Fish;
     public FishAreasConfig FishAreas;
+    public Vision Vision;
     public float SpeedGyreLine;
+}
+
+[Serializable]
+public class Vision
+{
+    public NearFar<float> Range;
+    public NearFar<float> Intensity;
+    public NearFar<float> Emission;
+}
+
+[Serializable]
+public class NearFar<T>
+{
+    public T Near;
+    public T Far;
 }
 
 [Serializable]

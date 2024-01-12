@@ -17,20 +17,8 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 6116bb41a4270be4aabff8f5adee54ea
   m_SerializeEntries:
-  - m_GUID: 3c3327a3ef0a1874d888067342242005
-    m_Address: JellyFishes
-    m_ReadOnly: 0
-    m_SerializedLabels: []
   - m_GUID: 514657dcc9c8ac04bac62d019dc38f8e
     m_Address: ClamShells
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: f07583ae2e721be4fbe270586e6eb93b
-    m_Address: BubblesCommon
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: cb9b54d4e824c294eadfb9bb3c8766d4
-    m_Address: SunLight
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: 39ca56dd42b7bda4fb28f66d56c6ab10
@@ -53,12 +41,12 @@ MonoBehaviour:
     m_Address: FogTitanic
     m_ReadOnly: 0
     m_SerializedLabels: []
-  - m_GUID: 40a4b3e8c9747894298d5c90aa12b577
-    m_Address: Ocean
-    m_ReadOnly: 0
-    m_SerializedLabels: []
   - m_GUID: 22646854be1e1a340a11d077b834322c
     m_Address: FlashLight
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 40a4b3e8c9747894298d5c90aa12b577
+    m_Address: Ocean
     m_ReadOnly: 0
     m_SerializedLabels: []
   m_ReadOnly: 0

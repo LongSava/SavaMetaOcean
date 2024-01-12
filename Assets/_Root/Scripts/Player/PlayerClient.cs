@@ -8,15 +8,19 @@ using UnityEngine.Rendering.Universal;
 
 public partial class Player
 {
+    public static Player player;
     [SerializeField] private InputAsset _inputAsset;
     private int _lastStateRotateBody;
     private float _timerRotateBody;
     private ColorAdjustments _colorAdjustments;
+    private Fog _fog;
 
     public override void SpawnedClient()
     {
         if (HasInputAuthority)
         {
+            player = this;
+
             _inputAsset = new InputAsset();
 
             var events = Runner.GetComponent<NetworkEvents>();
@@ -35,15 +39,21 @@ public partial class Player
         {
             if (eventScene.RoomType != RoomType.None)
             {
-                Addressables.LoadAssetAsync<GameObject>("Dust").Completed += handle =>
+                Addressables.LoadAssetAsync<GameObject>("Fog" + eventScene.RoomType.ToString()).Completed += handle =>
                 {
-                    var dust = Runner.InstantiateInRunnerScene(handle.Result);
-                    dust.transform.SetParent(_model.Head);
+                    _fog = Runner.InstantiateInRunnerScene(handle.Result).GetComponent<Fog>();
+                    _fog.transform.SetParent(transform);
 
-                    if (RunnerController.Instance.Volume.profile.TryGet(out _colorAdjustments))
+                    Addressables.LoadAssetAsync<GameObject>("Dust").Completed += handle =>
                     {
-                        EnableEyes();
-                    }
+                        var dust = Runner.InstantiateInRunnerScene(handle.Result);
+                        dust.transform.SetParent(_model.Head);
+
+                        if (RunnerController.Instance.Volume.profile.TryGet(out _colorAdjustments))
+                        {
+                            EnableEyes();
+                        }
+                    };
                 };
 
                 break;
@@ -143,5 +153,10 @@ public partial class Player
                     _device.Head.position, _device.Head.rotation,
                     _device.RightHand.position, _device.RightHand.rotation,
                     _device.LeftHand.position, _device.LeftHand.rotation);
+
+        if (_fog != null)
+        {
+            _fog.CheckFogFar(triggerValueRightHand);
+        }
     }
 }

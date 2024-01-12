@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 4487289546236033677}
   - component: {fileID: 5719230069166885004}
   - component: {fileID: 4090962966369348420}
+  - component: {fileID: 5654661824055768827}
   m_Layer: 3
   m_Name: Clam_Shell_L
   m_TagString: Untagged
@@ -132,6 +133,18 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 6.210502
   m_Center: {x: 0, y: 2.8139415, z: 0.74329036}
+--- !u!114 &5654661824055768827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 761081943582732896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20f79f26cd6800d4e81d9b164b08ff6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &787271978864306737
 GameObject:
   m_ObjectHideFlags: 0

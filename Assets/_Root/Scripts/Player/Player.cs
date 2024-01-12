@@ -1,4 +1,5 @@
 using Fusion;
+using UnityEditor.MPE;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
@@ -16,7 +17,7 @@ public partial class Player : PTBehaviour
     private Device _device;
     private Model _model;
     private bool _isReady;
-    private FlashLight _flashLight;
+    public FlashLight FlashLight;
 
     public GyreLine GyreLine { get => _gyreLine; set => _gyreLine = value; }
 
@@ -60,7 +61,7 @@ public partial class Player : PTBehaviour
         _model.SetGrapValueLeftHand(grapValueLeftHand);
         _model.SetGrapValueRightHand(grapValueRightHand);
 
-        _flashLight.CheckFlashLightFar(triggerValueRightHand);
+        FlashLight.CheckFlashLightFar(triggerValueRightHand);
     }
 
     public override void Spawned()
@@ -95,17 +96,17 @@ public partial class Player : PTBehaviour
 
         Addressables.LoadAssetAsync<GameObject>("FlashLight").Completed += handle =>
         {
-            _flashLight = Runner.InstantiateInRunnerScene(handle.Result).GetComponent<FlashLight>();
+            FlashLight = Runner.InstantiateInRunnerScene(handle.Result).GetComponent<FlashLight>();
 
-            if (HasInputAuthority) _flashLight.transform.SetParent(_device.Head);
-            else _flashLight.transform.SetParent(_model.Head);
+            if (HasInputAuthority) FlashLight.transform.SetParent(_device.Head);
+            else FlashLight.transform.SetParent(_model.Head);
 
-            _flashLight.EnableBeam(Object.IsProxy);
-            _flashLight.EnableClipping(HasInputAuthority);
-            _flashLight.EnableImportantRenderMode(HasInputAuthority);
+            FlashLight.EnableBeam(Object.IsProxy);
+            // FlashLight.EnableClipping(HasInputAuthority);
+            FlashLight.EnableImportantRenderMode(HasInputAuthority);
 
-            _flashLight.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
-            _flashLight.transform.localScale = Vector3.one;
+            FlashLight.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
+            FlashLight.transform.localScale = Vector3.one;
 
             _isReady = true;
         };

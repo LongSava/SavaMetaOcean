@@ -123,4 +123,14 @@ MonoBehaviour:
       Rotation: {x: 0, y: -0.0784591, z: 0, w: 0.9969173}
       Size: {x: 100, y: 25, z: 70}
       NumberFish: 25
+  Vision:
+    Range:
+      Near: 50
+      Far: 150
+    Intensity:
+      Near: 50
+      Far: 1000
+    Emission:
+      Near: 50
+      Far: 150
   SpeedGyreLine: 5

@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 2557698064766045928}
   - component: {fileID: 1500014527660065101}
   - component: {fileID: 3690110599834531207}
-  - component: {fileID: 720170146016840622}
+  - component: {fileID: 8256160613249142338}
+  - component: {fileID: 3106947334066239469}
   m_Layer: 3
   m_Name: Coral05_v1
   m_TagString: Untagged
@@ -84,8 +85,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &720170146016840622
-BoxCollider:
+--- !u!64 &8256160613249142338
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -94,6 +95,19 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 14.28, y: 2.858023, z: 17.41}
-  m_Center: {x: 0, y: 0, z: 0}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 7724683383082172045, guid: 825359091fb785245b3beec0712f2f24, type: 3}
+--- !u!114 &3106947334066239469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2897244450233635922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20f79f26cd6800d4e81d9b164b08ff6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

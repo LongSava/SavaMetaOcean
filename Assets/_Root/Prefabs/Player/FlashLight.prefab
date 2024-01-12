@@ -182,9 +182,9 @@ MonoBehaviour:
   attenuationEquation: 1
   attenuationCustomBlending: 0.5
   fallOffStart: 0
-  fallOffEnd: 5
+  fallOffEnd: 10
   fallOffEndFromLight: 1
-  fallOffEndMultiplier: 0.05
+  fallOffEndMultiplier: 0.1
   depthBlendDistance: 0
   cameraClippingDistance: 0.5
   glareFrontal: 0
@@ -385,9 +385,9 @@ MonoBehaviour:
   attenuationEquation: 1
   attenuationCustomBlending: 0.5
   fallOffStart: 0
-  fallOffEnd: 5
+  fallOffEnd: 10
   fallOffEndFromLight: 1
-  fallOffEndMultiplier: 0.05
+  fallOffEndMultiplier: 0.1
   depthBlendDistance: 0
   cameraClippingDistance: 0.5
   glareFrontal: 0
@@ -458,3 +458,4 @@ MonoBehaviour:
   Beams:
   - {fileID: 8877945143454614905}
   - {fileID: 1687104978531729397}
+  EnableLightFar: 0

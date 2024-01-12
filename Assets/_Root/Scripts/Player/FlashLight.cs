@@ -7,11 +7,11 @@ public class FlashLight : MonoBehaviour
     public List<Light> Lights;
     public List<VolumetricLightBeamSD> Beams;
     private bool _lastTrigger;
-    private bool _enableLight;
+    public bool EnableLightFar;
 
     private void Start()
     {
-        EnableFlashLightFar(false);
+        EnableFlashLightFar(true);
     }
 
     public void CheckFlashLightFar(bool triggerValueRightHand)
@@ -21,18 +21,19 @@ public class FlashLight : MonoBehaviour
             _lastTrigger = triggerValueRightHand;
             if (_lastTrigger == true)
             {
-                _enableLight = !_enableLight;
-                EnableFlashLightFar(_enableLight);
+                EnableLightFar = !EnableLightFar;
+                EnableFlashLightFar(EnableLightFar);
             }
         }
     }
 
     public void EnableFlashLightFar(bool enable)
     {
+        EnableLightFar = enable;
         Lights.ForEach(light =>
         {
-            light.intensity = enable ? 400 : 50;
-            light.range = enable ? 300 : 100;
+            light.intensity = enable ? Config.Data.Vision.Intensity.Far / 2 : Config.Data.Vision.Intensity.Near / 2;
+            light.range = enable ? Config.Data.Vision.Range.Far : Config.Data.Vision.Range.Near;
         });
     }
 
