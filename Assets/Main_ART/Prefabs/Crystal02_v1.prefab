@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4991011838777297445}
   - component: {fileID: 7108744661069987567}
   - component: {fileID: 5981132956358574904}
+  - component: {fileID: 7627013438067097507}
   m_Layer: 3
   m_Name: Crystal02_v1
   m_TagString: Untagged
@@ -98,3 +99,17 @@ CapsuleCollider:
   m_Height: 3985.4487
   m_Direction: 1
   m_Center: {x: -227.88184, y: 1983.6101, z: 93.026726}
+--- !u!114 &7627013438067097507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8766162027365818170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20f79f26cd6800d4e81d9b164b08ff6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MinClamp: 0
+  MaxClamp: 1

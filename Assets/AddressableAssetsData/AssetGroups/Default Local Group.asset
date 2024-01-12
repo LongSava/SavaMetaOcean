@@ -45,7 +45,11 @@ MonoBehaviour:
     m_Address: FlashLight
     m_ReadOnly: 0
     m_SerializedLabels: []
-  - m_GUID: 40a4b3e8c9747894298d5c90aa12b577
+  - m_GUID: 765055e9208f36e4d973b080bd4941c7
+    m_Address: Titanic
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 919885a2350ae2e4db946bb0812ec9ab
     m_Address: Ocean
     m_ReadOnly: 0
     m_SerializedLabels: []

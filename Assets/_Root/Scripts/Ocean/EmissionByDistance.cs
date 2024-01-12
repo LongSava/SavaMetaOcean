@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EmissionByDistance : MonoBehaviour
 {
+    [SerializeField] public float MinClamp = 0;
+    [SerializeField] public float MaxClamp = 1;
     [NonSerialized] public Renderer Renderer;
     [NonSerialized] public Player Player;
 
@@ -29,13 +31,13 @@ public class EmissionByDistance : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (Player == null) return;
+        if (Player == null || Player.FlashLight == null || !Player.HasInputAuthority) return;
 
         if (Renderer.isVisible)
         {
             var distance = Vector3.Distance(Player.transform.position, transform.position);
-            var percent = Mathf.Clamp01(1 - distance / (Player.FlashLight.EnableLightFar ? Config.Data.Vision.Emission.Far : Config.Data.Vision.Emission.Near));
-            var result = percent * percent;
+            var percent = 1 - distance / (Player.FlashLight.EnableLightFar ? Config.Data.Vision.Emission.Far : Config.Data.Vision.Emission.Near);
+            var result = Mathf.Clamp(percent * percent, MinClamp, MaxClamp);
             Renderer.material.SetColor("_EmissionColor", new Color(result, result, result));
         }
     }

@@ -275,6 +275,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20f79f26cd6800d4e81d9b164b08ff6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MinClamp: 0
+  MaxClamp: 0.5
 --- !u!1 &4742487635739160946 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 49943e530cb0e104eb38fcff5cbb2c7b,

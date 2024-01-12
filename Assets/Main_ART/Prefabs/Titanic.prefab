@@ -15023,9 +15023,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4766796015793881374}
-  m_LocalRotation: {x: 0.009646892, y: -0.4021856, z: -0.098932445, w: 0.9101462}
-  m_LocalPosition: {x: 79.39801, y: -35.40026, z: 75.47889}
-  m_LocalScale: {x: 6, y: 6, z: 6}
+  m_LocalRotation: {x: 0.36888754, y: 0.05396371, z: 0.017928364, w: 0.927733}
+  m_LocalPosition: {x: 35.51, y: 1.65, z: 4.65}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5122127556116243045}
@@ -15033,7 +15033,7 @@ Transform:
   - {fileID: 7004078901952139185}
   m_Father: {fileID: 2626594816523951965}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: -32.9, y: -52.9, z: 9.022}
+  m_LocalEulerAnglesHint: {x: 43.041, y: 8.922, z: 5.739}
 --- !u!114 &4248569346780916158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15046,7 +15046,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd8d87fde87543b4083d58e572038dc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RoomType: 1
+  RoomType: 2
 --- !u!135 &4576719937318198180
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -15058,8 +15058,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1
-  m_Center: {x: -0.40470752, y: 0.060269114, z: 0.0000038162048}
+  m_Radius: 3
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!198 &4735084110516831480
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -19810,7 +19810,7 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 26a8335b916a9cf4894b8f8559f4c51b, type: 2}
-  - {fileID: 2100000, guid: 26a8335b916a9cf4894b8f8559f4c51b, type: 2}
+  - {fileID: 2100000, guid: edd0ad0113a196d42ae7c786cdefccb7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -19888,9 +19888,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5689018985432000115}
-  m_LocalRotation: {x: -0.057894938, y: -0.29316393, z: -0.13083397, w: 0.94529665}
-  m_LocalPosition: {x: -9.953675, y: 9.880802, z: -0.027894974}
-  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_LocalRotation: {x: -0.09982896, y: -0.05358246, z: -0.0053838175, w: 0.99354625}
+  m_LocalPosition: {x: 35.5, y: 6.99, z: -12.01}
+  m_LocalScale: {x: 3, y: 3, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2623398856517554}
@@ -19898,7 +19898,7 @@ Transform:
   - {fileID: 3839077483445230392}
   m_Father: {fileID: 2626594816523951965}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -43.721, y: -38.355, z: 0}
+  m_LocalEulerAnglesHint: {x: -11.475, y: -6.174, z: 0}
 --- !u!114 &8786712555394801392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19911,7 +19911,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd8d87fde87543b4083d58e572038dc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RoomType: 1
+  RoomType: 2
 --- !u!135 &6088974065632904492
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -24675,7 +24675,7 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 26a8335b916a9cf4894b8f8559f4c51b, type: 2}
-  - {fileID: 2100000, guid: 26a8335b916a9cf4894b8f8559f4c51b, type: 2}
+  - {fileID: 2100000, guid: edd0ad0113a196d42ae7c786cdefccb7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

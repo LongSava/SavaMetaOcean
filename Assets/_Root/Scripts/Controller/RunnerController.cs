@@ -143,7 +143,9 @@ public class RunnerController : Singleton<RunnerController>
             CameraFollower = runner.InstantiateInRunnerScene(Config.Data.CameraFollower);
         }
 
-        yield return new WaitForSeconds(1);
+        var handle = Addressables.LoadAssetAsync<GameObject>("Titanic");
+        yield return handle;
+        runner.InstantiateInRunnerScene(handle.Result);
 
         runner.GetComponent<EventScene>().RoomType = RoomType.Titanic;
     }
