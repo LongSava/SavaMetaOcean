@@ -53,11 +53,6 @@ public class FlashLight : MonoBehaviour
         Lights.ForEach(light => light.enabled = enable);
     }
 
-    public void EnableClipping(bool enable)
-    {
-        Beams.ForEach(beam => beam.cameraClippingDistance = enable ? 100 : 0);
-    }
-
     public void EnableImportantRenderMode(bool enable)
     {
         Lights.ForEach(light => light.renderMode = enable ? LightRenderMode.ForcePixel : LightRenderMode.Auto);

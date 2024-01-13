@@ -6,6 +6,7 @@ public partial class Player : PTBehaviour
 {
     [SerializeField] private GyreLine _gyreLine;
     [SerializeField] private PlayerAudio _playerAudio;
+    [SerializeField] private PlayerEffect _playerEffect;
     [SerializeField] private Rigidbody _rigidbody;
     [SerializeField] private Model _modelPrefab;
     [SerializeField] private Device _devicePrefab;
@@ -65,8 +66,6 @@ public partial class Player : PTBehaviour
 
     public override void Spawned()
     {
-        base.Spawned();
-
         _model = Runner.InstantiateInRunnerScene(_modelPrefab);
         _model.transform.SetParent(_body);
         _model.transform.localPosition = Vector3.zero;
@@ -88,10 +87,7 @@ public partial class Player : PTBehaviour
         else
         {
             _model.SetupIK(_model.HeadIK.transform, _model.LeftHandIK.transform, _model.RightHandIK.transform);
-            _playerAudio.RemoveAudio();
         }
-
-        Tread();
 
         Addressables.LoadAssetAsync<GameObject>("FlashLight").Completed += handle =>
         {
@@ -101,25 +97,32 @@ public partial class Player : PTBehaviour
             else FlashLight.transform.SetParent(_model.Head);
 
             FlashLight.EnableBeam(Object.IsProxy);
-            // FlashLight.EnableClipping(HasInputAuthority);
             FlashLight.EnableImportantRenderMode(HasInputAuthority);
 
             FlashLight.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
             FlashLight.transform.localScale = Vector3.one;
 
-            _isReady = true;
+            if (!HasInputAuthority) _isReady = true;
         };
+
+        base.Spawned();
     }
 
     private void Swim()
     {
         _model.Swimming(true);
-        _playerAudio.ChangeSnapshotToSwimming();
+        if (HasInputAuthority)
+        {
+            _playerAudio.ChangeSnapshotToSwimming();
+        }
     }
 
     private void Tread()
     {
         _model.Swimming(false);
-        _playerAudio.ChangeSnapshotToBreathing();
+        if (HasInputAuthority)
+        {
+            _playerAudio.ChangeSnapshotToBreathing();
+        }
     }
 }

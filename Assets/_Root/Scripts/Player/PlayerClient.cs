@@ -29,6 +29,10 @@ public partial class Player
 
             StartCoroutine(CheckAssetLoadDone());
         }
+        else
+        {
+            Tread();
+        }
     }
 
     private IEnumerator CheckAssetLoadDone()
@@ -39,20 +43,42 @@ public partial class Player
         {
             if (eventScene.RoomType != RoomType.None)
             {
-                Addressables.LoadAssetAsync<GameObject>("Fog" + eventScene.RoomType.ToString()).Completed += handle =>
+                Addressables.LoadAssetAsync<GameObject>("Audio").Completed += handle =>
                 {
-                    _fog = Runner.InstantiateInRunnerScene(handle.Result).GetComponent<Fog>();
-                    _fog.transform.SetParent(transform);
+                    _playerAudio = Runner.InstantiateInRunnerScene(handle.Result).GetComponent<PlayerAudio>();
+                    _playerAudio.transform.SetParent(_device.Camera.transform);
+                    _playerAudio.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
+                    _playerAudio.transform.localScale = Vector3.one;
 
-                    Addressables.LoadAssetAsync<GameObject>("Dust").Completed += handle =>
+                    Addressables.LoadAssetAsync<GameObject>("Effect").Completed += handle =>
                     {
-                        var dust = Runner.InstantiateInRunnerScene(handle.Result);
-                        dust.transform.SetParent(_model.Head);
+                        _playerEffect = Runner.InstantiateInRunnerScene(handle.Result).GetComponent<PlayerEffect>();
+                        _playerEffect.transform.SetParent(_device.Camera.transform);
+                        _playerEffect.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
+                        _playerEffect.transform.localScale = Vector3.one;
 
-                        if (RunnerController.Instance.Volume.profile.TryGet(out _colorAdjustments))
+                        Addressables.LoadAssetAsync<GameObject>("Fog" + eventScene.RoomType.ToString()).Completed += handle =>
                         {
-                            EnableEyes();
-                        }
+                            _fog = Runner.InstantiateInRunnerScene(handle.Result).GetComponent<Fog>();
+                            _fog.transform.SetParent(transform);
+                            _fog.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
+                            _fog.transform.localScale = Vector3.one;
+
+                            Addressables.LoadAssetAsync<GameObject>("Dust").Completed += handle =>
+                            {
+                                var dust = Runner.InstantiateInRunnerScene(handle.Result);
+                                dust.transform.SetParent(_model.Head);
+                                dust.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
+                                dust.transform.localScale = Vector3.one;
+
+                                if (RunnerController.Instance.Volume.profile.TryGet(out _colorAdjustments))
+                                {
+                                    EnableEyes();
+                                    Tread();
+                                    _isReady = true;
+                                }
+                            };
+                        };
                     };
                 };
 
