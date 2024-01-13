@@ -96,5 +96,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20f79f26cd6800d4e81d9b164b08ff6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MinClamp: 1
-  MaxClamp: 1
+  MinClamp: 0
+  MaxClamp: 0.5

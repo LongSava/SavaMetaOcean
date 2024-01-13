@@ -21,8 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: M_AncientStructure_Emission
-  m_Shader: {fileID: -6465566751694194690, guid: 4ee0432c6fd772540977d70d45df506c,
-    type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 4ee0432c6fd772540977d70d45df506c, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 2
