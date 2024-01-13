@@ -277,6 +277,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MinClamp: 0
   MaxClamp: 0.5
+  IntensityCurrent: 0
 --- !u!1 &4742487635739160946 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 49943e530cb0e104eb38fcff5cbb2c7b,

@@ -98,3 +98,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MinClamp: 0
   MaxClamp: 0.5
+  IntensityCurrent: 5.416924

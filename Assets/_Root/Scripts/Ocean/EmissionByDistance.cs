@@ -8,11 +8,14 @@ public class EmissionByDistance : MonoBehaviour
     [SerializeField] public float MaxClamp = 1;
     [NonSerialized] public Renderer Renderer;
     [NonSerialized] public Player Player;
+    [NonSerialized] public float Intensity;
+    public float IntensityCurrent = 5;
 
     private void Awake()
     {
         Renderer = GetComponent<Renderer>();
         Renderer.material = new Material(Renderer.material);
+        Intensity = Mathf.Pow(2, IntensityCurrent);
         StartCoroutine(FindPlayer());
     }
 
@@ -37,8 +40,8 @@ public class EmissionByDistance : MonoBehaviour
         {
             var distance = Vector3.Distance(Player.transform.position, transform.position);
             var percent = 1 - distance / (Player.FlashLight.EnableLightFar ? Config.Data.Vision.Emission.Far : Config.Data.Vision.Emission.Near);
-            var result = Mathf.Clamp(percent * percent, MinClamp, MaxClamp);
-            Renderer.material.SetColor("_EmissionColor", new Color(result, result, result));
+            var result = Mathf.Clamp(percent, MinClamp, MaxClamp) * Intensity;
+            Renderer.material.SetColor("_EmissionColor", new Color(result, result, result, 1));
         }
     }
 }

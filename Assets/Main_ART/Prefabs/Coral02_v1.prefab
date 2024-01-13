@@ -97,4 +97,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MinClamp: 0
-  MaxClamp: 0.5
+  MaxClamp: 0.1
+  IntensityCurrent: 0

@@ -111,6 +111,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20f79f26cd6800d4e81d9b164b08ff6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MinClamp: 0
+  MaxClamp: 1
+  IntensityCurrent: 0
 --- !u!1 &1484790076656624242
 GameObject:
   m_ObjectHideFlags: 0
@@ -256,6 +259,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20f79f26cd6800d4e81d9b164b08ff6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MinClamp: 0
+  MaxClamp: 1
+  IntensityCurrent: 1.5
 --- !u!1 &6480315938304963010
 GameObject:
   m_ObjectHideFlags: 0
@@ -367,3 +373,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20f79f26cd6800d4e81d9b164b08ff6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MinClamp: 0
+  MaxClamp: 1
+  IntensityCurrent: 1.5

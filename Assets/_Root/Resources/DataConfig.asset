@@ -19,7 +19,7 @@ MonoBehaviour:
   Player:
     Object: {fileID: 7630828481057321148, guid: 9895f5c0ba9b15648b62caf3e900504b,
       type: 3}
-    SpeedMove: 5
+    SpeedMove: 4
     SpeedRotate: 300
     PositionSpawnedOcean: {x: 25, y: 30, z: 150}
     PositionSpawnedTitanic: {x: -2, y: 10, z: 255}
