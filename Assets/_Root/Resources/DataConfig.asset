@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 855fe702201900b4eb65dc00fbedf58a, type: 3}
   m_Name: DataConfig
   m_EditorClassIdentifier: 
-  NumberPlayer: 0
+  NumberPlayer: -1
   Runner: {fileID: 5619035592542766692, guid: faf0bbcfc1315804e906f2f548a34d1c, type: 3}
   CameraFollower: {fileID: 3327078082887505698, guid: c3b376b411e244941abd59a3c2695152,
     type: 3}
