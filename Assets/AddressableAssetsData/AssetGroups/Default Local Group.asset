@@ -61,6 +61,10 @@ MonoBehaviour:
     m_Address: Audio
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: cb9b54d4e824c294eadfb9bb3c8766d4
+    m_Address: SunLight
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 4071342b488526e41a239f79e3da3b85, type: 2}
   m_SchemaSet:

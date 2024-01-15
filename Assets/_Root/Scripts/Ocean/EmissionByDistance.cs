@@ -13,10 +13,10 @@ public class EmissionByDistance : MonoBehaviour
 
     private void Awake()
     {
-        Renderer = GetComponent<Renderer>();
-        Renderer.material = new Material(Renderer.material);
-        Intensity = Mathf.Pow(2, IntensityCurrent);
-        StartCoroutine(FindPlayer());
+        // Renderer = GetComponent<Renderer>();
+        // Renderer.material = new Material(Renderer.material);
+        // Intensity = Mathf.Pow(2, IntensityCurrent);
+        // StartCoroutine(FindPlayer());
     }
 
     private IEnumerator FindPlayer()

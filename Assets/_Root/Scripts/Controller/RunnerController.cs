@@ -73,8 +73,8 @@ public class RunnerController : Singleton<RunnerController>
         return runner.StartGame(new StartGameArgs()
         {
             GameMode = gameMode,
-            CustomLobbyName = RoomType.ToString(),
-            SessionName = RoomType.ToString(),
+            CustomLobbyName = RoomType.ToString() + "1",
+            SessionName = RoomType.ToString() + "1",
             Scene = SceneManager.GetActiveScene().buildIndex,
             SceneManager = runner.AddComponent<NetworkSceneManagerDefault>()
         });
@@ -131,6 +131,10 @@ public class RunnerController : Singleton<RunnerController>
             runner.InstantiateInRunnerScene(handleClient.Result);
 
             handleClient = Addressables.LoadAssetAsync<GameObject>("ClamShells");
+            yield return handleClient;
+            runner.InstantiateInRunnerScene(handleClient.Result);
+
+            handleClient = Addressables.LoadAssetAsync<GameObject>("SunLight");
             yield return handleClient;
             runner.InstantiateInRunnerScene(handleClient.Result);
         }
