@@ -6,6 +6,8 @@
     <type fullname="Fog" preserve="all" />
     <type fullname="Gyre" preserve="all" />
     <type fullname="GyreLine" preserve="all" />
+    <type fullname="JellyFish" preserve="all" />
+    <type fullname="JellyFishMaterial" preserve="all" />
     <type fullname="PlayerAudio" preserve="all" />
     <type fullname="PlayerEffect" preserve="all" />
     <type fullname="Portal" preserve="all" />
